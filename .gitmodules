@@ -1,0 +1,57 @@
+[submodule "unison-orchestrator"]
+	path = unison-orchestrator
+	url = git@github.com:project-unisonos/unison-orchestrator.git
+[submodule "unison-context"]
+	path = unison-context
+	url = git@github.com:project-unisonos/unison-context.git
+[submodule "unison-context-graph"]
+	path = unison-context-graph
+	url = git@github.com:project-unisonos/unison-context-graph.git
+[submodule "unison-intent-graph"]
+	path = unison-intent-graph
+	url = git@github.com:project-unisonos/unison-intent-graph.git
+[submodule "unison-auth"]
+	path = unison-auth
+	url = git@github.com:project-unisonos/unison-auth.git
+[submodule "unison-consent"]
+	path = unison-consent
+	url = git@github.com:project-unisonos/unison-consent.git
+[submodule "unison-policy"]
+	path = unison-policy
+	url = git@github.com:project-unisonos/unison-policy.git
+[submodule "unison-inference"]
+	path = unison-inference
+	url = git@github.com:project-unisonos/unison-inference.git
+[submodule "unison-io-core"]
+	path = unison-io-core
+	url = git@github.com:project-unisonos/unison-io-core.git
+[submodule "unison-io-speech"]
+	path = unison-io-speech
+	url = git@github.com:project-unisonos/unison-io-speech.git
+[submodule "unison-io-vision"]
+	path = unison-io-vision
+	url = git@github.com:project-unisonos/unison-io-vision.git
+[submodule "unison-storage"]
+	path = unison-storage
+	url = git@github.com:project-unisonos/unison-storage.git
+[submodule "unison-experience-renderer"]
+	path = unison-experience-renderer
+	url = git@github.com:project-unisonos/unison-experience-renderer.git
+[submodule "unison-agent-vdi"]
+	path = unison-agent-vdi
+	url = git@github.com:project-unisonos/unison-agent-vdi.git
+[submodule "unison-devstack"]
+	path = unison-devstack
+	url = git@github.com:project-unisonos/unison-devstack.git
+[submodule "unison-common"]
+	path = unison-common
+	url = git@github.com:project-unisonos/unison-common.git
+[submodule "unison-docs"]
+	path = unison-docs
+	url = git@github.com:project-unisonos/unison-docs.git
+[submodule "unison-payments"]
+	path = unison-payments
+	url = git@github.com:project-unisonos/unison-payments.git
+[submodule "unison-shell"]
+	path = unison-shell
+	url = git@github.com:project-unisonos/unison-shell.git
