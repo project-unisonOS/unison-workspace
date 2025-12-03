@@ -30,6 +30,7 @@ Docs
 - Developer guide: `docs/developer-guide.md`
 - Repo map: `docs/repo-map.md`
 - Full documentation set lives in `unison-docs` (also a submodule).
+- Public docs: https://project-unisonos.github.io
 
 Troubleshooting
 ---------------
