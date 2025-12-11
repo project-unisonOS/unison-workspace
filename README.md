@@ -10,6 +10,7 @@ Quickstart
 - Pull submodules: `git submodule update --init --recursive`
 - Start devstack: `./scripts/up.sh`
 - Smoke test: `./scripts/smoke.sh`
+- Secrets: use `.env.example` as a template only. Source real secrets from Vault/Secret Manager (or Doppler/1Password CLI) into your shell; never commit `.env` files.
 
 What’s Inside (Submodules)
 --------------------------
