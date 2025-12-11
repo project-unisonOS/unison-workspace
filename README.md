@@ -1,6 +1,7 @@
 Unison Workspace Meta Repo
 ==========================
 
+## Role in UnisonOS
 This repository is the “front door” for developers. Clone once, pull submodules, and you have the full Unison workspace: services, devstack, shared libraries, docs, and optional payments.
 
 Quickstart
@@ -31,8 +32,16 @@ Docs
 - Repo map: `docs/repo-map.md`
 - Full documentation set lives in `unison-docs` (also a submodule).
 - Public docs: https://project-unisonos.github.io
+- Repo roles: `unison-docs/dev/unison-repo-roles.md`
 
 Troubleshooting
 ---------------
 - If services fail to start, try `docker compose -f unison-devstack/docker-compose.yml pull --ignore-pull-failures` then rerun `./scripts/up.sh`.
 - If submodules drift, run `./scripts/sync.sh` to re-pin to the latest `main`.
+
+## Tests
+- From `unison-devstack`: `python scripts/e2e_smoke.py` and `python scripts/test_multimodal.py` (requires Docker running).
+
+## Links
+- Platform roadmap: `unison-docs/roadmap/deployment-platform-roadmap.md`
+- Release/branching policy: `unison-docs/dev/release-and-branching.md`
