@@ -18,7 +18,7 @@ What’s Inside (Submodules)
 - IO services: `unison-io-core`, `unison-io-speech`, `unison-io-vision`, `unison-storage`
 - Experience: `unison-experience-renderer`, `unison-agent-vdi`
 - Shared & tooling: `unison-common`, `unison-devstack`, `unison-docs`
-- Optional: `unison-payments`, `unison-shell`
+- Optional: `unison-payments`
 
 Dev Flow Highlights
 -------------------

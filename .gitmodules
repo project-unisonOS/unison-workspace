@@ -52,6 +52,3 @@
 [submodule "unison-payments"]
 	path = unison-payments
 	url = git@github.com:project-unisonos/unison-payments.git
-[submodule "unison-shell"]
-	path = unison-shell
-	url = git@github.com:project-unisonos/unison-shell.git

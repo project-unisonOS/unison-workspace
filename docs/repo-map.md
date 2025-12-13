@@ -21,7 +21,6 @@ Unison Repo Map (Meta Snapshot)
 | unison-common | Shared Python package | Core lib | Built as wheel `ghcr.io/project-unisonos/unison-common-wheel` |
 | unison-docs | Canonical documentation | Core docs | See `unison-docs/dev` and `unison-docs/experience` |
 | unison-payments | Payments capability (modular) | Optional | `src/` services; tests `pytest` |
-| unison-shell | CLI helper / runtime shell | Optional | `README`, scripts; tests per repo |
 
 Notes
 -----
