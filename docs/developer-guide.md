@@ -29,9 +29,19 @@ Running Devstack + Experience Renderer
    ```bash
    ./scripts/up.sh
    ```
+   `./scripts/up.sh` runs a quick host-port preflight to catch port conflicts before Docker Compose starts, and includes `unison-devstack/docker-compose.ports.yml` for host port publishing.
+3) Security overlay (segmented networks; no host port publishing):
+   ```bash
+   ./scripts/up-security.sh
+   ./scripts/smoke-security.sh
+   ```
+   Stop security overlay:
+   ```bash
+   ./scripts/down-security.sh
+   ```
 3) Access:
-   - Orchestrator: http://localhost:8090/health
-   - Experience renderer: http://localhost:8092
+   - Orchestrator: http://localhost:8080/health
+   - Experience renderer: http://localhost:8092/health
    - Supporting services: see `unison-devstack/README.md`
 
 Smoke Test
@@ -67,4 +77,6 @@ Troubleshooting
 ---------------
 - Compose errors: `docker compose -f unison-devstack/docker-compose.yml pull --ignore-pull-failures` then re-run `./scripts/up.sh`.
 - Stale submodules: `./scripts/sync.sh`.
-- Port conflicts: adjust bindings in `unison-devstack/docker-compose.yml`.
+- Port conflicts: adjust published bindings in `unison-devstack/docker-compose.ports.yml`.
+- WSL + Docker Desktop: avoid running a second Docker daemon inside Ubuntu. If `./scripts/doctor.sh` warns about `docker.service`, disable it: `sudo systemctl disable --now docker docker.socket containerd`.
+- Debug: `./scripts/status.sh`, `./scripts/logs.sh`, `./scripts/doctor.sh`.

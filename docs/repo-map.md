@@ -25,4 +25,4 @@ Unison Repo Map (Meta Snapshot)
 Notes
 -----
 - Image tag `1.0` (and `latest`) for all services and the shared wheel are published to `ghcr.io/project-unisonos`.
-- Devstack compose is consumed via `./scripts/up.sh` in this meta repo (delegates to `unison-devstack/docker-compose.yml`).
+- Devstack compose is consumed via `./scripts/up.sh` in this meta repo (uses `unison-devstack/docker-compose.yml` plus `unison-devstack/docker-compose.ports.yml`).
