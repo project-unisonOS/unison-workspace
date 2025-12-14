@@ -9,7 +9,9 @@ Quickstart
 - Clone: `git clone git@github.com:project-unisonos/unison-workspace.git && cd unison-workspace`
 - Pull submodules: `git submodule update --init --recursive`
 - Start devstack: `./scripts/up.sh`
+- Stop devstack: `./scripts/down.sh`
 - Smoke test: `./scripts/smoke.sh`
+- Security overlay: `./scripts/up-security.sh` then `./scripts/smoke-security.sh`
 - Secrets: use `.env.example` as a template only. Source real secrets from Vault/Secret Manager (or Doppler/1Password CLI) into your shell; never commit `.env` files.
 
 What’s Inside (Submodules)
@@ -39,6 +41,10 @@ Troubleshooting
 ---------------
 - If services fail to start, try `docker compose -f unison-devstack/docker-compose.yml pull --ignore-pull-failures` then rerun `./scripts/up.sh`.
 - If submodules drift, run `./scripts/sync.sh` to re-pin to the latest `main`.
+- If startup feels “stuck”, run `./scripts/doctor.sh` to catch port conflicts and compose misconfig fast.
+- WSL + Docker Desktop: don’t also run a separate Docker daemon inside Ubuntu (it can “steal” host ports). If `./scripts/doctor.sh` warns about `docker.service`, disable it: `sudo systemctl disable --now docker docker.socket containerd`.
+- Optional knobs: `UNISON_SYNC_SUBMODULES=1 ./scripts/up.sh`, `UNISON_SKIP_PORT_PREFLIGHT=1 ./scripts/up.sh`.
+- Manual compose: dev ports live in `unison-devstack/docker-compose.ports.yml` (use `docker compose -f unison-devstack/docker-compose.yml -f unison-devstack/docker-compose.ports.yml up -d`); security overlay uses `-f unison-devstack/docker-compose.security.yml` without the ports overlay.
 
 ## Tests
 - From `unison-devstack`: `python scripts/e2e_smoke.py` and `python scripts/test_multimodal.py` (requires Docker running).
