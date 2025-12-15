@@ -10,12 +10,33 @@ export COMPOSE_BAKE="${COMPOSE_BAKE:-true}"
 PROJECT_NAME="${COMPOSE_PROJECT_NAME:-unison-devstack}"
 COMPOSE_FILE="unison-devstack/docker-compose.yml"
 PORTS_FILE="unison-devstack/docker-compose.ports.yml"
+LOCALHOST_FILE="unison-devstack/docker-compose.localhost.yml"
+
+compose_files=(-f "$COMPOSE_FILE" -f "$PORTS_FILE")
+if [[ "${UNISON_RENDERER_LOCALHOST:-0}" == "1" ]]; then
+  compose_files+=(-f "$LOCALHOST_FILE")
+fi
+
+export UNISON_BUILD_TIME="${UNISON_BUILD_TIME:-$(date -u +"%Y-%m-%dT%H:%M:%SZ")}"
+export UNISON_BUILD_SOURCE="${UNISON_BUILD_SOURCE:-unison-workspace/scripts/up.sh}"
+if [[ -z "${UNISON_EXPERIENCE_RENDERER_SHA:-}" ]]; then
+  UNISON_EXPERIENCE_RENDERER_SHA="unknown"
+  for candidate in ../unison-experience-renderer unison-experience-renderer; do
+    if [[ -d "$candidate" ]]; then
+      UNISON_EXPERIENCE_RENDERER_SHA="$(git -C "$candidate" rev-parse HEAD 2>/dev/null || echo unknown)"
+      if [[ "$UNISON_EXPERIENCE_RENDERER_SHA" != "unknown" ]]; then
+        break
+      fi
+    fi
+  done
+  export UNISON_EXPERIENCE_RENDERER_SHA
+fi
 
 if [[ "${UNISON_SYNC_SUBMODULES:-0}" == "1" ]]; then
   git submodule update --init --recursive
 fi
 
-existing_containers="$(docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" -f "$PORTS_FILE" ps -q 2>/dev/null || true)"
+existing_containers="$(docker compose -p "$PROJECT_NAME" "${compose_files[@]}" ps -q 2>/dev/null || true)"
 if [[ "${UNISON_SKIP_PORT_PREFLIGHT:-0}" != "1" ]] && [[ -z "${existing_containers}" ]] && command -v ss >/dev/null 2>&1; then
   required_ports=(
     5432 6379 7072
@@ -24,6 +45,9 @@ if [[ "${UNISON_SKIP_PORT_PREFLIGHT:-0}" != "1" ]] && [[ -z "${existing_containe
     8091 8092 8093 8094 8095 8096 8097
     14250 16686 4317 4318
   )
+  if [[ "${UNISON_RENDERER_LOCALHOST:-0}" == "1" ]]; then
+    required_ports+=(80)
+  fi
   in_use=()
   for port in "${required_ports[@]}"; do
     if ss -ltnH "sport = :$port" 2>/dev/null | grep -q .; then
@@ -60,9 +84,9 @@ for arg in "$@"; do
   fi
 done
 if [[ "$needs_build_common" == "1" ]]; then
-  docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" -f "$PORTS_FILE" --profile build-common build unison-common-wheel
+  docker compose -p "$PROJECT_NAME" "${compose_files[@]}" --profile build-common build unison-common-wheel
 fi
 
-docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" -f "$PORTS_FILE" up -d --remove-orphans --wait --wait-timeout 300 "$@"
+docker compose -p "$PROJECT_NAME" "${compose_files[@]}" up -d --remove-orphans --wait --wait-timeout 300 "$@"
 
 echo "Devstack started. Health checks: see unison-devstack README."

@@ -30,6 +30,10 @@ Running Devstack + Experience Renderer
    ./scripts/up.sh
    ```
    `./scripts/up.sh` runs a quick host-port preflight to catch port conflicts before Docker Compose starts, and includes `unison-devstack/docker-compose.ports.yml` for host port publishing.
+   Optional: publish the renderer on `http://localhost` (port 80) instead of only `:8092`:
+   ```bash
+   UNISON_RENDERER_LOCALHOST=1 ./scripts/up.sh
+   ```
 3) Security overlay (segmented networks; no host port publishing):
    ```bash
    ./scripts/up-security.sh

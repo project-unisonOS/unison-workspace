@@ -6,6 +6,12 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 PROJECT_NAME="${COMPOSE_PROJECT_NAME:-unison-devstack}"
 COMPOSE_FILE="unison-devstack/docker-compose.yml"
 PORTS_FILE="unison-devstack/docker-compose.ports.yml"
+LOCALHOST_FILE="unison-devstack/docker-compose.localhost.yml"
+
+compose_files=(-f "$COMPOSE_FILE" -f "$PORTS_FILE")
+if [[ "${UNISON_RENDERER_LOCALHOST:-0}" == "1" ]]; then
+  compose_files+=(-f "$LOCALHOST_FILE")
+fi
 
 echo "[doctor] docker: $(docker --version 2>/dev/null || echo 'missing')"
 echo "[doctor] compose: $(docker compose version 2>/dev/null || echo 'missing')"
@@ -27,7 +33,7 @@ if command -v systemctl >/dev/null 2>&1; then
 fi
 
 echo "[doctor] compose config: ok"
-docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" -f "$PORTS_FILE" config >/dev/null
+docker compose -p "$PROJECT_NAME" "${compose_files[@]}" config >/dev/null
 
 if command -v ss >/dev/null 2>&1; then
   required_ports=(
@@ -37,6 +43,9 @@ if command -v ss >/dev/null 2>&1; then
     8091 8092 8093 8094 8095 8096 8097
     14250 16686 4317 4318
   )
+  if [[ "${UNISON_RENDERER_LOCALHOST:-0}" == "1" ]]; then
+    required_ports+=(80)
+  fi
   in_use=()
   for port in "${required_ports[@]}"; do
     if ss -ltnH "sport = :$port" 2>/dev/null | grep -q .; then
@@ -56,4 +65,4 @@ if command -v ss >/dev/null 2>&1; then
 fi
 
 echo "[doctor] current stack:"
-docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" -f "$PORTS_FILE" ps
+docker compose -p "$PROJECT_NAME" "${compose_files[@]}" ps
