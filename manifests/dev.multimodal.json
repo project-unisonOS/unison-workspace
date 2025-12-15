@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2025-12-14T00:00:00Z",
+  "deployment_mode": "container",
+  "modalities": {
+    "displays": [{ "id": "web-surface", "name": "Experience Renderer", "primary": true }],
+    "microphones": [{ "id": "browser-mic", "name": "Browser microphone" }],
+    "speakers": [{ "id": "browser-audio", "name": "Browser audio output" }]
+  },
+  "renderer": {
+    "assets": {
+      "logo": "/static/assets/unison-logo.svg"
+    }
+  },
+  "io": {
+    "speech": {
+      "enabled": true,
+      "endpoint": "http://io-speech:8084",
+      "ws_endpoint": "ws://io-speech:8084/stream",
+      "default_asr_profile": "fast",
+      "default_tts_profile": "lightweight",
+      "endpointing": { "hangover_ms": 700, "min_utterance_ms": 250, "max_utterance_ms": 10000 }
+    }
+  }
+}
+

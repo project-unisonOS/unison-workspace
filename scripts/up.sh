@@ -3,6 +3,10 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
+# Prefer Buildx Bake for better build performance when available.
+# Override with `COMPOSE_BAKE=false` if needed.
+export COMPOSE_BAKE="${COMPOSE_BAKE:-true}"
+
 PROJECT_NAME="${COMPOSE_PROJECT_NAME:-unison-devstack}"
 COMPOSE_FILE="unison-devstack/docker-compose.yml"
 PORTS_FILE="unison-devstack/docker-compose.ports.yml"
@@ -46,6 +50,17 @@ if [[ "${UNISON_SKIP_PORT_PREFLIGHT:-0}" != "1" ]] && [[ -z "${existing_containe
     echo "To bypass the preflight (not recommended): UNISON_SKIP_PORT_PREFLIGHT=1 ./scripts/up.sh" >&2
     exit 1
   fi
+fi
+
+needs_build_common=0
+for arg in "$@"; do
+  if [[ "$arg" == "--build" ]]; then
+    needs_build_common=1
+    break
+  fi
+done
+if [[ "$needs_build_common" == "1" ]]; then
+  docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" -f "$PORTS_FILE" --profile build-common build unison-common-wheel
 fi
 
 docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" -f "$PORTS_FILE" up -d --remove-orphans --wait --wait-timeout 300 "$@"
