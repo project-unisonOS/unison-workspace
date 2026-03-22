@@ -59,12 +59,25 @@
 
 This work defines a “power on → boot renderer → initialize IO → ready/listening” contract driven by the existing multimodal manifest.
 
+Current implementation status:
+- `unison-orchestrator/src/server.py` runs `PowerOnController` on startup and stores the result on `app.state.poweron`
+- `GET /startup/status` exposes the current startup assessment
+- startup is now gated on renderer readiness, core service health, speech readiness, and auth bootstrap state
+- voice loop startup is suppressed while onboarding is still required
+- `unison-experience-renderer` now proxies startup status and turns blocking startup states into a visible onboarding surface on page load
+- renderer onboarding now aggregates speech, inference, wakeword, and profile state through `GET /onboarding-status`
+- renderer onboarding preferences can now be persisted through `POST /onboarding/profile`
+- renderer onboarding now exposes first-run actions for admin bootstrap, recheck, mic check, speaker check, model confirmation, wakeword choice, and setup completion
+- renderer onboarding now returns explicit remediation guidance and a `ready_to_finish` gate so completion reflects real readiness instead of optimistic UI state
+
 ### Readiness semantics
 - **Renderer ready**: renderer health checks and event ingestion path are reachable:
   - `GET {renderer}/ready` returns `{ready: true}`
   - `POST {renderer}/events` accepts a boot envelope (2xx)
 - **Speech ready**: speech is enabled in manifest and at least one backend path is reachable (e.g., io-speech `GET /readyz`).
-- **System ready**: renderer ready AND at least one input modality available (speech if enabled; otherwise text fallback via `POST /input`).
+- **Auth ready**: `unison-auth` reports that bootstrap is closed or not required.
+- **Core ready**: context, storage, policy, and inference health checks are all passing.
+- **System ready**: renderer ready, core ready, auth ready, and at least one input modality available (speech if enabled; otherwise text fallback via `POST /input`).
 
 ### Boot stages emitted to renderer
 The orchestrator emits a predictable sequence of renderer envelopes:
@@ -72,8 +85,12 @@ The orchestrator emits a predictable sequence of renderer envelopes:
 - `poweron.MANIFEST_LOADED`
 - `poweron.IO_DISCOVERED`
 - `poweron.RENDERER_READY`
+- `poweron.CORE_SERVICES_READY` or `poweron.CORE_SERVICES_DEGRADED`
 - `poweron.SPEECH_READY` or `poweron.SPEECH_UNAVAILABLE`
-- `poweron.READY_LISTENING`
+- `poweron.AUTH_BOOTSTRAP_REQUIRED` when first admin setup is still pending
+- terminal stage:
+  - `poweron.READY_LISTENING`
+  - or a blocking state such as `AUTH_BOOTSTRAP_REQUIRED`, `CORE_SERVICES_DEGRADED`, `RENDERER_UNAVAILABLE`, or `SPEECH_UNAVAILABLE`
 
 Each envelope includes: `trace_id`, `ts_unix_ms`, and a minimal UI payload (stage, logo URL, etc.).
 
