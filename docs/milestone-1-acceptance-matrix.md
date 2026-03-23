@@ -188,8 +188,8 @@ Current status:
 
 Remaining gap:
 - full reboot persistence is still not exercised explicitly
-- update-path acceptance remains incomplete while `unison-updates` is still missing
-- `unison-updates` is still missing and remains optional behind a compose profile
+- update-path acceptance remains incomplete even though `unison-updates` now exists, because no end-to-end update scenario is validated yet
+- `unison-updates` still remains optional behind a compose profile in the platform stack
 
 ## Release Gate Matrix
 
