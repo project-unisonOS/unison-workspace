@@ -25,6 +25,7 @@ Existing automated assets:
 - `unison-platform/qa/test_smoke.py`
 - `unison-platform/qa/test_native_install_acceptance.py`
 - `unison-platform/installer/unisonctl.sh` health/doctor checks
+- authenticated briefing acceptance through `POST /ingest` with `intent=dashboard.refresh`
 
 Validated current local runtime:
 
@@ -105,13 +106,20 @@ Acceptance requirement:
 - local briefing works end to end through orchestrator, inference, and renderer
 
 Current coverage:
-- indirect only through core health and inference readiness
+- `unison-platform/qa/test_native_install_acceptance.py`
+- authenticated orchestrator `POST /ingest` briefing flow
+- renderer experience evidence via `/experiences`
 
 Current status:
-- `gap`
+- `advanced`
+
+What is validated now:
+- authenticated briefing request through orchestrator
+- briefing cards returned from the live API
+- renderer receives briefing experiences with `origin_intent=dashboard.refresh`
 
 Remaining gap:
-- no Milestone 1 acceptance test yet verifies a real briefing request and renderer-aligned response
+- dashboard persistence/readback through `unison-context` still needs hardening as a separate reliability item
 
 ### Journey 5: System Help and Diagnostics
 
@@ -253,14 +261,13 @@ Remaining gap:
 
 Highest-value next additions:
 
-1. Add an automated or scripted acceptance for Journey 4:
-   local briefing request through orchestrator, inference, and renderer.
-2. Add a real native-install acceptance runbook for clean Ubuntu 24.04 machines:
+1. Add a real native-install acceptance runbook for clean Ubuntu 24.04 machines:
    install, reboot, validate, recover.
-3. Add a bounded acceptance harness for Journey 7:
+2. Add a bounded acceptance harness for Journey 7:
    allowlisted VDI document retrieval into `unison-storage`.
-4. Add Gmail onboarding and summarize/draft acceptance:
+3. Add Gmail onboarding and summarize/draft acceptance:
    explicit secret/bootstrap handling, failure cases, and draft confirmation.
+4. Harden dashboard persistence/readback between orchestrator and context so briefing cards are durably queryable as well as renderer-visible.
 
 ## Execution Rule
 
