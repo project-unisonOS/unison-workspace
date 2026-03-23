@@ -186,6 +186,7 @@ Current coverage:
 - updates check/plan are now driven by a generated platform release manifest in the local-source path
 - updates apply/rollback now persist a concrete release-history ledger with prior-target metadata
 - updates apply/status now return a concrete no-op compose execution plan derived from pinned image metadata
+- updates apply/rollback now emit persisted staged override artifacts for the target and inverse rollback plan
 
 Current status:
 - `partial`
