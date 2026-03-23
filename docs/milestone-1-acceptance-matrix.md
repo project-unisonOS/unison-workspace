@@ -180,12 +180,14 @@ Acceptance requirement:
 Current coverage:
 - `unisonctl` operational commands
 - native-install acceptance shape checks
+- `unison-platform/scripts/validate-recovery-path.sh`
 
 Current status:
 - `partial`
 
 Remaining gap:
-- reboot/update/recovery need explicit acceptance scenarios on a real installed stack
+- full reboot persistence is still not exercised explicitly
+- update-path acceptance remains incomplete while `unison-updates` is still missing
 - `unison-updates` is still missing and remains optional behind a compose profile
 
 ## Release Gate Matrix
@@ -214,7 +216,7 @@ Evidence:
 - validated `READY_LISTENING` startup state
 
 Remaining gap:
-- reboot and recovery scenarios need repeatable acceptance coverage
+- full reboot persistence still needs repeatable acceptance coverage
 
 ### Gate C: Experience Fidelity
 
