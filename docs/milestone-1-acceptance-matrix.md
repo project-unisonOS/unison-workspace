@@ -157,13 +157,16 @@ Acceptance requirement:
 - bounded VDI document retrieval/download works and stores artifacts safely
 
 Current coverage:
-- `agent-vdi` readiness only
+- `unison-platform/qa/test_native_install_acceptance.py`
+- live `agent-vdi` download API contract check
+- artifact ID return path from `agent-vdi`
 
 Current status:
-- `gap`
+- `partial`
 
 Remaining gap:
-- no Milestone 1 acceptance test yet exercises the allowlisted VDI download flow end to end
+- renderer-visible progress/outcome is not yet validated for the VDI path
+- allowlisted-domain policy and stored artifact retrieval still need end-to-end acceptance on the live stack
 
 ### Journey 8: Reboot, Update, Recover
 
