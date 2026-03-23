@@ -33,6 +33,7 @@ Docs
 ----
 - Developer guide: `docs/developer-guide.md`
 - Repo map: `docs/repo-map.md`
+- Milestone 1 acceptance matrix: `docs/milestone-1-acceptance-matrix.md`
 - Full documentation set lives in `unison-docs` (also a submodule).
 - Public docs: https://project-unisonos.github.io
 - Repo roles: `unison-docs/dev/unison-repo-roles.md`
