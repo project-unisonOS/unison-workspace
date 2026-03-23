@@ -182,13 +182,14 @@ Current coverage:
 - native-install acceptance shape checks
 - `unison-platform/scripts/validate-recovery-path.sh`
 - post-restart briefing and VDI acceptance when Milestone 1 test credentials are supplied
+- live updates policy/plan/apply/status acceptance when the `updates` profile is enabled
 
 Current status:
 - `partial`
 
 Remaining gap:
 - full reboot persistence is still not exercised explicitly
-- update-path acceptance remains incomplete even though `unison-updates` now exists, because no end-to-end update scenario is validated yet
+- real package/image promotion and rollback are not yet exercised end to end
 - `unison-updates` still remains optional behind a compose profile in the platform stack
 
 ## Release Gate Matrix
@@ -263,7 +264,7 @@ Evidence:
 - canonical install docs and local validation path exist
 
 Remaining gap:
-- versioned artifacts, manifest/checksum publication, rollback verification, and `unison-updates` implementation remain incomplete
+- versioned artifacts, manifest/checksum publication, and rollback verification remain incomplete
 
 ## Next Acceptance Work
 
