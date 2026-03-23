@@ -184,6 +184,7 @@ Current coverage:
 - post-restart briefing and VDI acceptance when Milestone 1 test credentials are supplied
 - live updates policy/plan/apply/status acceptance when the `updates` profile is enabled
 - updates check/plan are now driven by a generated platform release manifest in the local-source path
+- updates apply/rollback now persist a concrete release-history ledger with prior-target metadata
 
 Current status:
 - `partial`
