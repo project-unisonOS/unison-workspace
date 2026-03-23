@@ -160,13 +160,15 @@ Current coverage:
 - `unison-platform/qa/test_native_install_acceptance.py`
 - live `agent-vdi` download API contract check
 - artifact ID return path from `agent-vdi`
+- stored artifact retrieval from `unison-storage`
+- renderer-visible actuation outcome for the VDI download path
 
 Current status:
 - `partial`
 
 Remaining gap:
-- renderer-visible progress/outcome is not yet validated for the VDI path
-- allowlisted-domain policy and stored artifact retrieval still need end-to-end acceptance on the live stack
+- allowlisted-domain policy is not yet exercised in live Milestone 1 acceptance
+- the current acceptance exercises the service-level VDI path directly rather than the full orchestrator-driven legacy workflow
 
 ### Journey 8: Reboot, Update, Recover
 
