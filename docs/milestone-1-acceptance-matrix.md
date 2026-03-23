@@ -185,6 +185,7 @@ Current coverage:
 - live updates policy/plan/apply/status acceptance when the `updates` profile is enabled
 - updates check/plan are now driven by a generated platform release manifest in the local-source path
 - updates apply/rollback now persist a concrete release-history ledger with prior-target metadata
+- updates apply/status now return a concrete no-op compose execution plan derived from pinned image metadata
 
 Current status:
 - `partial`
