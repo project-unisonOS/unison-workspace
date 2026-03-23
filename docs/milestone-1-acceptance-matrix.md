@@ -181,6 +181,7 @@ Current coverage:
 - `unisonctl` operational commands
 - native-install acceptance shape checks
 - `unison-platform/scripts/validate-recovery-path.sh`
+- post-restart briefing and VDI acceptance when Milestone 1 test credentials are supplied
 
 Current status:
 - `partial`
