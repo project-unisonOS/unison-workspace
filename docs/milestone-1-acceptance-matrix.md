@@ -187,6 +187,7 @@ Current coverage:
 - updates apply/rollback now persist a concrete release-history ledger with prior-target metadata
 - updates apply/status now return a concrete no-op compose execution plan derived from pinned image metadata
 - updates apply/rollback now emit persisted staged override artifacts for the target and inverse rollback plan
+- platform tooling can now install an emitted apply artifact as a next-boot staged compose override
 
 Current status:
 - `partial`
