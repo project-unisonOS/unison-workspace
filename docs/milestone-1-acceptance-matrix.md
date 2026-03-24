@@ -188,6 +188,7 @@ Current coverage:
 - updates apply/status now return a concrete no-op compose execution plan derived from pinned image metadata
 - updates apply/rollback now emit persisted staged override artifacts for the target and inverse rollback plan
 - platform tooling can now install an emitted apply artifact as a next-boot staged compose override
+- platform tooling can finalize a staged boot and feed the applied target back into `unison-updates` as last-known-good
 
 Current status:
 - `partial`
