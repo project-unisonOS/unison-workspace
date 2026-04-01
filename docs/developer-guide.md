@@ -53,7 +53,7 @@ Smoke Test
 ```bash
 ./scripts/smoke.sh
 ```
-This runs `python3 unison-devstack/scripts/e2e_smoke.py` against the running stack.
+This runs `python3 unison-devstack/scripts/e2e_smoke.py` against the running stack and is the fastest basic verification after `./scripts/up.sh`.
 
 Repo Map
 --------
