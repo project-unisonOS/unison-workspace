@@ -72,6 +72,16 @@ Recommended local validation sequence:
 
 See `unison-docs/dev/golden-path-validation.md` for the current golden-path definition.
 
+Repo-local regression anchors for that path now include focused tests in:
+- `unison-orchestrator/tests/test_startup_status.py`
+- `unison-orchestrator/tests/test_startup_status_ready.py`
+- `unison-orchestrator/tests/test_dashboard_refresh.py`
+- `unison-orchestrator/tests/test_voice_ingest.py`
+- `unison-experience-renderer/tests/test_startup_status_endpoint.py`
+- `unison-experience-renderer/tests/test_onboarding_endpoint.py`
+- `unison-experience-renderer/tests/test_onboarding_ready.py`
+- `unison-context/tests/test_dashboard.py`
+
 Repo Map
 --------
 See `docs/repo-map.md` for roles, statuses, entry points, and current workspace-boundary caveats.
