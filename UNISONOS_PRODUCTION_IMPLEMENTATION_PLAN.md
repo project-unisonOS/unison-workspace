@@ -2,11 +2,16 @@
 
 This file is intentionally kept at the workspace root for ongoing planning and status tracking.
 
+Scope note:
+- this is a program-level production plan, not a statement that the current `unison-workspace` snapshot alone contains every repo or validation asset mentioned below
+- references to `unison-platform`, `project-unisonos.github.io`, `unison-os`, and other broader delivery repos reflect the full Milestone 1 delivery path
+- where this plan cites verified runtime progress, interpret that as evidence drawn from a broader local environment and prior platform work, not solely from the current workspace submodule set
+
 ## Current Status Snapshot
 
 This copy was reconstructed from recovered plan content and updated against the verified workspace state on this machine.
 
-Verified current state:
+Verified current state across the broader local UnisonOS environment:
 
 - supported Milestone 1 target remains Ubuntu 24.04 native on x86_64
 - all active repos in the local workspace were audited directly from git and code
@@ -100,6 +105,10 @@ For UnisonOS, "production quality" should mean all of the following are true:
 8. Release artifacts are reproducible, verifiable, and tied to a compatibility matrix.
 
 ## Current Reality vs Vision
+
+Workspace-boundary note:
+- the gap analysis below speaks about the broader UnisonOS product effort, not just the repos currently present as `unison-workspace` submodules
+- in particular, installation, release engineering, updates, and some acceptance assets depend on repos outside this workspace snapshot
 
 The public docs describe a mature edge-first operating surface, but the current codebase still shows major gaps:
 
@@ -482,6 +491,9 @@ Milestone 1 is now locked to:
 Anything outside that scope must justify itself against Milestone 1 release gates before being treated as priority work.
 
 ## Prioritized Implementation Plan
+
+Program-boundary note:
+- repo lists below reflect the broader Milestone 1 program, which spans beyond the current `unison-workspace` submodule inventory
 
 ### Priority 0: Freeze the First Production Target
 

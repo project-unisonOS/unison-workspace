@@ -2,6 +2,11 @@
 
 This document converts `UNISONOS_PRODUCTION_IMPLEMENTATION_PLAN.md` into concrete Milestone 1 acceptance coverage.
 
+Scope note:
+- this file mixes two related but different evidence domains: broader platform validation material and the current `unison-workspace` snapshot
+- references to `unison-platform` below describe the larger Milestone 1 delivery path, not something fully contained inside this workspace checkout
+- use this matrix as the Milestone 1 target-state acceptance map, not as proof that `unison-workspace` alone currently contains every required repo, script, or validation asset
+
 It reflects the verified workspace/runtime state as of the current validated Ubuntu 24.04 local bring-up.
 
 ## Scope
@@ -21,11 +26,20 @@ Locked Milestone 1 scope:
 
 Existing automated assets:
 
+Platform-scoped assets outside the current `unison-workspace` submodule set:
+
 - `unison-platform/scripts/validate-golden-path.sh`
 - `unison-platform/qa/test_smoke.py`
 - `unison-platform/qa/test_native_install_acceptance.py`
 - `unison-platform/installer/unisonctl.sh` health/doctor checks
+
+Workspace-visible or service-level evidence available from repos present in this workspace:
+
 - authenticated briefing acceptance through `POST /ingest` with `intent=dashboard.refresh`
+- renderer onboarding/status endpoints
+- service health/readiness endpoints
+- `unison-devstack/scripts/e2e_smoke.py`
+- `unison-devstack/scripts/test_multimodal.py`
 
 Validated current local runtime:
 
@@ -37,6 +51,9 @@ Validated current local runtime:
 ## Journey Matrix
 
 ### Journey 1: Install and Boot
+
+Evidence boundary note:
+- this journey is primarily platform-scoped today, not workspace-scoped
 
 Acceptance requirement:
 - public docs are sufficient for supported Ubuntu install
@@ -172,6 +189,9 @@ Remaining gap:
 
 ### Journey 8: Reboot, Update, Recover
 
+Evidence boundary note:
+- this journey depends heavily on platform-owned tooling and is not fully evidenced by the current `unison-workspace` snapshot alone
+
 Acceptance requirement:
 - reboot returns to service
 - update path is explicit and recoverable
@@ -200,6 +220,10 @@ Remaining gap:
 - `unison-updates` still remains optional behind a compose profile in the platform stack
 
 ## Release Gate Matrix
+
+Interpretation note:
+- gate status values below describe the intended Milestone 1 program state across workspace plus platform evidence
+- they should not be read as claims that the current `unison-workspace` checkout independently proves each gate end to end
 
 ### Gate A: Installability
 
