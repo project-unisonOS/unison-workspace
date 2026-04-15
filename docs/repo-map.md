@@ -25,7 +25,7 @@ Unison Repo Map (Meta Snapshot)
 Notes
 -----
 - This table reflects the repos currently present as submodules in `unison-workspace`, not the full set of repos referenced across all UnisonOS docs and platform materials.
-- Additional repos currently referenced by `unison-devstack/docker-compose.yml` but not present as submodules here include: `unison-actuation`, `unison-capability`, `unison-comms`, `unison-io-bci`, `unison-network-vpn`, and `unison-skill-register`.
+- Additional repos currently referenced by `unison-devstack/docker-compose.yml` but not present as submodules here include: `unison-actuation`, `unison-capabilities` (local checkout path for the capability resolver service repo), `unison-comms`, `unison-io-bci`, `unison-network-vpn`, and `unison-skill-register`.
 - Broader product and release docs also refer to `unison-platform`, which is not part of this workspace snapshot.
 - Some repos in this table are present but not equally mature. In particular, `unison-intent-graph` should be treated as early, and `unison-context-graph` needs status clarification before being relied on as a stable core service.
 - Image tag `1.0` (and `latest`) for all services and the shared wheel are published to `ghcr.io/project-unisonos`.

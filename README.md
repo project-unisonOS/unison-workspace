@@ -30,7 +30,7 @@ Included directly in this workspace snapshot:
 
 Not included as submodules in this workspace snapshot, but still referenced by some docs and devstack paths:
 - `unison-actuation`
-- `unison-capability`
+- `unison-capabilities` (local checkout path for the capability resolver service repo)
 - `unison-comms`
 - `unison-io-bci`
 - `unison-network-vpn`
