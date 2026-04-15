@@ -84,6 +84,8 @@ Repo-local regression anchors for that path now include focused tests in:
 
 For Tranche C Journey 7 work, the workspace now also carries a bounded orchestrator-side `vdi.download` planning and executor contract slice. This is useful regression coverage for the first legacy workflow, but it is still not the same as full Milestone 1 acceptance of the end-to-end orchestrator -> actuation -> VDI -> storage -> renderer path.
 
+For Tranche C Journey 6 work, the workspace also carries an orchestrator/docs Gmail draft contract checkpoint around `comms.compose`. This currently anchors the expected normalized draft shape at the orchestrator boundary, but it is not a full Gmail connector implementation and should not be read as proof that provider onboarding or live Gmail summarize/draft flows are working in this checkout.
+
 Repo Map
 --------
 See `docs/repo-map.md` for roles, statuses, entry points, and current workspace-boundary caveats.
