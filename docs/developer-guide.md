@@ -59,6 +59,12 @@ Smoke Test
 ```
 This runs `python3 unison-devstack/scripts/e2e_smoke.py` against the running stack and is the fastest basic verification after `./scripts/up.sh`.
 
+For the full recommended local validation sequence, run:
+
+```bash
+./scripts/validate-local.sh
+```
+
 Scope note:
 - `./scripts/smoke.sh` validates the devstack end-to-end smoke path only
 - it should not be treated as proof that voice, vision, or the broader multimodal experience is working end to end
@@ -71,6 +77,12 @@ Recommended local validation sequence:
 2. `python3 unison-devstack/scripts/test_multimodal.py`
 3. `python3 unison-devstack/scripts/validate_golden_path.py`
 4. `python3 unison-devstack/scripts/validate_journey6_fake_mail.py`
+
+Or run the wrapper:
+
+```bash
+./scripts/validate-local.sh
+```
 
 See `unison-docs/dev/golden-path-validation.md` for the current golden-path definition.
 

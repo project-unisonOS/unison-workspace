@@ -12,6 +12,7 @@ Quickstart
 - Start devstack: `./scripts/up.sh`
 - Stop devstack: `./scripts/down.sh`
 - Smoke test: `./scripts/smoke.sh`
+- Full local validation sequence: `./scripts/validate-local.sh`
 - Security overlay: `./scripts/up-security.sh` then `./scripts/smoke-security.sh`
 - Secrets: use `.env.example` as a template only. Source real secrets from Vault/Secret Manager (or Doppler/1Password CLI) into your shell; never commit `.env` files.
 
@@ -66,6 +67,7 @@ Troubleshooting
 ## Tests
 - From `unison-devstack`: `python scripts/e2e_smoke.py`, `python scripts/test_multimodal.py`, `python scripts/validate_golden_path.py`, and `python scripts/validate_journey6_fake_mail.py` (requires Docker running).
 - `./scripts/smoke.sh` runs the devstack end-to-end smoke only. It does not, by itself, validate full multimodal behavior or the renderer-led golden path.
+- `./scripts/validate-local.sh` runs the recommended local validation sequence in one command.
 - Recommended local validation sequence:
   1. `./scripts/smoke.sh`
   2. `python3 unison-devstack/scripts/test_multimodal.py`
