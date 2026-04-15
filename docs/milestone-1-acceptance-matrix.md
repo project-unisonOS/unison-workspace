@@ -162,20 +162,26 @@ Acceptance requirement:
 Current coverage:
 - `unison-comms` bounded Gmail onboarding/readiness surface:
   - `GET /comms/onboarding/email`
+  - `POST /comms/onboarding/email/bootstrap`
   - `POST /comms/onboarding/email/verify`
   - `POST /comms/onboarding/email/reset`
   - `GET /comms/onboarding/email/oauth`
+- `unison-comms` local encrypted Gmail bootstrap credential path
+- `unison-comms` reset now clears local bootstrap-backed Gmail state
 - `unison-comms` Gmail draft-first compose behavior
+- `unison-comms` adapter-backed summarize behavior
+- provider-aware empty/message state shaping in `comms.check` and `comms.summarize`
 - `unison-comms/tests/test_gmail_contract.py`
+- `unison-comms/tests/test_comms_endpoints.py`
 - orchestrator-side draft contract anchor in `unison-orchestrator/tests/test_comms_skills.py`
 
 Current status:
 - `partial`
 
 Remaining gap:
-- live summarize flow is still not validated end to end
-- explicit secret/bootstrap handling is still external to workspace acceptance assets
-- OAuth/device-flow and real secret-store integration are not yet implemented end to end
+- live summarize flow is still not validated end to end against a real mailbox/runtime
+- workspace/platform acceptance assets still do not execute the new bootstrap-backed Journey 6 path directly
+- OAuth/device-flow and resolver-mediated real secret-store integration are not yet implemented end to end
 
 ### Journey 7: One Real Legacy Workflow
 
@@ -291,12 +297,12 @@ Status:
 
 Evidence:
 - inference and onboarding are validated
-- bounded Gmail onboarding and draft contract coverage now exists in `unison-comms` and orchestrator-focused tests
+- bounded Gmail onboarding, bootstrap, reset, summarize, and provider-aware state coverage now exists in `unison-comms` and orchestrator-focused tests
 - bounded VDI outcome has focused contract coverage
 
 Remaining gap:
 - briefing still lacks stronger acceptance coverage
-- Gmail is not yet validated end to end with live summarize/provider flows
+- Gmail is not yet validated end to end with live bootstrap-backed summarize/provider flows
 - bounded VDI outcome is still not covered by full orchestrator-driven acceptance
 
 ### Gate F: Release Engineering
@@ -318,8 +324,8 @@ Highest-value next additions:
    install, reboot, validate, recover.
 2. Add a bounded acceptance harness for Journey 7:
    allowlisted VDI document retrieval into `unison-storage`.
-3. Extend Gmail from bounded contract coverage to broader acceptance:
-   add explicit secret/bootstrap handling, failure cases, summarize coverage, and draft confirmation on a live path.
+3. Extend Gmail from bounded repo-local coverage to broader acceptance:
+   add a workspace/platform validation path that exercises bootstrap, verify, summarize, empty-state handling, and draft confirmation on a live path.
 4. Harden dashboard persistence/readback between orchestrator and context so briefing cards are durably queryable as well as renderer-visible.
 
 ## Execution Rule
