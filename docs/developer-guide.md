@@ -82,6 +82,8 @@ Repo-local regression anchors for that path now include focused tests in:
 - `unison-experience-renderer/tests/test_onboarding_ready.py`
 - `unison-context/tests/test_dashboard.py`
 
+For Tranche C Journey 7 work, the workspace now also carries a bounded orchestrator-side `vdi.download` planning and executor contract slice. This is useful regression coverage for the first legacy workflow, but it is still not the same as full Milestone 1 acceptance of the end-to-end orchestrator -> actuation -> VDI -> storage -> renderer path.
+
 Repo Map
 --------
 See `docs/repo-map.md` for roles, statuses, entry points, and current workspace-boundary caveats.
