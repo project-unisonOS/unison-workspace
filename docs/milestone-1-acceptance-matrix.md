@@ -160,13 +160,22 @@ Acceptance requirement:
 - Gmail onboarding, summarize, and draft flow works with explicit setup and bounded failure handling
 
 Current coverage:
-- none at Milestone 1 acceptance level
+- `unison-comms` bounded Gmail onboarding/readiness surface:
+  - `GET /comms/onboarding/email`
+  - `POST /comms/onboarding/email/verify`
+  - `POST /comms/onboarding/email/reset`
+  - `GET /comms/onboarding/email/oauth`
+- `unison-comms` Gmail draft-first compose behavior
+- `unison-comms/tests/test_gmail_contract.py`
+- orchestrator-side draft contract anchor in `unison-orchestrator/tests/test_comms_skills.py`
 
 Current status:
-- `gap`
+- `partial`
 
 Remaining gap:
-- Gmail connector onboarding and summarize/draft acceptance is not yet represented in platform or workspace acceptance assets
+- live summarize flow is still not validated end to end
+- explicit secret/bootstrap handling is still external to workspace acceptance assets
+- OAuth/device-flow and real secret-store integration are not yet implemented end to end
 
 ### Journey 7: One Real Legacy Workflow
 
@@ -278,13 +287,17 @@ Remaining gap:
 ### Gate E: Capability Utility
 
 Status:
-- `gap`
+- `partial`
 
 Evidence:
 - inference and onboarding are validated
+- bounded Gmail onboarding and draft contract coverage now exists in `unison-comms` and orchestrator-focused tests
+- bounded VDI outcome has focused contract coverage
 
 Remaining gap:
-- briefing, Gmail, and bounded VDI outcome are not yet covered by acceptance tests
+- briefing still lacks stronger acceptance coverage
+- Gmail is not yet validated end to end with live summarize/provider flows
+- bounded VDI outcome is still not covered by full orchestrator-driven acceptance
 
 ### Gate F: Release Engineering
 
@@ -305,8 +318,8 @@ Highest-value next additions:
    install, reboot, validate, recover.
 2. Add a bounded acceptance harness for Journey 7:
    allowlisted VDI document retrieval into `unison-storage`.
-3. Add Gmail onboarding and summarize/draft acceptance:
-   explicit secret/bootstrap handling, failure cases, and draft confirmation.
+3. Extend Gmail from bounded contract coverage to broader acceptance:
+   add explicit secret/bootstrap handling, failure cases, summarize coverage, and draft confirmation on a live path.
 4. Harden dashboard persistence/readback between orchestrator and context so briefing cards are durably queryable as well as renderer-visible.
 
 ## Execution Rule
