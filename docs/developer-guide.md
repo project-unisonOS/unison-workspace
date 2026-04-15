@@ -25,7 +25,11 @@ Getting the Workspace
 Running Devstack + Experience Renderer
 --------------------------------------
 1) Ensure Docker is running.
-2) Start services:
+2) Review workspace completeness before first bring-up:
+   - this workspace includes the submodules listed in `.gitmodules`
+   - `unison-devstack/docker-compose.yml` also references several services not present as submodules in this checkout
+   - a successful bring-up may therefore rely on prebuilt GHCR images, sibling repo checkouts outside this workspace snapshot, or a narrower local profile than the full compose file implies
+3) Start services:
    ```bash
    ./scripts/up.sh
    ```
@@ -34,7 +38,7 @@ Running Devstack + Experience Renderer
    ```bash
    UNISON_RENDERER_LOCALHOST=1 ./scripts/up.sh
    ```
-3) Security overlay (segmented networks; no host port publishing):
+4) Security overlay (segmented networks; no host port publishing):
    ```bash
    ./scripts/up-security.sh
    ./scripts/smoke-security.sh
@@ -55,9 +59,14 @@ Smoke Test
 ```
 This runs `python3 unison-devstack/scripts/e2e_smoke.py` against the running stack and is the fastest basic verification after `./scripts/up.sh`.
 
+Scope note:
+- `./scripts/smoke.sh` validates the devstack end-to-end smoke path only
+- it should not be treated as proof that voice, vision, or the broader multimodal experience is working end to end
+- for multimodal validation, run `python3 unison-devstack/scripts/test_multimodal.py` separately
+
 Repo Map
 --------
-See `docs/repo-map.md` for roles, statuses, and entry points.
+See `docs/repo-map.md` for roles, statuses, entry points, and current workspace-boundary caveats.
 
 Working in a Specific Service
 -----------------------------

@@ -8,19 +8,35 @@ Quickstart
 ----------
 - Clone: `git clone git@github.com:project-unisonos/unison-workspace.git && cd unison-workspace`
 - Pull submodules: `git submodule update --init --recursive`
+- Review current workspace scope and prerequisites in `docs/developer-guide.md` before first bring-up
 - Start devstack: `./scripts/up.sh`
 - Stop devstack: `./scripts/down.sh`
 - Smoke test: `./scripts/smoke.sh`
 - Security overlay: `./scripts/up-security.sh` then `./scripts/smoke-security.sh`
 - Secrets: use `.env.example` as a template only. Source real secrets from Vault/Secret Manager (or Doppler/1Password CLI) into your shell; never commit `.env` files.
 
+Important current limitation:
+- `./scripts/up.sh` delegates to `unison-devstack`, which references additional repos and images outside this submodule set. In practice, a successful full-stack bring-up may require either prebuilt images for those services or sibling checkouts beyond what `.gitmodules` provides today.
+
 What’s Inside (Submodules)
 --------------------------
+Included directly in this workspace snapshot:
 - Core services: `unison-orchestrator`, `unison-context`, `unison-context-graph`, `unison-intent-graph`, `unison-auth`, `unison-consent`, `unison-policy`, `unison-inference`
 - IO services: `unison-io-core`, `unison-io-speech`, `unison-io-vision`, `unison-storage`
 - Experience: `unison-experience-renderer`, `unison-agent-vdi`
 - Shared & tooling: `unison-common`, `unison-devstack`, `unison-docs`
 - Optional: `unison-payments`
+
+Not included as submodules in this workspace snapshot, but still referenced by some docs and devstack paths:
+- `unison-actuation`
+- `unison-capability`
+- `unison-comms`
+- `unison-io-bci`
+- `unison-network-vpn`
+- `unison-platform`
+- `unison-skill-register`
+
+Treat this repository as the main developer front door for the repos above, not yet as a complete single-clone source checkout for every repo mentioned across the broader UnisonOS platform docs.
 
 Dev Flow Highlights
 -------------------
@@ -49,6 +65,7 @@ Troubleshooting
 
 ## Tests
 - From `unison-devstack`: `python scripts/e2e_smoke.py` and `python scripts/test_multimodal.py` (requires Docker running).
+- `./scripts/smoke.sh` runs the devstack end-to-end smoke only. It does not, by itself, validate full multimodal behavior. Run `python scripts/test_multimodal.py` separately when multimodal claims are in scope.
 
 ## Links
 - Platform roadmap: `unison-docs/roadmap/deployment-platform-roadmap.md`
