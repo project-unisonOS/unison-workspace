@@ -86,6 +86,8 @@ For Tranche C Journey 7 work, the workspace now also carries a bounded orchestra
 
 For Tranche C Journey 6 work, the workspace also carries an orchestrator/docs Gmail draft contract checkpoint around `comms.compose`. This currently anchors the expected normalized draft shape at the orchestrator boundary, but it is not a full Gmail connector implementation and should not be read as proof that provider onboarding or live Gmail summarize/draft flows are working in this checkout.
 
+The current validated checkpoint also includes a startup-status truth fix in `unison-orchestrator` so `/startup/status` prefers cached `poweron` snapshot truth during focused validation instead of overriding it with live checks when snapshot checks are already present.
+
 Repo Map
 --------
 See `docs/repo-map.md` for roles, statuses, entry points, and current workspace-boundary caveats.
