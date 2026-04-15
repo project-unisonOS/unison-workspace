@@ -64,12 +64,13 @@ Troubleshooting
 - Manual compose: dev ports live in `unison-devstack/docker-compose.ports.yml` (use `docker compose -f unison-devstack/docker-compose.yml -f unison-devstack/docker-compose.ports.yml up -d`); security overlay uses `-f unison-devstack/docker-compose.security.yml` without the ports overlay.
 
 ## Tests
-- From `unison-devstack`: `python scripts/e2e_smoke.py`, `python scripts/test_multimodal.py`, and `python scripts/validate_golden_path.py` (requires Docker running).
+- From `unison-devstack`: `python scripts/e2e_smoke.py`, `python scripts/test_multimodal.py`, `python scripts/validate_golden_path.py`, and `python scripts/validate_journey6_fake_mail.py` (requires Docker running).
 - `./scripts/smoke.sh` runs the devstack end-to-end smoke only. It does not, by itself, validate full multimodal behavior or the renderer-led golden path.
 - Recommended local validation sequence:
   1. `./scripts/smoke.sh`
   2. `python3 unison-devstack/scripts/test_multimodal.py`
   3. `python3 unison-devstack/scripts/validate_golden_path.py`
+  4. `python3 unison-devstack/scripts/validate_journey6_fake_mail.py`
 - See `unison-docs/dev/golden-path-validation.md` for the current renderer-led golden-path contract.
 
 ## Links

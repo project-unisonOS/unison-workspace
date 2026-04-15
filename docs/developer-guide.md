@@ -64,11 +64,13 @@ Scope note:
 - it should not be treated as proof that voice, vision, or the broader multimodal experience is working end to end
 - for multimodal validation, run `python3 unison-devstack/scripts/test_multimodal.py` separately
 - for the current renderer-led product-path contract, run `python3 unison-devstack/scripts/validate_golden_path.py`
+- for the local no-credential Journey 6 email path, run `python3 unison-devstack/scripts/validate_journey6_fake_mail.py`
 
 Recommended local validation sequence:
 1. `./scripts/smoke.sh`
 2. `python3 unison-devstack/scripts/test_multimodal.py`
 3. `python3 unison-devstack/scripts/validate_golden_path.py`
+4. `python3 unison-devstack/scripts/validate_journey6_fake_mail.py`
 
 See `unison-docs/dev/golden-path-validation.md` for the current golden-path definition.
 
