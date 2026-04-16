@@ -65,6 +65,12 @@ For the full recommended local validation sequence, run:
 ./scripts/validate-local.sh
 ```
 
+For a narrower CI-friendly path that brings up only the services needed for the current green validation sequence, run:
+
+```bash
+./scripts/validate-ci.sh
+```
+
 Scope note:
 - `./scripts/smoke.sh` validates the devstack end-to-end smoke path only
 - it should not be treated as proof that voice, vision, or the broader multimodal experience is working end to end
@@ -78,10 +84,11 @@ Recommended local validation sequence:
 3. `python3 unison-devstack/scripts/validate_golden_path.py`
 4. `python3 unison-devstack/scripts/validate_journey6_fake_mail.py`
 
-Or run the wrapper:
+Or run the wrappers:
 
 ```bash
 ./scripts/validate-local.sh
+./scripts/validate-ci.sh
 ```
 
 See `unison-docs/dev/golden-path-validation.md` for the current golden-path definition.
