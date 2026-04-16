@@ -128,6 +128,6 @@ Troubleshooting
 ---------------
 - Compose errors: `docker compose -f unison-devstack/docker-compose.yml pull --ignore-pull-failures` then re-run `./scripts/up.sh`.
 - Stale submodules: `./scripts/sync.sh`.
-- Port conflicts: adjust published bindings in `unison-devstack/docker-compose.ports.yml`.
+- Port conflicts: run `./scripts/doctor.sh` first, then adjust published bindings in `unison-devstack/docker-compose.ports.yml` if needed.
 - WSL + Docker Desktop: avoid running a second Docker daemon inside Ubuntu. If `./scripts/doctor.sh` warns about `docker.service`, disable it: `sudo systemctl disable --now docker docker.socket containerd`.
 - Debug: `./scripts/status.sh`, `./scripts/logs.sh`, `./scripts/doctor.sh`.

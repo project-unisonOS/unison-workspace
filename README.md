@@ -62,7 +62,8 @@ Troubleshooting
 - If startup feels “stuck”, run `./scripts/doctor.sh` to catch port conflicts and compose misconfig fast.
 - WSL + Docker Desktop: don’t also run a separate Docker daemon inside Ubuntu (it can “steal” host ports). If `./scripts/doctor.sh` warns about `docker.service`, disable it: `sudo systemctl disable --now docker docker.socket containerd`.
 - Optional knobs: `UNISON_SYNC_SUBMODULES=1 ./scripts/up.sh`, `UNISON_SKIP_PORT_PREFLIGHT=1 ./scripts/up.sh`.
-- Manual compose: dev ports live in `unison-devstack/docker-compose.ports.yml` (use `docker compose -f unison-devstack/docker-compose.yml -f unison-devstack/docker-compose.ports.yml up -d`); security overlay uses `-f unison-devstack/docker-compose.security.yml` without the ports overlay.
+- Manual compose: published dev host ports live in `unison-devstack/docker-compose.ports.yml` (use `docker compose -f unison-devstack/docker-compose.yml -f unison-devstack/docker-compose.ports.yml up -d`); security overlay uses `-f unison-devstack/docker-compose.security.yml` without the ports overlay.
+- If bring-up fails on port allocation, run `./scripts/doctor.sh` first. It checks the overlay port set that `./scripts/up.sh` actually uses.
 
 ## Tests
 - From `unison-devstack`: `python scripts/e2e_smoke.py`, `python scripts/test_multimodal.py`, `python scripts/validate_golden_path.py`, and `python scripts/validate_journey6_fake_mail.py` (requires Docker running).
