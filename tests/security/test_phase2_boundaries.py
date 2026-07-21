@@ -50,7 +50,10 @@ def test_explicit_share_relationship_ambiguity_and_revocation(tmp_path):
     repo = GovernedContextRepository(create_engine(f"sqlite:///{tmp_path / 'sharing.db'}", future=True))
     alice = repo.ensure_private_space("alice", "assistant-alice")
     repo.ensure_private_space("bob", "assistant-bob")
-    shared = repo.create_space("alice", name="Household groceries", purpose="coordinate groceries")
+    shared = repo.create_space(
+        "alice", household_id="household-proof", name="Household groceries",
+        purpose="coordinate groceries",
+    )
     repo.invite_member("alice", shared.space_id, "bob", MemberRole.EDITOR)
     repo.accept_invitation("bob", shared.space_id)
     private = repo.admit_memory(

@@ -27,6 +27,8 @@ jobs:
         run: ./scripts/test-phase2.sh
       - name: Validate Phase 3 trust-governance boundaries
         run: ./scripts/test-phase3.sh
+      - name: Validate Phase 4 two-assistant household proof
+        run: ./scripts/test-phase4.sh
 
   powershell-wrapper-static:
     runs-on: windows-2025
@@ -54,7 +56,7 @@ jobs:
       working-directory: "."
       dependency-file: requirements-dev.lock
       checkout-submodules: true
-      unison-common-ref: "571d5d521d6e534157e856f330371e0030379b07"
+      unison-common-ref: "7d8ac82fd5605dba2791c9ed34148c69f40897cc"
       pytest-targets: tests/security
       trivy-scan-ref: requirements-dev.lock
       # Container ingress binds and non-production fallback paths are reviewed separately.
