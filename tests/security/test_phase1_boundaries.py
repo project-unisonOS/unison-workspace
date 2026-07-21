@@ -5,9 +5,17 @@ import sys
 import time
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "unison-auth" / "src"))
+AUTH_SOURCE = ROOT / "unison-auth" / "src"
+if not AUTH_SOURCE.is_dir():
+    pytest.skip(
+        "cross-repository Phase 1 boundary evidence requires initialized submodules",
+        allow_module_level=True,
+    )
+sys.path.insert(0, str(AUTH_SOURCE))
 
 from identity_store import IdentityStore  # noqa: E402
 from unison_common.principal import partition_key, principal_context_from_claims, redact_principal_for_log  # noqa: E402
