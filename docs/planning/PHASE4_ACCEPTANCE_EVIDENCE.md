@@ -1,12 +1,12 @@
 # Phase 4 acceptance evidence
 
-Status: In review
+Status: Complete
 
 Prepared: 2026-07-21
 
 Gate owner: human architecture/security review
 
-Gate decision: Pending
+Gate decision: Approved 2026-07-21
 
 ## Bounded acceptance claim
 
@@ -134,9 +134,9 @@ clone was deleted after its commit and gitlink evidence was recorded.
   and sustained-load characterization remain platform hardening work.
 - Remote channels remain Phase 5 and provider-blind backup remains Phase 6.
 
-## Gate condition
+## Final gate decision
 
-Phase 4 remains **In review** until human approval is recorded. Component,
-workspace, and site Actions; recursive fresh-clone validation; and published
-accessibility evidence are complete. Phase 5 is **Not started** and is not
-authorized by this candidate.
+The final Phase 4 gate was approved on 2026-07-21 after component, workspace,
+and site Actions; recursive fresh-clone validation; and published accessibility
+evidence completed. Phase 4 is **Complete**. Phase 5 was separately authorized
+after this decision and starts from this accepted boundary.

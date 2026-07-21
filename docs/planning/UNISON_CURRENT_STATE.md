@@ -82,16 +82,16 @@ Publication, component/workspace Actions, recursive fresh-clone evidence,
 accessibility review, and the final human gate completed on 2026-07-21. Phase 4
 has not started.
 
-## Phase 4 review-candidate delta
+## Phase 4 accepted delta
 
-The authorized Phase 4 candidate composes the accepted identity and governed
+The accepted Phase 4 implementation composes the accepted identity and governed
 context boundaries into a bounded two-independent-adult household proof. It adds
 minimal household administration, explicit shared calendar/grocery contracts,
 coordination with zero private-source reads, fair per-assistant resource budgets,
 non-oracular cross-person denials, removal/key-rotation/restart recovery, and
-accessible household controls. The local 50-check proof passes; the human gate is
-pending, so this is not an accepted or supported product claim. Phase 5 has not
-started.
+accessible household controls. The 50-check proof, hosted CI/security,
+accessibility audit, recursive fresh clone, and human gate passed on 2026-07-21.
+This remains pre-release engineering rather than a supported product release.
 
 ## Reconciled product state
 
