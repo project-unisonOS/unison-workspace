@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "household_id": "household-phase2",
+  "people": [
+    {
+      "person_id": "alice",
+      "assistant_instance_id": "assistant-alice",
+      "private_space_id": "space-alice-private",
+      "canaries": {
+        "memory": "ALICE-MEMORY-CANARY-8f2d",
+        "summary": "ALICE-SUMMARY-CANARY-48ac",
+        "index": "ALICE-INDEX-CANARY-61be"
+      }
+    },
+    {
+      "person_id": "bob",
+      "assistant_instance_id": "assistant-bob",
+      "private_space_id": "space-bob-private",
+      "canaries": {
+        "memory": "BOB-MEMORY-CANARY-91de",
+        "summary": "BOB-SUMMARY-CANARY-20af",
+        "index": "BOB-INDEX-CANARY-77cc"
+      }
+    }
+  ],
+  "shared_spaces": [
+    {
+      "space_id": "space-household-groceries",
+      "name": "Household groceries",
+      "purpose": "coordinate grocery purchases",
+      "members": [
+        {"person_id": "alice", "role": "owner"},
+        {"person_id": "bob", "role": "editor"}
+      ]
+    }
+  ],
+  "overlapping_relationships": [
+    {"owner_person_id": "alice", "subject_id": "sam", "label": "friend"},
+    {"owner_person_id": "alice", "subject_id": "sam", "label": "business"}
+  ],
+  "shared_artifacts": [
+    {"kind": "grocery_item", "content": {"item": "tea"}},
+    {"kind": "calendar_event", "content": {"title": "Family dinner"}}
+  ]
+}

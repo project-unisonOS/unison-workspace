@@ -21,7 +21,7 @@ credited as implemented.
 | --- | --- | --- | --- |
 | 0. Repository truth and architecture reconciliation | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, and fresh-clone evidence. |
 | 1. Multi-principal identity and trusted request binding | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, fresh-clone validation, and review of the retained pre-existing debt. |
-| 2. Context spaces, relationships, governed memory, charter | Not started | Not evaluated | Target schemas do not exist. |
+| 2. Context spaces, relationships, governed memory, charter | In review | Pending human gate | Implementation and local evidence are ready; publication, Actions, and fresh-clone evidence are being finalized. |
 | 3. Default-deny policy, disclosure, capability governance | Not started | Not evaluated | Existing logic is retained evidence, not target completion. |
 | 4. Two-assistant household proof | Not started | Not evaluated | No household isolation demonstration exists. |
 | 5. Channel Gateway and remote text | Not started | Not evaluated | Existing adapters do not satisfy normalized remote-channel requirements. |
@@ -87,11 +87,12 @@ fresh-clone closeout are recorded in `PHASE1_STABILIZATION_EVIDENCE.md`.
 
 ## Decisions awaiting human review
 
-No Phase 0 product-architecture decision remains open. Exact algorithms, TPM
+The Phase 2 implementation requires the final human architecture/security gate
+after review of `PHASE2_ACCEPTANCE_EVIDENCE.md`. Exact algorithms, TPM
 integration, rotation, and recovery ceremonies remain reserved for a focused
 security review before their implementation.
 
 ## Next authorized action
 
-No Phase 2 implementation is authorized. Do not begin Phase 2 without separate
-explicit authorization.
+Complete Phase 2 publication and evidence capture, then request the final human
+gate decision. Phase 3 remains **Not started** and is not authorized.

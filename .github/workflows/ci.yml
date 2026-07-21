@@ -23,6 +23,8 @@ jobs:
         run: ./scripts/test-unit.sh
       - name: Validate Phase 1 trusted-principal boundaries
         run: ./scripts/test-phase1.sh
+      - name: Validate Phase 2 governed-context boundaries
+        run: ./scripts/test-phase2.sh
 
   powershell-wrapper-static:
     runs-on: windows-2025

@@ -25,6 +25,16 @@
       "name": "trusted-request-envelope-v1",
       "canonical": "unison-common/schemas/trusted-request-envelope.v1.schema.json",
       "legacy_copies": []
+    },
+    {
+      "name": "governed-context-v2",
+      "canonical": "unison-common/schemas/governed-context.v2.schema.json",
+      "legacy_copies": [
+        {
+          "path": "unison-common/src/unison_common/schemas/governed-context.v2.schema.json",
+          "status": "packaged-copy"
+        }
+      ]
     }
   ]
 }
