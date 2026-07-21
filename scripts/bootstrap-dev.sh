@@ -24,6 +24,7 @@ fi
 required_submodules=(
   unison-common unison-auth unison-consent unison-context unison-policy
   unison-storage unison-orchestrator unison-experience-renderer unison-context-graph
+  unison-capability unison-inference
 )
 for repo in "${required_submodules[@]}"; do
   if [[ ! -d "${ROOT_DIR}/${repo}" ]]; then
@@ -46,3 +47,4 @@ printf '%s\n' "${ROOT_DIR}/unison-common/src" > "${site_packages}/unison-common-
 echo "[PASS] Phase 0 development environment is ready."
 echo "       Run: ./scripts/test-unit.sh"
 echo "       Run: ./scripts/validate-phase0.sh"
+echo "       Run: ./scripts/test-phase3.sh"

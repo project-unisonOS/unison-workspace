@@ -6,6 +6,11 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Added
 
+- Phase 3 canonical Trust API contracts, default-deny disclosure evaluator,
+  expiring one-use confirmations, encrypted task credential broker, explicit
+  grant migration, governed remote inference, bounded capability manifests,
+  adversarial/minimization gates, policy simulator, and accessible decision review.
+
 - Phase 2 governed-context v2 contracts for spaces, memberships, relationships,
   memory governance, charters, goals, commitments, and semantic privacy state.
 - Durable governed repository/API, private-by-default legacy migration, explicit

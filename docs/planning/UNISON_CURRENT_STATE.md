@@ -69,14 +69,26 @@ deletion, share-preview, charter, goal, and commitment controls. Publication,
 component/workspace CI, browser accessibility, recursive fresh-clone evidence,
 and the final human gate were completed on 2026-07-21.
 
+## Phase 3 review-candidate delta
+
+The Phase 3 candidate consolidates policy, consent, disclosure, minimization,
+confirmation, delegated capability authority, credential brokerage, and audit
+behind a versioned, default-deny Trust API. Remote inference requires a recorded
+local-alternative check and an allowing disclosure decision. Capability execution
+requires a bounded manifest and expiring, nonce-protected grant; legacy unknown
+authority is disabled. An accessible semantic review exposes the exact action,
+recipients, data, purpose, consequence, reversibility, cost, and alternatives.
+Phase 3 remains **In review** pending publication, fresh-clone evidence, and the
+final human gate. Phase 4 has not started.
+
 ## Reconciled product state
 
 The implemented system is an early, local-first assistant platform assembled as a large Python/FastAPI microservice stack. The completed Phase 1 establishes the first household identity and principal boundary, but the broader household product remains pre-release:
 
 - protected Phase 1 services bind authenticated people and workloads, but remaining optional modality/research services still require later integration review;
-- household identity plus governed relationship, context-space, charter, goal, and commitment models are implemented in the Phase 2 review candidate;
+- household identity plus governed relationship, context-space, charter, goal, and commitment models are implemented in accepted Phase 2;
 - per-person credentials, encryption keys, data/cache/index namespaces, and audit ownership exist locally; provider-blind backup domains remain Phase 6 work;
-- policy and consent do not yet provide default-deny disclosure decisions over purpose, audience, relationship, sensitivity, and channel assurance;
+- the Phase 3 candidate provides default-deny disclosure decisions over purpose, audience, relationship, sensitivity, and channel assurance;
 - remote channels and provider-blind encrypted backup are not implemented as product subsystems.
 
 The current product should therefore be described publicly as an experimental developer platform with a native-install path under active validation, not as a production private household assistant.

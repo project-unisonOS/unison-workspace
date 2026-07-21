@@ -18,6 +18,7 @@ repos=(
   unison-storage
   unison-policy
   unison-experience-renderer
+  unison-capability
   unison-payments
   unison-orchestrator
 )

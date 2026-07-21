@@ -22,7 +22,7 @@ credited as implemented.
 | 0. Repository truth and architecture reconciliation | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, and fresh-clone evidence. |
 | 1. Multi-principal identity and trusted request binding | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, fresh-clone validation, and review of the retained pre-existing debt. |
 | 2. Context spaces, relationships, governed memory, charter | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, browser accessibility, and recursive fresh-clone validation. |
-| 3. Default-deny policy, disclosure, capability governance | In progress | Not yet ready | Authorized implementation of the accepted Phase 3 policy, disclosure, confirmation, credential, capability, audit, and accessibility scope. |
+| 3. Default-deny policy, disclosure, capability governance | In review | Pending human gate | Implementation and local evidence are complete; publication, Actions, recursive fresh-clone, and final gate evidence are being finalized. |
 | 4. Two-assistant household proof | Not started | Not evaluated | No household isolation demonstration exists. |
 | 5. Channel Gateway and remote text | Not started | Not evaluated | Existing adapters do not satisfy normalized remote-channel requirements. |
 | 6. Provider-blind backup and replacement restore | Not started | Not evaluated | Target cryptographic backup/recovery is not implemented. |
@@ -98,5 +98,5 @@ reserved for a focused security review before their implementation.
 
 ## Next authorized action
 
-Implement and evidence the complete Phase 3 acceptance scope, then request its
-final human gate decision. Phase 4 remains **Not started** and is not authorized.
+Complete Phase 3 publication and evidence capture, then request its final human
+gate decision. Phase 4 remains **Not started** and is not authorized.

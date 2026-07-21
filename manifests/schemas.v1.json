@@ -35,6 +35,21 @@
           "status": "packaged-copy"
         }
       ]
+    },
+    {
+      "name": "trust-governance-v1",
+      "canonical": "unison-common/schemas/trust-governance.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/trust-governance.v1.schema.json", "status": "packaged-copy"}
+      ]
+    },
+    {
+      "name": "capability-governance-v1",
+      "canonical": "unison-common/schemas/capability-governance.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/capability-governance.v1.schema.json", "status": "packaged-copy"},
+        {"path": "unison-capability/schemas/capability.governance.v1.schema.json", "status": "runtime-copy"}
+      ]
     }
   ]
 }
