@@ -15,6 +15,16 @@
       "legacy_copies": [
         {"path": "unison-common/src/unison_common/schemas/multimodal_manifest.schema.json", "status": "migration-required"}
       ]
+    },
+    {
+      "name": "principal-context-v1",
+      "canonical": "unison-common/schemas/principal-context.v1.schema.json",
+      "legacy_copies": []
+    },
+    {
+      "name": "trusted-request-envelope-v1",
+      "canonical": "unison-common/schemas/trusted-request-envelope.v1.schema.json",
+      "legacy_copies": []
     }
   ]
 }

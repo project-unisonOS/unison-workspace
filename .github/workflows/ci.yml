@@ -21,6 +21,8 @@ jobs:
         run: ./scripts/validate-phase0.sh
       - name: Run workspace unit suites
         run: ./scripts/test-unit.sh
+      - name: Validate Phase 1 trusted-principal boundaries
+        run: ./scripts/test-phase1.sh
 
   powershell-wrapper-static:
     runs-on: windows-2025

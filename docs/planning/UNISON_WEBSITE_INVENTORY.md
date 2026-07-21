@@ -1,7 +1,7 @@
 # Unison public website inventory
 
-Status: Phase 0 review candidate  
-Inventory date: 2026-07-20
+Status: Phase 1 review candidate
+Inventory date: 2026-07-21
 
 ## Disposition vocabulary
 
@@ -23,6 +23,14 @@ Inventory date: 2026-07-20
 | Reference | `reference/specs`, `apis`, `security`, `compatibility` | Claim review | Retained as engineering reference; canonical machine schemas are now declared in `unison-common/schemas`. |
 | Project | `project/governance`, `roadmap`, `license`, `bci-overview` | Preserve/Claim review | Governance/license preserved. Roadmap and BCI material remain non-implementation claims and are subordinate to current status. |
 | Compatibility URLs | `vision.md` legacy route, `developers/evaluate-alpha`, `developers/renderer-and-shell` | Redirect | MkDocs emits redirects; redirect stubs are excluded from duplicate accessibility audits. |
+
+## Phase 1 claim delta
+
+`current-status` now identifies Phase 0 as complete and Phase 1 as a review
+candidate. It lists the implemented local identity/principal foundations while
+keeping relationship context spaces, remote channels, backup, and the supported
+appliance explicitly incomplete. `terminology` now distinguishes Person,
+Principal, Assistant instance, Household membership, and Channel identity.
 
 ## Verification
 

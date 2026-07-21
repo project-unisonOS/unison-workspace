@@ -6,6 +6,12 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Added
 
+- Phase 1 transactional identity schema for people, assistant instances, households, memberships, devices, channels, workloads, sessions, passkeys, invitations, and independent isolation handles.
+- Versioned signed principal-context and trusted-request-envelope contracts plus shared fail-closed binding middleware.
+- First-person enrollment, additional-adult invitation, passkey, session/device/channel revocation, workload audience/delegation, and encrypted legacy-admin migration flows.
+- One-command Phase 1 endpoint, boundary, migration, canary, and sibling-service validation.
+- Principal trust-boundary architecture guide and Phase 1 acceptance evidence package.
+
 - Authoritative implementation plan for the household-hosted private assistant product direction.
 - Verified current-state audit covering the broader Project Unison repository checkout.
 - Architecture decision register distinguishing accepted mandates from proposed decisions.
@@ -17,6 +23,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 - Phase 0 acceptance evidence package and public website content inventory.
 
 ### Changed
+
+- Protected orchestrator, context, storage, renderer, policy, consent, payments, communications, capability, replay, and actuation paths now derive authority from the verified principal instead of caller identity hints.
+- Context, storage, communications, cache, index, replay, vault, object, audit, and payment paths use person-specific namespace or key handles.
+- The hardened Compose profile disables reusable broad service secrets and static/HS256 authentication in favor of audience-scoped signed tokens and unique service root keys.
 
 - `unison-workspace` is designated as the home for authoritative planning because the aggregate parent checkout is not a Git repository.
 - Prior milestone and production plans are treated as historical evidence when they conflict with `docs/planning/UNISON_IMPLEMENTATION_PLAN.md`.

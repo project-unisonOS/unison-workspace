@@ -20,7 +20,7 @@ credited as implemented.
 | Phase | Status | Gate | Summary |
 | --- | --- | --- | --- |
 | 0. Repository truth and architecture reconciliation | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, and fresh-clone evidence. |
-| 1. Multi-principal identity and trusted request binding | Not started | Not evaluated | No Phase 1 implementation is authorized; separate approval is required. |
+| 1. Multi-principal identity and trusted request binding | In review | Local acceptance candidate ready | Trusted identity, household membership, per-person isolation, migration, protected-service binding, and accessible enrollment are implemented; publication/CI/fresh-clone evidence and human approval remain. |
 | 2. Context spaces, relationships, governed memory, charter | Not started | Not evaluated | Target schemas do not exist. |
 | 3. Default-deny policy, disclosure, capability governance | Not started | Not evaluated | Existing logic is retained evidence, not target completion. |
 | 4. Two-assistant household proof | Not started | Not evaluated | No household isolation demonstration exists. |
@@ -66,8 +66,16 @@ test now matches the secure implementation and proves expiration is rejected.
 ## Final Phase 0 gate decision
 
 The final Phase 0 gate was approved on 2026-07-21 after the named publication
-checks completed. Phase 0 is **Complete**. Phase 1 remains **Not started** and
-requires separate explicit authorization.
+checks completed. Phase 0 is **Complete**. Phase 1 was separately authorized on
+2026-07-21 and is now **In review**.
+
+## Phase 1 review package
+
+The authoritative candidate evidence is in `PHASE1_ACCEPTANCE_EVIDENCE.md`. It
+includes identity migration v1, signed principal contracts, endpoint coverage,
+two-person negative tests, key/log canaries, accessible enrollment, and a hardened
+security Compose overlay. Publication, remote CI, recursive fresh-clone, and the
+final human gate decision remain before Phase 1 can be marked Complete.
 
 The schema-only orchestrator pull request still exposes pre-existing
 repository-level CI/container failures that also occur on its unchanged `main`
@@ -83,5 +91,5 @@ security review before their implementation.
 
 ## Next authorized action
 
-Maintain the Phase 0 evidence and review its published changes. Do not begin
-Phase 1 unless it receives separate explicit authorization.
+Publish and review the Phase 1 candidate evidence. Do not begin Phase 2 without a
+separate explicit authorization after the Phase 1 gate is approved.

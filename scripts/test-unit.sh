@@ -18,6 +18,7 @@ repos=(
   unison-storage
   unison-policy
   unison-experience-renderer
+  unison-payments
   unison-orchestrator
 )
 
@@ -34,6 +35,7 @@ for repo in "${repos[@]}"; do
     cd "${ROOT_DIR}/${repo}"
     env \
       PYTHONDONTWRITEBYTECODE=1 \
+      PYTHONPATH="${ROOT_DIR}/${repo}/src:${ROOT_DIR}/unison-common/src${PYTHONPATH:+:${PYTHONPATH}}" \
       OTEL_SDK_DISABLED=true \
       UNISON_DISABLE_OTEL_EXPORTER=true \
       OTEL_TRACES_EXPORTER=none \
@@ -41,6 +43,8 @@ for repo in "${repos[@]}"; do
       OTEL_LOGS_EXPORTER=none \
       UNISON_CONSENT_KEYS_DIR="${test_root}/consent-keys" \
       UNISON_AUTH_KEYS_DIR="${test_root}/auth-keys" \
+      UNISON_AUTH_IDENTITY_DATABASE_PATH="${test_root}/${repo}-identity.db" \
+      UNISON_PRINCIPAL_BINDING_TEST_BYPASS=true \
       "$PYTHON_BIN" -m pytest tests -q -p no:cacheprovider
   ); then
     failures+=("$repo")

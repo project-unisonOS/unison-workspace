@@ -1,7 +1,7 @@
 # Unison Current State
 
 Status: verified audit snapshot; not a completion claim  
-Audit date: 2026-07-20  
+Audit date: 2026-07-21
 Authoritative scope: `unison-workspace` plus the sibling Project Unison repositories present in `/home/dadam/unison-wsl`
 
 ## Purpose and evidence standard
@@ -30,14 +30,32 @@ assistants, explicit shared context spaces, local authority, replaceable provide
 accessibility, and person-aligned economic constraint as design commitments rather
 than completed product features.
 
+## Phase 1 implementation delta
+
+The review candidate replaces JSON identity authority with a migration-managed
+transactional store and introduces stable people, assistant instances, households,
+memberships, login accounts, devices, channel identities, workload principals,
+sessions, passkeys, invitations, and per-person isolation handles. Signed
+`PrincipalContext` v1 is now the authority contract. Protected service middleware
+validates signature, active session, audience, and caller identity hints before a
+route executes.
+
+Orchestrator, context, storage, renderer, policy, consent, payments,
+communications, capability, replay, and actuation paths now consume derived
+principal context. Context/storage/comms caches, credentials, objects, vault,
+audit, replay, payment, and local message data are owner-partitioned. The hardened
+Compose overlay disables reusable static/HS256 secrets and requires unique key
+roots. These are Phase 1 candidate claims pending published CI/fresh-clone evidence
+and human gate approval; context spaces and remote channel assurance remain later
+phases.
+
 ## Reconciled product state
 
-The implemented system is an early, local-first assistant platform assembled as a large Python/FastAPI microservice stack. It contains useful orchestration, policy, modality, capability, rendering, deployment, and testing foundations. It does not yet implement the target household product's non-negotiable security properties:
+The implemented system is an early, local-first assistant platform assembled as a large Python/FastAPI microservice stack. The Phase 1 candidate establishes the first household identity and principal boundary, but the broader household product remains pre-release:
 
-- an authenticated principal is not consistently bound to `Person` or `AssistantInstance`;
-- a caller-controlled `person_id` or `user_id` is still trusted in important paths;
-- there is no household, membership, relationship, context-space, personal-charter, goal, or commitment domain model;
-- per-person credentials, encryption keys, indexes, backup domains, and audit views are not implemented;
+- protected Phase 1 services bind authenticated people and workloads, but remaining optional modality/research services still require later integration review;
+- household and membership now exist, while relationship, context-space, personal-charter, goal, and commitment models remain Phase 2 work;
+- per-person credentials, encryption keys, data/cache/index namespaces, and audit ownership exist locally; provider-blind backup domains remain Phase 6 work;
 - policy and consent do not yet provide default-deny disclosure decisions over purpose, audience, relationship, sensitivity, and channel assurance;
 - remote channels and provider-blind encrypted backup are not implemented as product subsystems.
 
@@ -124,21 +142,21 @@ Useful retained contracts exist, but there are multiple copies and incompatible 
 
 ## Identity, context, policy, and data findings
 
-- `unison-auth` persists users in a local JSON file and issues tokens whose relevant identity is username plus broad roles. It has no household, assistant, device, or channel principal model.
-- Token blacklist lookup fails open when Redis is unavailable.
-- `unison-context` database keys are person/session strings accepted from request paths or bodies. Its production fallback check rejects SQLite, but authorization is not consistently derived from a cryptographically authenticated person.
-- Profile and dashboard encryption use one configured Fernet-style service key and may store plaintext JSON when no key is configured.
+- `unison-auth` uses SQLite migration v1 for the Phase 1 identity graph and binds signed tokens to active membership, assistant, resource handles, session, audience, and assurance.
+- Revocation/introspection failure is fail closed for protected operations.
+- `unison-context` rejects mismatched identity hints and derives person/cache/index authority from signed context.
+- Profile/dashboard encryption derives purpose-specific keys from the person's opaque key handle and fails closed in the hardened product profile.
 - `unison-context-graph` uses `user_id`, while newer contracts prefer `person_id`.
-- `unison-storage` exposes namespace/key paths and uses a global static service token when configured. Memory, vault, audit, and object tables contain optional `person_id` columns but no row-level principal enforcement.
-- Object encryption uses one service-level key when configured.
+- `unison-storage` derives data, memory, vault, audit, and object ownership from the signed person and prefixes namespaces before lookup.
+- Object encryption derives a per-person purpose key from the configured product root.
 - Both `unison-policy` and `unison-consent` implement grant/introspection concepts. Consent validation warns on unknown scopes rather than denying them.
 - Devstack Compose contains development passwords and secrets. These are acceptable only in an explicitly isolated test profile and must never flow into an appliance bundle.
 
 ## Communications and remote access findings
 
 - `unison-comms` has an `EmailAdapter` protocol, an in-memory adapter, a Gmail IMAP/SMTP adapter, and a local encrypted Unison messaging adapter.
-- Gmail bootstrap credentials are service-global and stored through one local encrypted file/key configuration, not scoped to an authenticated person.
-- `person_id` often defaults to `local-user`.
+- Gmail bootstrap credentials and local Unison message stores are partitioned by the authenticated person's credential/data namespace and key handle.
+- Production `local-user` and `local-person` authority defaults are rejected by the Phase 1 validator.
 - The adapter contract is email-shaped; SMS, telephone, Telegram, WhatsApp, AAC, and mobile clients do not share a canonical channel envelope.
 - `unison-network-vpn` protects VDI egress and is not a remote-person-to-home-node access architecture.
 - No outbound relay, channel assurance model, replay-proof channel binding, or step-up authentication flow was verified.
