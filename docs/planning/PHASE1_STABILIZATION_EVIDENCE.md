@@ -34,6 +34,7 @@ Scope: the four pre-existing CI/container debt items retained at the final Phase
 - Policy: runs `29857079070`, `29857075880`, and `29857079067` pass both container builds and the test suite.
 - Orchestrator: runs `29857081635`, `29857078396`, `29857081602`, and `29857081540` pass both container builds, the repository build, and the 203-test suite.
 - Platform: runs `29857083757` and `29857082471` pass actionlint.
+- Workspace: run `29857771150` passes the Linux static/unit gate, Windows wrapper parser, and reusable Python security scan.
 
 ## Local integration evidence
 
@@ -48,4 +49,10 @@ Scope: the four pre-existing CI/container debt items retained at the final Phase
 
 The enumerated Phase 1 technical debt is resolved. Phase 1 remains **Complete**; this stabilization does not reopen its approved architecture gate. Phase 2 remains **Not started** and requires separate authorization.
 
-Workspace publication and recursive fresh-clone evidence are recorded in the final stabilization publication commit.
+Workspace stabilization and gitlinks were published at
+`c78fc40d46af8b4b3de9f3401ffd09fc594898a7`. A new recursive clone of that exact
+commit resolved all 18 submodules. In that clone, the deterministic bootstrap,
+`pip check`, all seven Phase 0 validation stages, the complete nine-repository
+unit matrix, and the Phase 1 trusted-principal gate passed. Optional sibling
+repositories were reported as absent rather than causing standalone validation
+to fail.
