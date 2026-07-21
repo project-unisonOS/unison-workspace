@@ -76,7 +76,7 @@ Published component commits and draft review PRs:
 | `unison-orchestrator` | `311164c3256b9971f5b460dca2b3b6d5fc2a6721` | [PR 18](https://github.com/project-unisonOS/unison-orchestrator/pull/18) |
 | `unison-experience-renderer` | `e6af5d2cffa5e61520c558c4265f8ebbb05e9a27` | [PR 3](https://github.com/project-unisonOS/unison-experience-renderer/pull/3) |
 | `unison-context-graph` | `092da683f6cd8b10905a8cb5cd21ca9c8566b944` | [PR 3](https://github.com/project-unisonOS/unison-context-graph/pull/3) |
-| `.github` | `464c814924465fd1a7dc06d3fea29daae5762a11` | [PR 2](https://github.com/project-unisonOS/.github/pull/2) |
+| `.github` | `352fdb0092da216d48062549598740c14eb37e53` | [PR 2](https://github.com/project-unisonOS/.github/pull/2) |
 | `project-unisonos.github.io` | `890c982815533985734935f7d6e90cd6333a35c7` | [PR 3](https://github.com/project-unisonOS/project-unisonos.github.io/pull/3) |
 
 All workflows for the published component commits completed successfully:
