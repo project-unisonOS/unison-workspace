@@ -83,16 +83,18 @@ def test_two_adults_share_household_but_not_any_private_resource(tmp_path):
     bob = _identity(store, "bob", alice)
     alice_context = _context(alice, "alice-token")
     bob_context = _context(bob, "bob-token")
-    assert alice_context.household_id == bob_context.household_id
+    assert alice_context.household_id == bob_context.household_id  # nosec B101 -- pytest assertion
 
     resources = {}
     for resource in RESOURCE_TYPES:
         key = partition_key(alice_context, resource, "private-canary")
         resources[key] = f"alice-{resource}-canary"
         bob_key = partition_key(bob_context, resource, "private-canary")
-        assert bob_key != key
-        assert bob_key not in resources
-        assert all(not candidate.startswith(bob_context.data_namespace) for candidate in resources)
+        assert bob_key != key  # nosec B101 -- pytest assertion
+        assert bob_key not in resources  # nosec B101 -- pytest assertion
+        assert all(  # nosec B101 -- pytest assertion
+            not candidate.startswith(bob_context.data_namespace) for candidate in resources
+        )
 
 
 @pytest.mark.skipif(
@@ -103,10 +105,10 @@ def test_key_credential_namespace_and_logs_do_not_cross_principals(tmp_path):
     store = IdentityStore(str(tmp_path / "identity.db"))
     alice = _identity(store, "alice")
     bob = _identity(store, "bob", alice)
-    assert alice["key_handle"] != bob["key_handle"]
-    assert alice["credential_namespace"] != bob["credential_namespace"]
-    assert alice["cache_namespace"] != bob["cache_namespace"]
-    assert alice["index_namespace"] != bob["index_namespace"]
+    assert alice["key_handle"] != bob["key_handle"]  # nosec B101 -- pytest assertion
+    assert alice["credential_namespace"] != bob["credential_namespace"]  # nosec B101 -- pytest assertion
+    assert alice["cache_namespace"] != bob["cache_namespace"]  # nosec B101 -- pytest assertion
+    assert alice["index_namespace"] != bob["index_namespace"]  # nosec B101 -- pytest assertion
 
     logged = json.dumps(redact_principal_for_log(_context(alice, "alice-token")), sort_keys=True)
     for canary in (
@@ -117,4 +119,4 @@ def test_key_credential_namespace_and_logs_do_not_cross_principals(tmp_path):
         alice["index_namespace"],
         "alice-password-canary",
     ):
-        assert canary not in logged
+        assert canary not in logged  # nosec B101 -- pytest assertion
