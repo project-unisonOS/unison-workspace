@@ -95,6 +95,10 @@ def test_two_adults_share_household_but_not_any_private_resource(tmp_path):
         assert all(not candidate.startswith(bob_context.data_namespace) for candidate in resources)
 
 
+@pytest.mark.skipif(
+    not SUBMODULES_AVAILABLE,
+    reason="cross-repository Phase 1 boundary evidence requires initialized submodules",
+)
 def test_key_credential_namespace_and_logs_do_not_cross_principals(tmp_path):
     store = IdentityStore(str(tmp_path / "identity.db"))
     alice = _identity(store, "alice")
