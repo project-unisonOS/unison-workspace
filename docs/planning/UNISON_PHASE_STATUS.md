@@ -22,7 +22,7 @@ credited as implemented.
 | 0. Repository truth and architecture reconciliation | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, and fresh-clone evidence. |
 | 1. Multi-principal identity and trusted request binding | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, fresh-clone validation, and review of the retained pre-existing debt. |
 | 2. Context spaces, relationships, governed memory, charter | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, browser accessibility, and recursive fresh-clone validation. |
-| 3. Default-deny policy, disclosure, capability governance | In review | Pending human gate | Implementation and local evidence are complete; publication, Actions, recursive fresh-clone, and final gate evidence are being finalized. |
+| 3. Default-deny policy, disclosure, capability governance | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, accessibility review, and recursive fresh-clone validation. |
 | 4. Two-assistant household proof | Not started | Not evaluated | No household isolation demonstration exists. |
 | 5. Channel Gateway and remote text | Not started | Not evaluated | Existing adapters do not satisfy normalized remote-channel requirements. |
 | 6. Provider-blind backup and replacement restore | Not started | Not evaluated | Target cryptographic backup/recovery is not implemented. |
@@ -91,6 +91,14 @@ The final Phase 2 gate was approved on 2026-07-21. Phase 2 is **Complete** and
 Phase 3 was separately authorized. The authoritative closeout record is
 `PHASE2_ACCEPTANCE_EVIDENCE.md`.
 
+## Final Phase 3 gate decision
+
+The final Phase 3 gate was approved on 2026-07-21. Phase 3 is **Complete** and
+Phase 4 is **Not started**. Repository-owned CI gaps, inference regressions,
+deprecated Actions runtimes, and legacy schema drift are assigned to the
+separately authorized post-gate stabilization sprint. The authoritative closeout
+record is `PHASE3_ACCEPTANCE_EVIDENCE.md`.
+
 ## Decisions awaiting human review
 
 Exact algorithms, TPM integration, rotation, and recovery ceremonies remain
@@ -98,5 +106,6 @@ reserved for a focused security review before their implementation.
 
 ## Next authorized action
 
-Complete Phase 3 publication and evidence capture, then request its final human
-gate decision. Phase 4 remains **Not started** and is not authorized.
+Complete the authorized post-Phase 3 technical-debt stabilization sprint and
+return with its closeout evidence. Phase 4 remains **Not started** and is not
+authorized.

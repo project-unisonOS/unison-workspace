@@ -1,12 +1,12 @@
 # Phase 3 acceptance evidence
 
-Status: In review
+Status: Complete
 
 Prepared: 2026-07-21
 
 Gate owner: human architecture/security review
 
-Gate decision: Pending
+Gate decision: Approved 2026-07-21
 
 ## Acceptance mapping
 
@@ -107,8 +107,10 @@ The published site also passed strict MkDocs rendering. Browser/axe validation
 checked 1,851 internal links and reported zero accessibility violations on every
 page, including the semantic trust-decision review.
 
-## Gate boundary
+## Final gate decision
 
-Phase 3 remains **In review** pending the final human gate decision. Publication,
-Actions, fresh-clone, and accessibility evidence are complete. Phase 4 is **Not
-started** and is not authorized.
+The final Phase 3 gate was approved on 2026-07-21 after publication, green
+component and workspace Actions, recursive fresh-clone validation, and
+accessibility review. Phase 3 is **Complete**. Phase 4 is **Not started** and is
+not authorized. The enumerated debt is assigned to the separately authorized
+post-Phase 3 stabilization sprint.

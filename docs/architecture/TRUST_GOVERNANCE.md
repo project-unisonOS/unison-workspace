@@ -1,6 +1,6 @@
 # Trust governance boundary
 
-Status: Phase 3 review candidate
+Status: Phase 3 accepted architecture (gate approved 2026-07-21)
 
 The Personal Data and Trust Store owns the versioned Trust API. Policy rules,
 consent grants, disclosure decisions, minimization, delegated authority,
