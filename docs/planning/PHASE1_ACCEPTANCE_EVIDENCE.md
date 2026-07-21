@@ -167,10 +167,19 @@ not caused by the accepted Phase 1 changes:
 - Platform actionlint reports the pre-existing `release.yml` SC2231 warning
   ([candidate run](https://github.com/project-unisonOS/unison-platform/actions/runs/29852055009)).
 
+### Post-gate resolution
+
+The retained items above were subsequently resolved in a separately authorized
+stabilization sprint. The immutable component commits, green remote runs, local
+integration results, and fresh-clone closeout are recorded in
+`PHASE1_STABILIZATION_EVIDENCE.md`. This does not change the approved Phase 1 gate
+or authorize Phase 2.
+
 ## Final gate decision
 
 The human architecture/security gate was approved on 2026-07-21 after review of
 the publication, GitHub Actions, fresh-clone, isolation, migration, accessibility,
 and security evidence above. Phase 1 is **Complete**. The enumerated pre-existing
-CI/container failures remain tracked debt. Phase 2 is **Not started** and is not
+CI/container failures were retained at approval and later resolved in the
+separately authorized stabilization sprint. Phase 2 is **Not started** and is not
 authorized without a separate decision.

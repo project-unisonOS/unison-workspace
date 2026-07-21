@@ -80,13 +80,10 @@ and the final human gate decision are complete.
 ## Final Phase 1 gate decision
 
 The final Phase 1 gate was approved on 2026-07-21. Phase 1 is **Complete** and
-Phase 2 is **Not started**. The approval retains these enumerated pre-existing
-CI/container failures as tracked debt rather than representing them as resolved:
-
-- `unison-common` whole-repository lint, Bandit, packaging, and dependency-install failures;
-- private GHCR `unison-common-wheel` authentication failures in context, storage, and policy container builds;
-- orchestrator repository-level test and container failures that reproduce on its unchanged `main` baseline; and
-- the pre-existing platform `release.yml` actionlint SC2231 warning.
+Phase 2 is **Not started**. The four pre-existing CI/container debt items retained
+at that gate were resolved in the separately authorized post-gate stabilization
+sprint. Component commits, green Actions runs, local integration results, and
+fresh-clone closeout are recorded in `PHASE1_STABILIZATION_EVIDENCE.md`.
 
 ## Decisions awaiting human review
 

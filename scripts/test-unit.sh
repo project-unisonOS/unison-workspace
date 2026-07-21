@@ -31,12 +31,18 @@ trap cleanup EXIT
 failures=()
 for repo in "${repos[@]}"; do
   echo "[unit] $repo"
+  otel_sdk_disabled=true
+  if [[ "$repo" == "unison-common" ]]; then
+    # The common suite exercises real in-process span creation and propagation.
+    # Export remains disabled below, so this does not send test telemetry.
+    otel_sdk_disabled=false
+  fi
   if ! (
     cd "${ROOT_DIR}/${repo}"
     env \
       PYTHONDONTWRITEBYTECODE=1 \
       PYTHONPATH="${ROOT_DIR}/${repo}/src:${ROOT_DIR}/unison-common/src${PYTHONPATH:+:${PYTHONPATH}}" \
-      OTEL_SDK_DISABLED=true \
+      OTEL_SDK_DISABLED="$otel_sdk_disabled" \
       UNISON_DISABLE_OTEL_EXPORTER=true \
       OTEL_TRACES_EXPORTER=none \
       OTEL_METRICS_EXPORTER=none \

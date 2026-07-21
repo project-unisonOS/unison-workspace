@@ -36,7 +36,7 @@ done
 echo "[bootstrap] creating/updating ${VENV_DIR}"
 "$PYTHON_BIN" -m venv "$VENV_DIR"
 "${VENV_DIR}/bin/python" -m pip install --upgrade \
-  pip==24.3.1 setuptools==75.6.0 wheel==0.45.1
+  pip==26.1.2 setuptools==83.0.0 wheel==0.47.0
 "${VENV_DIR}/bin/python" -m pip install --requirement "${ROOT_DIR}/requirements-dev.lock"
 site_packages="$("${VENV_DIR}/bin/python" -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')"
 printf '%s\n' "${ROOT_DIR}/unison-common/src" > "${site_packages}/unison-common-workspace.pth"
