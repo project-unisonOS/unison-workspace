@@ -7,7 +7,7 @@ Prerequisites
 -------------
 - Ubuntu/WSL2 or Linux with Docker Engine + Docker Compose v2
 - Git with SSH access to `project-unisonos`
-- Python 3.10+ (for smoke scripts)
+- Python 3.12 (the deterministic Phase 0 development profile)
 
 Getting the Workspace
 ---------------------
@@ -21,6 +21,30 @@ Getting the Workspace
    ```bash
    ./scripts/sync.sh
    ```
+3) Bootstrap and validate the pinned environment:
+   ```bash
+   ./scripts/bootstrap-dev.sh
+   ./scripts/validate-phase0.sh
+   ./scripts/test-unit.sh
+   ./scripts/test-boundaries.sh
+   ```
+
+On Windows, PowerShell is a thin WSL2 wrapper over those same commands:
+
+```powershell
+.\scripts\unison.ps1 bootstrap
+.\scripts\unison.ps1 validate-phase0
+.\scripts\unison.ps1 test-unit
+```
+
+There is no separate Windows implementation path. The historical installers in
+`unison-devstack/install.sh` and `unison-devstack/install.ps1` describe an older
+prototype topology and are not supported UnisonOS appliance installers.
+
+The standardized test entrypoints are `test-unit.sh`, `test-boundaries.sh`,
+`test-integration.sh`, and `test-e2e.sh`. Phase 0 executes unit and static boundary
+planning checks. Integration and end-to-end wrappers retain the existing Docker
+journeys and require their documented service prerequisites.
 
 Running Devstack + Experience Renderer
 --------------------------------------

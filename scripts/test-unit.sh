@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+VENV_DIR="${UNISON_DEV_VENV:-${ROOT_DIR}/.venv}"
+PYTHON_BIN="${VENV_DIR}/bin/python"
+
+if [[ ! -x "$PYTHON_BIN" ]]; then
+  echo "[FAIL] Development environment missing. Run ./scripts/bootstrap-dev.sh" >&2
+  exit 1
+fi
+
+repos=(
+  unison-common
+  unison-auth
+  unison-consent
+  unison-context
+  unison-storage
+  unison-policy
+  unison-experience-renderer
+  unison-orchestrator
+)
+
+test_root="$(mktemp -d)"
+cleanup() {
+  rm -rf -- "$test_root"
+}
+trap cleanup EXIT
+
+failures=()
+for repo in "${repos[@]}"; do
+  echo "[unit] $repo"
+  if ! (
+    cd "${ROOT_DIR}/${repo}"
+    env \
+      PYTHONDONTWRITEBYTECODE=1 \
+      OTEL_SDK_DISABLED=true \
+      UNISON_DISABLE_OTEL_EXPORTER=true \
+      OTEL_TRACES_EXPORTER=none \
+      OTEL_METRICS_EXPORTER=none \
+      OTEL_LOGS_EXPORTER=none \
+      UNISON_CONSENT_KEYS_DIR="${test_root}/consent-keys" \
+      UNISON_AUTH_KEYS_DIR="${test_root}/auth-keys" \
+      "$PYTHON_BIN" -m pytest tests -q -p no:cacheprovider
+  ); then
+    failures+=("$repo")
+  fi
+done
+
+if ((${#failures[@]})); then
+  echo "[FAIL] Unit suites failed: ${failures[*]}" >&2
+  exit 1
+fi
+
+echo "[PASS] Core Phase 0 unit suites passed."

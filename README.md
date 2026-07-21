@@ -1,6 +1,22 @@
 Unison Workspace Meta Repo
 ==========================
 
+Authoritative Planning
+----------------------
+
+Project execution is governed by the living planning set in `docs/planning/`:
+
+- [Phase 0 acceptance evidence](docs/planning/PHASE0_ACCEPTANCE_EVIDENCE.md) — review package, executed results, residual items, and requested gate decision
+
+- [Implementation plan](docs/planning/UNISON_IMPLEMENTATION_PLAN.md) — phased execution source of truth
+- [Current state](docs/planning/UNISON_CURRENT_STATE.md) — verified implementation and evidence baseline
+- [Architecture decisions](docs/planning/UNISON_ARCHITECTURE_DECISIONS.md) — accepted, proposed, deferred, and superseded decisions
+- [Threat model](docs/planning/UNISON_THREAT_MODEL.md) — security boundaries, threats, controls, and required tests
+- [Phase status](docs/planning/UNISON_PHASE_STATUS.md) — phase gates, evidence, blockers, and next authorized action
+- [Changelog](CHANGELOG.md) — workspace-level architecture and execution changes
+
+Older production plans, milestone matrices, roadmaps, and status documents remain useful historical evidence, but they are not execution authority when they conflict with this planning set. Planned architecture must not be described as implemented.
+
 ## Role in UnisonOS
 This repository is the “front door” for developers. Clone once, pull submodules, and you have the full Unison workspace: services, devstack, shared libraries, docs, and optional payments.
 
@@ -8,6 +24,9 @@ Quickstart
 ----------
 - Clone: `git clone git@github.com:project-unisonos/unison-workspace.git && cd unison-workspace`
 - Pull submodules: `git submodule update --init --recursive`
+- Create the pinned Python 3.12 development environment: `./scripts/bootstrap-dev.sh`
+- Validate the Phase 0 developer baseline: `./scripts/validate-phase0.sh && ./scripts/test-unit.sh`
+- From Windows, use the thin WSL2 wrapper: `.\scripts\unison.ps1 bootstrap` and `.\scripts\unison.ps1 validate-phase0`
 - Review current workspace scope and prerequisites in `docs/developer-guide.md` before first bring-up
 - Start devstack: `./scripts/up.sh`
 - Stop devstack: `./scripts/down.sh`
@@ -19,6 +38,7 @@ Quickstart
 
 Important current limitation:
 - `./scripts/up.sh` delegates to `unison-devstack`, which references additional repos and images outside this submodule set. In practice, a successful full-stack bring-up may require either prebuilt images for those services or sibling checkouts beyond what `.gitmodules` provides today.
+- `unison-devstack/install.sh` and `install.ps1` are legacy prototype installers, not supported UnisonOS appliance installers. Use the workspace commands above for development; appliance installation is a later gated deliverable.
 
 What’s Inside (Submodules)
 --------------------------
@@ -31,7 +51,7 @@ Included directly in this workspace snapshot:
 
 Not included as submodules in this workspace snapshot, but still referenced by some docs and devstack paths:
 - `unison-actuation`
-- `unison-capabilities` (local checkout path for the capability resolver service repo)
+- `unison-capability` (canonical repository; runtime service identifier `unison-capability-host`)
 - `unison-comms`
 - `unison-io-bci`
 - `unison-network-vpn`

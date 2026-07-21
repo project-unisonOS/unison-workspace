@@ -6,6 +6,41 @@ on:
   pull_request:
 
 jobs:
+  phase0-static-and-unit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: Bootstrap deterministic development environment
+        run: ./scripts/bootstrap-dev.sh
+      - name: Validate Phase 0 artifacts and topology
+        run: ./scripts/validate-phase0.sh
+      - name: Run workspace unit suites
+        run: ./scripts/test-unit.sh
+
+  powershell-wrapper-static:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Parse thin PowerShell wrapper
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            (Resolve-Path scripts/unison.ps1),
+            [ref]$tokens,
+            [ref]$errors
+          ) | Out-Null
+          if ($errors.Count -gt 0) {
+            $errors | Format-List | Out-String | Write-Error
+            exit 1
+          }
+
   python-security:
     uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@b8262adfe3ac737ef9fc2e02c337f3983c83c773
     with:

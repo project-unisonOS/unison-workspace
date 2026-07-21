@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "phase0-inventory",
+  "default_code_owner": "Project Unison maintainers (repository-specific CODEOWNERS apply where present)",
+  "data_authority_policy": "The home node is authoritative; personal and shared records converge on the Personal Data and Trust Store. Legacy service-local ownership is migration state, not target authority.",
+  "authoritative_topology": [
+    "unison-core",
+    "personal-data-and-trust-store",
+    "capability-host",
+    "channel-gateway",
+    "inference-broker-runtime",
+    "unison-surface"
+  ],
+  "runtime_profiles": [
+    {
+      "name": "development",
+      "compose_files": ["unison-devstack/docker-compose.yml", "unison-devstack/docker-compose.ports.yml"],
+      "purpose": "broad developer integration stack; not the default appliance boundary model",
+      "service_count": 23
+    },
+    {
+      "name": "native-experiment",
+      "compose_files": ["../unison-platform/compose/compose.native.yaml"],
+      "purpose": "Ubuntu native installation experiment; not a supported appliance release",
+      "service_count": 13
+    }
+  ],
+  "components": [
+    {"id":"workspace","repository":"unison-workspace","checkout":"root","current_role":"developer front door","target_boundary":"support","disposition":"retain","default_appliance":true,"maturity":"implemented"},
+    {"id":"common","repository":"unison-common","checkout":"submodule","current_role":"shared contracts and libraries","target_boundary":"support","disposition":"retain","default_appliance":true,"maturity":"implemented"},
+    {"id":"orchestrator","repository":"unison-orchestrator","checkout":"submodule","current_role":"request orchestration","target_boundary":"unison-core","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"context","repository":"unison-context","checkout":"submodule","current_role":"context API","target_boundary":"unison-core","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"context-graph","repository":"unison-context-graph","checkout":"submodule","current_role":"relationship graph","target_boundary":"unison-core","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"intent-graph","repository":"unison-intent-graph","checkout":"submodule","current_role":"intent graph","target_boundary":"unison-core","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"auth","repository":"unison-auth","checkout":"submodule","current_role":"authentication API","target_boundary":"personal-data-and-trust-store","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"consent","repository":"unison-consent","checkout":"submodule","current_role":"consent API","target_boundary":"personal-data-and-trust-store","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"policy","repository":"unison-policy","checkout":"submodule","current_role":"policy decision API","target_boundary":"personal-data-and-trust-store","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"storage","repository":"unison-storage","checkout":"submodule","current_role":"storage API","target_boundary":"personal-data-and-trust-store","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"capability","repository":"unison-capability","checkout":"sibling","current_role":"capability resolver and host","target_boundary":"capability-host","disposition":"retain","default_appliance":true,"maturity":"experimental"},
+    {"id":"agent-vdi","repository":"unison-agent-vdi","checkout":"submodule","current_role":"browser and desktop worker","target_boundary":"capability-host","disposition":"consolidate","default_appliance":false,"maturity":"experimental"},
+    {"id":"actuation","repository":"unison-actuation","checkout":"sibling","current_role":"physical action adapters","target_boundary":"capability-host","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
+    {"id":"payments","repository":"unison-payments","checkout":"submodule","current_role":"payment adapter","target_boundary":"capability-host","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
+    {"id":"comms","repository":"unison-comms","checkout":"sibling","current_role":"communications adapters","target_boundary":"channel-gateway","disposition":"consolidate","default_appliance":false,"maturity":"experimental"},
+    {"id":"io-core","repository":"unison-io-core","checkout":"submodule","current_role":"multimodal IO routing","target_boundary":"channel-gateway","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
+    {"id":"inference","repository":"unison-inference","checkout":"submodule","current_role":"model provider gateway","target_boundary":"inference-broker-runtime","disposition":"retain","default_appliance":true,"maturity":"experimental"},
+    {"id":"renderer","repository":"unison-experience-renderer","checkout":"submodule","current_role":"semantic response renderer","target_boundary":"unison-surface","disposition":"retain","default_appliance":true,"maturity":"experimental"},
+    {"id":"io-speech","repository":"unison-io-speech","checkout":"submodule","current_role":"speech adapter","target_boundary":"optional-adapter","disposition":"retain","default_appliance":false,"maturity":"experimental"},
+    {"id":"io-vision","repository":"unison-io-vision","checkout":"submodule","current_role":"vision adapter","target_boundary":"optional-adapter","disposition":"retain","default_appliance":false,"maturity":"scaffold"},
+    {"id":"io-bci","repository":"unison-io-bci","checkout":"sibling","current_role":"BCI adapter","target_boundary":"optional-adapter","disposition":"defer","default_appliance":false,"maturity":"research"},
+    {"id":"io-braille","repository":"unison-io-braille","checkout":"sibling","current_role":"Braille adapter","target_boundary":"optional-adapter","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
+    {"id":"io-sign","repository":"unison-io-sign","checkout":"sibling","current_role":"sign-language adapter","target_boundary":"optional-adapter","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
+    {"id":"sign-orchestrator","repository":"unison-sign-orchestrator","checkout":"sibling","current_role":"sign-language coordination","target_boundary":"optional-adapter","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
+    {"id":"platform","repository":"unison-platform","checkout":"sibling","current_role":"native appliance packaging","target_boundary":"lifecycle-update","disposition":"retain","default_appliance":true,"maturity":"experimental"},
+    {"id":"updates","repository":"unison-updates","checkout":"sibling","current_role":"signed update service","target_boundary":"lifecycle-update","disposition":"retain","default_appliance":true,"maturity":"experimental"},
+    {"id":"security","repository":"unison-security","checkout":"sibling","current_role":"security configuration and tests","target_boundary":"support","disposition":"retain","default_appliance":true,"maturity":"experimental"},
+    {"id":"network-vpn","repository":"unison-network-vpn","checkout":"sibling","current_role":"legacy remote network access","target_boundary":"channel-gateway","disposition":"replace","default_appliance":false,"maturity":"scaffold"},
+    {"id":"devstack","repository":"unison-devstack","checkout":"submodule","current_role":"development Compose topology","target_boundary":"support","disposition":"retain","default_appliance":false,"maturity":"implemented"},
+    {"id":"docs","repository":"unison-docs","checkout":"submodule","current_role":"engineering documentation","target_boundary":"support","disposition":"retain","default_appliance":false,"maturity":"implemented"},
+    {"id":"website","repository":"project-unisonos.github.io","checkout":"sibling","current_role":"public product website","target_boundary":"support","disposition":"retain","default_appliance":false,"maturity":"implemented"},
+    {"id":"spec","repository":"unison-spec","checkout":"sibling","current_role":"legacy contract repository","target_boundary":"support","disposition":"archive","default_appliance":false,"maturity":"legacy"},
+    {"id":"os-prototype","repository":"unison-os","checkout":"sibling","current_role":"legacy OS prototype","target_boundary":"lifecycle-update","disposition":"archive","default_appliance":false,"maturity":"legacy"},
+    {"id":"event-graph","repository":"event_graph","checkout":"sibling","current_role":"legacy event graph prototype","target_boundary":"unison-core","disposition":"archive","default_appliance":false,"maturity":"legacy"},
+    {"id":"organization-ci","repository":".github","checkout":"sibling","current_role":"organization CI policy","target_boundary":"support","disposition":"retain","default_appliance":false,"maturity":"implemented"}
+  ]
+}
