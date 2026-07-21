@@ -78,6 +78,7 @@ Published component commits and draft review PRs:
 | `unison-context-graph` | `092da683f6cd8b10905a8cb5cd21ca9c8566b944` | [PR 3](https://github.com/project-unisonOS/unison-context-graph/pull/3) |
 | `.github` | `352fdb0092da216d48062549598740c14eb37e53` | [PR 2](https://github.com/project-unisonOS/.github/pull/2) |
 | `project-unisonos.github.io` | `890c982815533985734935f7d6e90cd6333a35c7` | [PR 3](https://github.com/project-unisonOS/project-unisonos.github.io/pull/3) |
+| `unison-workspace` candidate | `3fe046c3942a02dc83f677128019337dc4421584` | [PR 3](https://github.com/project-unisonOS/unison-workspace/pull/3) |
 
 All workflows for the published component commits completed successfully:
 
@@ -89,9 +90,34 @@ All workflows for the published component commits completed successfully:
 | Experience renderer | [CI and real-browser accessibility](https://github.com/project-unisonOS/unison-experience-renderer/actions/runs/29861849860) |
 | Context graph | [CI](https://github.com/project-unisonOS/unison-context-graph/actions/runs/29862804755) |
 | Public site | [strict build and deployment](https://github.com/project-unisonOS/project-unisonos.github.io/actions/runs/29861854757) |
+| Workspace candidate | [Linux full regression, Phase 2 gate, Windows wrapper, Bandit, Semgrep, Trivy, and SBOM](https://github.com/project-unisonOS/unison-workspace/actions/runs/29865061799) |
 
-The workspace commit/PR, workspace Actions link, and recursive fresh-clone
-results will be added before the final gate request.
+The workspace security job recursively initialized the pinned topology, installed
+the workspace lock plus immutable common contract, ran repository-owned boundary
+tests, scanned production source with Bandit and Semgrep, scanned the workspace
+lock with Trivy, and published an SBOM. The root lock was upgraded to fixed
+releases for every finding exposed by that scan; component manifests remain the
+responsibility of their independently scanned repositories.
+
+## Recursive fresh-clone evidence
+
+A new recursive clone was created at
+`/tmp/unison-phase2-fresh-3fe046c` from the published branch. Its HEAD was verified
+as `3fe046c3942a02dc83f677128019337dc4421584` before executing:
+
+```text
+./scripts/bootstrap-dev.sh
+./scripts/validate-phase0.sh
+./scripts/test-unit.sh
+./scripts/test-phase1.sh
+./scripts/test-phase2.sh
+```
+
+All commands passed on WSL2 Ubuntu 24.04 / Python 3.12.3. The recursive clone
+resolved every required gitlink. Optional sibling repositories not represented by
+gitlinks were reported as absent, as designed. The clone reproduced the Phase 0
+validation and nine core unit suites, the Phase 1 boundary gate, and the Phase 2
+26-test combined suite plus isolated context-graph authority test.
 
 ## Gate boundary
 
