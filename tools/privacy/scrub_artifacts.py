@@ -46,7 +46,7 @@ def scrub_event_graph_jsonl(path: Path, *, in_place: bool, out: Path | None) -> 
                 continue
             try:
                 obj = json.loads(line)
-            except Exception:
+            except json.JSONDecodeError:
                 continue
             w.write(json.dumps(redact_obj(obj), separators=(",", ":"), ensure_ascii=False) + "\n")
     tmp.replace(target)
@@ -76,4 +76,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

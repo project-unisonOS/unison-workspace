@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "services": [
+    {"service": "auth", "roots": ["unison-auth/src/auth_service.py"], "guard_file": "unison-auth/src/auth_service.py", "guard_marker": "IDENTITY_STORE", "public_paths": ["/", "/health", "/healthz", "/ready", "/readyz", "/token", "/refresh", "/verify", "/logout", "/bootstrap/status", "/bootstrap/admin", "/enrollment/accept-invitation", "/passkeys/authenticate/options", "/passkeys/authenticate/complete", "/jwks.json", "/.well-known/jwks.json"]},
+    {"service": "orchestrator", "roots": ["unison-orchestrator/src/server.py", "unison-orchestrator/src/orchestrator/api"], "guard_file": "unison-orchestrator/src/server.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/", "/health", "/healthz", "/ready", "/readyz", "/metrics", "/startup/status"]},
+    {"service": "context", "roots": ["unison-context/src/server.py"], "guard_file": "unison-context/src/server.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/health", "/healthz", "/ready", "/readyz", "/metrics", "/conversation/health"]},
+    {"service": "storage", "roots": ["unison-storage/src/server.py"], "guard_file": "unison-storage/src/server.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/health", "/healthz", "/ready", "/readyz", "/metrics"]},
+    {"service": "policy", "roots": ["unison-policy/src/server.py"], "guard_file": "unison-policy/src/server.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/health", "/healthz", "/ready", "/readyz", "/metrics"]},
+    {"service": "consent", "roots": ["unison-consent/src/main.py", "unison-consent/src/jwks.py"], "guard_file": "unison-consent/src/main.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/health", "/healthz", "/ready", "/readyz", "/jwks.json", "/.well-known/jwks.json"]},
+    {"service": "renderer", "roots": ["unison-experience-renderer/src/main.py"], "guard_file": "unison-experience-renderer/src/main.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/", "/health", "/meta", "/ready", "/readyz", "/startup-status", "/first-run/status", "/onboarding/bootstrap-admin", "/session/login", "/session/recovery/status"]},
+    {"service": "payments", "roots": ["unison-payments/src/payments/server.py", "unison-payments/src/payments/api.py"], "guard_file": "unison-payments/src/payments/server.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/health"], "public_prefixes": ["/payments/webhooks/"]},
+    {"service": "comms", "roots": ["../unison-comms/src/main.py"], "guard_file": "../unison-comms/src/main.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/health", "/readyz"], "optional_sibling": true},
+    {"service": "capability", "roots": ["../unison-capability/src/server.py"], "guard_file": "../unison-capability/src/security.py", "guard_marker": "principal_context_from_claims", "public_paths": ["/health", "/healthz", "/ready", "/readyz", "/version", "/metrics"], "optional_sibling": true},
+    {"service": "actuation", "roots": ["../unison-actuation/src/unison_actuation/app.py"], "guard_file": "../unison-actuation/src/unison_actuation/app.py", "guard_marker": "PrincipalBindingMiddleware", "public_paths": ["/health", "/readyz"], "optional_sibling": true}
+  ]
+}

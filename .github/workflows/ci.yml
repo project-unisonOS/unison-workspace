@@ -6,8 +6,56 @@ on:
   pull_request:
 
 jobs:
+  phase0-static-and-unit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - name: Bootstrap deterministic development environment
+        run: ./scripts/bootstrap-dev.sh
+      - name: Validate Phase 0 artifacts and topology
+        run: ./scripts/validate-phase0.sh
+      - name: Run workspace unit suites
+        run: ./scripts/test-unit.sh
+      - name: Validate Phase 1 trusted-principal boundaries
+        run: ./scripts/test-phase1.sh
+      - name: Validate Phase 2 governed-context boundaries
+        run: ./scripts/test-phase2.sh
+      - name: Validate Phase 3 trust-governance boundaries
+        run: ./scripts/test-phase3.sh
+
+  powershell-wrapper-static:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Parse thin PowerShell wrapper
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            (Resolve-Path scripts/unison.ps1),
+            [ref]$tokens,
+            [ref]$errors
+          ) | Out-Null
+          if ($errors.Count -gt 0) {
+            $errors | Format-List | Out-String | Write-Error
+            exit 1
+          }
+
   python-security:
-    uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@b8262adfe3ac737ef9fc2e02c337f3983c83c773
+    uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@45118ffb52ee397cf7a510767154ee5b3705a850
     with:
-      python-version: "3.11"
+      python-version: "3.12"
       working-directory: "."
+      dependency-file: requirements-dev.lock
+      checkout-submodules: true
+      unison-common-ref: "571d5d521d6e534157e856f330371e0030379b07"
+      pytest-targets: tests/security
+      trivy-scan-ref: requirements-dev.lock
+      # Container ingress binds and non-production fallback paths are reviewed separately.
+      bandit-skips: "B104,B108"

@@ -17,14 +17,14 @@ def prune_traces_dir(traces_dir: Path, *, max_age_days: int) -> int:
         try:
             data = json.loads(p.read_text(encoding="utf-8"))
             created = int(data.get("created_unix_ms") or 0)
-        except Exception:
+        except (OSError, json.JSONDecodeError, AttributeError, TypeError, ValueError, OverflowError):
             created = int(p.stat().st_mtime * 1000)
         if created and created < cutoff_ms:
             try:
                 p.unlink()
                 removed += 1
-            except Exception:
-                pass
+            except OSError:
+                continue
     return removed
 
 
@@ -39,7 +39,7 @@ def prune_event_graph_jsonl(path: Path, *, max_age_days: int) -> int:
                 continue
             try:
                 obj = json.loads(line)
-            except Exception:
+            except json.JSONDecodeError:
                 continue
             ts = int(obj.get("ts_unix_ms") or 0)
             if ts and ts < cutoff_ms:
@@ -71,4 +71,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

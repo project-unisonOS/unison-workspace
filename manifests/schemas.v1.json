@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "authority": "unison-common/schemas",
+  "schemas": [
+    {
+      "name": "event-envelope",
+      "canonical": "unison-common/schemas/event-envelope.json",
+      "legacy_copies": []
+    },
+    {
+      "name": "multimodal-manifest",
+      "canonical": "unison-common/schemas/multimodal_manifest.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/multimodal_manifest.schema.json", "status": "packaged-copy"}
+      ]
+    },
+    {
+      "name": "principal-context-v1",
+      "canonical": "unison-common/schemas/principal-context.v1.schema.json",
+      "legacy_copies": []
+    },
+    {
+      "name": "trusted-request-envelope-v1",
+      "canonical": "unison-common/schemas/trusted-request-envelope.v1.schema.json",
+      "legacy_copies": []
+    },
+    {
+      "name": "governed-context-v2",
+      "canonical": "unison-common/schemas/governed-context.v2.schema.json",
+      "legacy_copies": [
+        {
+          "path": "unison-common/src/unison_common/schemas/governed-context.v2.schema.json",
+          "status": "packaged-copy"
+        }
+      ]
+    },
+    {
+      "name": "trust-governance-v1",
+      "canonical": "unison-common/schemas/trust-governance.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/trust-governance.v1.schema.json", "status": "packaged-copy"}
+      ]
+    },
+    {
+      "name": "capability-governance-v1",
+      "canonical": "unison-common/schemas/capability-governance.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/capability-governance.v1.schema.json", "status": "packaged-copy"},
+        {"path": "unison-capability/schemas/capability.governance.v1.schema.json", "status": "runtime-copy"}
+      ]
+    }
+  ]
+}

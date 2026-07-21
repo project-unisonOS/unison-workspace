@@ -46,6 +46,9 @@
 [submodule "unison-common"]
 	path = unison-common
 	url = git@github.com:project-unisonos/unison-common.git
+[submodule "unison-capability"]
+	path = unison-capability
+	url = git@github.com:project-unisonos/unison-capabilities.git
 [submodule "unison-docs"]
 	path = unison-docs
 	url = git@github.com:project-unisonos/unison-docs.git

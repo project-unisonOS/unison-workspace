@@ -1,0 +1,40 @@
+{
+  "schema_version": "unison.synthetic-household-fixture.v1",
+  "synthetic": true,
+  "household": {
+    "household_id": "household_test_001",
+    "display_name": "Example Household"
+  },
+  "people": [
+    {
+      "person_id": "person_alex_example",
+      "assistant_instance_id": "assistant_alex_example",
+      "display_name": "Alex Example",
+      "private_space_id": "space_private_alex",
+      "private_canary": "CANARY_PRIVATE_ALEX_DO_NOT_SHARE"
+    },
+    {
+      "person_id": "person_blair_example",
+      "assistant_instance_id": "assistant_blair_example",
+      "display_name": "Blair Example",
+      "private_space_id": "space_private_blair",
+      "private_canary": "CANARY_PRIVATE_BLAIR_DO_NOT_SHARE"
+    }
+  ],
+  "shared_spaces": [
+    {
+      "context_space_id": "space_household_shared",
+      "kind": "household",
+      "members": [
+        "person_alex_example",
+        "person_blair_example"
+      ],
+      "fixtures": {
+        "calendar": [],
+        "grocery_list": []
+      },
+      "shared_canary": "CANARY_SHARED_HOUSEHOLD_VISIBLE_TO_BOTH"
+    }
+  ]
+}
+

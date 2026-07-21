@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "synthetic_only": true,
+  "cases": [
+    {"name": "private local read", "purpose": "assist", "audience": ["self"], "relationship": "self", "channel": "local", "data_classes": ["personal"], "action": "read", "expected": "allow"},
+    {"name": "family outbound", "purpose": "communicate", "audience": ["family"], "relationship": "family", "channel": "web", "data_classes": ["relationship"], "action": "send", "expected": "ask"},
+    {"name": "work health disclosure", "purpose": "work", "audience": ["work"], "relationship": "colleague", "channel": "email", "data_classes": ["health"], "action": "send", "assurance": "remote-authenticated", "expected": "step-up"},
+    {"name": "unknown purpose", "purpose": "engagement-maximization", "audience": ["service-provider"], "relationship": "provider", "channel": "api", "data_classes": ["personal"], "action": "read", "expected": "deny"},
+    {"name": "credential disclosure", "purpose": "assist", "audience": ["self"], "relationship": "self", "channel": "local", "data_classes": ["credential"], "action": "read", "expected": "redact"}
+  ]
+}
