@@ -1,12 +1,12 @@
 # Phase 2 acceptance evidence
 
-Status: In review
+Status: Complete
 
 Prepared: 2026-07-21
 
 Gate owner: human architecture/security review
 
-Gate decision: Pending
+Gate decision: Approved 2026-07-21
 
 ## Acceptance mapping
 
@@ -119,7 +119,8 @@ gitlinks were reported as absent, as designed. The clone reproduced the Phase 0
 validation and nine core unit suites, the Phase 1 boundary gate, and the Phase 2
 26-test combined suite plus isolated context-graph authority test.
 
-## Gate boundary
+## Final gate decision
 
-Phase 2 remains **In review** until the human gate is approved. Phase 3 is **Not
-started** and no Phase 3 policy/disclosure implementation is included here.
+The final Phase 2 gate was approved on 2026-07-21 after publication, green
+component/workspace Actions, and recursive fresh-clone evidence. Phase 2 is
+**Complete**. Phase 3 was separately authorized and is now **In progress**.

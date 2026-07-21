@@ -49,9 +49,9 @@ roots. Published CI and fresh-clone evidence passed and the Phase 1 gate was
 approved on 2026-07-21; context spaces and remote channel assurance remain later
 phases.
 
-## Phase 2 review-candidate delta
+## Phase 2 accepted delta
 
-The Phase 2 candidate adds canonical governed-context v2 contracts and a durable,
+The accepted Phase 2 implementation adds canonical governed-context v2 contracts and a durable,
 migration-managed repository in `unison-context`. Every assistant can own an
 independent private space; shared spaces require explicit creation, invitation,
 and acceptance. Relationship edges provide context but never membership. Search,
@@ -65,8 +65,9 @@ provenance survive restart; deletion and retention redact current and historical
 content. Explicit sharing creates an auditable copy without reclassifying the
 private source. Member removal revokes access and advances the space key version.
 The renderer exposes semantic, keyboard-native inspection, space, correction,
-deletion, share-preview, charter, goal, and commitment controls. Phase 2 remains
-**In review** until publication evidence and the human gate are approved.
+deletion, share-preview, charter, goal, and commitment controls. Publication,
+component/workspace CI, browser accessibility, recursive fresh-clone evidence,
+and the final human gate were completed on 2026-07-21.
 
 ## Reconciled product state
 

@@ -21,8 +21,8 @@ credited as implemented.
 | --- | --- | --- | --- |
 | 0. Repository truth and architecture reconciliation | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, and fresh-clone evidence. |
 | 1. Multi-principal identity and trusted request binding | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, fresh-clone validation, and review of the retained pre-existing debt. |
-| 2. Context spaces, relationships, governed memory, charter | In review | Pending human gate | Implementation and local evidence are ready; publication, Actions, and fresh-clone evidence are being finalized. |
-| 3. Default-deny policy, disclosure, capability governance | Not started | Not evaluated | Existing logic is retained evidence, not target completion. |
+| 2. Context spaces, relationships, governed memory, charter | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, browser accessibility, and recursive fresh-clone validation. |
+| 3. Default-deny policy, disclosure, capability governance | In progress | Not yet ready | Authorized implementation of the accepted Phase 3 policy, disclosure, confirmation, credential, capability, audit, and accessibility scope. |
 | 4. Two-assistant household proof | Not started | Not evaluated | No household isolation demonstration exists. |
 | 5. Channel Gateway and remote text | Not started | Not evaluated | Existing adapters do not satisfy normalized remote-channel requirements. |
 | 6. Provider-blind backup and replacement restore | Not started | Not evaluated | Target cryptographic backup/recovery is not implemented. |
@@ -85,14 +85,18 @@ at that gate were resolved in the separately authorized post-gate stabilization
 sprint. Component commits, green Actions runs, local integration results, and
 fresh-clone closeout are recorded in `PHASE1_STABILIZATION_EVIDENCE.md`.
 
+## Final Phase 2 gate decision
+
+The final Phase 2 gate was approved on 2026-07-21. Phase 2 is **Complete** and
+Phase 3 was separately authorized. The authoritative closeout record is
+`PHASE2_ACCEPTANCE_EVIDENCE.md`.
+
 ## Decisions awaiting human review
 
-The Phase 2 implementation requires the final human architecture/security gate
-after review of `PHASE2_ACCEPTANCE_EVIDENCE.md`. Exact algorithms, TPM
-integration, rotation, and recovery ceremonies remain reserved for a focused
-security review before their implementation.
+Exact algorithms, TPM integration, rotation, and recovery ceremonies remain
+reserved for a focused security review before their implementation.
 
 ## Next authorized action
 
-Complete Phase 2 publication and evidence capture, then request the final human
-gate decision. Phase 3 remains **Not started** and is not authorized.
+Implement and evidence the complete Phase 3 acceptance scope, then request its
+final human gate decision. Phase 4 remains **Not started** and is not authorized.

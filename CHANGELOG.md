@@ -33,8 +33,8 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
-- Phase 2 is **In review** pending publication evidence and the final human gate;
-  Phase 3 remains Not started.
+- The final Phase 2 gate was approved on 2026-07-21; Phase 2 is **Complete** and
+  separately authorized Phase 3 implementation is **In progress**.
 - `unison-context` is the authoritative governed-context API; `unison-context-graph`
   is an operational adapter and does not grant access or retain durable personal memory.
 - The final Phase 1 gate was approved on 2026-07-21; Phase 1 is recorded Complete and Phase 2 remains Not started and unauthorized.
