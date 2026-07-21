@@ -42,7 +42,7 @@ jobs:
           }
 
   python-security:
-    uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@a8f342f7fa116407e0bf79a94b84a3599565bf40
+    uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@317183a033ed22031a06d6a757f55fd482f0c63f
     with:
       python-version: "3.12"
       working-directory: "."
