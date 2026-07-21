@@ -1,8 +1,10 @@
 # Phase 0 acceptance evidence package
 
-Status: **Ready for final human gate decision; gate not yet approved**
+Status: **Complete; final Phase 0 gate approved**
 
 Evidence date: 2026-07-21
+
+Approval date: 2026-07-21
 
 Environment: WSL2 Ubuntu 24.04, Python 3.12.3, Docker Compose v2, Chromium via Playwright
 
@@ -107,14 +109,14 @@ appliance exists. Dark design tokens, visible focus, reduced-motion handling,
 forced-colors fallbacks, keyboard-reachable code blocks, and real-browser axe CI
 are present. See `UNISON_WEBSITE_INVENTORY.md` for page dispositions.
 
-## Review conditions and residual items
+## Final gate conditions and residual items
 
-The two named publication checks are complete. The Phase 0 gate remains
-unapproved only until the reviewer records the final decision. This is not
-authorization to begin Phase 1. The two
-declared legacy schema copies may migrate later behind the new drift check; they
-cannot regain canonical status. Existing dependency/deprecation warnings and
-unreviewed deep historical website pages are recorded debt, not product guarantees.
+The two named publication checks are complete, and the final Phase 0 gate was
+approved on 2026-07-21. Phase 1 remains **Not started** and requires separate
+authorization. The two declared legacy schema copies may migrate later behind
+the new drift check; they cannot regain canonical status. Existing
+dependency/deprecation warnings and unreviewed deep historical website pages
+are recorded debt, not product guarantees.
 
 The schema-only orchestrator pull request inherits two repository-level failures
 that also fail on its unchanged `main` baseline: an obsolete shared-workflow
@@ -124,7 +126,8 @@ workspace Actions job and the clean clone. Those pre-existing orchestrator
 container/CI repairs are recorded debt and are not represented as healthy by
 this package.
 
-## Requested review decision
+## Final gate decision
 
-Approve or reject the final Phase 0 gate. If approved, record Phase 0 as complete
-while leaving Phase 1 not started until it receives separate authorization.
+The final Phase 0 gate was approved on 2026-07-21. Phase 0 is **Complete**.
+Phase 1 is **Not started** and no Phase 1 implementation is authorized without a
+separate explicit approval.

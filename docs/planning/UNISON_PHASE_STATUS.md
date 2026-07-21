@@ -19,8 +19,8 @@ credited as implemented.
 
 | Phase | Status | Gate | Summary |
 | --- | --- | --- | --- |
-| 0. Repository truth and architecture reconciliation | In review | Ready for final human decision; not passed | Publication, workspace CI, security scans, and fresh-clone evidence are complete. |
-| 1. Multi-principal identity and trusted request binding | Not started | Not evaluated | No implementation authorized before the final Phase 0 gate decision. |
+| 0. Repository truth and architecture reconciliation | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, and fresh-clone evidence. |
+| 1. Multi-principal identity and trusted request binding | Not started | Not evaluated | No Phase 1 implementation is authorized; separate approval is required. |
 | 2. Context spaces, relationships, governed memory, charter | Not started | Not evaluated | Target schemas do not exist. |
 | 3. Default-deny policy, disclosure, capability governance | Not started | Not evaluated | Existing logic is retained evidence, not target completion. |
 | 4. Two-assistant household proof | Not started | Not evaluated | No household isolation demonstration exists. |
@@ -63,14 +63,17 @@ Two schema copies remain intentionally marked `migration-required`; the drift
 validator warns but prevents untracked canonical drift. The expired-consent-token
 test now matches the secure implementation and proves expiration is rejected.
 
-## Remaining gate-verification item
+## Final Phase 0 gate decision
 
-1. Record the human Phase 0 gate decision.
+The final Phase 0 gate was approved on 2026-07-21 after the named publication
+checks completed. Phase 0 is **Complete**. Phase 1 remains **Not started** and
+requires separate explicit authorization.
 
-The named publication checks are complete. The schema-only orchestrator pull
-request still exposes pre-existing repository-level CI/container failures that
-also occur on its unchanged `main` baseline; the schema-dependent orchestrator
-suite passes all 203 tests in workspace CI and the clean clone.
+The schema-only orchestrator pull request still exposes pre-existing
+repository-level CI/container failures that also occur on its unchanged `main`
+baseline; the schema-dependent orchestrator suite passes all 203 tests in
+workspace CI and the clean clone. The baseline orchestrator failures remain
+tracked debt and are not represented as resolved by the Phase 0 gate.
 
 ## Decisions awaiting human review
 
@@ -80,6 +83,5 @@ security review before their implementation.
 
 ## Next authorized action
 
-Review the completed Phase 0 acceptance evidence and record the final gate
-decision. Do not begin Phase 1 unless it receives separate authorization after
-the Phase 0 decision.
+Maintain the Phase 0 evidence and review its published changes. Do not begin
+Phase 1 unless it receives separate explicit authorization.
