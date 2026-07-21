@@ -1,6 +1,7 @@
 # Unison phase status
 
-Status date: 2026-07-20  
+Status date: 2026-07-21
+
 Plan version: 0.1
 
 ## Status rules
@@ -18,7 +19,7 @@ credited as implemented.
 
 | Phase | Status | Gate | Summary |
 | --- | --- | --- | --- |
-| 0. Repository truth and architecture reconciliation | In review | Ready for human review; not passed | Local closeout candidate and evidence package complete; publication CI/fresh-clone checks remain after commit/push. |
+| 0. Repository truth and architecture reconciliation | In review | Ready for final human decision; not passed | Publication, workspace CI, security scans, and fresh-clone evidence are complete. |
 | 1. Multi-principal identity and trusted request binding | Not started | Not evaluated | No implementation authorized before the final Phase 0 gate decision. |
 | 2. Context spaces, relationships, governed memory, charter | Not started | Not evaluated | Target schemas do not exist. |
 | 3. Default-deny policy, disclosure, capability governance | Not started | Not evaluated | Existing logic is retained evidence, not target completion. |
@@ -51,6 +52,8 @@ candidate includes:
 | `./scripts/validate-phase0.sh` | Pass: manifests, schemas, fixtures, threat map, both Compose profiles, shell syntax |
 | `.\scripts\unison.ps1 validate-phase0` | Pass; delegated to the authoritative WSL path |
 | Core unit suites | 596 passed, 1 skipped |
+| Workspace GitHub Actions | Pass: Linux Phase 0/unit, Windows parser, Bandit, Semgrep, Trivy, SBOM |
+| Fresh recursive clone | Pass at `9c7abc1874876a8fc8a4425a839fa3f7454d0be6` |
 | MkDocs clean strict build | Pass |
 | JSDOM/axe | 45 generated pages, zero WCAG A/AA violation groups |
 | Chromium/Playwright/axe | 42 substantive pages, zero WCAG A/AA violation groups |
@@ -60,15 +63,14 @@ Two schema copies remain intentionally marked `migration-required`; the drift
 validator warns but prevents untracked canonical drift. The expired-consent-token
 test now matches the secure implementation and proves expiration is rejected.
 
-## Remaining gate-verification items
+## Remaining gate-verification item
 
-These require publication of the reviewed working tree and therefore are not
-performed implicitly:
+1. Record the human Phase 0 gate decision.
 
-1. Capture successful GitHub Actions links for the Linux and Windows jobs.
-2. Run the documented sequence from a genuinely fresh clone and confirm the
-   repaired context gitlink resolves.
-3. Record the human Phase 0 gate decision.
+The named publication checks are complete. The schema-only orchestrator pull
+request still exposes pre-existing repository-level CI/container failures that
+also occur on its unchanged `main` baseline; the schema-dependent orchestrator
+suite passes all 203 tests in workspace CI and the clean clone.
 
 ## Decisions awaiting human review
 
@@ -78,6 +80,6 @@ security review before their implementation.
 
 ## Next authorized action
 
-Review the Phase 0 acceptance evidence and working-tree changes. If accepted,
-publish them and complete the two publication checks. Do not begin Phase 1 until
-the final Phase 0 gate decision is recorded.
+Review the completed Phase 0 acceptance evidence and record the final gate
+decision. Do not begin Phase 1 unless it receives separate authorization after
+the Phase 0 decision.

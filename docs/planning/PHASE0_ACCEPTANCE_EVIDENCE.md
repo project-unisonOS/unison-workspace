@@ -1,7 +1,9 @@
 # Phase 0 acceptance evidence package
 
-Status: **Ready for human review; gate not yet approved**  
-Evidence date: 2026-07-20  
+Status: **Ready for final human gate decision; gate not yet approved**
+
+Evidence date: 2026-07-21
+
 Environment: WSL2 Ubuntu 24.04, Python 3.12.3, Docker Compose v2, Chromium via Playwright
 
 ## Decision and scope evidence
@@ -41,6 +43,7 @@ installers emit deprecation warnings and are not presented as appliance installe
 | Shell syntax | Pass |
 | PowerShell parser/delegation | Pass locally; Windows CI parser job added |
 | Core Python unit suites | Pass: 596 passed, 1 skipped |
+| Python security workflow | Pass: Bandit, Semgrep, Trivy filesystem scan, and SBOM |
 | MkDocs clean strict build | Pass: 45 generated pages including redirect stubs |
 | JSDOM/axe baseline | Pass: 45 pages, zero WCAG A/AA violation groups |
 | Chromium/Playwright/axe | Pass: 42 substantive pages, zero WCAG A/AA violation groups |
@@ -50,6 +53,42 @@ installers emit deprecation warnings and are not presented as appliance installe
 Unit totals: common 248 pass/1 skip; auth 19; consent 12; context 18;
 storage 3; policy 71; renderer 22; orchestrator 203. The harness uses temporary
 key directories and disables exporter delivery without disabling tracing behavior.
+
+## Publication and remote CI evidence
+
+| Published check | Result | Evidence |
+| --- | --- | --- |
+| Workspace Linux Phase 0 and unit suites | Pass | [GitHub Actions job](https://github.com/project-unisonOS/unison-workspace/actions/runs/29843469200/job/88677948008) |
+| Workspace Windows PowerShell parser | Pass | [GitHub Actions job](https://github.com/project-unisonOS/unison-workspace/actions/runs/29843469200/job/88677947813) |
+| Workspace security and supply-chain scan | Pass: Bandit, Semgrep, Trivy, SBOM | [GitHub Actions job](https://github.com/project-unisonOS/unison-workspace/actions/runs/29843469200/job/88677948218) |
+| Renderer isolated CI | Pass: 22 tests | [GitHub Actions run](https://github.com/project-unisonOS/unison-experience-renderer/actions/runs/29840419083) |
+| Website build and accessibility | Pass; deploy intentionally skipped for pull request | [GitHub Actions run](https://github.com/project-unisonOS/project-unisonos.github.io/actions/runs/29800442079) |
+
+The reusable Python security workflow is restored at the GitHub-required path
+and pinned by immutable commit `317183a033ed22031a06d6a757f55fd482f0c63f`.
+The renderer installs `unison-common` from immutable commit
+`17ad69a4eb91704f9286dc1694b71c4b455d815a`.
+
+## Fresh-clone evidence
+
+A new recursive clone of workspace commit
+`9c7abc1874876a8fc8a4425a839fa3f7454d0be6` resolved every submodule,
+including the repaired context gitlink, renderer commit
+`b38a7a916ba9969dd3bce2c4921cbb15ee59954a`, and orchestrator commit
+`63f5e2c35e02ee9eafcdc0a98769ed882fc24a4c`. From that clean checkout, the
+documented sequence completed successfully:
+
+```bash
+./scripts/bootstrap-dev.sh
+./scripts/validate-phase0.sh
+./scripts/test-unit.sh
+```
+
+The standalone clone reported absent optional sibling repositories as notes,
+validated the available development Compose profile, and passed all 596 tests
+with one intentional skip. The six existing orchestrator schema contracts are
+now versioned with their consumer, removing the former parent-directory
+dependency.
 
 ## Repository coherence
 
@@ -70,19 +109,22 @@ are present. See `UNISON_WEBSITE_INVENTORY.md` for page dispositions.
 
 ## Review conditions and residual items
 
-The Phase 0 gate remains unapproved until the reviewer accepts this package. Two
-publication checks necessarily remain after the working tree is committed/pushed:
-
-1. Capture GitHub Actions links for the new Linux Phase 0 and Windows wrapper jobs.
-2. Confirm the documented bootstrap from a genuinely fresh clone using the repaired gitlink.
-
-These are gate-verification items, not authorization to begin Phase 1. The two
+The two named publication checks are complete. The Phase 0 gate remains
+unapproved only until the reviewer records the final decision. This is not
+authorization to begin Phase 1. The two
 declared legacy schema copies may migrate later behind the new drift check; they
 cannot regain canonical status. Existing dependency/deprecation warnings and
 unreviewed deep historical website pages are recorded debt, not product guarantees.
 
+The schema-only orchestrator pull request inherits two repository-level failures
+that also fail on its unchanged `main` baseline: an obsolete shared-workflow
+reference and an unauthenticated pull of the private `unison-common-wheel` image.
+The schema change itself passes all 203 orchestrator tests through both the
+workspace Actions job and the clean clone. Those pre-existing orchestrator
+container/CI repairs are recorded debt and are not represented as healthy by
+this package.
+
 ## Requested review decision
 
-Approve or reject the Phase 0 review candidate. If approved, publish the ordered
-repository changes, capture the two CI/fresh-clone results above, and then record
-the final Phase 0 gate decision. Do not begin Phase 1 merely because local checks pass.
+Approve or reject the final Phase 0 gate. If approved, record Phase 0 as complete
+while leaving Phase 1 not started until it receives separate authorization.
