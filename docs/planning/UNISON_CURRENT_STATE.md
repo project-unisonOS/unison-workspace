@@ -82,6 +82,17 @@ Publication, component/workspace Actions, recursive fresh-clone evidence,
 accessibility review, and the final human gate completed on 2026-07-21. Phase 4
 has not started.
 
+## Phase 4 accepted delta
+
+The accepted Phase 4 implementation composes the accepted identity and governed
+context boundaries into a bounded two-independent-adult household proof. It adds
+minimal household administration, explicit shared calendar/grocery contracts,
+coordination with zero private-source reads, fair per-assistant resource budgets,
+non-oracular cross-person denials, removal/key-rotation/restart recovery, and
+accessible household controls. The 50-check proof, hosted CI/security,
+accessibility audit, recursive fresh clone, and human gate passed on 2026-07-21.
+This remains pre-release engineering rather than a supported product release.
+
 ## Reconciled product state
 
 The implemented system is an early, local-first assistant platform assembled as a large Python/FastAPI microservice stack. The completed Phase 1 establishes the first household identity and principal boundary, but the broader household product remains pre-release:

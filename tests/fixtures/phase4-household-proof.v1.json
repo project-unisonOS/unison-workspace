@@ -1,0 +1,25 @@
+{
+  "schema_version": "unison.phase4-household-proof.v1",
+  "synthetic": true,
+  "profile": "two-independent-adults",
+  "people": [
+    {"name": "Alice Example", "login": "alice-proof", "assistant": "assistant-alice"},
+    {"name": "Bob Example", "login": "bob-proof", "assistant": "assistant-bob"}
+  ],
+  "shared_space": {
+    "purpose": "calendar and groceries",
+    "artifact_kinds": ["calendar_event", "grocery_item"]
+  },
+  "resource_policy": {
+    "total_concurrent_tasks": 2,
+    "max_concurrent_tasks_per_assistant": 1,
+    "max_queued_tasks_per_assistant": 4,
+    "memory_mb_per_assistant": 512
+  },
+  "negative_surfaces": [
+    "api", "storage", "search", "cache", "embedding", "prompt", "model",
+    "trace", "log", "audit", "credential", "backup", "error-oracle"
+  ],
+  "excluded_models": ["child", "dependent", "caregiving", "incapacity", "emergency_access"]
+}
+

@@ -33,7 +33,20 @@ docker compose \
 
 platform_dir="${ROOT_DIR}/../unison-platform"
 if [[ -f "${platform_dir}/compose/compose.native.yaml" ]]; then
+  phase0_created_platform_env=false
+  if [[ ! -e "${platform_dir}/.env" ]]; then
+    printf '%s\n' '# Synthetic file created temporarily by validate-phase0.sh.' > "${platform_dir}/.env"
+    phase0_created_platform_env=true
+  fi
+  cleanup_platform_env() {
+    if [[ "$phase0_created_platform_env" == true ]]; then
+      rm -f -- "${platform_dir}/.env"
+    fi
+  }
+  trap cleanup_platform_env EXIT
   docker compose -f "${platform_dir}/compose/compose.native.yaml" config --quiet
+  cleanup_platform_env
+  trap - EXIT
 else
   echo "[phase0] NOTE: sibling unison-platform not present; native profile check skipped."
 fi

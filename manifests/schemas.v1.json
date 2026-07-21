@@ -35,6 +35,16 @@
       ]
     },
     {
+      "name": "household-coordination-v1",
+      "canonical": "unison-common/schemas/household-coordination.v1.schema.json",
+      "legacy_copies": [
+        {
+          "path": "unison-common/src/unison_common/schemas/household-coordination.v1.schema.json",
+          "status": "packaged-copy"
+        }
+      ]
+    },
+    {
       "name": "trust-governance-v1",
       "canonical": "unison-common/schemas/trust-governance.v1.schema.json",
       "legacy_copies": [
