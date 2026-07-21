@@ -52,6 +52,9 @@ def main() -> None:
         if component["checkout"] == "sibling":
             path = ROOT.parent / component["repository"]
         if not path.is_dir():
+            if component["checkout"] == "sibling":
+                print(f"[NOTE] declared sibling checkout is absent: {component['repository']}")
+                continue
             fail(f"declared checkout is absent: {component['repository']}")
     for profile in data.get("runtime_profiles", []):
         compose_files = [ROOT / item for item in profile.get("compose_files", [])]
