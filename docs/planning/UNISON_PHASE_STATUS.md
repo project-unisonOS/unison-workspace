@@ -107,6 +107,6 @@ reserved for a focused security review before their implementation.
 
 ## Next authorized action
 
-Complete the authorized post-Phase 3 technical-debt stabilization sprint and
-return with its closeout evidence. Phase 4 remains **Not started** and is not
+Review the completed post-Phase 3 stabilization evidence in
+`PHASE3_STABILIZATION_EVIDENCE.md`. Phase 4 remains **Not started** and is not
 authorized.
