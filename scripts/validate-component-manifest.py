@@ -4,7 +4,8 @@
 from __future__ import annotations
 
 import json
-import subprocess
+# The subprocess module is used only for the fixed Docker Compose CLI below.
+import subprocess  # nosec B404
 import sys
 from pathlib import Path
 
@@ -65,7 +66,10 @@ def main() -> None:
         for path in compose_files:
             command.extend(["-f", str(path)])
         command.extend(["config", "--services"])
-        result = subprocess.run(command, check=True, capture_output=True, text=True)
+        # The argv list is assembled exclusively from repository-owned constants.
+        result = subprocess.run(  # nosec B603
+            command, check=True, capture_output=True, text=True
+        )
         services = [line for line in result.stdout.splitlines() if line]
         if len(services) != profile.get("service_count"):
             fail(f"runtime profile service drift for {profile['name']}: expected {profile.get('service_count')}, found {len(services)}")
