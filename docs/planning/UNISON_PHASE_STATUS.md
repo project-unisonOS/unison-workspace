@@ -23,7 +23,7 @@ credited as implemented.
 | 1. Multi-principal identity and trusted request binding | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, fresh-clone validation, and review of the retained pre-existing debt. |
 | 2. Context spaces, relationships, governed memory, charter | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, browser accessibility, and recursive fresh-clone validation. |
 | 3. Default-deny policy, disclosure, capability governance | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, accessibility review, and recursive fresh-clone validation. |
-| 4. Two-assistant household proof | In review | Pending human decision | The bounded two-independent-adult candidate, isolation matrix, shared coordination, quotas, accessible controls, and local evidence are ready; publication checks are in progress. |
+| 4. Two-assistant household proof | In review | Pending human decision | The bounded two-independent-adult candidate, isolation matrix, shared coordination, quotas, accessible controls, hosted checks, and fresh-clone evidence are ready. |
 | 5. Channel Gateway and remote text | Not started | Not evaluated | Existing adapters do not satisfy normalized remote-channel requirements. |
 | 6. Provider-blind backup and replacement restore | Not started | Not evaluated | Target cryptographic backup/recovery is not implemented. |
 | 7. High-value assistant workflows | Not started | Not evaluated | Existing Gmail/VDI/briefing slices are prototypes only. |
@@ -102,10 +102,11 @@ record is `PHASE3_ACCEPTANCE_EVIDENCE.md`.
 
 ## Phase 4 review candidate
 
-The authorized Phase 4 implementation and local evidence are ready for review.
+The authorized Phase 4 implementation and evidence are ready for review.
 The authoritative pending-gate record is `PHASE4_ACCEPTANCE_EVIDENCE.md`. Phase 4
-is not Complete until publication, fresh-clone, accessibility, and human gate
-evidence are recorded. Phase 5 remains **Not started**.
+is not Complete until the human gate decision is recorded. Publication,
+fresh-clone, and accessibility evidence are complete. Phase 5 remains **Not
+started**.
 
 ## Decisions awaiting human review
 
@@ -114,5 +115,5 @@ reserved for a focused security review before their implementation.
 
 ## Next authorized action
 
-Complete Phase 4 publication evidence and return the bounded review candidate
-for the human gate decision. Do not begin Phase 5.
+Review the bounded Phase 4 evidence package and decide the final human gate. Do
+not begin Phase 5.

@@ -81,19 +81,45 @@ people, and shared coordination output contains no private canary.
 
 - common contracts `7d8ac82fd5605dba2791c9ed34148c69f40897cc`:
   [unison-common#5](https://github.com/project-unisonOS/unison-common/pull/5)
-- membership administration `5a9efed`:
+- membership administration `5a9efed96568a38a075d568efba0273787dd6fea`:
   [unison-auth#10](https://github.com/project-unisonOS/unison-auth/pull/10)
-- household coordination `9a339f6`:
+- household coordination `9a339f6c17248f3e17f3b2fc1c4e5195504f2447`:
   [unison-context#15](https://github.com/project-unisonOS/unison-context/pull/15)
-- resource scheduler `d0bb761`:
+- resource scheduler `d0bb76106773c13f3d47c51cb437ac126f3fb225`:
   [unison-orchestrator#19](https://github.com/project-unisonOS/unison-orchestrator/pull/19)
-- accessible controls `921fdcf`:
+- accessible controls `921fdcfea564d6405db9cc7fc0138aca816b4059`:
   [unison-experience-renderer#5](https://github.com/project-unisonOS/unison-experience-renderer/pull/5)
-- appliance profile `9678768`:
+- appliance profile `96787683ef12af00e7beaf584c9006f14daf17ca`:
   [unison-platform#7](https://github.com/project-unisonOS/unison-platform/pull/7)
+- integrated workspace `a1909e580b6e38f1669f566b06d8b775a5ecbed9`:
+  [unison-workspace#5](https://github.com/project-unisonOS/unison-workspace/pull/5)
+- public status `339307a85226a916bbfb08064eb331f76ce4c183`:
+  [project-unisonos.github.io#5](https://github.com/project-unisonOS/project-unisonos.github.io/pull/5)
 
-Workspace, public-site, GitHub Actions, and recursive fresh-clone identifiers are
-filled during publication closeout before the final gate decision.
+GitHub-hosted evidence is green where repository workflows exist:
+
+- [common lint, contracts, Python 3.12/3.13, security, build, and package](https://github.com/project-unisonOS/unison-common/actions/runs/29876214748)
+- [context tests](https://github.com/project-unisonOS/unison-context/actions/runs/29876218835)
+  and [container build](https://github.com/project-unisonOS/unison-context/actions/runs/29876218844)
+- [orchestrator tests](https://github.com/project-unisonOS/unison-orchestrator/actions/runs/29876221225)
+  and [container build](https://github.com/project-unisonOS/unison-orchestrator/actions/runs/29876221186)
+- [renderer tests](https://github.com/project-unisonOS/unison-experience-renderer/actions/runs/29876223122)
+- [workspace static, unit, Phase 1–4, Windows, Bandit, Semgrep, Trivy, and SBOM gates](https://github.com/project-unisonOS/unison-workspace/actions/runs/29877079547)
+- [site strict build and browser accessibility](https://github.com/project-unisonOS/project-unisonos.github.io/actions/runs/29876862543)
+
+Auth and platform do not currently define repository-owned Actions workflows.
+Their suites/configuration run locally and from the workspace's pinned recursive
+checkout; this absence is reported rather than represented as hosted evidence.
+
+## Fresh-clone evidence
+
+A new recursive clone of workspace commit
+`a1909e580b6e38f1669f566b06d8b775a5ecbed9` initialized all 19 submodules,
+including the five Phase 4 component pins above. From only that clone, the locked
+Python 3.12 bootstrap, Phase 0 static validation, Phase 1 trusted-principal gate,
+Phase 2 governed-context gate, Phase 3 trust-governance gate, and 50-check Phase 4
+household proof passed. The synthetic Phase 4 runtime was 321.47 ms. The temporary
+clone was deleted after its commit and gitlink evidence was recorded.
 
 ## Known limitations
 
@@ -110,6 +136,7 @@ filled during publication closeout before the final gate decision.
 
 ## Gate condition
 
-Phase 4 remains **In review** until component/workspace/site Actions, a recursive
-fresh clone, published accessibility evidence, and human approval are recorded.
-Phase 5 is **Not started** and is not authorized by this candidate.
+Phase 4 remains **In review** until human approval is recorded. Component,
+workspace, and site Actions; recursive fresh-clone validation; and published
+accessibility evidence are complete. Phase 5 is **Not started** and is not
+authorized by this candidate.
