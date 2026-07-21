@@ -19,6 +19,7 @@ repos=(
   unison-policy
   unison-experience-renderer
   unison-capability
+  unison-inference
   unison-payments
   unison-orchestrator
 )

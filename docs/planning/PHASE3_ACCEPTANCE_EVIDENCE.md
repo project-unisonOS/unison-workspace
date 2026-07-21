@@ -85,6 +85,12 @@ Actions workflows. Their component suites run locally and are pinned and rerun b
 the workspace Phase 3 and expanded unit gates; this absence is reported rather
 than represented as hosted evidence.
 
+Post-gate note: the separately authorized stabilization sprint added
+repository-owned security workflows to all three repositories and repaired the
+enumerated inference regressions. Its immutable results are recorded in
+`PHASE3_STABILIZATION_EVIDENCE.md`; the paragraph above remains the historical
+state at the Phase 3 gate.
+
 ## Fresh-clone evidence
 
 A new recursive clone of workspace commit

@@ -13,7 +13,10 @@ Environment: WSL2 Ubuntu 24.04, Python 3.12.3, Docker Compose v2, Chromium via P
 - AD-001 through AD-025 are recorded as accepted; recommendations 1–9 were approved on 2026-07-20.
 - The six-boundary topology is recorded without beginning its Phase 1 runtime migration.
 - `manifests/components.v1.json` maps 35 repositories/support components to an owner, maturity, target boundary, and disposition and drift-checks both current Compose profiles.
-- `manifests/schemas.v1.json` declares `unison-common/schemas` authoritative. Two legacy copies differ and are explicitly marked `migration-required`; they are not treated as canonical.
+- `manifests/schemas.v1.json` declares `unison-common/schemas` authoritative. At
+  the Phase 0 gate, two legacy copies were explicitly marked
+  `migration-required`; the post-Phase 3 stabilization sprint subsequently
+  resolved both without changing the authority rule.
 - `tests/security/phase0-boundary-test-map.json` maps all threats T-01 through T-30 to planned phase evidence.
 - The synthetic two-adult fixture contains independent private canaries and one explicitly shared household space.
 

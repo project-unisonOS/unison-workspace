@@ -59,9 +59,10 @@ candidate includes:
 | Chromium/Playwright/axe | 42 substantive pages, zero WCAG A/AA violation groups |
 | Internal links and preference smoke | 1,767 links resolve; skip-link keyboard order, reduced motion, and forced colors pass |
 
-Two schema copies remain intentionally marked `migration-required`; the drift
-validator warns but prevents untracked canonical drift. The expired-consent-token
-test now matches the secure implementation and proves expiration is rejected.
+The post-Phase 3 stabilization sprint removed the obsolete event-envelope copy
+and promoted the complete multimodal schema into canonical authority; schema
+validation now reports zero migration items. The expired-consent-token test
+matches the secure implementation and proves expiration is rejected.
 
 ## Final Phase 0 gate decision
 

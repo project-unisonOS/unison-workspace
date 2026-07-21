@@ -5,15 +5,13 @@
     {
       "name": "event-envelope",
       "canonical": "unison-common/schemas/event-envelope.json",
-      "legacy_copies": [
-        {"path": "unison-docs/dev/specs/event-envelope.schema.json", "status": "migration-required"}
-      ]
+      "legacy_copies": []
     },
     {
       "name": "multimodal-manifest",
       "canonical": "unison-common/schemas/multimodal_manifest.schema.json",
       "legacy_copies": [
-        {"path": "unison-common/src/unison_common/schemas/multimodal_manifest.schema.json", "status": "migration-required"}
+        {"path": "unison-common/src/unison_common/schemas/multimodal_manifest.schema.json", "status": "packaged-copy"}
       ]
     },
     {
