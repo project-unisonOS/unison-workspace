@@ -5,3 +5,4 @@ m4_test_token.txt
 __pycache__/
 .DS_Store
 .venv/
+data/*.db

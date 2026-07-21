@@ -23,6 +23,8 @@ jobs:
         run: ./scripts/test-unit.sh
       - name: Validate Phase 1 trusted-principal boundaries
         run: ./scripts/test-phase1.sh
+      - name: Validate Phase 2 governed-context boundaries
+        run: ./scripts/test-phase2.sh
 
   powershell-wrapper-static:
     runs-on: windows-2025
@@ -44,7 +46,14 @@ jobs:
           }
 
   python-security:
-    uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@317183a033ed22031a06d6a757f55fd482f0c63f
+    uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@352fdb0092da216d48062549598740c14eb37e53
     with:
       python-version: "3.12"
       working-directory: "."
+      dependency-file: requirements-dev.lock
+      checkout-submodules: true
+      unison-common-ref: "f17a28de8421fabf94118375e7be98b4ca5eee97"
+      pytest-targets: tests/security
+      trivy-scan-ref: requirements-dev.lock
+      # Container ingress binds and non-production fallback paths are reviewed separately.
+      bandit-skips: "B104,B108"

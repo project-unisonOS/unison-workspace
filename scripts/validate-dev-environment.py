@@ -17,6 +17,7 @@ REQUIRED_IMPORTS = {
     "fastapi": "fastapi",
     "httpx": "httpx",
     "jose": "python-jose",
+    "neo4j": "neo4j",
     "passlib": "passlib",
     "pydantic": "pydantic",
     "pytest": "pytest",

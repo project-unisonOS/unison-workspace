@@ -49,12 +49,32 @@ roots. Published CI and fresh-clone evidence passed and the Phase 1 gate was
 approved on 2026-07-21; context spaces and remote channel assurance remain later
 phases.
 
+## Phase 2 accepted delta
+
+The accepted Phase 2 implementation adds canonical governed-context v2 contracts and a durable,
+migration-managed repository in `unison-context`. Every assistant can own an
+independent private space; shared spaces require explicit creation, invitation,
+and acceptance. Relationship edges provide context but never membership. Search,
+summary/index records, and prompt assembly are authorized by explicit spaces,
+with purpose restrictions and restrictive inference/action/disclosure/backup/sync
+defaults.
+
+Memory admission distinguishes assertions, imports, hypotheses, corrections,
+summaries, indexes, calendar events, and groceries. Correction history and
+provenance survive restart; deletion and retention redact current and historical
+content. Explicit sharing creates an auditable copy without reclassifying the
+private source. Member removal revokes access and advances the space key version.
+The renderer exposes semantic, keyboard-native inspection, space, correction,
+deletion, share-preview, charter, goal, and commitment controls. Publication,
+component/workspace CI, browser accessibility, recursive fresh-clone evidence,
+and the final human gate were completed on 2026-07-21.
+
 ## Reconciled product state
 
 The implemented system is an early, local-first assistant platform assembled as a large Python/FastAPI microservice stack. The completed Phase 1 establishes the first household identity and principal boundary, but the broader household product remains pre-release:
 
 - protected Phase 1 services bind authenticated people and workloads, but remaining optional modality/research services still require later integration review;
-- household and membership now exist, while relationship, context-space, personal-charter, goal, and commitment models remain Phase 2 work;
+- household identity plus governed relationship, context-space, charter, goal, and commitment models are implemented in the Phase 2 review candidate;
 - per-person credentials, encryption keys, data/cache/index namespaces, and audit ownership exist locally; provider-blind backup domains remain Phase 6 work;
 - policy and consent do not yet provide default-deny disclosure decisions over purpose, audience, relationship, sensitivity, and channel assurance;
 - remote channels and provider-blind encrypted backup are not implemented as product subsystems.
@@ -144,7 +164,7 @@ Useful retained contracts exist, but there are multiple copies and incompatible 
 
 - `unison-auth` uses SQLite migration v1 for the Phase 1 identity graph and binds signed tokens to active membership, assistant, resource handles, session, audience, and assurance.
 - Revocation/introspection failure is fail closed for protected operations.
-- `unison-context` rejects mismatched identity hints and derives person/cache/index authority from signed context.
+- `unison-context` rejects mismatched identity hints, derives person/cache/index authority from signed context, and is the authoritative governed-context v2 repository/API.
 - Profile/dashboard encryption derives purpose-specific keys from the person's opaque key handle and fails closed in the hardened product profile.
 - `unison-context-graph` uses `user_id`, while newer contracts prefer `person_id`.
 - `unison-storage` derives data, memory, vault, audit, and object ownership from the signed person and prefixes namespaces before lookup.
