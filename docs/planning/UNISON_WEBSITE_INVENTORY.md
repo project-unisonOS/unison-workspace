@@ -1,6 +1,6 @@
 # Unison public website inventory
 
-Status: Phase 1 review candidate
+Status: Phase 1 complete
 Inventory date: 2026-07-21
 
 ## Disposition vocabulary
@@ -26,8 +26,8 @@ Inventory date: 2026-07-21
 
 ## Phase 1 claim delta
 
-`current-status` now identifies Phase 0 as complete and Phase 1 as a review
-candidate. It lists the implemented local identity/principal foundations while
+`current-status` now identifies Phases 0 and 1 as complete. It lists the
+implemented local identity/principal foundations while
 keeping relationship context spaces, remote channels, backup, and the supported
 appliance explicitly incomplete. `terminology` now distinguishes Person,
 Principal, Assistant instance, Household membership, and Channel identity.

@@ -1,6 +1,6 @@
 # Principal and household trust boundary
 
-Status: Phase 1 review candidate
+Status: Phase 1 accepted architecture (gate approved 2026-07-21)
 Contract version: `PrincipalContext` v1
 Database migration: `0001_phase1_identity.sql`
 

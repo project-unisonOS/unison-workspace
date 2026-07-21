@@ -1,8 +1,9 @@
 # Phase 1 acceptance evidence
 
-Status: review candidate
+Status: Complete
 Prepared: 2026-07-21
 Gate owner: human architecture/security review
+Gate decision: Approved 2026-07-21
 
 ## Acceptance mapping
 
@@ -91,7 +92,8 @@ Published component commits:
 | `project-unisonos.github.io` | `7a345d7ba13a4c7547b7b1f0e06bdf1d6dfe7424` |
 
 Workspace implementation and gitlinks are published through
-`a06949b` on `agent/phase1-trusted-identity`.
+`a06949b` on `agent/phase1-trusted-identity`; the acceptance evidence is published
+through `061cb33`.
 
 ## Review pull requests
 
@@ -153,7 +155,7 @@ development checkout.
 ## Tracked pre-existing CI debt
 
 The following failures reproduce on each repository's default branch and are
-not caused by the Phase 1 candidate:
+not caused by the accepted Phase 1 changes:
 
 - `unison-common` has legacy whole-repository lint, Bandit, packaging, and
   dependency-install failures ([candidate run](https://github.com/project-unisonOS/unison-common/actions/runs/29852017610)).
@@ -165,5 +167,10 @@ not caused by the Phase 1 candidate:
 - Platform actionlint reports the pre-existing `release.yml` SC2231 warning
   ([candidate run](https://github.com/project-unisonOS/unison-platform/actions/runs/29852055009)).
 
-Phase 1 remains **In review** until this publication section is complete and the
-human gate is approved. Phase 2 is not authorized by this candidate.
+## Final gate decision
+
+The human architecture/security gate was approved on 2026-07-21 after review of
+the publication, GitHub Actions, fresh-clone, isolation, migration, accessibility,
+and security evidence above. Phase 1 is **Complete**. The enumerated pre-existing
+CI/container failures remain tracked debt. Phase 2 is **Not started** and is not
+authorized without a separate decision.

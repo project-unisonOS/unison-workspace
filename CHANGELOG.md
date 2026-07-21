@@ -24,6 +24,7 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- The final Phase 1 gate was approved on 2026-07-21; Phase 1 is recorded Complete and Phase 2 remains Not started and unauthorized.
 - Protected orchestrator, context, storage, renderer, policy, consent, payments, communications, capability, replay, and actuation paths now derive authority from the verified principal instead of caller identity hints.
 - Context, storage, communications, cache, index, replay, vault, object, audit, and payment paths use person-specific namespace or key handles.
 - The hardened Compose profile disables reusable broad service secrets and static/HS256 authentication in favor of audience-scoped signed tokens and unique service root keys.
@@ -39,5 +40,5 @@ All notable workspace-level architecture, planning, migration, and product-statu
 ### Known issues
 
 - Two declared non-authoritative schema copies differ from their canonical `unison-common/schemas` sources and remain migration items.
-- Remote CI links and a truly fresh-clone run can only be captured after the review candidate is committed and published.
+- The enumerated pre-existing `unison-common`, private-GHCR container, orchestrator, and platform actionlint failures remain tracked debt after the Phase 1 gate.
 - Deep historical website pages still require phase-specific claim review even though the new entry pages state maturity accurately.

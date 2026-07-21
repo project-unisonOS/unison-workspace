@@ -32,7 +32,7 @@ than completed product features.
 
 ## Phase 1 implementation delta
 
-The review candidate replaces JSON identity authority with a migration-managed
+The accepted Phase 1 implementation replaces JSON identity authority with a migration-managed
 transactional store and introduces stable people, assistant instances, households,
 memberships, login accounts, devices, channel identities, workload principals,
 sessions, passkeys, invitations, and per-person isolation handles. Signed
@@ -45,13 +45,13 @@ communications, capability, replay, and actuation paths now consume derived
 principal context. Context/storage/comms caches, credentials, objects, vault,
 audit, replay, payment, and local message data are owner-partitioned. The hardened
 Compose overlay disables reusable static/HS256 secrets and requires unique key
-roots. These are Phase 1 candidate claims pending published CI/fresh-clone evidence
-and human gate approval; context spaces and remote channel assurance remain later
+roots. Published CI and fresh-clone evidence passed and the Phase 1 gate was
+approved on 2026-07-21; context spaces and remote channel assurance remain later
 phases.
 
 ## Reconciled product state
 
-The implemented system is an early, local-first assistant platform assembled as a large Python/FastAPI microservice stack. The Phase 1 candidate establishes the first household identity and principal boundary, but the broader household product remains pre-release:
+The implemented system is an early, local-first assistant platform assembled as a large Python/FastAPI microservice stack. The completed Phase 1 establishes the first household identity and principal boundary, but the broader household product remains pre-release:
 
 - protected Phase 1 services bind authenticated people and workloads, but remaining optional modality/research services still require later integration review;
 - household and membership now exist, while relationship, context-space, personal-charter, goal, and commitment models remain Phase 2 work;
@@ -127,7 +127,7 @@ The native installer shell scripts pass `bash -n`. A real Ubuntu install, reboot
 - `scripts/unison.ps1` is a thin Windows wrapper that validates WSL availability and delegates to the same commands.
 - The devstack `install.ps1` and `install.sh` remain only for migration history and emit explicit deprecation warnings; they are not appliance installers.
 - `scripts/sync.sh` now fails loudly and resolves each submodule's upstream default branch.
-- The review candidate replaces unavailable context gitlink `60e5e8a` with valid `origin/main` commit `852bef92ab79e0422be17651a5345631ac35063c`; publication/fresh-clone verification remains part of the gate review.
+- Phase 0 replaced unavailable context gitlink `60e5e8a` with valid `origin/main` commit `852bef92ab79e0422be17651a5345631ac35063c`; publication and fresh-clone verification passed its gate.
 
 ## Contracts and schemas
 
@@ -188,10 +188,11 @@ The shared WSL virtual environment used Python 3.12.3, pytest 8.3.3, FastAPI 0.1
 | Native Compose config | passed | Supported native bundle parses when invoked alone |
 | Native install and E2E | not run | Requires representative target and explicit evidence run |
 
-Repository CI remains inconsistent across sibling repos. The Phase 0 review candidate
-adds workspace Linux bootstrap/static/unit enforcement and Windows wrapper parsing,
-while retaining the reusable security job. All newly touched action references are
-pinned to commit SHAs. Remote execution links remain a post-publication gate check.
+Repository CI remains inconsistent across sibling repos. Phase 0 added workspace
+Linux bootstrap/static/unit enforcement and Windows wrapper parsing while retaining
+the reusable security job. Phase 1 workspace and security Actions passed, and the
+published evidence identifies the pre-existing sibling CI/container failures that
+remain tracked debt. All newly touched action references are pinned to commit SHAs.
 
 ## Public website findings
 

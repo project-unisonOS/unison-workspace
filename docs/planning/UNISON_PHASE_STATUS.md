@@ -20,7 +20,7 @@ credited as implemented.
 | Phase | Status | Gate | Summary |
 | --- | --- | --- | --- |
 | 0. Repository truth and architecture reconciliation | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, and fresh-clone evidence. |
-| 1. Multi-principal identity and trusted request binding | In review | Local acceptance candidate ready | Trusted identity, household membership, per-person isolation, migration, protected-service binding, and accessible enrollment are implemented; publication/CI/fresh-clone evidence and human approval remain. |
+| 1. Multi-principal identity and trusted request binding | Complete | Passed 2026-07-21 | Final gate approved after publication, green workspace CI/security scans, fresh-clone validation, and review of the retained pre-existing debt. |
 | 2. Context spaces, relationships, governed memory, charter | Not started | Not evaluated | Target schemas do not exist. |
 | 3. Default-deny policy, disclosure, capability governance | Not started | Not evaluated | Existing logic is retained evidence, not target completion. |
 | 4. Two-assistant household proof | Not started | Not evaluated | No household isolation demonstration exists. |
@@ -66,22 +66,27 @@ test now matches the secure implementation and proves expiration is rejected.
 ## Final Phase 0 gate decision
 
 The final Phase 0 gate was approved on 2026-07-21 after the named publication
-checks completed. Phase 0 is **Complete**. Phase 1 was separately authorized on
-2026-07-21 and is now **In review**.
+checks completed. Phase 0 is **Complete**. Phase 1 was separately authorized and
+completed on 2026-07-21.
 
-## Phase 1 review package
+## Phase 1 closeout package
 
-The authoritative candidate evidence is in `PHASE1_ACCEPTANCE_EVIDENCE.md`. It
+The authoritative acceptance evidence is in `PHASE1_ACCEPTANCE_EVIDENCE.md`. It
 includes identity migration v1, signed principal contracts, endpoint coverage,
 two-person negative tests, key/log canaries, accessible enrollment, and a hardened
-security Compose overlay. Publication, remote CI, recursive fresh-clone, and the
-final human gate decision remain before Phase 1 can be marked Complete.
+security Compose overlay. Publication, remote CI, recursive fresh-clone validation,
+and the final human gate decision are complete.
 
-The schema-only orchestrator pull request still exposes pre-existing
-repository-level CI/container failures that also occur on its unchanged `main`
-baseline; the schema-dependent orchestrator suite passes all 203 tests in
-workspace CI and the clean clone. The baseline orchestrator failures remain
-tracked debt and are not represented as resolved by the Phase 0 gate.
+## Final Phase 1 gate decision
+
+The final Phase 1 gate was approved on 2026-07-21. Phase 1 is **Complete** and
+Phase 2 is **Not started**. The approval retains these enumerated pre-existing
+CI/container failures as tracked debt rather than representing them as resolved:
+
+- `unison-common` whole-repository lint, Bandit, packaging, and dependency-install failures;
+- private GHCR `unison-common-wheel` authentication failures in context, storage, and policy container builds;
+- orchestrator repository-level test and container failures that reproduce on its unchanged `main` baseline; and
+- the pre-existing platform `release.yml` actionlint SC2231 warning.
 
 ## Decisions awaiting human review
 
@@ -91,5 +96,5 @@ security review before their implementation.
 
 ## Next authorized action
 
-Publish and review the Phase 1 candidate evidence. Do not begin Phase 2 without a
-separate explicit authorization after the Phase 1 gate is approved.
+No Phase 2 implementation is authorized. Do not begin Phase 2 without separate
+explicit authorization.
