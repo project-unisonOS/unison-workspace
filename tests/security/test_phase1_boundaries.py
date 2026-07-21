@@ -10,15 +10,15 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 AUTH_SOURCE = ROOT / "unison-auth" / "src"
-if not AUTH_SOURCE.is_dir():
-    pytest.skip(
-        "cross-repository Phase 1 boundary evidence requires initialized submodules",
-        allow_module_level=True,
+SUBMODULES_AVAILABLE = AUTH_SOURCE.is_dir()
+if SUBMODULES_AVAILABLE:
+    sys.path.insert(0, str(AUTH_SOURCE))
+    from identity_store import IdentityStore  # noqa: E402
+    from unison_common.principal import (  # noqa: E402
+        partition_key,
+        principal_context_from_claims,
+        redact_principal_for_log,
     )
-sys.path.insert(0, str(AUTH_SOURCE))
-
-from identity_store import IdentityStore  # noqa: E402
-from unison_common.principal import partition_key, principal_context_from_claims, redact_principal_for_log  # noqa: E402
 
 
 RESOURCE_TYPES = ("read", "write", "search", "cache", "replay", "object", "vault", "audit")
@@ -73,6 +73,10 @@ def _context(identity, token_id):
     )
 
 
+@pytest.mark.skipif(
+    not SUBMODULES_AVAILABLE,
+    reason="cross-repository Phase 1 boundary evidence requires initialized submodules",
+)
 def test_two_adults_share_household_but_not_any_private_resource(tmp_path):
     store = IdentityStore(str(tmp_path / "identity.db"))
     alice = _identity(store, "alice")
