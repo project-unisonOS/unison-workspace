@@ -2,7 +2,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path[:0] = [str(ROOT / "unison-comms" / "src"), str(ROOT / "unison-auth" / "src")]
+sys.path[:0] = [
+    str(ROOT / "unison-comms" / "src"),
+    str(ROOT / "unison-auth" / "src"),
+    str(ROOT / "unison-common" / "src"),
+]
 
 from channel_gateway import ChannelGateway, FakeTelegramProvider  # noqa: E402
 from identity_store import IdentityStore  # noqa: E402
