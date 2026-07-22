@@ -9,10 +9,10 @@ jobs:
   phase0-static-and-unit:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           submodules: recursive
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
       - name: Bootstrap deterministic development environment
@@ -35,7 +35,7 @@ jobs:
   powershell-wrapper-static:
     runs-on: windows-2025
     steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Parse thin PowerShell wrapper
         shell: pwsh
         run: |
@@ -52,7 +52,7 @@ jobs:
           }
 
   python-security:
-    uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@45118ffb52ee397cf7a510767154ee5b3705a850
+    uses: project-unisonOS/.github/.github/workflows/reusable-python-security.yml@7b392529550f2963dc0022428e873ddb17cdedd4
     with:
       python-version: "3.12"
       working-directory: "."
