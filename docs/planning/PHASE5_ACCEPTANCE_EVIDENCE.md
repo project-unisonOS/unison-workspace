@@ -1,12 +1,12 @@
 # Phase 5 acceptance evidence
 
-Status: In review
+Status: Complete
 
 Prepared: 2026-07-21
 
 Gate owner: human architecture/security review
 
-Gate decision: Pending
+Gate decision: Approved 2026-07-21
 
 ## Bounded acceptance claim
 
@@ -106,6 +106,6 @@ The same isolated checkout was fast-forwarded to `c2ef7935c5f5e3f816158517284eee
 - Host-root compromise, hardware-backed key sealing, provider-blind backup, and replacement-device restore remain outside Phase 5. Phase 6 is not started.
 - SMS, WhatsApp, voice calls, Telegram groups, media/attachments, and additional adapters are not authorized by this gate.
 
-## Gate recommendation
+## Final gate decision
 
-The named candidates are pinned, applicable component/site Actions pass, the isolated recursive fresh-clone and regression gates pass, and browser accessibility and network exposure evidence are recorded. The recommendation is to approve Phase 5. Approval would mark Phase 5 **Complete** and keep Phase 6 **Not started**.
+The final Phase 5 gate was approved on 2026-07-21 after the named candidates were pinned and the component, workspace, and site Actions; isolated recursive fresh-clone regression; browser accessibility; and network exposure evidence passed. Phase 5 is **Complete**. Phase 6 remains **Not started** and requires separate authorization.

@@ -91,16 +91,16 @@ accessible household controls. The 50-check proof, hosted CI/security,
 accessibility audit, recursive fresh clone, and human gate passed on 2026-07-21.
 This remains pre-release engineering rather than a supported product release.
 
-## Phase 5 review candidate
+## Phase 5 accepted boundary
 
-The Phase 5 candidate adds canonical remote-channel contracts, auth-owned strong
+The accepted Phase 5 boundary adds canonical remote-channel contracts, auth-owned strong
 local pairing and revocation, a Telegram private-chat long-poll adapter, encrypted
 per-person provider accounts and drafts, replay/rate/outage defenses, low-assurance
 step-up, orchestration guards, accessible disclosure/recovery controls, and a
 private-network deployment with no inbound appliance listener. It preserves the
 Gmail adapter and validates the provider path with a credential-free fake. This
-candidate is implemented and published for review but is not accepted as complete
-until the final human gate.
+boundary passed its final human architecture/security gate on 2026-07-21. Phase 6
+provider-blind backup and replacement restore remain not started.
 
 ## Reconciled product state
 
@@ -110,7 +110,7 @@ The implemented system is an early, local-first assistant platform assembled as 
 - household identity plus governed relationship, context-space, charter, goal, and commitment models are implemented in accepted Phase 2;
 - per-person credentials, encryption keys, data/cache/index namespaces, and audit ownership exist locally; provider-blind backup domains remain Phase 6 work;
 - accepted Phase 3 provides default-deny disclosure decisions over purpose, audience, relationship, sensitivity, and channel assurance;
-- a bounded Telegram remote-text candidate is in review; provider-blind encrypted backup remains Phase 6 work.
+- a bounded Telegram remote-text boundary is accepted for low-assurance private-chat access; provider-blind encrypted backup remains unstarted Phase 6 work.
 
 The current product should therefore be described publicly as an experimental developer platform with a native-install path under active validation, not as a production private household assistant.
 

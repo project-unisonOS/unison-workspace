@@ -114,6 +114,12 @@ reserved for a focused security review before their implementation.
 
 ## Next authorized action
 
-Finish Phase 5 publication, hosted Actions, browser accessibility, network scan,
-and recursive fresh-clone evidence; then return for the final human Phase 5 gate.
-Phase 6 remains **Not started** and is not authorized.
+Record and publish the approved Phase 5 gate, merge its candidates in dependency-safe
+order, and correct repository-owned post-merge CI failures. Phase 6 remains **Not
+started** and is not authorized.
+
+## Final Phase 5 gate decision
+
+The final Phase 5 gate was approved on 2026-07-21. Phase 5 is **Complete**. The
+authoritative closeout record is `PHASE5_ACCEPTANCE_EVIDENCE.md`. Phase 6 remains
+**Not started** and requires separate authorization.
