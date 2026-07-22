@@ -1,5 +1,8 @@
 from pathlib import Path
 
+from channel_gateway import ChannelGateway, FakeTelegramProvider
+from identity_store import IdentityStore
+
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -37,3 +40,37 @@ def test_provider_disclosure_and_fake_conformance_are_credential_free():
     assert "FakeTelegramProvider" in test_source
     assert "api.telegram.org" not in test_source
     assert "real credential" in guide
+
+
+def test_real_auth_binding_authority_composes_with_gateway(tmp_path):
+    now = 1_800_000_000.0
+    identity = IdentityStore(str(tmp_path / "identity.db"))
+    person = identity.bootstrap_first_person(
+        confirmed=True, login_handle="alex", display_name="Alex", household_name="Home", password_hash="hash"
+    )
+    provider = FakeTelegramProvider()
+    gateway = ChannelGateway(
+        str(tmp_path / "channels.db"), "workspace-integration-root-key-material", identity,
+        lambda _token: provider, now=lambda: now,
+    )
+    account = "bot-alex"
+    gateway.register_telegram_account(
+        person_id=person["person_id"], provider_account_id=account, token="synthetic-not-real", bot_id="bot-1"
+    )
+    code, _ = identity.create_channel_pairing(
+        person_id=person["person_id"], provider="telegram", provider_account_id=account,
+        local_assurance="passkey",
+    )
+    provider.updates = [{
+        "update_id": 1,
+        "message": {"date": int(now), "text": f"/pair {code}", "from": {"id": 101}, "chat": {"id": 101, "type": "private"}},
+    }]
+    assert gateway.poll(account)[0].status == "paired"
+    provider.updates = [{
+        "update_id": 2,
+        "message": {"date": int(now), "text": "summarize my day", "from": {"id": 101}, "chat": {"id": 101, "type": "private"}},
+    }]
+    accepted = gateway.poll(account)[0]
+    assert accepted.status == "accepted"
+    assert accepted.envelope.bound_person_id == person["person_id"]
+    assert accepted.envelope.bound_assistant_instance_id == person["assistant_instance_id"]
