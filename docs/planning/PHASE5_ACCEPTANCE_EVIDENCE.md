@@ -74,7 +74,7 @@ All candidates remain draft and unmerged pending the human gate.
 | `unison-orchestrator` | `9835162665b3ab6d17a445416569b8acfe982c8b` |
 | `unison-experience-renderer` | `967062b0d86541b1840071d1e41d02ac10a68b77` |
 | `unison-platform` | `3f855843796a2159726d5ae07acdf0f65490a74a` |
-| `unison-workspace` implementation pin | `c2ef7935c5f5e3f816158517284eeeece19f929b` |
+| `unison-workspace` review head | `7eb3f1c24f68d4d02e86f85f8fc7d83b0a1c2013` |
 | `project-unisonos.github.io` | `7717b5adf980b3953c4d27b03ce3194b71ec3538` |
 
 The workspace gitlinks pin every Phase 5 component commit. The capability compatibility commit removes a top-level module name that shadowed Python's standard-library `secrets` module under the security-fixed Starlette runtime; it changes no authorization behavior.
@@ -87,7 +87,7 @@ The workspace gitlinks pin every Phase 5 component commit. The capability compat
 - Orchestrator: [run 29881720677](https://github.com/project-unisonOS/unison-orchestrator/actions/runs/29881720677) and its companion test/build runs passed.
 - Renderer: [run 29882496916](https://github.com/project-unisonOS/unison-experience-renderer/actions/runs/29882496916) passed the full 33-test suite.
 - Public site: [run 29882409330](https://github.com/project-unisonOS/project-unisonos.github.io/actions/runs/29882409330) passed strict MkDocs build and browser accessibility. The audit covered 44 substantive pages and 1,937 internal links, including the remote-assistant page, with zero WCAG A/AA violations.
-- Workspace: the final evidence commit's hosted CI result is recorded on `unison-workspace#6`; the implementation-pin run and final isolated clone provide the same security/integration coverage.
+- Workspace: [run 29884040060](https://github.com/project-unisonOS/unison-workspace/actions/runs/29884040060) passed deterministic bootstrap, Phase 0, the full component regression, Phases 1–5, PowerShell parsing, security tests, Bandit, Semgrep, Trivy filesystem scanning, and SBOM generation.
 
 `unison-auth` and `unison-platform` do not own repository-level required Actions on these candidates. Their full local suites and behavior are exercised through the pinned isolated workspace gate; this absence is visible rather than represented as a hosted pass.
 
