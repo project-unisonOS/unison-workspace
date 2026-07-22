@@ -74,7 +74,7 @@ All candidates remain draft and unmerged pending the human gate.
 | `unison-orchestrator` | `9835162665b3ab6d17a445416569b8acfe982c8b` |
 | `unison-experience-renderer` | `967062b0d86541b1840071d1e41d02ac10a68b77` |
 | `unison-platform` | `3f855843796a2159726d5ae07acdf0f65490a74a` |
-| `unison-workspace` review head | `7eb3f1c24f68d4d02e86f85f8fc7d83b0a1c2013` |
+| `unison-workspace` validated implementation/evidence head | `7eb3f1c24f68d4d02e86f85f8fc7d83b0a1c2013` |
 | `project-unisonos.github.io` | `7717b5adf980b3953c4d27b03ce3194b71ec3538` |
 
 The workspace gitlinks pin every Phase 5 component commit. The capability compatibility commit removes a top-level module name that shadowed Python's standard-library `secrets` module under the security-fixed Starlette runtime; it changes no authorization behavior.
