@@ -16,7 +16,6 @@ export DISABLE_AUTH_FOR_TESTS=true UNISON_PRINCIPAL_BINDING_TEST_BYPASS=true
   "${ROOT_DIR}/unison-experience-renderer/tests/test_phase5_channel_accessibility.py" \
   "${ROOT_DIR}/tests/security/test_phase5_channel_gateway.py"
 
-UNISON_COMPOSE_ENV_FILE=../config/phase5-compose.env \
-  docker compose -f "${ROOT_DIR}/unison-platform/compose/compose.yaml" config --quiet
+"${PYTHON_BIN}" "${ROOT_DIR}/scripts/scan-phase5-network.py"
 
 echo "[PASS] Phase 5 Channel Gateway and remote-text proof passed."
