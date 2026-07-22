@@ -1,10 +1,11 @@
+import sys
 from pathlib import Path
 
-from channel_gateway import ChannelGateway, FakeTelegramProvider
-from identity_store import IdentityStore
-
-
 ROOT = Path(__file__).resolve().parents[2]
+sys.path[:0] = [str(ROOT / "unison-comms" / "src"), str(ROOT / "unison-auth" / "src")]
+
+from channel_gateway import ChannelGateway, FakeTelegramProvider  # noqa: E402
+from identity_store import IdentityStore  # noqa: E402
 
 
 def test_phase5_components_are_pinned_workspace_submodules():
