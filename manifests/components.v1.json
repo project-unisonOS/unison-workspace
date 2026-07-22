@@ -20,9 +20,9 @@
     },
     {
       "name": "native-experiment",
-      "compose_files": ["../unison-platform/compose/compose.native.yaml"],
+      "compose_files": ["unison-platform/compose/compose.native.yaml"],
       "purpose": "Ubuntu native installation experiment; not a supported appliance release",
-      "service_count": 14
+      "service_count": 16
     }
   ],
   "components": [
@@ -40,7 +40,7 @@
     {"id":"agent-vdi","repository":"unison-agent-vdi","checkout":"submodule","current_role":"browser and desktop worker","target_boundary":"capability-host","disposition":"consolidate","default_appliance":false,"maturity":"experimental"},
     {"id":"actuation","repository":"unison-actuation","checkout":"sibling","current_role":"physical action adapters","target_boundary":"capability-host","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
     {"id":"payments","repository":"unison-payments","checkout":"submodule","current_role":"payment adapter","target_boundary":"capability-host","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
-    {"id":"comms","repository":"unison-comms","checkout":"sibling","current_role":"communications adapters","target_boundary":"channel-gateway","disposition":"consolidate","default_appliance":false,"maturity":"experimental"},
+    {"id":"comms","repository":"unison-comms","checkout":"submodule","current_role":"communications adapters and Telegram Channel Gateway","target_boundary":"channel-gateway","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
     {"id":"io-core","repository":"unison-io-core","checkout":"submodule","current_role":"multimodal IO routing","target_boundary":"channel-gateway","disposition":"consolidate","default_appliance":true,"maturity":"experimental"},
     {"id":"inference","repository":"unison-inference","checkout":"submodule","current_role":"model provider gateway","target_boundary":"inference-broker-runtime","disposition":"retain","default_appliance":true,"maturity":"experimental"},
     {"id":"renderer","repository":"unison-experience-renderer","checkout":"submodule","current_role":"semantic response renderer","target_boundary":"unison-surface","disposition":"retain","default_appliance":true,"maturity":"experimental"},
@@ -50,7 +50,7 @@
     {"id":"io-braille","repository":"unison-io-braille","checkout":"sibling","current_role":"Braille adapter","target_boundary":"optional-adapter","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
     {"id":"io-sign","repository":"unison-io-sign","checkout":"sibling","current_role":"sign-language adapter","target_boundary":"optional-adapter","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
     {"id":"sign-orchestrator","repository":"unison-sign-orchestrator","checkout":"sibling","current_role":"sign-language coordination","target_boundary":"optional-adapter","disposition":"defer","default_appliance":false,"maturity":"scaffold"},
-    {"id":"platform","repository":"unison-platform","checkout":"sibling","current_role":"native appliance packaging","target_boundary":"lifecycle-update","disposition":"retain","default_appliance":true,"maturity":"experimental"},
+    {"id":"platform","repository":"unison-platform","checkout":"submodule","current_role":"native appliance packaging","target_boundary":"lifecycle-update","disposition":"retain","default_appliance":true,"maturity":"experimental"},
     {"id":"updates","repository":"unison-updates","checkout":"sibling","current_role":"signed update service","target_boundary":"lifecycle-update","disposition":"retain","default_appliance":true,"maturity":"experimental"},
     {"id":"security","repository":"unison-security","checkout":"sibling","current_role":"security configuration and tests","target_boundary":"support","disposition":"retain","default_appliance":true,"maturity":"experimental"},
     {"id":"network-vpn","repository":"unison-network-vpn","checkout":"sibling","current_role":"legacy remote network access","target_boundary":"channel-gateway","disposition":"replace","default_appliance":false,"maturity":"scaffold"},

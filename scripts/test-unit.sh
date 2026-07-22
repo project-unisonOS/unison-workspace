@@ -17,6 +17,7 @@ repos=(
   unison-context
   unison-storage
   unison-policy
+  unison-comms
   unison-experience-renderer
   unison-capability
   unison-inference
@@ -53,6 +54,7 @@ for repo in "${repos[@]}"; do
       UNISON_AUTH_KEYS_DIR="${test_root}/auth-keys" \
       UNISON_AUTH_IDENTITY_DATABASE_PATH="${test_root}/${repo}-identity.db" \
       UNISON_PRINCIPAL_BINDING_TEST_BYPASS=true \
+      DISABLE_AUTH_FOR_TESTS=true \
       "$PYTHON_BIN" -m pytest tests -q -p no:cacheprovider
   ); then
     failures+=("$repo")

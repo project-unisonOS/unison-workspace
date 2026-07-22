@@ -58,6 +58,13 @@
         {"path": "unison-common/src/unison_common/schemas/capability-governance.v1.schema.json", "status": "packaged-copy"},
         {"path": "unison-capability/schemas/capability.governance.v1.schema.json", "status": "runtime-copy"}
       ]
+    },
+    {
+      "name": "channel-gateway-v1",
+      "canonical": "unison-common/schemas/channel-gateway.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/channel-gateway.v1.schema.json", "status": "packaged-copy"}
+      ]
     }
   ]
 }

@@ -24,7 +24,7 @@ credited as implemented.
 | 2. Context spaces, relationships, governed memory, charter | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, browser accessibility, and recursive fresh-clone validation. |
 | 3. Default-deny policy, disclosure, capability governance | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, accessibility review, and recursive fresh-clone validation. |
 | 4. Two-assistant household proof | Complete | Passed 2026-07-21 | Final gate approved after publication, hosted CI/security, browser accessibility, and recursive fresh-clone validation. |
-| 5. Channel Gateway and remote text | Not started | Not evaluated | Existing adapters do not satisfy normalized remote-channel requirements. |
+| 5. Channel Gateway and remote text | In review | Candidate prepared 2026-07-21 | Telegram private-chat long polling candidate implements per-person pairing, low assurance, replay defense, local step-up, draft-first delivery, disclosure, and no public listener; publication evidence is being finalized. |
 | 6. Provider-blind backup and replacement restore | Not started | Not evaluated | Target cryptographic backup/recovery is not implemented. |
 | 7. High-value assistant workflows | Not started | Not evaluated | Existing Gmail/VDI/briefing slices are prototypes only. |
 | 8. Expanded multimodal surface and ecosystem | Not started | Not evaluated | Modality repositories remain uneven and experimental. |
@@ -114,5 +114,12 @@ reserved for a focused security review before their implementation.
 
 ## Next authorized action
 
-Merge the accepted Phase 4 candidates in dependency-safe order, synchronize the
-repositories, and execute the separately authorized Phase 5 plan.
+Record and publish the approved Phase 5 gate, merge its candidates in dependency-safe
+order, and correct repository-owned post-merge CI failures. Phase 6 remains **Not
+started** and is not authorized.
+
+## Final Phase 5 gate decision
+
+The final Phase 5 gate was approved on 2026-07-21. Phase 5 is **Complete**. The
+authoritative closeout record is `PHASE5_ACCEPTANCE_EVIDENCE.md`. Phase 6 remains
+**Not started** and requires separate authorization.

@@ -46,8 +46,7 @@ principal context. Context/storage/comms caches, credentials, objects, vault,
 audit, replay, payment, and local message data are owner-partitioned. The hardened
 Compose overlay disables reusable static/HS256 secrets and requires unique key
 roots. Published CI and fresh-clone evidence passed and the Phase 1 gate was
-approved on 2026-07-21; context spaces and remote channel assurance remain later
-phases.
+approved on 2026-07-21. Later accepted phases build on that boundary.
 
 ## Phase 2 accepted delta
 
@@ -79,8 +78,7 @@ requires a bounded manifest and expiring, nonce-protected grant; legacy unknown
 authority is disabled. An accessible semantic review exposes the exact action,
 recipients, data, purpose, consequence, reversibility, cost, and alternatives.
 Publication, component/workspace Actions, recursive fresh-clone evidence,
-accessibility review, and the final human gate completed on 2026-07-21. Phase 4
-has not started.
+accessibility review, and the final human gate completed on 2026-07-21.
 
 ## Phase 4 accepted delta
 
@@ -93,6 +91,17 @@ accessible household controls. The 50-check proof, hosted CI/security,
 accessibility audit, recursive fresh clone, and human gate passed on 2026-07-21.
 This remains pre-release engineering rather than a supported product release.
 
+## Phase 5 accepted boundary
+
+The accepted Phase 5 boundary adds canonical remote-channel contracts, auth-owned strong
+local pairing and revocation, a Telegram private-chat long-poll adapter, encrypted
+per-person provider accounts and drafts, replay/rate/outage defenses, low-assurance
+step-up, orchestration guards, accessible disclosure/recovery controls, and a
+private-network deployment with no inbound appliance listener. It preserves the
+Gmail adapter and validates the provider path with a credential-free fake. This
+boundary passed its final human architecture/security gate on 2026-07-21. Phase 6
+provider-blind backup and replacement restore remain not started.
+
 ## Reconciled product state
 
 The implemented system is an early, local-first assistant platform assembled as a large Python/FastAPI microservice stack. The completed Phase 1 establishes the first household identity and principal boundary, but the broader household product remains pre-release:
@@ -101,7 +110,7 @@ The implemented system is an early, local-first assistant platform assembled as 
 - household identity plus governed relationship, context-space, charter, goal, and commitment models are implemented in accepted Phase 2;
 - per-person credentials, encryption keys, data/cache/index namespaces, and audit ownership exist locally; provider-blind backup domains remain Phase 6 work;
 - accepted Phase 3 provides default-deny disclosure decisions over purpose, audience, relationship, sensitivity, and channel assurance;
-- remote channels and provider-blind encrypted backup are not implemented as product subsystems.
+- a bounded Telegram remote-text boundary is accepted for low-assurance private-chat access; provider-blind encrypted backup remains unstarted Phase 6 work.
 
 The current product should therefore be described publicly as an experimental developer platform with a native-install path under active validation, not as a production private household assistant.
 
@@ -269,8 +278,8 @@ remain tracked debt. All newly touched action references are pinned to commit SH
 - A clean Ubuntu 24.04 native installation on physical or representative appliance hardware.
 - Reboot persistence, update rollback, factory reset, and replacement-device restoration on a real install.
 - Live Gmail provider flows with real credentials.
-- Any remote text or telephone channel.
-- Household or cross-person isolation, including inference side channels.
+- A live Telegram flow with real credentials, or any supported telephone channel.
+- Production timing-side-channel certification for household or remote-channel isolation.
 - Hardware-backed keys or per-person encryption.
 - Provider-blind backup or multi-device synchronization.
 - Real Braille, sign, BCI, vision, microphone, speaker, or switch-access hardware.
