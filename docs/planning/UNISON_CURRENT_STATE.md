@@ -10,6 +10,20 @@ This document records what was observed in source code, schemas, configuration, 
 
 The root checkout is an aggregate working directory, not itself a Git repository. `unison-workspace` is the Git meta-repository and documented developer front door, so the authoritative planning set lives here. Repositories absent from its submodule list were still audited as sibling implementation evidence.
 
+## Phase 8 expansion 8.1 candidate delta
+
+The initial Phase 8 candidate adds a canonical semantic modality/fallback
+contract, local speech interruption and caption-only output negotiation,
+adaptive visual preferences, fail-closed privacy/cost/risk/offline model
+routing, and Ed25519 capability verification with permission diff,
+compatibility, and revocation controls.
+
+This is a bounded engineering candidate, not a claim that every modality or
+ecosystem package is production-ready. Braille, sign, switch/AAC, and haptic
+remain experimental pending representative disabled-user and hardware evidence.
+BCI, robotics, spatial control, and autonomous financial execution remain
+deferred.
+
 ## Phase 7 accepted delta
 
 The accepted Phase 7 implementation adds canonical task-plan, exact-approval,

@@ -35,6 +35,8 @@ jobs:
         run: ./scripts/test-phase6.sh
       - name: Validate Phase 7 bounded high-value workflows
         run: ./scripts/test-phase7.sh
+      - name: Validate Phase 8 initial ecosystem expansion
+        run: ./scripts/test-phase8.sh
 
   phase6-s3-compatible-backend:
     runs-on: ubuntu-24.04

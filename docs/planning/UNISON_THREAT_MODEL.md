@@ -113,6 +113,19 @@ plan. Provider production enablement remains contingent on a separately
 reviewed adapter, synthetic-account acceptance, scoped credentials, and the
 same exact-action boundary tests.
 
+## Phase 8 expansion 8.1 reassessment
+
+| Threats | Expansion 8.1 control and evidence |
+| --- | --- |
+| T-06, T-26 | Speech is intent input only. Voice/control barge-in stops output and resumes listening; protected actions still require the accepted non-voice/step-up decision path. |
+| T-11, T-21 | Canonical Ed25519 verification rejects tampering and unknown publishers. Permission additions require explicit review; incompatible and revoked packages deny. |
+| T-12, T-14, T-22 | Model candidates must simultaneously satisfy location, disclosure, cost, risk, and availability. Offline and no-candidate cases fail closed. |
+| T-28 | One semantic outcome preserves confirm, cancel, retry, recover, and dismiss actions through caption/visual fallback. High contrast, reduced motion, simplified language, keyboard, screen-reader semantics, and live captions are explicit. |
+
+The expansion does not certify specialized assistive hardware without
+representative disabled-user research, nor does it authorize BCI, robotics,
+spatial control, or autonomous financial action.
+
 ## Cryptographic target model
 
 The exact algorithms and hardware integrations require a dedicated design review, but the architecture requires:

@@ -27,7 +27,7 @@ credited as implemented.
 | 5. Channel Gateway and remote text | Complete | Passed 2026-07-21 | Final gate approved after hosted CI, accessibility, channel isolation, replay/revocation, and fresh-clone evidence. |
 | 6. Provider-blind backup and replacement restore | Complete | Passed 2026-07-23 | Final gate approved after hostile-provider, clean replacement restore, MinIO portability, browser accessibility, hosted security/CI, site deployment, and fresh-clone evidence. |
 | 7. High-value assistant workflows | Complete | Passed 2026-07-23 | Final gate approved after seven bounded journeys, recovery/disclosure/security checks, hosted CI, browser accessibility, site deployment, and recursive fresh-clone evidence. |
-| 8. Expanded multimodal surface and ecosystem | Not started | Not evaluated | Modality repositories remain uneven and experimental. |
+| 8. Expanded multimodal surface and ecosystem | In progress | Expansion 8.1 engineering candidate | Initial speech/caption, adaptive surface, model-routing, and capability supply-chain slice is under acceptance; specialized adapters remain experimental. |
 
 ## Phase 0 review package
 
@@ -116,8 +116,9 @@ separately validated backend and is not claimed by the software fallback.
 
 ## Next authorized action
 
-No Phase 8 implementation is authorized. Review its modality, provider,
-capability, threat, and maintenance prerequisites before beginning work.
+Complete hosted and fresh-clone acceptance for Phase 8 expansion 8.1. Phase 8
+remains a continuing program; later modality/provider/capability expansions need
+their own threat, maintenance, accessibility-research, and acceptance evidence.
 
 ## Final Phase 5 gate decision
 
