@@ -61,3 +61,6 @@
 [submodule "unison-platform"]
 	path = unison-platform
 	url = git@github.com:project-unisonOS/unison-platform.git
+[submodule "unison-updates"]
+	path = unison-updates
+	url = git@github.com:project-unisonOS/unison-updates.git

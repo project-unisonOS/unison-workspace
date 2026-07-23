@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "phase9-scope-locked",
+  "lifecycle_owner": "unison-platform",
+  "update_owner": "unison-updates",
+  "planning_owner": "unison-workspace",
+  "supported_target": {
+    "artifact": "signed-native-installation-bundle",
+    "operating_system": "Ubuntu 24.04 LTS",
+    "architecture": "x86_64",
+    "boot": "UEFI",
+    "channels": ["development", "preview", "stable"]
+  },
+  "evaluation_only": ["WSL2", "virtual-machine-image", "bare-metal-ISO", "arm64"],
+  "runtime_profile": {
+    "name": "native-supported",
+    "compose_entrypoint": "unison-platform/compose/compose.native.yaml",
+    "manifest_required": true,
+    "mutable_tags_allowed": false
+  },
+  "product_profile": {
+    "journey_authority": "docs/planning/UNISON_IMPLEMENTATION_PLAN.md#phase-7-high-value-assistant-workflows",
+    "default_telemetry": "off",
+    "remote_telemetry": "explicit-opt-in",
+    "data_authority": "home-node-single-writer"
+  },
+  "release_policy": {
+    "cadence": "monthly-stable-with-emergency-security-releases",
+    "maintenance_window": "owner-configurable; no unattended application restart by default",
+    "support_duration": "current-stable-and-immediately-previous-stable",
+    "severity_policy": "docs/product/APPLIANCE_SUPPORT_POLICY.md",
+    "os_security_updates": "Ubuntu unattended security downloads; activation follows owner restart policy"
+  },
+  "update_authority": {
+    "metadata_framework": "TUF",
+    "trust_root": "offline-root-with-threshold-signatures",
+    "key_custody": "offline root; separated online channel targets and snapshot/timestamp roles",
+    "rollback_authority": "local appliance health controller and authenticated owner",
+    "irreversible_stable_migrations": false
+  },
+  "hardware_tiers": ["reference", "compatible", "community-tested", "unsupported"]
+}

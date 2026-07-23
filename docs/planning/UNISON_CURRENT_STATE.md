@@ -259,6 +259,12 @@ Useful retained contracts exist, but there are multiple copies and incompatible 
 
 ## Appliance lifecycle audit, 2026-07-23
 
+Phase 9.0 now has a local candidate: lifecycle and update ownership are
+versioned workspace pins, and the supported-target/support-policy contract is
+machine validated. This removes the unversioned update-service gap identified
+below. It does not make an artifact supported; deterministic runtime and all
+later Phase 9 gates remain open.
+
 - `unison-platform` contains the active native Ubuntu installer, native Compose
   entrypoint, `unisonctl`, first-start default checks, evaluator image builders,
   release staging, and staged-update/recovery validators.

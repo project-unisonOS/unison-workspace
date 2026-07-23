@@ -453,6 +453,42 @@ experimental until research includes people who use the relevant access method,
 hardware and assistive-technology matrices pass, and maintenance and incident
 ownership are recorded. Simulation alone is not release evidence.
 
+## AD-046: Singular appliance lifecycle ownership
+
+State: **Accepted — approved 2026-07-23**
+
+`unison-platform` solely owns native installation, runtime, diagnostics,
+recovery, removal, artifact assembly, and publication. `unison-updates` owns
+signed update metadata, selection, staging, verification, and state. Both are
+immutable workspace submodule pins. `unison-os` remains an archived prototype.
+
+## AD-047: Initial supported artifact and runtime contract
+
+State: **Accepted — approved 2026-07-23**
+
+The only Phase 9 support candidate is a signed native bundle for Ubuntu 24.04
+LTS on x86_64 UEFI hardware, resolved through an immutable release manifest.
+WSL2, VM, bare-metal ISO, and arm64 artifacts remain evaluation-only.
+
+## AD-048: Update trust, rollback, and channel authority
+
+State: **Accepted — approved 2026-07-23**
+
+Development, preview, and stable channels use TUF metadata. Root authority is
+offline and threshold-signed, with separated online roles. The local health
+controller and authenticated owner may roll back to last known good. Stable
+releases prohibit irreversible migrations.
+
+## AD-049: Maintenance, telemetry, and support tiers
+
+State: **Accepted — approved 2026-07-23**
+
+Stable cadence is monthly with emergency security releases; the support window
+is current stable plus immediately previous stable. Telemetry defaults off and
+remote reporting requires explicit, revocable opt-in. Hardware evidence is
+reference, compatible, community-tested, or unsupported and derives from the
+same versioned matrix as installer enforcement.
+
 ## Deferred decisions
 
 - Multi-writer synchronization and conflict-free replicated data types.
