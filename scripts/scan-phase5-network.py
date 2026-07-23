@@ -17,6 +17,15 @@ TARGETS = ("comms", "telegram-channel-worker")
 
 
 def main() -> None:
+    compose_source = COMPOSE.read_text(encoding="utf-8")
+    if all(f"  {name}:\n" not in compose_source for name in TARGETS):
+        print(json.dumps({
+            "scan": "resolved-compose-host-port-exposure",
+            "services": {},
+            "result": "experimental channel services excluded from default runtime",
+        }, indent=2, sort_keys=True))
+        print("[PASS] Default appliance runtime excludes Phase 5 channel services.")
+        return
     environment = os.environ.copy()
     environment["UNISON_COMPOSE_ENV_FILE"] = str(ENV_FILE)
     # The argv list and paths are repository-owned constants.
