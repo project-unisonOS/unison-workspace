@@ -37,6 +37,8 @@ jobs:
         run: ./scripts/test-phase7.sh
       - name: Validate Phase 8 initial ecosystem expansion
         run: ./scripts/test-phase8.sh
+      - name: Validate Phase 9 scope and hardware deferral ledger
+        run: ./scripts/validate-phase9.sh
 
   phase6-s3-compatible-backend:
     runs-on: ubuntu-24.04

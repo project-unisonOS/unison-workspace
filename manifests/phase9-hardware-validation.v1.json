@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "deferred-pending-compatible-hardware",
+  "policy": {
+    "allowed_statuses": ["pending-hardware", "blocked", "passed", "failed"],
+    "promotion_rule": "A passed item requires a repository-relative evidence file and an exact release candidate identifier.",
+    "current_release_candidate": null
+  },
+  "items": [
+    {"id":"HW-001","phase":"9.1","area":"runtime","test":"Cold start on exact release bundle","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-002","phase":"9.1","area":"runtime","test":"Reboot persistence and startup ordering","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-003","phase":"9.1","area":"runtime","test":"Sustained CPU, memory, thermal, and disk-pressure behavior","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-004","phase":"9.1","area":"runtime","test":"Disk-full, clock-skew, dependency-outage, and graceful-shutdown recovery","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-005","phase":"9.2","area":"installer","test":"Clean Ubuntu 24.04 UEFI installation from public bundle","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-006","phase":"9.2","area":"installer","test":"Power interruption, network loss, cancellation, repeat install, repair, uninstall, and factory reset","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-007","phase":"9.2","area":"accessibility","test":"Keyboard, screen reader, captions, non-voice onboarding, errors, and recovery","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-008","phase":"9.3","area":"updates","test":"Promoted N-1 to N update, failed N to N+1, automatic rollback, and repeated cycles","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-009","phase":"9.3","area":"updates","test":"Update under disk pressure, network interruption, reboot, and restored-device state","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-010","phase":"9.4","area":"qualification","test":"CPU, virtualization, RAM, storage, firmware, UEFI, Secure Boot, TPM, thermals, and power probe","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-011","phase":"9.4","area":"audio","test":"Representative USB and Bluetooth microphone/speaker matrix","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-012","phase":"9.4","area":"models","test":"Measured latency, memory, disk, acoustic, thermal, and energy envelopes","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-013","phase":"9.4","area":"power-state","test":"Suspend, resume, reboot, and peripheral reconnection","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-014","phase":"9.4","area":"recovery","test":"Backup verification and clean replacement-device restore","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-015","phase":"9.5","area":"distribution","test":"Fresh external machine install using only public artifacts and documentation","configurations":["external-clean-system"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-016","phase":"9.6","area":"pilot","test":"Time-bounded daily-use and reliability pilot across the reference matrix","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null},
+    {"id":"HW-017","phase":"9.6","area":"operations","test":"Support bundle generation, incident handling, export, removal, and reset in pilot","configurations":["reference-system-1","reference-system-2"],"status":"pending-hardware","evidence":null}
+  ]
+}
