@@ -6,8 +6,9 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+for import_root in (ROOT, ROOT / "unison-storage"):
+    if str(import_root) not in sys.path:
+        sys.path.insert(0, str(import_root))
 
 from tools.phase6_backup_demo import run_demo
 from src.backup_backends import HostileMemoryBackend
