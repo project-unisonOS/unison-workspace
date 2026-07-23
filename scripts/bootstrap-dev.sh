@@ -24,7 +24,7 @@ fi
 required_submodules=(
   unison-common unison-auth unison-consent unison-context unison-policy
   unison-storage unison-orchestrator unison-experience-renderer unison-context-graph
-  unison-capability unison-inference
+  unison-capability unison-inference unison-io-speech
 )
 for repo in "${required_submodules[@]}"; do
   if [[ ! -d "${ROOT_DIR}/${repo}" ]]; then

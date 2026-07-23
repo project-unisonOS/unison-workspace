@@ -35,6 +35,7 @@ jsonschema==4.25.1
 jsonschema-specifications==2025.9.1
 jmespath==1.1.0
 neo4j==5.25.0
+numpy==1.26.4
 opentelemetry-api==1.44.0
 opentelemetry-exporter-otlp==1.44.0
 opentelemetry-exporter-otlp-proto-common==1.44.0
