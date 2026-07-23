@@ -58,6 +58,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- Split Phase 9 evidence into CI-verifiable and physical-hardware tracks, with
+  17 hardware-dependent checks that cannot pass without candidate-bound lab
+  records.
+
 - Began Phase 9 by pinning `unison-updates`, advancing the audited
   `unison-platform` pin, and locking appliance artifact, lifecycle, update
   trust, maintenance, telemetry, and hardware-tier contracts.

@@ -8,4 +8,5 @@ if [[ ! -x "$PYTHON_BIN" ]]; then
   exit 1
 fi
 "$PYTHON_BIN" "${ROOT_DIR}/scripts/validate-phase9-scope.py"
-echo "[PASS] Phase 9.0 scope gate passed."
+"$PYTHON_BIN" "${ROOT_DIR}/scripts/validate-phase9-hardware-ledger.py"
+echo "[PASS] Phase 9 scope and deferred-hardware gates passed."
