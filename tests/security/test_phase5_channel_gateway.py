@@ -17,7 +17,8 @@ def test_phase5_components_are_pinned_workspace_submodules():
     assert 'path = unison-comms' in modules
     assert 'path = unison-platform' in modules
     assert (ROOT / "unison-comms" / "src" / "channel_gateway.py").is_file()
-    assert (ROOT / "unison-platform" / "docs" / "TELEGRAM_CHANNEL.md").is_file()
+    assert (ROOT / "unison-platform" / "compose" / "compose.native.yaml").is_file()
+    assert (ROOT / "docs" / "architecture" / "CHANNEL_GATEWAY.md").is_file()
 
 
 def _service_block(compose: str, name: str, next_name: str) -> str:
