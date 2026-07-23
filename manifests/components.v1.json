@@ -22,7 +22,7 @@
       "name": "native-experiment",
       "compose_files": ["unison-platform/compose/compose.native.yaml"],
       "purpose": "Ubuntu native installation experiment; not a supported appliance release",
-      "service_count": 16
+      "service_count": 13
     }
   ],
   "components": [
