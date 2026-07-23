@@ -28,6 +28,7 @@ credited as implemented.
 | 6. Provider-blind backup and replacement restore | Complete | Passed 2026-07-23 | Final gate approved after hostile-provider, clean replacement restore, MinIO portability, browser accessibility, hosted security/CI, site deployment, and fresh-clone evidence. |
 | 7. High-value assistant workflows | Complete | Passed 2026-07-23 | Final gate approved after seven bounded journeys, recovery/disclosure/security checks, hosted CI, browser accessibility, site deployment, and recursive fresh-clone evidence. |
 | 8. Expanded multimodal surface and ecosystem | In progress | Expansion 8.1 passed 2026-07-23 | Initial speech/caption, adaptive surface, model-routing, and capability supply-chain slice is complete; specialized adapters remain experimental. |
+| 9. Supported appliance release and lifecycle | Not started | Plan proposed 2026-07-23 | Seven gated delivery increments cover lifecycle authority, deterministic runtime, installer, updates, hardware qualification, release engineering, and pilot readiness. |
 
 ## Phase 0 review package
 

@@ -257,6 +257,41 @@ Useful retained contracts exist, but there are multiple copies and incompatible 
 - No provider-blind per-person encryption, shared-space keys, signed backup manifest, incremental snapshot protocol, provider-neutral backend, independent person export/deletion, or replacement-device restore flow was verified.
 - Backup, synchronization, and remote access are not yet separated as product concepts.
 
+## Appliance lifecycle audit, 2026-07-23
+
+- `unison-platform` contains the active native Ubuntu installer, native Compose
+  entrypoint, `unisonctl`, first-start default checks, evaluator image builders,
+  release staging, and staged-update/recovery validators.
+- The workspace pins `unison-platform` at
+  `3f855843796a2159726d5ae07acdf0f65490a74a`, while the lifecycle audit reviewed
+  the newer platform `main` at `bd80a4a`. The later installer/update/release
+  work is therefore not yet reproducible from the authoritative workspace pin.
+- `unison-os` contains documentation only, despite its README describing a base
+  image build. The component inventory correctly classifies it as a legacy
+  prototype for archival rather than the appliance authority.
+- The native runtime still resolves application images through
+  `${UNISON_IMAGE_TAG:-latest}` and inherits a broad Compose graph. It is not an
+  immutable release bundle.
+- The local `unison-updates` implementation has focused signature, policy,
+  planner, model-pack, and rollback tests, but its directory is not a Git
+  checkout and it is not pinned by the workspace. Platform keeps the service
+  optional behind an `updates` profile.
+- Platform staged-update tests validate plan/artifact/finalize state, but the
+  acceptance matrix records that real promoted package/image updates and
+  rollback are not exercised end to end.
+- The tag release workflow signs the platform image and stages release assets,
+  but action references are not commit-pinned, the downloaded Cosign binary is
+  not checksum-verified, and verification of evaluator images is skipped.
+- The evaluator bare-metal ISO embeds a known password, permits SSH password
+  login, makes Ubuntu ISO checksum verification optional, and invokes the broad
+  Compose file. It is not eligible for supported status.
+- Hardware guidance names Ubuntu 24.04 x86_64 and general CPU, RAM, storage, and
+  audio expectations, but there is no named reference-device matrix,
+  machine-readable compatibility probe, firmware/peripheral evidence, or
+  completed physical clean-install record.
+- Phase 9 of the implementation plan converts these assets into a gated supported
+  appliance program. No current artifact is credited as supported.
+
 ## CI and test baseline
 
 The shared WSL virtual environment used Python 3.12.3, pytest 8.3.3, FastAPI 0.115.0, and Pydantic 2.12.4. Tests were run with bytecode and pytest cache writes disabled. Results are environment-specific evidence, not universal CI status.

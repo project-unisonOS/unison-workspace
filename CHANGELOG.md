@@ -4,6 +4,11 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ## Unreleased
 
+- Added the evidence-based Phase 9 plan for a supported Ubuntu appliance:
+  lifecycle authority, deterministic artifacts, production installation,
+  signed updates and rollback, hardware qualification, hardened release
+  engineering, and release-candidate support readiness.
+
 - Completed Phase 8 expansion 8.1 contracts and gates for semantic
   modality fallback, local speech/captions and interruption, adaptive visual
   preferences, policy-bound model routing, and signed/revocable capability
