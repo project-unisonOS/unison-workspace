@@ -10,6 +10,28 @@ This document records what was observed in source code, schemas, configuration, 
 
 The root checkout is an aggregate working directory, not itself a Git repository. `unison-workspace` is the Git meta-repository and documented developer front door, so the authoritative planning set lives here. Repositories absent from its submodule list were still audited as sibling implementation evidence.
 
+## Phase 7 review candidate delta
+
+The Phase 7 review candidate adds canonical task-plan, exact-approval,
+failure/recovery, outcome-evidence, and synthetic record/replay contracts. One
+governed engine implements seven bounded workflow families: calendar
+coordination; email triage, summary, and draft; reminder and commitment review;
+shared-household coordination; contact recall; document/web research; and travel
+planning.
+
+External steps declare their provider, recipients, and allowlisted disclosed
+fields. Context and recipient authority are checked before execution;
+advertising, engagement, sponsorship, and provider-lock-in ranking signals fail
+closed. Stable idempotency, cancellation, compensation, retry, and provider
+replacement are covered by deterministic provider tests. The renderer exposes
+semantic plan, approval, running, success, failure, cancellation, retry,
+replacement, and outcome paths.
+
+Local acceptance completes all seven journeys with 81 estimated minutes
+returned, one safe recovery, no duplicate actions, and zero boundary incidents.
+This does not enable production providers, automatic sending, booking,
+purchasing, payments, or generalized autonomous action.
+
 ## Phase 0 closeout delta
 
 The local review candidate now provides a pinned Python 3.12 bootstrap, shared

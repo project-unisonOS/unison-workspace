@@ -4,6 +4,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ## Unreleased
 
+- Added the Phase 7 bounded assistant-workflow candidate: seven governed
+  workflow families, inspectable plans, exact approvals, minimized provider
+  disclosure, idempotent recovery and compensation, accessible controls,
+  synthetic record/replay fixtures, and local time-return outcome evidence.
 - Added the authorized Phase 6 provider-blind backup v1 candidate: canonical
   encrypted chunk/manifest/checkpoint contracts, independent person/shared
   scopes, hostile and S3-compatible backends, scheduled verification,

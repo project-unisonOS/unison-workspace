@@ -521,6 +521,11 @@ Deliver measurable time-returning competence on the trusted foundation rather th
 - Phases 3–6 gates for product-connected workflows.
 - Approved success metrics and no-engagement product analytics policy.
 
+AD-035 through AD-040 approve the bounded seven-workflow set, inspectable
+planning and exact approval, draft-first external communication, recoverable
+provider execution, local outcome measurement, and prohibited commercial or
+engagement ranking signals.
+
 ### Architecture and schema changes
 
 - Add task plans, reminders, follow-ups, commitments, approvals, outcome evidence, failure/recovery, and time-return estimates.
