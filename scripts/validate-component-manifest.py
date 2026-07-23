@@ -62,6 +62,9 @@ def main() -> None:
         if any(not path.is_file() for path in compose_files):
             print(f"[NOTE] runtime profile unavailable in this checkout: {profile['name']}")
             continue
+        if profile.get("requires_release_image_environment"):
+            print(f"[NOTE] runtime profile requires release image environment: {profile['name']}")
+            continue
         command = ["docker", "compose"]
         for path in compose_files:
             command.extend(["-f", str(path)])

@@ -265,6 +265,11 @@ machine validated. This removes the unversioned update-service gap identified
 below. It does not make an artifact supported; deterministic runtime and all
 later Phase 9 gates remain open.
 
+The merged Phase 9.1 runtime-contract slice now requires digest references for
+all 13 candidate services and removes broad developer port exposure, retaining
+two loopback-only product/health surfaces. Real release digests and physical
+runtime acceptance remain open.
+
 - `unison-platform` contains the active native Ubuntu installer, native Compose
   entrypoint, `unisonctl`, first-start default checks, evaluator image builders,
   release staging, and staged-update/recovery validators.

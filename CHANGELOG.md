@@ -58,6 +58,9 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- Pinned the first Phase 9.1 platform runtime contract: 13 digest-required
+  services, internal developer ports removed, and two loopback-only surfaces.
+
 - Split Phase 9 evidence into CI-verifiable and physical-hardware tracks, with
   17 hardware-dependent checks that cannot pass without candidate-bound lab
   records.

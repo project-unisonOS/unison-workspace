@@ -14,7 +14,7 @@
   "evaluation_only": ["WSL2", "virtual-machine-image", "bare-metal-ISO", "arm64"],
   "runtime_profile": {
     "name": "native-supported",
-    "compose_entrypoint": "unison-platform/compose/compose.native.yaml",
+    "compose_entrypoint": "unison-platform/compose/compose.supported.yaml",
     "manifest_required": true,
     "mutable_tags_allowed": false
   },
