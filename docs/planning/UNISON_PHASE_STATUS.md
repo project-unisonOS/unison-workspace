@@ -26,7 +26,7 @@ credited as implemented.
 | 4. Two-assistant household proof | Complete | Passed 2026-07-21 | Final gate approved after publication, hosted CI/security, browser accessibility, and recursive fresh-clone validation. |
 | 5. Channel Gateway and remote text | Complete | Passed 2026-07-21 | Final gate approved after hosted CI, accessibility, channel isolation, replay/revocation, and fresh-clone evidence. |
 | 6. Provider-blind backup and replacement restore | Complete | Passed 2026-07-23 | Final gate approved after hostile-provider, clean replacement restore, MinIO portability, browser accessibility, hosted security/CI, site deployment, and fresh-clone evidence. |
-| 7. High-value assistant workflows | In review | Candidate gate | Seven bounded workflow families pass local journey, boundary, recovery, disclosure, and accessibility gates under AD-035 through AD-040. |
+| 7. High-value assistant workflows | Complete | Passed 2026-07-23 | Final gate approved after seven bounded journeys, recovery/disclosure/security checks, hosted CI, browser accessibility, site deployment, and recursive fresh-clone evidence. |
 | 8. Expanded multimodal surface and ecosystem | Not started | Not evaluated | Modality repositories remain uneven and experimental. |
 
 ## Phase 0 review package
@@ -116,9 +116,8 @@ separately validated backend and is not claimed by the software fallback.
 
 ## Next authorized action
 
-Complete Phase 7 hosted workspace CI/security, recursive fresh-clone
-validation, and post-merge public-site deployment; then record the final gate.
-Phase 8 remains **Not started** and is not authorized.
+No Phase 8 implementation is authorized. Review its modality, provider,
+capability, threat, and maintenance prerequisites before beginning work.
 
 ## Final Phase 5 gate decision
 
@@ -131,5 +130,13 @@ separately authorized on 2026-07-22 and completed on 2026-07-23.
 The final Phase 6 gate was approved on 2026-07-23. Provider-blind backup and
 replacement-device restore are **Complete** within the recorded residual
 limits. The authoritative closeout record is `PHASE6_ACCEPTANCE_EVIDENCE.md`.
-Phase 7 was separately authorized on 2026-07-23 and is **In review**. Phase 8
+Phase 7 was separately authorized on 2026-07-23 and is **Complete**. Phase 8
 remains **Not started**.
+
+## Final Phase 7 gate decision
+
+The final Phase 7 gate was approved on 2026-07-23. Seven bounded high-value
+assistant workflow families are **Complete** within the recorded residual
+limits. The authoritative closeout record is
+`PHASE7_ACCEPTANCE_EVIDENCE.md`. Phase 8 remains **Not started** and is not
+authorized.

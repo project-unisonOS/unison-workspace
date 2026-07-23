@@ -10,9 +10,9 @@ This document records what was observed in source code, schemas, configuration, 
 
 The root checkout is an aggregate working directory, not itself a Git repository. `unison-workspace` is the Git meta-repository and documented developer front door, so the authoritative planning set lives here. Repositories absent from its submodule list were still audited as sibling implementation evidence.
 
-## Phase 7 review candidate delta
+## Phase 7 accepted delta
 
-The Phase 7 review candidate adds canonical task-plan, exact-approval,
+The accepted Phase 7 implementation adds canonical task-plan, exact-approval,
 failure/recovery, outcome-evidence, and synthetic record/replay contracts. One
 governed engine implements seven bounded workflow families: calendar
 coordination; email triage, summary, and draft; reminder and commitment review;

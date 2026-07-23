@@ -1,6 +1,6 @@
 # Phase 7 acceptance evidence
 
-Status: **In review**
+Status: **Complete**
 Evidence date: 2026-07-23
 Phase 8: **Not started**
 
@@ -20,8 +20,8 @@ booking, purchasing, or financial execution.
 | `unison-orchestrator` | `16d5b491b2cb57df167c5d75f92863c5ca679bb0`, merged PR #25: seven-workflow engine, fake providers, exact approval, minimization, idempotency, cancellation, compensation, retry, and provider replacement |
 | `unison-experience-renderer` | `bcff72d9241a96272a97fd4969e603ec08c3bdec`, merged PR #9: semantic plan, approval, execution, outcome, cancellation, error, retry, and replacement controls |
 | `unison-docs` | `80fd683d21bcf3503b11c2e891212b74222b682a`, merged PR #2: exact supported-workflow and synthetic record/replay documentation |
-| Public site | `7315ceeecd18077a0e16c9407ce4fe2b8a3eef61`, merged PR #11: public workflow boundary, recovery, evidence, and limitation guidance |
-| `unison-workspace` | This review candidate: decisions AD-035 through AD-040, threat reassessment, fixtures, aggregate gate, CI integration, and closeout evidence |
+| Public site | `f5320272441968049409063fca357d5fb8d3c854`, merged PRs #11/#12: public workflow boundary, recovery, evidence, limitation guidance, and completed engineering-gate status |
+| `unison-workspace` | `b99d2c5d2b223f5558a0066fdbe0fdcc5722f4b3`, merged PR #9: decisions AD-035 through AD-040, threat reassessment, fixtures, aggregate gate, CI integration, and acceptance evidence |
 
 ## Acceptance matrix
 
@@ -56,13 +56,22 @@ booking, purchasing, or financial execution.
 
 ## Hosted and publication evidence
 
-- Component PRs #11, #25, #9, #2, and public-site PR #11 are merged.
+- Component PRs #11/#12, #25, #9, #2, workspace PR #9, and public-site
+  PRs #11/#12 are merged.
 - Common tests/contracts/lint/security/package jobs passed in run
   `30023654019`; orchestrator tests/security/container jobs passed in run
   `30023932896`; renderer and public-site build/accessibility checks passed.
-- Workspace hosted CI/security, post-merge site deployment, recursive
-  fresh-clone validation, and the exact final workspace commit remain the
-  named closeout checks before the status changes from In review to Complete.
+- Workspace candidate run `30024991252` and post-merge main run `30025178440`
+  passed the full Phase 0-through-7 aggregate, reusable security/SAST/Trivy/SBOM
+  gate, PowerShell parser, and pinned Docker/MinIO portability job.
+- A fresh recursive clone at
+  `b99d2c5d2b223f5558a0066fdbe0fdcc5722f4b3` initialized every recorded
+  submodule, bootstrapped from the lockfile, validated Phase 0 with zero schema
+  drift, and passed `test-phase7.sh`.
+- Public-site closeout run `30025597157` passed strict build, full-page
+  Chromium/axe accessibility, and GitHub Pages deployment.
+- The owner directed completion of all Phase 7 tasks on 2026-07-23. With every
+  required check green, this is recorded as explicit final gate approval.
 
 ## Residual limits
 
@@ -76,3 +85,9 @@ booking, purchasing, or financial execution.
 - Time returned is an estimate unless the person chooses to confirm it locally.
 - Website/document summaries are not a substitute for professional advice.
 - Provider denial and stale upstream information remain possible and visible.
+
+## Gate rule
+
+Phase 7 passed its final gate on 2026-07-23. The seven bounded assistant
+workflow families are **Complete** within the stated residual limits. Phase 8
+remains Not started and is not authorized by this gate.

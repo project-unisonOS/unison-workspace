@@ -48,6 +48,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- The final Phase 7 engineering gate was approved on 2026-07-23 after hosted
+  CI/security, fresh recursive clone, browser accessibility, and public-site
+  deployment passed. Phase 7 is **Complete** within its recorded limits;
+  Phase 8 remains not started and unauthorized.
 - The final Phase 2 gate was approved on 2026-07-21; Phase 2 is **Complete** and
   separately authorized Phase 3 implementation is **In progress**.
 - `unison-context` is the authoritative governed-context API; `unison-context-graph`
