@@ -65,6 +65,13 @@
       "legacy_copies": [
         {"path": "unison-common/src/unison_common/schemas/channel-gateway.v1.schema.json", "status": "packaged-copy"}
       ]
+    },
+    {
+      "name": "provider-blind-backup-v1",
+      "canonical": "unison-common/schemas/provider-blind-backup.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/provider-blind-backup.v1.schema.json", "status": "packaged-copy"}
+      ]
     }
   ]
 }

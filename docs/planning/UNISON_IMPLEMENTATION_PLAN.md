@@ -469,7 +469,7 @@ Make loss, replacement, and provider failure survivable without giving a provide
 ### Prerequisites
 
 - Phase 4 gate and stable key/data models.
-- Approved key recovery, shared-space rotation, retention, deletion, and provider backend interface.
+- Approved key recovery, shared-space rotation, retention, deletion, and provider backend interface (AD-026 through AD-034, approved 2026-07-22).
 
 ### Architecture and schema changes
 

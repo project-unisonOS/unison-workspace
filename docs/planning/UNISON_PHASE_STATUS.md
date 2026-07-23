@@ -1,6 +1,6 @@
 # Unison phase status
 
-Status date: 2026-07-21
+Status date: 2026-07-22
 
 Plan version: 0.1
 
@@ -24,8 +24,8 @@ credited as implemented.
 | 2. Context spaces, relationships, governed memory, charter | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, browser accessibility, and recursive fresh-clone validation. |
 | 3. Default-deny policy, disclosure, capability governance | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, accessibility review, and recursive fresh-clone validation. |
 | 4. Two-assistant household proof | Complete | Passed 2026-07-21 | Final gate approved after publication, hosted CI/security, browser accessibility, and recursive fresh-clone validation. |
-| 5. Channel Gateway and remote text | In review | Candidate prepared 2026-07-21 | Telegram private-chat long polling candidate implements per-person pairing, low assurance, replay defense, local step-up, draft-first delivery, disclosure, and no public listener; publication evidence is being finalized. |
-| 6. Provider-blind backup and replacement restore | Not started | Not evaluated | Target cryptographic backup/recovery is not implemented. |
+| 5. Channel Gateway and remote text | Complete | Passed 2026-07-21 | Final gate approved after hosted CI, accessibility, channel isolation, replay/revocation, and fresh-clone evidence. |
+| 6. Provider-blind backup and replacement restore | Complete | Passed 2026-07-23 | Final gate approved after hostile-provider, clean replacement restore, MinIO portability, browser accessibility, hosted security/CI, site deployment, and fresh-clone evidence. |
 | 7. High-value assistant workflows | Not started | Not evaluated | Existing Gmail/VDI/briefing slices are prototypes only. |
 | 8. Expanded multimodal surface and ecosystem | Not started | Not evaluated | Modality repositories remain uneven and experimental. |
 
@@ -109,17 +109,25 @@ merges finish.
 
 ## Decisions awaiting human review
 
-Exact algorithms, TPM integration, rotation, and recovery ceremonies remain
-reserved for a focused security review before their implementation.
+The Phase 6 software cryptographic profile, rotation, recovery ceremony,
+retention/deletion behavior, and backend contract were approved on 2026-07-22
+in AD-026 through AD-034. TPM-specific production integration remains a
+separately validated backend and is not claimed by the software fallback.
 
 ## Next authorized action
 
-Record and publish the approved Phase 5 gate, merge its candidates in dependency-safe
-order, and correct repository-owned post-merge CI failures. Phase 6 remains **Not
-started** and is not authorized.
+Phase 6 is complete. Phase 7 remains **Not started** and requires separate
+authorization.
 
 ## Final Phase 5 gate decision
 
 The final Phase 5 gate was approved on 2026-07-21. Phase 5 is **Complete**. The
-authoritative closeout record is `PHASE5_ACCEPTANCE_EVIDENCE.md`. Phase 6 remains
-**Not started** and requires separate authorization.
+authoritative closeout record is `PHASE5_ACCEPTANCE_EVIDENCE.md`. Phase 6 was
+separately authorized on 2026-07-22 and completed on 2026-07-23.
+
+## Final Phase 6 gate decision
+
+The final Phase 6 gate was approved on 2026-07-23. Provider-blind backup and
+replacement-device restore are **Complete** within the recorded residual
+limits. The authoritative closeout record is `PHASE6_ACCEPTANCE_EVIDENCE.md`.
+Phase 7 remains **Not started** and requires separate authorization.

@@ -1,7 +1,7 @@
 # Unison Architecture Decisions
 
 Status: authoritative decision register  
-Last updated: 2026-07-20
+Last updated: 2026-07-22
 
 ## How to use this register
 
@@ -45,6 +45,15 @@ Changing an accepted decision affecting the product promise, principal isolation
 | AD-023 | Capability Host naming is canonicalized | Accepted |
 | AD-024 | Unison and UnisonOS have distinct product meanings | Accepted |
 | AD-025 | Revenue and partnerships cannot distort person-aligned behavior | Accepted |
+| AD-026 | Backup v1 uses reviewed local authenticated encryption and signed manifests | Accepted |
+| AD-027 | Recovery authority belongs independently to each adult person | Accepted |
+| AD-028 | Restore freshness requires an independent signed checkpoint | Accepted |
+| AD-029 | Shared-space backup keys rotate by membership epoch | Accepted |
+| AD-030 | Backup retention and deletion use tombstones and cryptographic erasure | Accepted |
+| AD-031 | Backup backends implement a provider-neutral opaque-object contract | Accepted |
+| AD-032 | Replacement restore is staged, resumable, verified, and rotates authority | Accepted |
+| AD-033 | Backup and recovery are semantically and multimodally accessible | Accepted |
+| AD-034 | The home node remains the only authoritative writer during Phase 6 | Accepted |
 
 ## AD-001: Household-hosted private assistant appliance
 
@@ -256,6 +265,93 @@ State: **Accepted — approved 2026-07-20**
 State: **Accepted — approved 2026-07-20**
 
 Unison does not use advertising, sponsored placement, engagement optimization, or the sale, licensing, or commercialization of personal context. Revenue must come from products and services purchased for the person's benefit. Partnerships and affiliate relationships may not influence recommendations, routing, or capability selection without explicit disclosure and user control.
+
+## AD-026: Provider-blind backup v1 cryptographic profile
+
+State: **Accepted — approved 2026-07-22**
+
+Backup v1 encrypts chunks locally with AES-256-GCM and independently wrapped
+random data keys, uses HKDF-SHA-256 for domain separation, signs exact stored
+manifest envelopes with Ed25519, and protects recovery capsules with an
+Argon2id-derived key. Providers never receive plaintext, scope keys, signing
+private keys, or recovery secrets. Formats and algorithm identifiers are
+versioned; changing this profile requires a migration and security review.
+
+## AD-027: Independent person-controlled recovery authority
+
+State: **Accepted — approved 2026-07-22**
+
+Each adult enrolls an independent recovery kit and may additionally enroll a
+trusted device. Recovery requires authenticated local non-voice input and proof
+from the person's recovery key. Household administrators, storage providers,
+channel providers, and Unison operators cannot bypass or substitute that proof.
+
+## AD-028: Independently anchored restore freshness
+
+State: **Accepted — approved 2026-07-22**
+
+Signed manifests form a hash-linked monotonic lineage. A separately held signed
+checkpoint records the accepted head and any retention compaction floor.
+Replacement restore refuses unanchored, rolled-back, forked, truncated, or
+reordered state. A provider may deny service but cannot forge accepted state.
+
+## AD-029: Shared-space membership key epochs
+
+State: **Accepted — approved 2026-07-22**
+
+Shared spaces use random keys independent of every person's private hierarchy.
+Removing a member creates a new epoch and future key material is wrapped only
+for current members. Previously possessed historical keys cannot be
+retroactively revoked; retention, provider deletion, and cryptographic erasure
+bound that documented residual exposure.
+
+## AD-030: Retention, deletion, export, and erasure semantics
+
+State: **Accepted — approved 2026-07-22**
+
+Record-level backup permission and retention remain authoritative. Expiration
+prunes unreferenced ciphertext while preserving an anchored lineage floor.
+Deletion destroys local wrapped keys, publishes a signed tombstone, requests
+provider deletion, and verifies disappearance. Provider physical erasure cannot
+be guaranteed. Independent exports remain encrypted unless the owner explicitly
+requests a locally authenticated plaintext export.
+
+## AD-031: Provider-neutral backup backend
+
+State: **Accepted — approved 2026-07-22**
+
+Backup backends expose opaque conditional put/get/head/list/delete and resumable
+transfer capabilities. Filesystem and deterministic hostile backends are
+required references; S3-compatible storage is the first remote contract and is
+validated with MinIO. Providers may observe opaque identifiers, byte sizes,
+timing, and account/bucket metadata only.
+
+## AD-032: Verified replacement-device activation
+
+State: **Accepted — approved 2026-07-22**
+
+Restore begins with a non-mutating plan, stages ciphertext-derived content in a
+resumable journal, verifies the anchor, lineage, signatures, and every chunk,
+and activates atomically. Activation enrolls the replacement device, revokes
+the replaced device, rotates personal backup authority, and rewraps shared-space
+keys for current members.
+
+## AD-033: Accessible backup and recovery
+
+State: **Accepted — approved 2026-07-22**
+
+Status, verification, recovery-key entry, scope selection, dry run, progress,
+failure, cancellation, safe resumption, and post-restore rotation are available
+through keyboard and screen-reader semantics. No recovery step depends on
+color, a visual QR code, voice, or a low-assurance remote channel.
+
+## AD-034: Phase 6 remains single-writer
+
+State: **Accepted — approved 2026-07-22**
+
+The home node remains authoritative. Backup protects against loss and provider
+migration; it is not synchronization or remote access. Multi-writer state and
+conflict resolution remain deferred.
 
 ## Deferred decisions
 

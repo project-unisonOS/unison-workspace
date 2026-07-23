@@ -31,6 +31,32 @@ jobs:
         run: ./scripts/test-phase4.sh
       - name: Validate Phase 5 channel gateway and exposure
         run: ./scripts/test-phase5.sh
+      - name: Validate Phase 6 provider-blind backup and replacement restore
+        run: ./scripts/test-phase6.sh
+
+  phase6-s3-compatible-backend:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Bootstrap deterministic development environment
+        run: ./scripts/bootstrap-dev.sh
+      - name: Start pinned MinIO profile
+        run: docker compose -f compose.phase6-minio.yml up -d --wait
+      - name: Validate S3-compatible backup, verification, and restore
+        run: |
+          PYTHONPATH="${PWD}/unison-common/src:${PWD}/unison-storage" \
+            .venv/bin/python scripts/test-phase6-minio.py
+      - name: Show MinIO logs after failure
+        if: failure()
+        run: docker compose -f compose.phase6-minio.yml logs
+      - name: Stop MinIO profile
+        if: always()
+        run: docker compose -f compose.phase6-minio.yml down --volumes
 
   powershell-wrapper-static:
     runs-on: windows-2025
@@ -58,7 +84,7 @@ jobs:
       working-directory: "."
       dependency-file: requirements-dev.lock
       checkout-submodules: true
-      unison-common-ref: "eef1a7353b2c795233daf0db6079b867ff2d98ba"
+      unison-common-ref: "8b82c2fe26b31aa4b368eb150654e0dd3561fa58"
       pytest-targets: tests/security
       trivy-scan-ref: requirements-dev.lock
       # Container ingress binds and non-production fallback paths are reviewed separately.
