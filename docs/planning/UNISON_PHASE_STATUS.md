@@ -25,7 +25,7 @@ credited as implemented.
 | 3. Default-deny policy, disclosure, capability governance | Complete | Passed 2026-07-21 | Final gate approved after publication, green component/workspace CI, accessibility review, and recursive fresh-clone validation. |
 | 4. Two-assistant household proof | Complete | Passed 2026-07-21 | Final gate approved after publication, hosted CI/security, browser accessibility, and recursive fresh-clone validation. |
 | 5. Channel Gateway and remote text | Complete | Passed 2026-07-21 | Final gate approved after hosted CI, accessibility, channel isolation, replay/revocation, and fresh-clone evidence. |
-| 6. Provider-blind backup and replacement restore | In review | Candidate prepared 2026-07-23 | Local component, aggregate restore, schema, browser accessibility, and public-site validation pass; hosted publication evidence and final approval remain. |
+| 6. Provider-blind backup and replacement restore | Complete | Passed 2026-07-23 | Final gate approved after hostile-provider, clean replacement restore, MinIO portability, browser accessibility, hosted security/CI, site deployment, and fresh-clone evidence. |
 | 7. High-value assistant workflows | Not started | Not evaluated | Existing Gmail/VDI/briefing slices are prototypes only. |
 | 8. Expanded multimodal surface and ecosystem | Not started | Not evaluated | Modality repositories remain uneven and experimental. |
 
@@ -116,11 +116,18 @@ separately validated backend and is not claimed by the software fallback.
 
 ## Next authorized action
 
-Complete hosted Phase 6 validation, ordered publication, fresh-clone evidence,
-and the final human gate. Phase 7 remains **Not started** and is not authorized.
+Phase 6 is complete. Phase 7 remains **Not started** and requires separate
+authorization.
 
 ## Final Phase 5 gate decision
 
 The final Phase 5 gate was approved on 2026-07-21. Phase 5 is **Complete**. The
 authoritative closeout record is `PHASE5_ACCEPTANCE_EVIDENCE.md`. Phase 6 was
-separately authorized on 2026-07-22 and is **In progress**.
+separately authorized on 2026-07-22 and completed on 2026-07-23.
+
+## Final Phase 6 gate decision
+
+The final Phase 6 gate was approved on 2026-07-23. Provider-blind backup and
+replacement-device restore are **Complete** within the recorded residual
+limits. The authoritative closeout record is `PHASE6_ACCEPTANCE_EVIDENCE.md`.
+Phase 7 remains **Not started** and requires separate authorization.

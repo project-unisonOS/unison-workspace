@@ -1,6 +1,6 @@
 # Phase 6 acceptance evidence
 
-Status: **In review**
+Status: **Complete**
 Evidence date: 2026-07-23
 Phase 7: **Not started**
 
@@ -19,13 +19,13 @@ and single-writer boundary.
 
 | Repository | Candidate |
 | --- | --- |
-| `unison-common` | `8b82c2fe26b31aa4b368eb150654e0dd3561fa58`, draft PR #10: canonical schema/models, AES-GCM envelope encryption, HKDF/HMAC domain separation, Ed25519 manifest signing, Argon2id recovery capsule, checkpoint verification |
-| `unison-storage` | `9fb770faeca085433e266bd12907d1b278a270f5`, draft PR #15: filesystem/hostile/S3 backends; incremental snapshots; lineage; scheduled verification; retention; export/deletion; provider migration; resumable restore; rotation |
-| `unison-auth` | `02c0e26bec35a3dc4797de7a8da726ee70d271a7`, draft PR #20: schema v3 recovery enrollment, expiring challenge, signed replacement proof, checkpoint rollback defense, device revocation and rotation requirements |
-| `unison-experience-renderer` | `c8a86d1caafd86b065b13771ea53fb784deccc22`, draft PR #8: semantic backup status, recovery-key safety, dry run, activation, cancellation/resumption, provider/admin disclosure |
-| `unison-docs` | `6d410f3cc2cffb4b663137cdf5aebc798632cdfd`, draft PR #1: format, backend contract, metadata, recovery ceremony, provider migration and disaster runbooks |
-| `unison-workspace` | Decisions, threat model, hostile-provider tests, MinIO profile, clean-device proof and evidence |
-| Public site | `a65c6912253d90c2f9eaaa3c9ffb67f69319b872`, draft PR #9: truthful Phase 6 review-candidate status, recovery boundary and residual limits |
+| `unison-common` | `8b82c2fe26b31aa4b368eb150654e0dd3561fa58`, merged PR #10: canonical schema/models, AES-GCM envelope encryption, HKDF/HMAC domain separation, Ed25519 manifest signing, Argon2id recovery capsule, checkpoint verification |
+| `unison-storage` | `9fb770faeca085433e266bd12907d1b278a270f5`, merged PR #15: filesystem/hostile/S3 backends; incremental snapshots; lineage; scheduled verification; retention; export/deletion; provider migration; resumable restore; rotation |
+| `unison-auth` | `02c0e26bec35a3dc4797de7a8da726ee70d271a7`, merged PR #20: schema v3 recovery enrollment, expiring challenge, signed replacement proof, checkpoint rollback defense, device revocation and rotation requirements |
+| `unison-experience-renderer` | `c8a86d1caafd86b065b13771ea53fb784deccc22`, merged PR #8: semantic backup status, recovery-key safety, dry run, activation, cancellation/resumption, provider/admin disclosure |
+| `unison-docs` | `6d410f3cc2cffb4b663137cdf5aebc798632cdfd`, merged PR #1: format, backend contract, metadata, recovery ceremony, provider migration and disaster runbooks |
+| `unison-workspace` | `9a801d8b573cd88ef848bf6ab571c27b4ede5e7b`, PR #8: decisions, threat model, hostile-provider tests, MinIO profile, clean-device proof and evidence |
+| Public site | `a65c6912253d90c2f9eaaa3c9ffb67f69319b872`, merged PR #9; closeout `f2424e2`, PR #10: recovery boundary, residual limits, and final gate status |
 
 ## Acceptance matrix
 
@@ -57,11 +57,23 @@ and single-writer boundary.
   backup/recovery page.
 - All candidate worktrees pass `git diff --check`.
 
-## Evidence pending publication
+## Hosted and publication evidence
 
-Hosted component/workspace Actions, hosted MinIO validation, fresh recursive
-clone, ordered merge, final public-site deployment, final workspace commit/PR
-reference, and the human gate decision remain to be recorded.
+- Component PR checks passed: common run `30019057495`; storage run
+  `30019145448`; auth run `30019167882`; renderer runs `30019178185` and
+  `30019189054`; public-site run `30019223959`.
+- Workspace run `30019915283` passed the full Phase 0-through-6 aggregate,
+  reusable security scan, PowerShell parser, and pinned Docker/MinIO
+  S3-compatible backup/verification/restore job.
+- A fresh recursive clone at
+  `9a801d8b573cd88ef848bf6ab571c27b4ede5e7b` initialized every recorded
+  submodule, bootstrapped from the lockfile, and passed `test-phase6.sh`.
+- Component, documentation, renderer, and public-site PRs were merged in
+  dependency order. Post-merge component CI passed, and public-site deployment
+  run `30020225611` completed successfully.
+- The owner directed completion of all remaining Phase 6 tasks on 2026-07-23.
+  With the required evidence green, this is recorded as explicit final gate
+  approval.
 
 ## Residual limits
 
@@ -76,7 +88,6 @@ reference, and the human gate decision remain to be recorded.
 
 ## Gate rule
 
-Phase 6 is not Complete until component and workspace changes are published,
-hosted checks and fresh-clone evidence pass, the final evidence values replace
-the pending section, and the human final gate is explicitly approved. Phase 7
-remains Not started.
+Phase 6 passed its final gate on 2026-07-23. Provider-blind backup and
+replacement-device restore are **Complete** within the stated residual limits.
+Phase 7 remains Not started and is not authorized by this gate.
