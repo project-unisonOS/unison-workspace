@@ -29,6 +29,13 @@ def main() -> None:
             fail(f"supported target {key} must be {value}")
     if data["runtime_profile"].get("mutable_tags_allowed") is not False:
         fail("supported runtime must prohibit mutable tags")
+    entrypoint = ROOT / data["runtime_profile"].get("compose_entrypoint", "")
+    if entrypoint.name != "compose.supported.yaml" or not entrypoint.is_file():
+        fail("supported runtime must use the constrained Compose entrypoint")
+    subprocess.run(  # nosec B603
+        [str(ROOT / "unison-platform/scripts/validate-supported-runtime.py")],
+        check=True,
+    )
     if data["product_profile"].get("default_telemetry") != "off":
         fail("telemetry must default off")
     if data["update_authority"].get("metadata_framework") != "TUF":

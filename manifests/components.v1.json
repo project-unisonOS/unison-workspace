@@ -23,6 +23,13 @@
       "compose_files": ["unison-platform/compose/compose.native.yaml"],
       "purpose": "Ubuntu native installation experiment; not a supported appliance release",
       "service_count": 13
+    },
+    {
+      "name": "native-supported-candidate",
+      "compose_files": ["unison-platform/compose/compose.supported.yaml"],
+      "purpose": "digest-required Phase 9 release candidate; physical acceptance still pending",
+      "service_count": 13,
+      "requires_release_image_environment": true
     }
   ],
   "components": [
