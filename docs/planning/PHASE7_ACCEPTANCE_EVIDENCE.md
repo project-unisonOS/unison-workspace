@@ -16,7 +16,7 @@ booking, purchasing, or financial execution.
 
 | Repository | Candidate |
 | --- | --- |
-| `unison-common` | `58c3e3d7bf060772c9e7835a60755924e6433662`, merged PR #11: workflow plans, approvals, failure/recovery, outcome evidence, metrics, record/replay, and canonical schema |
+| `unison-common` | `88bf3aefcd7bdf12496d99d50c41d04e9fdd09fd`, merged PRs #11/#12: workflow plans, approvals, failure/recovery, outcome evidence, metrics, record/replay, and byte-identical canonical/packaged schema |
 | `unison-orchestrator` | `16d5b491b2cb57df167c5d75f92863c5ca679bb0`, merged PR #25: seven-workflow engine, fake providers, exact approval, minimization, idempotency, cancellation, compensation, retry, and provider replacement |
 | `unison-experience-renderer` | `bcff72d9241a96272a97fd4969e603ec08c3bdec`, merged PR #9: semantic plan, approval, execution, outcome, cancellation, error, retry, and replacement controls |
 | `unison-docs` | `80fd683d21bcf3503b11c2e891212b74222b682a`, merged PR #2: exact supported-workflow and synthetic record/replay documentation |
