@@ -353,6 +353,61 @@ The home node remains authoritative. Backup protects against loss and provider
 migration; it is not synchronization or remote access. Multi-writer state and
 conflict resolution remain deferred.
 
+## AD-035: Bounded Phase 7 workflow set
+
+State: **Accepted — approved 2026-07-23**
+
+Phase 7 supports seven evidenced workflow families: calendar coordination;
+email triage, summary, and draft; reminder and commitment review; household
+coordination; relationship-aware contact recall; document/web research; and
+travel planning. This is a bounded competence claim, not generalized autonomy.
+
+## AD-036: Inspectable plan and exact approval
+
+State: **Accepted — approved 2026-07-23**
+
+Every workflow binds a person, assistant, purpose, authorized context spaces,
+capabilities, providers, recipients, disclosure fields, reversibility,
+idempotency key, charter constraints, and commitments. External or consequential
+steps require approval of the exact action and recipients. Provider content
+cannot supply authority.
+
+## AD-037: Draft-first external communication
+
+State: **Accepted — approved 2026-07-23**
+
+Email and calendar communication remain draft/proposal first. Sending,
+publishing, booking, purchasing, or another consequential external action is
+outside the Phase 7 automatic boundary unless separately confirmed through the
+accepted Phase 3 trust decision.
+
+## AD-038: Recoverable provider execution
+
+State: **Accepted — approved 2026-07-23**
+
+Provider calls use stable idempotency keys and record minimized receipts.
+Timeout, partial failure, and outage expose retry, cancellation, compensation,
+or compatible provider replacement without silently duplicating an action.
+
+## AD-039: Local outcome measurement
+
+State: **Accepted — approved 2026-07-23**
+
+Outcome evidence measures administrative tasks and commitments completed,
+interruptions avoided, corrections, recoveries, minimized external calls,
+accessible completion, estimated/user-confirmed time returned, and boundary
+incidents. Metrics are local, inspectable, privacy-minimized, and are not a
+third-party behavioral-data product.
+
+## AD-040: No engagement or commercial ranking
+
+State: **Accepted — approved 2026-07-23**
+
+Advertising, sponsored placement, engagement, attention capture, third-party
+data acquisition, and provider lock-in signals are prohibited inputs to
+planning and ranking. Their presence fails closed rather than changing an
+option's score.
+
 ## Deferred decisions
 
 - Multi-writer synchronization and conflict-free replicated data types.

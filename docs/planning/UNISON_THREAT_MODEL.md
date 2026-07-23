@@ -92,6 +92,27 @@ No phase is complete until its applicable threats have executable controls and n
 | T-29 | Denial leaks protected existence | Cross-person and nonexistent-resource probes return the same message and operational/audit output excludes protected values | Non-oracular denial responses and privacy-preserving audit details | P4 candidate: 13/13 uniform denial surfaces and audit canaries pass; timing certification remains out of scope |
 | T-30 | Deletion/export incompleteness | Phase 6 candidate adds per-scope encrypted export, retention compaction floor, signed tombstone contract, provider deletion, and local key destruction | Data inventory, tombstones, backup retention semantics, per-person export manifest | P6 candidate: deleting one person leaves another verifiable; encrypted export has no plaintext; provider physical-erasure limitation is explicit |
 
+## Phase 7 workflow reassessment
+
+The bounded assistant-workflow implementation adds the following candidate
+evidence without expanding the authority established in Phases 1–6:
+
+| Threats | Phase 7 control and evidence |
+| --- | --- |
+| T-08, T-12, T-14, T-17 | Each external step declares its provider and disclosed fields; the engine emits only an allowlisted payload, records disclosure counts, and supports provider replacement. Fake-provider recordings contain synthetic data and explicitly prohibit personal data. |
+| T-09, T-10 | Email, document, web, and provider content remains tainted data. Adversarial `instructions` and `sponsored` fields are removed before provider execution and cannot alter authority. |
+| T-19, T-24 | Plans require an allowed context-space subset and allowed recipient subset before any provider call. Cross-person approval, private-space substitution, and wrong-recipient tests fail closed. |
+| T-22, T-23 | Provider errors and timeouts produce an inspectable recoverable state. Stable step idempotency prevents duplicate external actions across retry and provider recovery. |
+| T-26 | External calendar, mail, and shared-household actions require exact person-bound approval. Every workflow is cancellable and completed reversible actions expose compensation. |
+| T-27 | Advertising, engagement, sponsored, and provider-lock-in ranking signals are rejected. Outcome metrics measure administrative work, commitments, interruptions avoided, recovery, disclosure, and estimated time returned. |
+| T-28 | Plan, approval, running, success, failure, retry, provider replacement, cancellation, and compensation states have labelled keyboard controls, semantic live status, and non-color-only text equivalents. |
+
+Phase 7 does not claim that an arbitrary provider is trustworthy, that a
+provider physically deletes data, or that a model may independently broaden a
+plan. Provider production enablement remains contingent on a separately
+reviewed adapter, synthetic-account acceptance, scoped credentials, and the
+same exact-action boundary tests.
+
 ## Cryptographic target model
 
 The exact algorithms and hardware integrations require a dedicated design review, but the architecture requires:

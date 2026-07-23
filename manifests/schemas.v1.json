@@ -72,6 +72,13 @@
       "legacy_copies": [
         {"path": "unison-common/src/unison_common/schemas/provider-blind-backup.v1.schema.json", "status": "packaged-copy"}
       ]
+    },
+    {
+      "name": "assistant-workflow-v1",
+      "canonical": "unison-common/schemas/assistant-workflow.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/assistant-workflow.v1.schema.json", "status": "packaged-copy"}
+      ]
     }
   ]
 }
