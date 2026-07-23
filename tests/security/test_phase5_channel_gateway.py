@@ -27,6 +27,10 @@ def _service_block(compose: str, name: str, next_name: str) -> str:
 
 def test_channel_services_have_no_host_port_and_use_secret_files():
     compose = (ROOT / "unison-platform" / "compose" / "compose.yaml").read_text(encoding="utf-8")
+    if "  comms:\n" not in compose and "  telegram-channel-worker:\n" not in compose:
+        # The later native baseline excludes experimental remote channels from
+        # its default runtime instead of exposing them with product services.
+        return
     comms = _service_block(compose, "comms", "telegram-channel-worker")
     worker = _service_block(compose, "telegram-channel-worker", "agent-vdi")
     assert "ports:" not in comms
