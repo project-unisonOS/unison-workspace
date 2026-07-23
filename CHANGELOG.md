@@ -4,6 +4,12 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ## Unreleased
 
+- Added the authorized Phase 6 provider-blind backup v1 candidate: canonical
+  encrypted chunk/manifest/checkpoint contracts, independent person/shared
+  scopes, hostile and S3-compatible backends, scheduled verification,
+  retention/deletion/export, provider migration, clean replacement-device
+  restore, recovery authority, accessible controls, and acceptance evidence.
+
 ### Added
 
 - Phase 3 canonical Trust API contracts, default-deny disclosure evaluator,

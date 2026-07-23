@@ -7,6 +7,8 @@ Authoritative Planning
 Project execution is governed by the living planning set in `docs/planning/`:
 
 - [Phase 0 acceptance evidence](docs/planning/PHASE0_ACCEPTANCE_EVIDENCE.md) — review package, executed results, residual items, and requested gate decision
+- [Phase 6 acceptance evidence](docs/planning/PHASE6_ACCEPTANCE_EVIDENCE.md) — provider-blind backup, clean restore, threat, portability, accessibility, and gate evidence
+- [Phase 6 cryptographic review](docs/planning/PHASE6_CRYPTOGRAPHIC_REVIEW.md) — approved profile, construction review, misuse analysis, and residual limits
 
 - [Implementation plan](docs/planning/UNISON_IMPLEMENTATION_PLAN.md) — phased execution source of truth
 - [Current state](docs/planning/UNISON_CURRENT_STATE.md) — verified implementation and evidence baseline
@@ -26,6 +28,7 @@ Quickstart
 - Pull submodules: `git submodule update --init --recursive`
 - Create the pinned Python 3.12 development environment: `./scripts/bootstrap-dev.sh`
 - Validate the Phase 0 developer baseline: `./scripts/validate-phase0.sh && ./scripts/test-unit.sh`
+- Validate the Phase 6 candidate: `./scripts/test-phase6.sh`
 - From Windows, use the thin WSL2 wrapper: `.\scripts\unison.ps1 bootstrap` and `.\scripts\unison.ps1 validate-phase0`
 - Review current workspace scope and prerequisites in `docs/developer-guide.md` before first bring-up
 - Start devstack: `./scripts/up.sh`
