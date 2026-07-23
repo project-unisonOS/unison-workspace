@@ -27,7 +27,7 @@ credited as implemented.
 | 5. Channel Gateway and remote text | Complete | Passed 2026-07-21 | Final gate approved after hosted CI, accessibility, channel isolation, replay/revocation, and fresh-clone evidence. |
 | 6. Provider-blind backup and replacement restore | Complete | Passed 2026-07-23 | Final gate approved after hostile-provider, clean replacement restore, MinIO portability, browser accessibility, hosted security/CI, site deployment, and fresh-clone evidence. |
 | 7. High-value assistant workflows | Complete | Passed 2026-07-23 | Final gate approved after seven bounded journeys, recovery/disclosure/security checks, hosted CI, browser accessibility, site deployment, and recursive fresh-clone evidence. |
-| 8. Expanded multimodal surface and ecosystem | In progress | Expansion 8.1 engineering candidate | Initial speech/caption, adaptive surface, model-routing, and capability supply-chain slice is under acceptance; specialized adapters remain experimental. |
+| 8. Expanded multimodal surface and ecosystem | In progress | Expansion 8.1 passed 2026-07-23 | Initial speech/caption, adaptive surface, model-routing, and capability supply-chain slice is complete; specialized adapters remain experimental. |
 
 ## Phase 0 review package
 
@@ -116,9 +116,9 @@ separately validated backend and is not claimed by the software fallback.
 
 ## Next authorized action
 
-Complete hosted and fresh-clone acceptance for Phase 8 expansion 8.1. Phase 8
-remains a continuing program; later modality/provider/capability expansions need
-their own threat, maintenance, accessibility-research, and acceptance evidence.
+Define the next independently authorized Phase 8 expansion. Later
+modality/provider/capability expansions need their own threat, maintenance,
+accessibility-research, and acceptance evidence.
 
 ## Final Phase 5 gate decision
 
@@ -132,12 +132,25 @@ The final Phase 6 gate was approved on 2026-07-23. Provider-blind backup and
 replacement-device restore are **Complete** within the recorded residual
 limits. The authoritative closeout record is `PHASE6_ACCEPTANCE_EVIDENCE.md`.
 Phase 7 was separately authorized on 2026-07-23 and is **Complete**. Phase 8
-remains **Not started**.
+subsequently began as a continuing program.
 
 ## Final Phase 7 gate decision
 
 The final Phase 7 gate was approved on 2026-07-23. Seven bounded high-value
 assistant workflow families are **Complete** within the recorded residual
 limits. The authoritative closeout record is
-`PHASE7_ACCEPTANCE_EVIDENCE.md`. Phase 8 remains **Not started** and is not
-authorized.
+`PHASE7_ACCEPTANCE_EVIDENCE.md`. Phase 8 expansion 8.1 was subsequently
+authorized and completed.
+
+## Phase 8 expansion 8.1 gate decision
+
+Expansion 8.1 was approved on 2026-07-23 after green component and workspace
+CI, security scans, strict public-site accessibility and deployment checks, and
+recursive fresh-clone validation. Its bounded speech/caption, adaptive surface,
+model-routing, and signed capability-package scope is **Complete**. The
+authoritative record is `PHASE8_EXPANSION_8_1_EVIDENCE.md`.
+
+Phase 8 remains **In progress** as a continuing expansion program. Specialized
+access adapters and every later model, channel, capability, or agent expansion
+require independent authorization and acceptance; deferred categories remain
+deferred.

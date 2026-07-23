@@ -4,7 +4,7 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ## Unreleased
 
-- Added Phase 8 expansion 8.1 candidate contracts and gates for semantic
+- Completed Phase 8 expansion 8.1 contracts and gates for semantic
   modality fallback, local speech/captions and interruption, adaptive visual
   preferences, policy-bound model routing, and signed/revocable capability
   packages. Specialized adapters retain explicit experimental labels.
