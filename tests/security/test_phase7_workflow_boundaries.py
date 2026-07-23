@@ -7,7 +7,11 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-for import_root in (ROOT, ROOT / "unison-orchestrator" / "src"):
+for import_root in (
+    ROOT,
+    ROOT / "unison-common" / "src",
+    ROOT / "unison-orchestrator" / "src",
+):
     if str(import_root) not in sys.path:
         sys.path.insert(0, str(import_root))
 
