@@ -622,6 +622,235 @@ hardware evidence. The explicitly deferred categories below remain deferred.
 
 Each ecosystem expansion ships independently only after its contract, security, privacy, recovery, accessibility, and maintenance evidence passes. Phase 8 is a continuing program, not a blanket “all modalities implemented” milestone.
 
+## Phase 9: Supported appliance release and lifecycle
+
+### Objective and release claim
+
+Deliver one downloadable, installable, updateable, and supportable UnisonOS
+release for a published hardware profile. The first supported target remains
+Ubuntu 24.04 LTS on x86_64. WSL2, virtual-machine images, and the existing
+bare-metal ISO remain evaluation channels until they independently pass the same
+release gate.
+
+“Supported” means a non-developer can follow public documentation from a clean
+machine, verify the download, install without unsafe defaults, complete first
+run, use the bounded product journeys, receive a signed update, recover or roll
+back, and determine whether their hardware is inside the tested support matrix.
+It does not mean every hardware configuration, modality, or integration is
+supported.
+
+### Verified starting point, 2026-07-23
+
+| Area | Existing evidence | Gap to a supported release |
+| --- | --- | --- |
+| Lifecycle authority | `unison-platform` is retained as the appliance lifecycle boundary; `unison-os` is classified as a legacy prototype for archival | Workspace checkout and public ownership must be singular; legacy documentation still implies a base image that does not exist |
+| Native install | `installer/install-native.sh`, `compose/compose.native.yaml`, `unisonctl`, native install docs, environment-default checks, and native acceptance scaffolding exist | The path is still repository/operator oriented, installs mutable image tags, and lacks published clean-hardware acceptance |
+| Downloadable artifacts | Native alpha assets, WSL, VM, and evaluator bare-metal ISO builders exist | No supported artifact has an immutable bill of materials, verified reproducibility, support policy, and completed hardware matrix |
+| Runtime profile | A named native Compose entrypoint and golden/recovery validators exist | The native file only includes the broad Compose graph; required services, ports, resources, persistence, migrations, and production defaults are not locked as a release contract |
+| Updates | A local `unison-updates` implementation and staged apply/finalize/rollback validators exist; platform keeps it behind an optional profile | The updates directory is not a Git checkout or workspace pin, real promoted images are not exercised end to end, and host OS, schema, configuration, model, and application update scopes are not reconciled |
+| Release supply chain | Tag-triggered release workflow, checksums/assets staging, GHCR push, Cosign signing, and release-note generation exist | Workflow actions are tag-pinned rather than commit-pinned, the downloaded Cosign binary is not checksum-verified, image verification is skipped, and runtime images default to mutable `latest` tags |
+| Installer security | Native startup rejects known template secrets | Evaluator ISO embeds a known password, permits SSH password login, makes base-ISO verification optional, and installs the broad Compose file; it cannot be promoted as supported |
+| Hardware | Ubuntu 24.04 x86_64, CPU/RAM/storage, microphone/speaker, and CPU/GPU expectations are described | No machine-readable probe, named reference systems, peripheral matrix, performance/thermal/power evidence, firmware requirements, or tested support tiers exist |
+| Operations | Health, doctor, logs, restart, recovery, backup/restore, and staged-update commands exist | No support bundle/redaction contract, service-level objectives, unattended security-update policy, upgrade support window, factory reset acceptance, or pilot soak evidence exists |
+
+### Phase 9.0: Freeze scope and lifecycle authority
+
+#### Deliverables
+
+- Confirm `unison-platform` as the single lifecycle, installer, artifact, and
+  release owner; archive or redirect `unison-os` claims that conflict with it.
+- Make `unison-updates` a real, protected Git repository pinned by
+  `unison-workspace`, or deliberately absorb it into `unison-platform`. Do not
+  ship code from an unversioned sibling directory.
+- Lock the supported artifact as a signed, versioned native Ubuntu installation
+  bundle. Keep WSL2, VM, and bare-metal ISO explicitly evaluation-only.
+- Lock the exact product profile, supported journeys, data migration policy,
+  release cadence, maintenance window, support duration, and severity policy.
+- Record decisions for lifecycle ownership, update trust root and key custody,
+  release channels, rollback authority, telemetry defaults, OS security updates,
+  and hardware support tiers.
+
+#### Gate
+
+One ownership map, one support target, one artifact contract, one runtime
+profile, and one update authority are approved and reflected in the component
+manifest, architecture decisions, threat model, and public maturity labels.
+
+### Phase 9.1: Deterministic appliance runtime
+
+#### Deliverables
+
+- Replace mutable tags with an immutable release manifest containing image
+  digests, source commits, schema/config versions, model-pack versions, host
+  package requirements, licenses, and minimum resources.
+- Reduce the native Compose profile to the services required by the supported
+  journeys. Define ports, network isolation, persistent paths, ownership,
+  readiness, startup order, shutdown, quotas, and optional profiles.
+- Generate unique secrets through an interactive or local first-run ceremony;
+  never publish secrets in an artifact or require editing an environment file by
+  hand.
+- Define forward and backward compatibility for databases, configuration,
+  capability packages, backups, and restored state.
+- Produce SBOMs and provenance for every shipped image and bundle, scan the
+  assembled artifact, and verify all signatures before first start.
+
+#### Tests and gate
+
+- Offline Compose render and artifact-to-manifest reconciliation.
+- No mutable tag, development credential, public debug port, unverified binary,
+  or undeclared artifact in the supported profile.
+- Cold start, reboot, resource pressure, disk-full, clock-skew, dependency
+  outage, and graceful-shutdown tests on the exact release bundle.
+- Gate passes when two builds from the same source produce equivalent manifests
+  and every running image resolves to the published digest.
+
+### Phase 9.2: Production installer, first run, and removal
+
+#### Deliverables
+
+- Provide a signed bootstrap download with checksum/signature verification before
+  privilege elevation and a clear preview of system changes.
+- Add preflight checks for OS/architecture, disk encryption posture, free space,
+  memory, CPU features, firmware/clock, Docker support, network, microphone,
+  speaker, and selected inference profile.
+- Make installation idempotent, resumable after interruption, and transactional
+  across bundle placement, service enablement, data directories, firewall rules,
+  and first-run state.
+- Replace command-line credential editing with an accessible local onboarding
+  flow for owner enrollment, recovery material, privacy choices, audio, model,
+  network-dependent features, and backup.
+- Provide safe repair, uninstall, factory reset, export, and reinstall paths that
+  clearly distinguish software removal from personal-data destruction.
+
+#### Tests and gate
+
+- Automated install matrix on clean Ubuntu 24.04 UEFI systems plus physical
+  reference-hardware runs, including network loss, power interruption, repeated
+  install, partial disk, unsupported hardware, and cancelled setup.
+- Keyboard, screen-reader, captions/non-voice, error, cancellation, and recovery
+  acceptance for installer and first run.
+- Gate passes when a non-developer pilot can install from public instructions,
+  reach a ready surface, reboot, repair, export, and remove or reset without
+  repository knowledge or unsafe manual edits.
+
+### Phase 9.3: Signed update channels and automatic rollback
+
+#### Deliverables
+
+- Define signed `development`, `preview`, and `stable` channel metadata with
+  expiration, monotonic versioning, threshold/key-rotation procedures, and
+  rollback/freeze protection. Use an established metadata framework such as TUF
+  unless a recorded decision justifies an equivalent design.
+- Cover application images, database migrations, configuration, capability
+  packages, model packs, and host security updates with explicit ownership and
+  compatibility rules.
+- Download and verify updates without activating them; show release notes,
+  permissions, size, restart, backup, and compatibility effects before approval.
+- Take a verified pre-update checkpoint, stage the complete target, boot into it,
+  run bounded health/golden checks, and promote it only after success.
+- Automatically return to last known good after failed boot, failed migration,
+  health timeout, or explicit owner rollback. Make irreversible migrations
+  ineligible for stable release.
+- Document key compromise, channel withdrawal, emergency revocation, offline
+  update, and end-of-support procedures.
+
+#### Tests and gate
+
+- Real `N-1 -> N`, failed `N -> N+1`, rollback, replay, freeze, expired metadata,
+  wrong channel, wrong hardware, corrupt artifact, key rotation, disk-full,
+  network interruption, and restored-device update tests.
+- Gate passes after promoted artifacts, not no-op plans, survive repeated update
+  and rollback cycles without data loss, cross-person leakage, or manual Compose
+  repair.
+
+### Phase 9.4: Hardware qualification and compatibility guidance
+
+#### Deliverables
+
+- Publish support tiers: named reference systems, compatible configurations,
+  community-tested configurations, and unsupported configurations.
+- Create a machine-readable hardware probe and privacy-redacted support report
+  covering CPU/virtualization, RAM, storage health/performance, GPU/runtime,
+  audio input/output, network, firmware/UEFI/Secure Boot, TPM availability,
+  thermals, and power behavior.
+- Define minimum and recommended local-model profiles with measured latency,
+  memory, disk, acoustic, thermal, and energy envelopes.
+- Qualify at least two reference x86_64 systems and representative USB/Bluetooth
+  audio devices across clean install, first run, sustained workload, suspend,
+  reboot, update, rollback, backup, and restore.
+- Generate installer warnings and public compatibility pages from the same
+  versioned matrix so documentation cannot drift from enforcement.
+
+#### Tests and gate
+
+- Repeatable lab records include firmware versions, peripherals, model profile,
+  commands, results, known limitations, and maintainer/date.
+- Gate passes when supported hardware is named rather than inferred, the
+  installer blocks hard incompatibilities, and every supported combination has a
+  complete install/update/recovery result.
+
+### Phase 9.5: Hardened release engineering and distribution
+
+#### Deliverables
+
+- Pin every CI action and build tool by immutable digest/commit; verify downloaded
+  tools and Ubuntu bases before use.
+- Build in an isolated release environment from protected tags and reviewed
+  source, with separated build/signing authority and documented key custody.
+- Publish the native bundle, release manifest, checksums, signatures, SBOMs,
+  provenance, source correspondence, compatibility matrix, release notes,
+  install guide, upgrade guide, rollback guide, and support window together.
+- Verify downloads and signatures in CI from the public location, then perform a
+  clean install using only published artifacts.
+- Prevent mutable release replacement; withdrawal publishes signed revocation
+  metadata and a visible advisory rather than silently changing bytes.
+
+#### Tests and gate
+
+- Reproducibility comparison, signature/provenance verification, dependency and
+  license scans, secret scan, malicious/partial mirror, missing asset, and clean
+  public-download install.
+- Gate passes when a release candidate can be independently traced from source
+  commits to the exact installed digests and no release step relies on an
+  unverified mutable input.
+
+### Phase 9.6: Release-candidate pilot and support readiness
+
+#### Deliverables
+
+- Run a time-bounded pilot on the full reference matrix with opt-in,
+  privacy-minimized local reliability records and a documented incident channel.
+- Exercise install, onboarding, daily use, reboot, backup verification,
+  `N-1 -> N` update, automatic rollback, replacement-device restore, support
+  bundle generation, uninstall, and factory reset.
+- Define service-level objectives for startup, update success, rollback,
+  recovery, data durability, and supported interaction completion.
+- Complete accessibility review, threat reassessment, release runbooks,
+  maintainer rotation, vulnerability intake, patch timing, and end-of-support
+  communication.
+
+#### Final acceptance gate and evidence
+
+Phase 9 passes only when:
+
+- all earlier Phase 9 gates are recorded against the exact release candidate;
+- zero unresolved critical/high release-boundary vulnerabilities remain;
+- every named reference configuration completes clean install, first run,
+  supported journeys, update, rollback, backup, restore, and removal;
+- the pilot meets the approved reliability window without cross-person,
+  disclosure, recovery-authority, or update-integrity incidents;
+- a fresh external machine installs solely from the public download and docs;
+- the public compatibility matrix and release/support limitations match tested
+  evidence; and
+- human approval explicitly promotes that immutable candidate to the first
+  supported UnisonOS appliance release.
+
+Required evidence: release manifest and provenance, reproducibility report,
+hardware qualification matrix, install/first-run accessibility report, update
+and rollback ledger, backup/restore report, security scans and threat review,
+pilot/SLO report, public-download fresh-install record, support runbooks, and
+published documentation.
+
 ## GitHub Pages program
 
 The public site is overhauled across phases, beginning in Phase 0. Proposed information architecture:
