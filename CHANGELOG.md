@@ -58,6 +58,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- Began Phase 9 by pinning `unison-updates`, advancing the audited
+  `unison-platform` pin, and locking appliance artifact, lifecycle, update
+  trust, maintenance, telemetry, and hardware-tier contracts.
+
 - The final Phase 7 engineering gate was approved on 2026-07-23 after hosted
   CI/security, fresh recursive clone, browser accessibility, and public-site
   deployment passed. Phase 7 is **Complete** within its recorded limits;
