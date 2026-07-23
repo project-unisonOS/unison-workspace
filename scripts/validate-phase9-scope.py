@@ -36,6 +36,10 @@ def main() -> None:
         [str(ROOT / "unison-platform/scripts/validate-supported-runtime.py")],
         check=True,
     )
+    subprocess.run(  # nosec B603
+        [str(ROOT / "unison-platform/scripts/test_supported_manifest.py")],
+        check=True,
+    )
     if data["product_profile"].get("default_telemetry") != "off":
         fail("telemetry must default off")
     if data["update_authority"].get("metadata_framework") != "TUF":

@@ -58,6 +58,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- Pinned deterministic supported-release manifest generation with immutable
+  digest enforcement, complete version/host/license inventory, and
+  byte-for-byte reproducibility tests.
+
 - Pinned the first Phase 9.1 platform runtime contract: 13 digest-required
   services, internal developer ports removed, and two loopback-only surfaces.
 
