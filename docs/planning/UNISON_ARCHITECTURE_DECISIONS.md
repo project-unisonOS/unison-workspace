@@ -408,6 +408,51 @@ data acquisition, and provider lock-in signals are prohibited inputs to
 planning and ranking. Their presence fails closed rather than changing an
 option's score.
 
+## AD-041: Independent Phase 8 expansion gates
+
+State: **Accepted — approved 2026-07-23**
+
+Phase 8 is a continuing program. Each modality, channel, model profile, or
+capability ecosystem expansion has an independent contract, threat and
+maintenance review, accessibility evidence, rollback/recovery path, and gate.
+Passing one expansion does not promote unrelated experimental adapters.
+
+## AD-042: Semantic outcome precedes modality
+
+State: **Accepted — approved 2026-07-23**
+
+Renderers negotiate available, required, and avoided modalities from one
+semantic outcome. Confirmation, cancellation, retry, recovery, and dismissal
+remain equivalent through fallback. Modality presence never establishes person
+identity or action authority.
+
+## AD-043: Local-first model policy profiles
+
+State: **Accepted — approved 2026-07-23**
+
+Model selection intersects execution location, maximum disclosure, cost
+ceiling, risk, compatibility, and availability. Offline mode excludes remote
+providers. No eligible model produces an explainable denial; routing may not
+silently broaden disclosure, cost, or risk.
+
+## AD-044: Signed capability lifecycle
+
+State: **Accepted — approved 2026-07-23**
+
+Capability packages use canonical manifests and trusted Ed25519 publisher
+signatures. Install and update require compatible host ranges, explicit review
+of added permissions, sandbox/minimization checks, and a revocation identity.
+Unknown, tampered, incompatible, or revoked packages fail closed.
+
+## AD-045: Specialized access claims require representative research
+
+State: **Accepted — approved 2026-07-23**
+
+Braille, sign, switch/AAC, haptic, and similar specialized adapters remain
+experimental until research includes people who use the relevant access method,
+hardware and assistive-technology matrices pass, and maintenance and incident
+ownership are recorded. Simulation alone is not release evidence.
+
 ## Deferred decisions
 
 - Multi-writer synchronization and conflict-free replicated data types.

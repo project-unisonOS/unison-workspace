@@ -577,6 +577,15 @@ Expand accessibility, channels, models, and capabilities after the trust and com
 - Phase 7 gate.
 - Per-modality/provider/capability threat and maintenance review.
 
+### Authorized expansion 8.1
+
+The owner authorized Phase 8 work on 2026-07-23. Expansion 8.1 is bounded to
+semantic modality negotiation; local speech, captions, interruption and
+non-voice fallback; adaptive visual preferences; privacy/cost/risk-aware model
+routing; and signed, reviewable, compatible, revocable capability packages.
+Specialized access adapters remain experimental pending representative user and
+hardware evidence. The explicitly deferred categories below remain deferred.
+
 ### Architecture and schema changes
 
 - Mature semantic response and modality capability negotiation.

@@ -79,6 +79,13 @@
       "legacy_copies": [
         {"path": "unison-common/src/unison_common/schemas/assistant-workflow.v1.schema.json", "status": "packaged-copy"}
       ]
+    },
+    {
+      "name": "ecosystem-expansion-v1",
+      "canonical": "unison-common/schemas/ecosystem-expansion.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/ecosystem-expansion.v1.schema.json", "status": "packaged-copy"}
+      ]
     }
   ]
 }
