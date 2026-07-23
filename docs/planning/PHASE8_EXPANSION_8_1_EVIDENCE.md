@@ -1,6 +1,6 @@
 # Phase 8 expansion 8.1 acceptance evidence
 
-Status: **Engineering candidate**
+Status: **Complete**
 Evidence date: 2026-07-23
 Phase 8 program: **In progress**
 
@@ -44,12 +44,21 @@ model output.
 | Revocation/compatibility | Revoked and incompatible packages deny |
 | Documentation | Supported matrix, experimental labels, adapter conformance and public boundary |
 
-## Evidence required before final expansion approval
+## Executed evidence
 
-- Full component and aggregate regressions.
-- Hosted component and workspace security/CI.
-- Strict public-site build and real-browser accessibility audit.
-- Recursive fresh clone with the Phase 8 aggregate gate.
+| Evidence | Result |
+| --- | --- |
+| Component regressions | Pass: common 299 passed/1 skipped; capabilities 27 passed; speech 34 passed; renderer 42 passed; inference 12 passed |
+| Phase 8 aggregate gate | Pass: 15 tests covering contracts, accessibility, routing, and supply-chain boundaries |
+| Hosted component checks | Pass on the merged common, capabilities, speech, renderer, inference, docs, and public-site changes |
+| Workspace pull-request CI | Pass: aggregate Phase 0-8 tests, Windows parser, Bandit, Semgrep, Trivy, SBOM, and MinIO in [run 30035786364](https://github.com/project-unisonOS/unison-workspace/actions/runs/30035786364) |
+| Workspace main CI | Pass at merge commit `c5ed046e2f81adf2a1b8bf4e998f21c9a2feb7bc` in [run 30035972218](https://github.com/project-unisonOS/unison-workspace/actions/runs/30035972218) |
+| Public-site deployment | Pass after merge in [run 30035203512](https://github.com/project-unisonOS/project-unisonos.github.io/actions/runs/30035203512) |
+| Fresh recursive clone | Pass at `c5ed046e2f81adf2a1b8bf4e998f21c9a2feb7bc`: Phase 0 validation and all 15 Phase 8.1 aggregate tests |
+
+Expansion 8.1 received human authorization and acceptance on 2026-07-23.
+Phase 8 remains an ongoing expansion program, and this gate does not approve
+unlisted adapters, models, capabilities, agents, or deferred categories.
 
 Research with disabled people is not fabricated or replaced by simulation. It
 remains a prerequisite for promoting specialized access adapters.
