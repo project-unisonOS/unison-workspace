@@ -653,6 +653,24 @@ supported.
 | Hardware | Ubuntu 24.04 x86_64, CPU/RAM/storage, microphone/speaker, and CPU/GPU expectations are described | No machine-readable probe, named reference systems, peripheral matrix, performance/thermal/power evidence, firmware requirements, or tested support tiers exist |
 | Operations | Health, doctor, logs, restart, recovery, backup/restore, and staged-update commands exist | No support bundle/redaction contract, service-level objectives, unattended security-update policy, upgrade support window, factory reset acceptance, or pilot soak evidence exists |
 
+### Progress update, 2026-07-24
+
+The environment-independent portions of the runtime, installer, signed bundle,
+update authorization, activation/rollback, and hardened distribution paths are
+now implemented. `v0.6.0-preview.1` is publicly downloadable as an explicitly
+unsupported software preview with digest-pinned images, checksums, signatures,
+SPDX inventory, provenance, source correspondence, support status, and
+vulnerability evidence.
+
+The release pipeline independently verifies the public assets, completes an
+installer transaction, and rejects incomplete and tampered mirrors. This
+supersedes the downloadable-artifact and release-supply-chain gaps recorded in
+the starting-point table, but it does not complete Phase 9. Physical
+qualification, first-run product integration, promoted update/reboot cycles,
+offline update and revocation procedures, and pilot/support readiness remain
+open. The hardware-dependent work continues to be tracked in
+`PHASE9_HARDWARE_VALIDATION_LEDGER.md`.
+
 ### Phase 9.0: Freeze scope and lifecycle authority
 
 #### Deliverables

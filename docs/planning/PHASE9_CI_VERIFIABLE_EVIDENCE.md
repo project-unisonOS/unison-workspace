@@ -89,9 +89,32 @@ checkpointed data. These are filesystem simulations, not promoted production
 images, physical reboot, or hardware rollback evidence; HW-008 and HW-009
 remain pending.
 
-## Remaining Phase 9.1 work
+## Hardened public preview distribution
 
-The release process must connect real promoted image digests to SBOMs,
-provenance, and public-download verification. Runtime
-fault injection can be exercised in CI where representative; physical results
-remain in the hardware ledger.
+Platform commit `2749aba37e54f328cf1105523c13cc893e7a2ed6` produced
+the public `v0.6.0-preview.1` prerelease. The release contains a signed x86-64
+bundle, all 13 digest-pinned runtime images, checksums, source correspondence,
+an SPDX inventory, provenance, support status, vulnerability evidence,
+Ed25519 signatures, and Sigstore evidence.
+
+Release run `30131075439` built and pushed ten project images, signed and
+scanned them, assembled and signed the release, then downloaded the public
+assets again. The public verification job checked the published bytes and
+signatures, completed an installer transaction, and rejected incomplete and
+tampered mirrors. The release gate rejects fixable critical vulnerabilities;
+the preview publishes remaining no-fix findings and is explicitly marked
+unsupported.
+
+The release and its direct bundle, checksum, checksum-signature, verification
+key, manifest, support, and vulnerability URLs returned HTTP 200 during the
+publication audit. The public GitHub Pages release, installation, status,
+lifecycle, and roadmap guidance was refreshed in
+`project-unisonos.github.io` commit
+`f55560eaa54464dbc9294a80b76eba871db85df3`. Superseded WSL2, VM, split ISO,
+and `v0.5.0-alpha.1` pointers are now archived rather than presented as current
+downloads.
+
+This closes the environment-independent public-distribution slice of Phase
+9.5. It does not satisfy physical install, reboot, update, rollback, firmware,
+audio, thermal, or power evidence. Those results remain pending in the
+hardware ledger, and the preview is not a supported release.
