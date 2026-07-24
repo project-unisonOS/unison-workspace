@@ -28,7 +28,7 @@ credited as implemented.
 | 6. Provider-blind backup and replacement restore | Complete | Passed 2026-07-23 | Final gate approved after hostile-provider, clean replacement restore, MinIO portability, browser accessibility, hosted security/CI, site deployment, and fresh-clone evidence. |
 | 7. High-value assistant workflows | Complete | Passed 2026-07-23 | Final gate approved after seven bounded journeys, recovery/disclosure/security checks, hosted CI, browser accessibility, site deployment, and recursive fresh-clone evidence. |
 | 8. Expanded multimodal surface and ecosystem | In progress | Expansion 8.1 passed 2026-07-23 | Initial speech/caption, adaptive surface, model-routing, and capability supply-chain slice is complete; specialized adapters remain experimental. |
-| 9. Supported appliance release and lifecycle | In progress | Phase 9.0 passed 2026-07-23; CI-verifiable work continuing | Lifecycle authority, deterministic runtime/manifest, installer simulation, signed bundle/bootstrap/receipt, and signed update metadata are merged. Seventeen physical checks remain deferred without being treated as passed. |
+| 9. Supported appliance release and lifecycle | In progress | Phase 9.0 passed 2026-07-23; CI-verifiable work continuing | Lifecycle authority, deterministic runtime/manifest, installer and signed bundle, signed update authorization, checkpointed activation, health promotion, and rollback simulations are merged. Seventeen physical checks remain deferred without being treated as passed. |
 
 ## Phase 0 review package
 

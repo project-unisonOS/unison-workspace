@@ -58,6 +58,11 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- Pinned signed-evidence target authorization, independent platform threshold
+  verification, pre-update checkpoints, complete target staging, atomic
+  activation, bounded health promotion, safe resume, and automatic/explicit
+  rollback simulations.
+
 - Pinned the deterministic Ed25519-signed native release bundle, pre-privilege
   verification, exact system-change plan confirmation, transactional bootstrap,
   installation receipt, and adversarial bundle acceptance gates.

@@ -44,6 +44,7 @@ def main() -> None:
         "test_installer_preflight.py",
         "test_installer_transactions.py",
         "test_supported_bundle.py",
+        "test_update_transaction.py",
     ):
         subprocess.run(  # nosec B603
             [str(ROOT / "unison-platform/scripts" / test)],

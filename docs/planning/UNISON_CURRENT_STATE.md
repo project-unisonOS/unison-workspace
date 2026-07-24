@@ -270,10 +270,12 @@ all 13 candidate services and removes broad developer port exposure, retaining
 two loopback-only product/health surfaces. Real release digests and physical
 runtime acceptance remain open.
 
-The first Phase 9.3 trust slice now verifies threshold-signed channel metadata,
+The Phase 9.3 CI-verifiable path now verifies threshold-signed channel metadata,
 expiration, monotonic versions, channel/hardware binding, artifact integrity,
-and dual-authority root rotation. Activation health and physical rollback
-cycles remain open.
+and dual-authority root rotation. A signed-evidence receipt connects that trust
+decision to independent platform verification, checkpointed staging, atomic
+activation, bounded health promotion, and automatic or explicit rollback.
+Promoted production images, reboot, and physical rollback cycles remain open.
 
 The verified-bundle slice now assembles the supported manifest and its declared
 runtime inputs under a canonical Ed25519-signed index. Pre-privilege bootstrap
@@ -287,20 +289,20 @@ download, and physical installation remain open.
   entrypoint, `unisonctl`, first-start default checks, evaluator image builders,
   release staging, and staged-update/recovery validators.
 - The workspace pins `unison-platform` at
-  `86a53cb9f455a6d203e71849164892881c99966d`, including the constrained
+  `5db92993f8c99fe463f8fd825140472d6c5a0ea6`, including the constrained
   runtime, reproducible manifest, installer simulation, transaction, verified
-  bundle, bootstrap, and receipt gates.
+  bundle, bootstrap, receipt, update activation, health, and rollback gates.
 - `unison-os` contains documentation only, despite its README describing a base
   image build. The component inventory correctly classifies it as a legacy
   prototype for archival rather than the appliance authority.
 - The supported runtime requires 13 immutable image digests and exposes only
   two loopback surfaces. Real promoted digests are not yet published.
-- `unison-updates` is a pinned Git submodule with threshold-signed metadata and
-  attack simulations. Platform still keeps update activation optional, and a
-  real promoted update has not run end to end.
-- Platform staged-update tests validate plan/artifact/finalize state, but the
-  acceptance matrix records that real promoted package/image updates and
-  rollback are not exercised end to end.
+- `unison-updates` is pinned at
+  `ee02705357308354f4ba81ab2eaeb7cf720baa1a` with threshold-signed
+  metadata, attack simulations, and a signed-evidence staging receipt.
+- Platform simulations exercise complete bundle checkpoint, stage, activate,
+  health, promote, automatic rollback, and explicit rollback transactions.
+  Real promoted package/image updates and physical reboot remain untested.
 - The tag release workflow signs the platform image and stages release assets,
   but action references are not commit-pinned, the downloaded Cosign binary is
   not checksum-verified, and verification of evaluator images is skipped.
