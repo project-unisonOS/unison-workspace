@@ -45,6 +45,13 @@ def main() -> None:
             [str(ROOT / "unison-platform/scripts" / test)],
             check=True,
         )
+    subprocess.run(  # nosec B603
+        [
+            sys.executable,
+            str(ROOT / "unison-updates/scripts/test_trusted_metadata.py"),
+        ],
+        check=True,
+    )
     if data["product_profile"].get("default_telemetry") != "off":
         fail("telemetry must default off")
     if data["update_authority"].get("metadata_framework") != "TUF":

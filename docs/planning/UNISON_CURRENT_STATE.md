@@ -270,6 +270,11 @@ all 13 candidate services and removes broad developer port exposure, retaining
 two loopback-only product/health surfaces. Real release digests and physical
 runtime acceptance remain open.
 
+The first Phase 9.3 trust slice now verifies threshold-signed channel metadata,
+expiration, monotonic versions, channel/hardware binding, artifact integrity,
+and dual-authority root rotation. Activation health and physical rollback
+cycles remain open.
+
 - `unison-platform` contains the active native Ubuntu installer, native Compose
   entrypoint, `unisonctl`, first-start default checks, evaluator image builders,
   release staging, and staged-update/recovery validators.

@@ -58,6 +58,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- Pinned threshold-signed update metadata with expiration, monotonic channel
+  and target versions, channel/hardware binding, artifact integrity, dual-root
+  rotation, and eight negative attack simulations.
+
 - Pinned simulated installer preflight and transaction gates covering target
   eligibility, nine incompatibilities, idempotency, injected interruption,
   repair, safe removal, and explicitly confirmed data destruction.
