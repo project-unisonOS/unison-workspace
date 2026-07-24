@@ -282,30 +282,39 @@ runtime inputs under a canonical Ed25519-signed index. Pre-privilege bootstrap
 verification rejects tamper, inventory drift, service/image reassignment, and
 trust-root substitution; exact plan acceptance gates transactional activation,
 and the resulting receipt binds the installed tree to the release manifest and
-source commit. Real promoted images, SBOM/provenance publication, public
-download, and physical installation remain open.
+source commit.
+
+The hardened distribution slice published `v0.6.0-preview.1` as an unsupported
+software-only preview. It includes the signed native bundle, 13 digest-pinned
+images, checksums, source correspondence, SPDX inventory, provenance, support
+status, vulnerability results, and Ed25519 and Sigstore evidence. CI verified
+the assets from the public release, completed an installer transaction, and
+rejected incomplete and tampered mirrors. Physical installation remains open.
 
 - `unison-platform` contains the active native Ubuntu installer, native Compose
   entrypoint, `unisonctl`, first-start default checks, evaluator image builders,
   release staging, and staged-update/recovery validators.
 - The workspace pins `unison-platform` at
-  `5db92993f8c99fe463f8fd825140472d6c5a0ea6`, including the constrained
+  `2749aba37e54f328cf1105523c13cc893e7a2ed6`, including the constrained
   runtime, reproducible manifest, installer simulation, transaction, verified
-  bundle, bootstrap, receipt, update activation, health, and rollback gates.
+  bundle, bootstrap, receipt, update activation, health, rollback, hardened
+  image build, signing, scanning, public release, and public-download gates.
 - `unison-os` contains documentation only, despite its README describing a base
   image build. The component inventory correctly classifies it as a legacy
   prototype for archival rather than the appliance authority.
 - The supported runtime requires 13 immutable image digests and exposes only
-  two loopback surfaces. Real promoted digests are not yet published.
+  two loopback surfaces. Preview digests are published; supported promotion
+  still requires the remaining gates.
 - `unison-updates` is pinned at
   `ee02705357308354f4ba81ab2eaeb7cf720baa1a` with threshold-signed
   metadata, attack simulations, and a signed-evidence staging receipt.
 - Platform simulations exercise complete bundle checkpoint, stage, activate,
   health, promote, automatic rollback, and explicit rollback transactions.
   Real promoted package/image updates and physical reboot remain untested.
-- The tag release workflow signs the platform image and stages release assets,
-  but action references are not commit-pinned, the downloaded Cosign binary is
-  not checksum-verified, and verification of evaluator images is skipped.
+- The hardened release workflow uses pinned actions and verified tools, builds
+  the project images from source-correspondent inputs, applies current base OS
+  security upgrades, signs and scans the outputs, and verifies the resulting
+  public release.
 - The evaluator bare-metal ISO embeds a known password, permits SSH password
   login, makes Ubuntu ISO checksum verification optional, and invokes the broad
   Compose file. It is not eligible for supported status.
@@ -314,7 +323,7 @@ download, and physical installation remain open.
   machine-readable compatibility probe, firmware/peripheral evidence, or
   completed physical clean-install record.
 - Phase 9 of the implementation plan converts these assets into a gated supported
-  appliance program. No current artifact is credited as supported.
+  appliance program. The current preview is explicitly unsupported.
 
 ## CI and test baseline
 
