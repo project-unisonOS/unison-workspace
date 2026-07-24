@@ -40,7 +40,11 @@ def main() -> None:
         [str(ROOT / "unison-platform/scripts/test_supported_manifest.py")],
         check=True,
     )
-    for test in ("test_installer_preflight.py", "test_installer_transactions.py"):
+    for test in (
+        "test_installer_preflight.py",
+        "test_installer_transactions.py",
+        "test_supported_bundle.py",
+    ):
         subprocess.run(  # nosec B603
             [str(ROOT / "unison-platform/scripts" / test)],
             check=True,

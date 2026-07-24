@@ -34,6 +34,24 @@ requires an exact destruction phrase before factory reset. Ordinary uninstall
 preserves the separate personal-data directory. These temporary-filesystem
 tests do not satisfy physical checks HW-005 through HW-007.
 
+Platform PR 20, merged as
+`86a53cb9f455a6d203e71849164892881c99966d`, connects those primitives
+through a deterministic signed release bundle and bootstrap boundary. The
+bundle contains the supported manifest, Compose contract, immutable image
+environment, host requirements, license inventory, and model profile under a
+canonical Ed25519-signed index. Bootstrap verification runs before privilege
+elevation and binds confirmation to the exact bundle index, trusted public key,
+installation prefix, and personal-data path.
+
+Hosted and workspace acceptance build byte-identical bundles, reject content
+corruption, invalid signatures, missing and extra files, a substituted trust
+root, and service/image reassignment, then exercise refusal before exact plan
+acceptance, transactional install, an installation receipt, idempotent
+reinstall, and data-preserving uninstall. The receipt reconciles the installed
+tree with the bundle index, release manifest, source commit, and immutable
+image inventory. This is CI/simulation evidence only: it does not publish real
+release images or satisfy HW-005, HW-006, or HW-015.
+
 ## Signed update-channel trust
 
 Updates commit `a48a49b0a7bdd7ff9cd347f1d9c66910074423d3` adds
@@ -52,6 +70,6 @@ interruption, reboot, or rollback checks HW-008 and HW-009.
 ## Remaining Phase 9.1 work
 
 The release process must connect real promoted image digests to SBOMs,
-provenance, and signature verification. Runtime
+provenance, and public-download verification. Runtime
 fault injection can be exercised in CI where representative; physical results
 remain in the hardware ledger.

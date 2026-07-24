@@ -58,6 +58,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- Pinned the deterministic Ed25519-signed native release bundle, pre-privilege
+  verification, exact system-change plan confirmation, transactional bootstrap,
+  installation receipt, and adversarial bundle acceptance gates.
+
 - Pinned threshold-signed update metadata with expiration, monotonic channel
   and target versions, channel/hardware binding, artifact integrity, dual-root
   rotation, and eight negative attack simulations.

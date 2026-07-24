@@ -275,23 +275,29 @@ expiration, monotonic versions, channel/hardware binding, artifact integrity,
 and dual-authority root rotation. Activation health and physical rollback
 cycles remain open.
 
+The verified-bundle slice now assembles the supported manifest and its declared
+runtime inputs under a canonical Ed25519-signed index. Pre-privilege bootstrap
+verification rejects tamper, inventory drift, service/image reassignment, and
+trust-root substitution; exact plan acceptance gates transactional activation,
+and the resulting receipt binds the installed tree to the release manifest and
+source commit. Real promoted images, SBOM/provenance publication, public
+download, and physical installation remain open.
+
 - `unison-platform` contains the active native Ubuntu installer, native Compose
   entrypoint, `unisonctl`, first-start default checks, evaluator image builders,
   release staging, and staged-update/recovery validators.
 - The workspace pins `unison-platform` at
-  `3f855843796a2159726d5ae07acdf0f65490a74a`, while the lifecycle audit reviewed
-  the newer platform `main` at `bd80a4a`. The later installer/update/release
-  work is therefore not yet reproducible from the authoritative workspace pin.
+  `86a53cb9f455a6d203e71849164892881c99966d`, including the constrained
+  runtime, reproducible manifest, installer simulation, transaction, verified
+  bundle, bootstrap, and receipt gates.
 - `unison-os` contains documentation only, despite its README describing a base
   image build. The component inventory correctly classifies it as a legacy
   prototype for archival rather than the appliance authority.
-- The native runtime still resolves application images through
-  `${UNISON_IMAGE_TAG:-latest}` and inherits a broad Compose graph. It is not an
-  immutable release bundle.
-- The local `unison-updates` implementation has focused signature, policy,
-  planner, model-pack, and rollback tests, but its directory is not a Git
-  checkout and it is not pinned by the workspace. Platform keeps the service
-  optional behind an `updates` profile.
+- The supported runtime requires 13 immutable image digests and exposes only
+  two loopback surfaces. Real promoted digests are not yet published.
+- `unison-updates` is a pinned Git submodule with threshold-signed metadata and
+  attack simulations. Platform still keeps update activation optional, and a
+  real promoted update has not run end to end.
 - Platform staged-update tests validate plan/artifact/finalize state, but the
   acceptance matrix records that real promoted package/image updates and
   rollback are not exercised end to end.
