@@ -67,6 +67,28 @@ payload tampering, and invalid root-version jumps. A valid dual-authority key
 rotation succeeds. These metadata tests do not satisfy real promoted update,
 interruption, reboot, or rollback checks HW-008 and HW-009.
 
+Updates commit `ee02705357308354f4ba81ab2eaeb7cf720baa1a` emits a
+versioned verified-target receipt only after those checks pass. The receipt
+retains the original signed channel metadata and binds root/channel versions,
+target and release versions, exact artifact bytes, hardware, restart, and
+checkpoint requirements.
+
+Platform commit `5db92993f8c99fe463f8fd825140472d6c5a0ea6` adds the
+privileged activation transaction. It independently verifies the receipt's
+Ed25519 threshold against a separately pinned update root, verifies the signed
+release bundle, checks capacity, creates and verifies a personal-data and
+receipt checkpoint, stages the complete target without changing the current
+release, atomically activates it, and promotes only after bounded health checks.
+
+CI simulations cover successful `N-1 -> N`, failed `N -> N+1`, health retries,
+migration failure, explicit owner rollback, download/staging/post-activation
+interruption, safe resume, disk-full refusal and retry, restored-device state,
+authorization mismatch, signed-metadata tamper, and expired update roots.
+Automatic rollback restores the previous release, installation receipt, and
+checkpointed data. These are filesystem simulations, not promoted production
+images, physical reboot, or hardware rollback evidence; HW-008 and HW-009
+remain pending.
+
 ## Remaining Phase 9.1 work
 
 The release process must connect real promoted image digests to SBOMs,
