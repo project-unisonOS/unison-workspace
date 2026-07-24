@@ -34,6 +34,21 @@ requires an exact destruction phrase before factory reset. Ordinary uninstall
 preserves the separate personal-data directory. These temporary-filesystem
 tests do not satisfy physical checks HW-005 through HW-007.
 
+## Signed update-channel trust
+
+Updates commit `a48a49b0a7bdd7ff9cd347f1d9c66910074423d3` adds
+canonical Ed25519 threshold verification for root and channel metadata. The
+client requires unexpired, monotonically advancing metadata and target
+versions, exact channel and Ubuntu x86_64 binding, and matching artifact length
+and SHA-256 before staging. Root rotation advances exactly one version and
+requires thresholds from both the trusted and proposed roots.
+
+Hosted and workspace simulations reject replay/freeze, expiration, wrong
+channel, corrupt artifact, incompatible hardware, target rollback, signed
+payload tampering, and invalid root-version jumps. A valid dual-authority key
+rotation succeeds. These metadata tests do not satisfy real promoted update,
+interruption, reboot, or rollback checks HW-008 and HW-009.
+
 ## Remaining Phase 9.1 work
 
 The release process must connect real promoted image digests to SBOMs,
