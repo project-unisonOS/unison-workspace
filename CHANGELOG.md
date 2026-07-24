@@ -58,6 +58,10 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ### Changed
 
+- Pinned simulated installer preflight and transaction gates covering target
+  eligibility, nine incompatibilities, idempotency, injected interruption,
+  repair, safe removal, and explicitly confirmed data destruction.
+
 - Pinned deterministic supported-release manifest generation with immutable
   digest enforcement, complete version/host/license inventory, and
   byte-for-byte reproducibility tests.

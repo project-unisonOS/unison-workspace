@@ -25,6 +25,15 @@ service images, host packages/resources, schema/configuration/backup/model
 versions, model-profile hash, and declared licenses. The dependency-free
 negative and reproducibility tests run from both platform and workspace CI.
 
+Platform PRs 18 and 19 add environment-independent installer evidence. The
+preflight accepts the exact target profile and blocks nine incompatible
+OS/architecture/resource/firmware/runtime cases. The transaction primitive
+stages versioned bundles, atomically activates them, retains last known good
+through injected interruptions, supports idempotent reinstall and repair, and
+requires an exact destruction phrase before factory reset. Ordinary uninstall
+preserves the separate personal-data directory. These temporary-filesystem
+tests do not satisfy physical checks HW-005 through HW-007.
+
 ## Remaining Phase 9.1 work
 
 The release process must connect real promoted image digests to SBOMs,
