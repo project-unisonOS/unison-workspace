@@ -40,11 +40,17 @@ credited as implemented.
 | SE1. Semantic Experience Model v1 | Complete | Canonical schemas, strict bindings, orchestration output, and ROM compatibility accepted 2026-07-25 |
 | SE2. Governed interaction profile | Complete | Private lifecycle, reversibility, expiry, export/delete, and cross-person denial accepted 2026-07-25 |
 | SE3. Native expression composers | Complete | Conversational/visual equivalence and independent Braille simulation accepted 2026-07-25 |
-| SE4-SE12 | Not started | Planner, continuity, interpretation, qualification, routing, and model lifecycle remain planned |
+| SE4. Person-aware expression planner | Complete | Reproducible mixed-I/O planning, deterministic privacy rules, audit explanations, and fallback accepted 2026-07-25 |
+| SE5. Cross-modal continuity | Complete | Session continuity, one-time person-bound confirmations, and semantic equivalence gates accepted in simulation 2026-07-25 |
+| SE6. Existing-experience interpreter | Complete | Provenance reconciliation, structured-source priority, injection isolation, and stale-target stopping accepted with synthetic sources 2026-07-25 |
+| SE7. Qualification and publication | In progress | Software and simulated qualification complete; physical hardware, participatory testing, supported matrices, and public claims remain gated |
+| SE8-SE12 | Not started | Model task registry, qualification, selection, lifecycle, rollback, and final publication remain planned |
 
-The closeout package is
-[SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md).
-All physical-device and participatory validation items remain open.
+The accepted packages are
+[SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md)
+and [SEMANTIC_EXPERIENCE_SE4_SE7_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE4_SE7_EVIDENCE.md).
+All physical-device and participatory validation items remain open and keep the
+SE7 supported-release gate in progress.
 
 ## Phase 0 review package
 
