@@ -135,6 +135,26 @@ sensitive-content, stale-state, and adversarial-content cases. Physical-device,
 appliance performance, and participatory qualification have not occurred, so
 SE7 remains open for supported-release and public accessibility claims.
 
+## Semantic experience SE8-SE10 software delta
+
+Inference now has bounded task requirements and a signed immutable model
+registry. Installed and remote availability is inventoried separately from
+eligibility, and installed artifacts must match their manifest digest.
+
+Each interpretation, extraction, vision, semantic construction, synthesis, or
+conversation operation is routed independently. Hard eligibility covers task,
+modality, language, structured output, privacy, disclosure, retention, risk,
+offline state, hardware, latency, cost, license, integrity, and support before
+an inspectable person-aligned ranking is applied. Route records preserve the
+selected version, minimized disclosure, rejected reasons, and fallback.
+
+Model semantic output is a typed, provenance-bearing, explicitly untrusted
+proposal. The platform reconciles source freshness, exact facts, recipients,
+actions, recovery, and required meaning. High-risk language and exact content
+remain deterministic. Synthetic qualification passes across conversational,
+visual, and Braille expressions. Supported-hardware model qualification and
+model promotion remain open for SE11 and SE12.
+
 ## Phase 0 closeout delta
 
 The local review candidate now provides a pinned Python 3.12 bootstrap, shared

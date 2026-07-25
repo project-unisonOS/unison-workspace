@@ -19,3 +19,4 @@ echo "[PASS] Phase 8 expansion 8.1 contracts, accessibility, routing, and supply
 
 "${ROOT_DIR}/scripts/test-semantic-experience-se0-se3.sh"
 "${ROOT_DIR}/scripts/test-semantic-experience-se4-se7.sh"
+"${ROOT_DIR}/scripts/test-semantic-experience-se8-se10.sh"
