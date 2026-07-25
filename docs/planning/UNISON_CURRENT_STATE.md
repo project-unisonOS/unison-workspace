@@ -114,6 +114,27 @@ composition navigates semantic structure without visual focus state.
 This is a software and simulation boundary. Native device qualification and
 participatory validation remain in the SE hardware ledger and later SE7 gate.
 
+## Semantic experience SE4-SE7 software delta
+
+The runtime now plans input and output independently with deterministic privacy
+and safety exclusions, reproducible audit inputs, and ordered fallback. A
+modality-neutral session preserves semantic focus, references, pending actions,
+progress, recovery, and one-time person-bound confirmations while expressions
+change. Automated semantic diffs stop releases that omit required meaning,
+actions, or recovery.
+
+Existing APIs, documents, accessibility trees, computer-use state, and vision
+analysis can enter a provenance-bearing interpreter. Structured sources take
+priority, untrusted instructions remain inert content, and stale or ambiguous
+targets stop before action. Consequential controls require short-lived bindings
+to the authenticated person, capability, and current source state.
+
+Synthetic qualification covers the six baseline journeys and representative
+table, chart, image, form, error, confirmation, offline, degraded-device,
+sensitive-content, stale-state, and adversarial-content cases. Physical-device,
+appliance performance, and participatory qualification have not occurred, so
+SE7 remains open for supported-release and public accessibility claims.
+
 ## Phase 0 closeout delta
 
 The local review candidate now provides a pinned Python 3.12 bootstrap, shared

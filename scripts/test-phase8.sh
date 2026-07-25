@@ -18,3 +18,4 @@ export OTEL_ENABLED=false OTEL_SDK_DISABLED=true UNISON_DISABLE_OTEL_EXPORTER=tr
 echo "[PASS] Phase 8 expansion 8.1 contracts, accessibility, routing, and supply-chain controls passed."
 
 "${ROOT_DIR}/scripts/test-semantic-experience-se0-se3.sh"
+"${ROOT_DIR}/scripts/test-semantic-experience-se4-se7.sh"
