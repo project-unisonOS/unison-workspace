@@ -2,9 +2,11 @@
 
 # Unison Authoritative Implementation Plan
 
-Status: proposed execution source of truth; awaiting human review  
-Plan version: 0.1  
-Last updated: 2026-07-20
+Status: proposed execution source of truth; awaiting human review
+
+Plan version: 0.2
+
+Last updated: 2026-07-24
 
 ## Authority and maintenance
 
@@ -104,6 +106,12 @@ Phase 7: high-value assistant workflows and outcome measurement
              |
              v
 Phase 8: expanded modalities, channels, models, capability ecosystem
+             |
+             v
+Phase 9: supported appliance release and lifecycle
+             |
+             v
+Phase 10: adaptive maintenance and continuous improvement
 ```
 
 Phase 5 contract design can begin after Phase 1, but remote product access cannot pass its gate until Phase 3 policy and replay controls exist. Phase 6 depends on Phases 1–4 because backups must preserve person/shared-space isolation. Product workflows in Phase 7 may be prototyped earlier but cannot be considered product-ready before the relevant trust gates.
@@ -868,6 +876,84 @@ hardware qualification matrix, install/first-run accessibility report, update
 and rollback ledger, backup/restore report, security scans and threat review,
 pilot/SLO report, public-download fresh-install record, support runbooks, and
 published documentation.
+
+## Phase 10: Adaptive maintenance and continuous improvement
+
+### Objective
+
+Keep each Unison appliance secure, reliable, responsive, and appropriately
+provisioned by combining privacy-minimized local health evidence with trustworthy
+security, software, model, capability, hardware, and community intelligence.
+Recommend actions suited to the exact machine and actual workload, and execute
+only those covered by explicit bounded authority and reliable recovery.
+
+The authoritative proposed design is
+[UNISON_ADAPTIVE_MAINTENANCE_DESIGN.md](UNISON_ADAPTIVE_MAINTENANCE_DESIGN.md).
+
+### Dependencies
+
+- Phase 3 policy, consent, disclosure, confirmation, and audit boundaries.
+- Phase 6 verified backup and replacement recovery.
+- Phase 8 signed model and capability compatibility contracts.
+- Phase 9 signed distribution, inventory, hardware matrix, update, health,
+  checkpoint, activation, and rollback primitives.
+- Approval of proposed architecture decision AD-035.
+
+### Delivery slices
+
+1. **AM-0, decisions and contracts:** approve autonomy, telemetry, source,
+   administrator-visibility, and emergency policies; add canonical schemas and
+   an adversarial simulation harness.
+2. **AM-1, private observability:** collect content-free inventory and health
+   indicators, establish healthy envelopes, and ship the System wellbeing
+   experience.
+3. **AM-2, security intelligence:** build the installed-state exposure graph
+   and ingest authoritative notices for every shipped software layer.
+4. **AM-3, recommendations and hardware fit:** diagnose bottlenecks, forecast
+   capacity, compare software/model/configuration/hardware options, and explain
+   locally measured value and uncertainty.
+5. **AM-4, bounded self-healing:** add autonomy grants, maintenance windows,
+   staging, canaries, budgets, health gates, receipts, circuit breakers, and
+   rollback for reversible action classes.
+6. **AM-5, community intelligence:** ingest a reviewed set of public feeds and
+   APIs in a sandbox, extract and corroborate claims, and generate safe local
+   test proposals without granting external content authority.
+7. **AM-6, full-stack and physical qualification:** extend maintenance across
+   OS, containers, drivers, models, capabilities, data/configuration, and
+   recoverable firmware; validate hardware advice and boot recovery physically.
+8. **AM-7, pilot and support:** calibrate precision, realized benefit, alert
+   burden, patch latency, rollback, accessibility, and incident response before
+   promoting any autonomous action class.
+
+### Final acceptance gate
+
+Phase 10 passes only when:
+
+- external content cannot directly or indirectly authorize privileged action;
+- operational data contains no personal-content canaries and does not reveal one
+  person's private activity to another person or household administrator;
+- applicable vulnerabilities are detected across every supported software
+  layer and fixed within approved severity windows;
+- every automatic action is covered by an exact revocable grant, independently
+  verified by Appliance Lifecycle, and bound to a checkpoint and health gate;
+- injected bad advice, compromised sources, malicious artifacts, prompt
+  injection, update failure, boot failure, interruption, restart storms, and
+  resource oscillation remain contained;
+- recommendations measurably fit the exact hardware and workload, disclose
+  uncertainty and alternatives, and demonstrate expected benefit;
+- hardware recommendations never use sponsorship or popularity as evidence and
+  avoid purchase when a supported software alternative meets the need;
+- the named physical matrix passes update, rollback, power, thermal, firmware,
+  backup, and restore scenarios;
+- accessible explanation, approval, deferral, cancellation, history, and
+  recovery work across supported modalities; and
+- human review explicitly promotes each autonomous action class.
+
+Required evidence: canonical contracts, privacy and threat reviews, source
+registry, inventory/SBOM and exposure graph, fault and hostile-feed corpus,
+recommendation calibration report, action/rollback receipts, physical hardware
+matrix, accessibility report, pilot results, incident exercises, and public
+support documentation.
 
 ## GitHub Pages program
 

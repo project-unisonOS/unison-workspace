@@ -54,6 +54,7 @@ Changing an accepted decision affecting the product promise, principal isolation
 | AD-032 | Replacement restore is staged, resumable, verified, and rotates authority | Accepted |
 | AD-033 | Backup and recovery are semantically and multimodally accessible | Accepted |
 | AD-034 | The home node remains the only authoritative writer during Phase 6 | Accepted |
+| AD-035 | Adaptive maintenance uses separated evidence, decision, and privileged execution boundaries | Proposed |
 
 ## AD-001: Household-hosted private assistant appliance
 
@@ -498,3 +499,29 @@ same versioned matrix as installer enforcement.
 - BCI data retention and raw-signal governance.
 - Marketplace economics and third-party capability certification.
 - Cloud-hosted Unison authority; this is incompatible with the current local-authority decision unless explicitly reconsidered.
+
+## AD-035: Bounded adaptive maintenance
+
+State: **Proposed**
+
+Unison continuously observes privacy-minimized system health, evaluates signed
+upstream and untrusted community evidence, and recommends improvements suited to
+the exact appliance hardware and actual local workload. Internet-facing
+collectors, maintenance reasoning, policy/consent, and privileged execution
+remain separate. No component may combine arbitrary external content with
+general root authority.
+
+Automatic execution is limited to typed, pre-authorized, reversible action
+classes with exact targets, maintenance windows, checkpoints, health gates,
+change budgets, receipts, and rollback. Security containment may use a distinct
+owner-approved emergency policy. Firmware, boot-critical transitions,
+permission expansion, destructive cleanup, paid changes, and hardware purchases
+require explicit review.
+
+Operational metrics remain local and content-free by default. Popularity,
+sponsorship, engagement, and affiliate value cannot influence ranking.
+Community content is discovery-only until corroborated and reduced to a safe,
+testable proposition.
+
+The complete proposed contract and phased plan are in
+[UNISON_ADAPTIVE_MAINTENANCE_DESIGN.md](UNISON_ADAPTIVE_MAINTENANCE_DESIGN.md).
