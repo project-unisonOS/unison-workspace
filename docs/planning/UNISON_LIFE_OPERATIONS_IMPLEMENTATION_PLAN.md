@@ -2,7 +2,7 @@
 
 # Unison life operations and conversational data onboarding implementation plan
 
-Status: proposed Phase 11 execution plan
+Status: active Phase 11 execution plan; LO-0 through LO-2 implemented
 
 Date: 2026-07-25
 
@@ -367,6 +367,11 @@ Each package declares:
 
 ### LO-0: Decisions, schemas, threats, and synthetic corpus
 
+Status: **Complete in software on 2026-07-25.** Canonical contracts, prohibited
+action policy, synthetic canary corpus, threat map, and executable contract
+tests are recorded in
+[PHASE11_LO0_LO2_EVIDENCE.md](PHASE11_LO0_LO2_EVIDENCE.md).
+
 Deliver:
 
 - approve the life operations architecture and onboarding privacy model;
@@ -392,6 +397,13 @@ Gate:
 
 ### LO-1: Universal intake and source library
 
+Status: **Complete in software on 2026-07-25.** The authenticated storage
+boundary implements encrypted quarantine, deterministic local extraction,
+injected local OCR, metadata, CSV table and barcode extraction, type and archive
+checks, deduplication, versioning, correction, admission, rollback, export,
+reclassification, and deletion. The renderer supplies file, camera, preview,
+and private admission controls.
+
 Deliver:
 
 - authenticated drag-and-drop and file-picker intake;
@@ -416,6 +428,13 @@ Gate:
 - deletion removes source and derived indexes according to recorded retention.
 
 ### LO-2: Connection Broker and conversational setup
+
+Status: **Complete for the initial sandbox and local contract scope on
+2026-07-25.** The catalog includes generic OAuth PKCE, SMART FHIR, financial
+sandbox, selected local folder, and bounded MCP profiles. Opaque per-person
+handles, cursors, receipts, deduplication, isolation, disconnect, revocation,
+and accessible progressive setup are implemented. Production provider
+certification remains later adapter work and is not implied by this gate.
 
 Deliver:
 
