@@ -39,6 +39,8 @@ jobs:
         run: ./scripts/test-phase8.sh
       - name: Validate Phase 9 scope and hardware deferral ledger
         run: ./scripts/validate-phase9.sh
+      - name: Validate Phase 10 adaptive maintenance AM-0 through AM-3
+        run: ./scripts/validate-phase10.sh
 
   phase6-s3-compatible-backend:
     runs-on: ubuntu-24.04
