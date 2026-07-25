@@ -55,7 +55,7 @@ Changing an accepted decision affecting the product promise, principal isolation
 | AD-033 | Backup and recovery are semantically and multimodally accessible | Accepted |
 | AD-034 | The home node remains the only authoritative writer during Phase 6 | Accepted |
 | AD-041 | Adaptive maintenance uses separated evidence, decision, and privileged execution boundaries | Accepted |
-| AD-050 | Life operations use one source, domain-package, and governed-action architecture | Proposed |
+| AD-050 | Life operations use one source, domain-package, and governed-action architecture | Accepted |
 
 ## AD-001: Household-hosted private assistant appliance
 
@@ -493,7 +493,7 @@ same versioned matrix as installer enforcement.
 
 ## AD-050: Shared private life operations architecture
 
-State: **Proposed**
+State: **Accepted - approved for LO-0 through LO-2 implementation 2026-07-25**
 
 Household, health, finance, care, benefits, records, insurance, security,
 learning, relationship, and later life-operation domains use one authenticated

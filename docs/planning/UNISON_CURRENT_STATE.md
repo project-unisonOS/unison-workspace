@@ -1,7 +1,7 @@
 # Unison Current State
 
 Status: verified audit snapshot; not a completion claim  
-Audit date: 2026-07-21
+Audit date: 2026-07-25
 Authoritative scope: `unison-workspace` plus the sibling Project Unison repositories present in `/home/dadam/unison-wsl`
 
 ## Purpose and evidence standard
@@ -9,6 +9,26 @@ Authoritative scope: `unison-workspace` plus the sibling Project Unison reposito
 This document records what was observed in source code, schemas, configuration, tests, deployment assets, workflows, and the public documentation checkout. Documentation was treated as a lead, not as proof. A capability is described as implemented only when code and focused tests or runnable configuration support the claim. Live hardware, provider, installation, and end-to-end claims remain unverified unless explicitly listed as executed evidence.
 
 The root checkout is an aggregate working directory, not itself a Git repository. `unison-workspace` is the Git meta-repository and documented developer front door, so the authoritative planning set lives here. Repositories absent from its submodule list were still audited as sibling implementation evidence.
+
+## Phase 11 LO-0 through LO-2 delta
+
+The first private life operations foundation is implemented across shared
+contracts, storage, and the renderer. New sources bind to an authenticated
+person and explicit destination space, enter encrypted quarantine, pass media,
+size, signature, archive, and malware policy, and remain private until review.
+Deterministic extraction records exact character or document regions, processor
+identity, confidence, corrections, duplicate and prior-version relationships.
+Interrupted imports can resume or roll back, and source deletion removes the
+encrypted object and extracted indexes.
+
+The initial Connection Broker exposes only read-only sandbox or locally bounded
+profiles: generic OAuth with PKCE, SMART FHIR, a financial test provider, a
+selected folder, and bounded MCP resources. Provider credentials remain behind
+opaque per-person handles. Incremental sync records cursors and receipts,
+deduplicates replayed items, rejects cross-person use, and stops after
+revocation. The accessible renderer adds keyboard and touch native file, camera,
+preview, admission, scope review, and connection status controls. This is not a
+claim of production health-system or financial-provider certification.
 
 ## Phase 8 expansion 8.1 candidate delta
 
