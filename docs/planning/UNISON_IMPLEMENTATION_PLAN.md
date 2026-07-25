@@ -600,6 +600,9 @@ hardware evidence. The explicitly deferred categories below remain deferred.
 ### Architecture and schema changes
 
 - Mature semantic response and modality capability negotiation.
+- Implement the accepted semantic-first experience architecture through the
+  `SE0`-`SE7` program in
+  [SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md](SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md).
 - Versioned capability packaging/certification and model policy profiles.
 - Additional channel adapters conform to the Phase 5 contract.
 
