@@ -44,11 +44,16 @@ credited as implemented.
 | SE5. Cross-modal continuity | Complete | Session continuity, one-time person-bound confirmations, and semantic equivalence gates accepted in simulation 2026-07-25 |
 | SE6. Existing-experience interpreter | Complete | Provenance reconciliation, structured-source priority, injection isolation, and stale-target stopping accepted with synthetic sources 2026-07-25 |
 | SE7. Qualification and publication | In progress | Software and simulated qualification complete; physical hardware, participatory testing, supported matrices, and public claims remain gated |
-| SE8-SE12 | Not started | Model task registry, qualification, selection, lifecycle, rollback, and final publication remain planned |
+| SE8. Model task taxonomy and signed registry | Complete | Strict task requirements, signed immutable manifests, inventory separation, and fail-closed integrity accepted 2026-07-25 |
+| SE9. Deterministic eligibility and routing | Complete | Hard eligibility, inspectable ranking, minimized per-operation disclosure, and negative-security gates accepted 2026-07-25 |
+| SE10. Bounded model contribution | Complete | Typed untrusted proposals, source/fact/recipient/action reconciliation, and deterministic high-risk language accepted 2026-07-25 |
+| SE11-SE12 | Not started | Canary, promotion, rollback, compatibility qualification, and final publication remain planned |
 
 The accepted packages are
 [SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md)
 and [SEMANTIC_EXPERIENCE_SE4_SE7_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE4_SE7_EVIDENCE.md).
+SE8 through SE10 evidence is in
+[SEMANTIC_EXPERIENCE_SE8_SE10_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE8_SE10_EVIDENCE.md).
 All physical-device and participatory validation items remain open and keep the
 SE7 supported-release gate in progress.
 

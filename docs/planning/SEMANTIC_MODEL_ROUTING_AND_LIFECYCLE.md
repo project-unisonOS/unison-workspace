@@ -1,14 +1,14 @@
 # Semantic experience model routing and lifecycle
 
-Status: **Current-state assessment and accepted follow-on design; implementation incomplete**  
+Status: **SE8 through SE10 software scope complete; SE11 and SE12 remain planned**
 Last updated: 2026-07-25  
 Prerequisite program: [SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md](SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md)
 
 ## Purpose
 
 This document defines the role of AI models in the semantic experience system,
-records what is implemented today, and identifies the model-routing and
-model-lifecycle work that follows `SE0` through `SE7`.
+records what is implemented today, and identifies the remaining model-lifecycle
+work after `SE10`.
 
 Models are bounded reasoning and translation components. They can help Unison
 interpret meaning, understand unstructured or visual information, propose a
@@ -74,19 +74,21 @@ gate. They do not yet constitute the complete routing and lifecycle design.
   signed per-version compatibility, quality, risk, and hardware manifests do
   not.
 
-### Behavior not yet implemented
+### SE8 through SE10 accepted implementation
 
 - deterministic eligibility across privacy, disclosure, risk, task capability,
-  hardware, offline state, latency, cost, license, and support status;
-- inspectable ranking among all eligible models for each bounded operation;
-- independent routing for intent interpretation, visual understanding,
-  semantic construction, conversational composition, and other task classes;
-- a signed registry describing model capabilities, limits, provenance,
-  compatibility, measured quality, and approved risk classes;
-- uniform schema validation, semantic reconciliation, and required-fact checks
-  around model-proposed SEM content;
-- deterministic ownership of exact facts, recipients, consequences,
-  confirmations, action bindings, and recovery content in every expression;
+  hardware, offline state, latency, cost, license, integrity, and support;
+- inspectable ranking and minimized disclosure for each bounded operation;
+- independent routing for interpretation, extraction, vision, semantic
+  construction, synthesis, and conversation;
+- signed immutable manifests covering capabilities, provenance, compatibility,
+  quality, risk, hardware, license, support, and rollback;
+- typed untrusted proposals with schema, source-version, fact, recipient,
+  action, provenance, and recovery reconciliation;
+- deterministic ownership of exact and high-risk language paths.
+
+### Behavior not yet implemented
+
 - golden semantic-journey comparison across model versions;
 - shadow, canary, promotion, health-gate, and automatic rollback workflows for
   model updates;
@@ -252,9 +254,6 @@ and recovery cannot.
 
 ## Public messaging guardrail
 
-Public content may say that Unison supports local and remote provider adapters,
-defaults to local inference, and enforces disclosure decisions before remote
-inference. It must describe full task-aware routing, hardware-aware selection,
-native semantic composition, and governed model upgrades as planned until the
-follow-on slices have accepted evidence.
-
+Public content remains unchanged by SE8 through SE10. Hardware-aware routing has
+software and synthetic evidence, while supported model/version matrices,
+governed upgrades, canary promotion, and rollback require SE11 and SE12 evidence.
