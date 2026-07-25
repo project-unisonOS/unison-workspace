@@ -2,7 +2,7 @@
 
 # Unison life operations and conversational data onboarding implementation plan
 
-Status: active Phase 11 execution plan; LO-0 through LO-2 implemented
+Status: active Phase 11 execution plan; LO-0 through LO-6 software gates and LO-7 synthetic gate implemented
 
 Date: 2026-07-25
 
@@ -470,6 +470,12 @@ Gate:
 
 ### LO-3: Private household operations
 
+Status: **Complete in software on 2026-07-25.** Canonical household records,
+exact-identifier reconciliation, deadline and exact-recall attention, cited
+repair and procedure briefs, read-only Matter and energy record types,
+private-by-default storage, explicit sharing, draft-only external work, and
+physical-actuation denial are implemented and tested.
+
 Deliver:
 
 - household item, product, property, warranty, receipt, manual, service event,
@@ -501,6 +507,13 @@ Gate:
 
 ### LO-4: Health timeline and visit preparation
 
+Status: **Complete in software and sandbox scope on 2026-07-25.** Dedicated
+health spaces, FHIR normalization, source reconciliation, deterministic urgent
+guidance, user-selected descriptive trends, cited timelines and visit briefs,
+selective emergency presentation, and diagnosis, treatment-change, emergency
+dismissal, and cross-person denials are implemented. Live clinical-provider
+certification remains outside this software gate.
+
 Deliver:
 
 - dedicated encrypted health space and retention controls;
@@ -526,6 +539,13 @@ Gate:
 - deleting or disconnecting a source has clear effects on retained history.
 
 ### LO-5: Personal and family financial attention
+
+Status: **Complete in software and sandbox scope on 2026-07-25.** Dedicated
+financial spaces, observed and inferred separation, statement reconciliation,
+exception rules, local range forecasts, explicit household contributions,
+cited weekly briefs, non-executable drafts, and consequential financial-action
+denials are implemented. Live financial-provider certification remains outside
+this software gate.
 
 Deliver:
 
@@ -557,6 +577,12 @@ Gate:
 
 ### LO-6: Cross-domain life operations
 
+Status: **Complete in software on 2026-07-25.** Person-approved, purpose-bound,
+field-minimized links, benefits and claim packets, care and continuity record
+types, transition templates, credential and expiration records, removable
+links, independent-source preservation, and explainable unified attention are
+implemented.
+
 Deliver:
 
 - user-approved links between household, health, finance, calendar, task, and
@@ -578,6 +604,13 @@ Gate:
 - removing a cross-domain link does not destroy its independent sources.
 
 ### LO-7: Calibration and value pilot
+
+Status: **Software and synthetic gate complete on 2026-07-25; human gate
+pending.** The opt-in enforcement, metric contract, targets, synthetic
+household baseline, deletion and boundary tests, accessible experience, safety
+reviews, and operational runbooks are implemented. A real opt-in pilot and
+explicit human package/provider support decisions cannot be replaced by CI and
+remain required before Phase 11 can close.
 
 Deliver:
 

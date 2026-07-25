@@ -30,6 +30,42 @@ revocation. The accessible renderer adds keyboard and touch native file, camera,
 preview, admission, scope review, and connection status controls. This is not a
 claim of production health-system or financial-provider certification.
 
+## Phase 11 LO-3 through LO-7 delta
+
+One encrypted, principal-bound domain store now supports private household,
+health, finance, care, benefits, insurance, and continuity packages. Household
+records cover products, receipts, manuals, warranties, service, renewals,
+returns, recalls, subscriptions, procedures, and optional read-only Matter and
+energy observations. Exact identifiers drive reconciliation and recall
+matching; private purchases never become household records implicitly.
+
+The health package normalizes supported FHIR resources, keeps clinical,
+self-reported, and inferred claims distinct, reviews contradictions, builds
+cited timelines and visit briefs, and applies deterministic urgent-language
+guidance. Inferred conditions cannot become diagnoses. Medication changes,
+diagnosis, and emergency dismissal are absent and prohibited.
+
+The finance package reconciles cited amounts, detects duplicate charges, price
+changes, overdue refunds, subscriptions, and obligations, produces visibly
+inferred cash-flow ranges, and suppresses routine activity from weekly briefs.
+Household totals include only explicit contribution records. Money movement,
+trading, credit, filing, closure, and dispute submission are prohibited;
+correspondence remains a non-executable draft.
+
+Cross-domain links require a named purpose, selected fields, recipients, and
+person approval. They cannot widen a private record through a shared record,
+and unlinking preserves both independent sources. Benefits, claims, care,
+transition, credential, insurance, continuity, and emergency-plan artifacts use
+the same draft and disclosure boundary. A unified inbox ranks by risk,
+deadline, selected goals, and review burden with an inspectable explanation.
+
+The LO-7 pilot framework enforces opt-in for human cohorts and measures time to
+first value, setup, extraction and attention precision, brief usefulness,
+notification burden, privacy comprehension, deletion, and time returned. The
+synthetic household baseline passes its configured targets with no boundary or
+unsafe-action incidents. This does not substitute for the required real pilot
+or a human support decision.
+
 ## Phase 8 expansion 8.1 candidate delta
 
 The initial Phase 8 candidate adds a canonical semantic modality/fallback
