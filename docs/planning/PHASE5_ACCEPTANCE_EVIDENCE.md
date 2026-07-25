@@ -87,7 +87,7 @@ The workspace gitlinks pin every Phase 5 component commit. The capability compat
 - Orchestrator: [run 29881720677](https://github.com/project-unisonOS/unison-orchestrator/actions/runs/29881720677) and its companion test/build runs passed.
 - Renderer: [run 29882496916](https://github.com/project-unisonOS/unison-experience-renderer/actions/runs/29882496916) passed the full 33-test suite.
 - Public site: [run 29882409330](https://github.com/project-unisonOS/project-unisonos.github.io/actions/runs/29882409330) passed strict MkDocs build and browser accessibility. The audit covered 44 substantive pages and 1,937 internal links, including the remote-assistant page, with zero WCAG A/AA violations.
-- Workspace: [run 29884040060](https://github.com/project-unisonOS/unison-workspace/actions/runs/29884040060) passed deterministic bootstrap, Phase 0, the full component regression, Phases 1–5, PowerShell parsing, security tests, Bandit, Semgrep, Trivy filesystem scanning, and SBOM generation.
+- Workspace: [run 29884040060](https://github.com/project-unisonOS/unison-workspace/actions/runs/29884040060) passed deterministic bootstrap, Phase 0, the full component regression, Phases 1-5, PowerShell parsing, security tests, Bandit, Semgrep, Trivy filesystem scanning, and SBOM generation.
 
 `unison-auth` and `unison-platform` do not own repository-level required Actions on these candidates. Their full local suites and behavior are exercised through the pinned isolated workspace gate; this absence is visible rather than represented as a hosted pass.
 
