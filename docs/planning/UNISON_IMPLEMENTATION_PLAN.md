@@ -925,6 +925,13 @@ The authoritative proposed design is
    burden, patch latency, rollback, accessibility, and incident response before
    promoting any autonomous action class.
 
+Integration hardening completed 2026-07-25 connects the AM-4 authority boundary
+to Phase 9 Lifecycle transactions, persists safety state across restart, adds
+authenticated owner decisions, signs and schedules the initial read-only source
+registry, packages the maintenance service into the preview bundle, and tests
+the complete recommend, grant, stage, promote-or-rollback, receipt, and restart
+path.
+
 ### Final acceptance gate
 
 Phase 10 passes only when:
