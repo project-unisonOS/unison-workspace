@@ -102,6 +102,18 @@ returned, one safe recovery, no duplicate actions, and zero boundary incidents.
 This does not enable production providers, automatic sending, booking,
 purchasing, payments, or generalized autonomous action.
 
+## Semantic experience SE0-SE3 accepted delta
+
+The accepted SE0-SE3 software slice establishes Semantic Experience Model v1 as
+the typed meaning contract before presentation. Orchestration builds SEM and
+retains ROM as a compatibility view. A governed, person-owned interaction
+profile supports inspectable and reversible adaptation. Conversational and
+visual composers consume the same semantic identifiers, while Braille
+composition navigates semantic structure without visual focus state.
+
+This is a software and simulation boundary. Native device qualification and
+participatory validation remain in the SE hardware ledger and later SE7 gate.
+
 ## Phase 0 closeout delta
 
 The local review candidate now provides a pinned Python 3.12 bootstrap, shared

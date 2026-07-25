@@ -32,6 +32,20 @@ credited as implemented.
 | 10. Adaptive maintenance and continuous improvement | In progress | AM-0 through AM-5 software gates passed; AM-6 and AM-7 software scope passed 2026-07-24 | Bounded reversible execution, hostile-source isolation, full-stack eligibility, calibration, support gates, and accessible history are implemented. Physical qualification, the real opt-in pilot, and human promotion of autonomous action classes remain pending. |
 | 11. Private life operations and conversational data onboarding | In progress | LO-0 through LO-6 software gates and LO-7 synthetic gate passed 2026-07-25 | Household, health, finance, and governed cross-domain packages are implemented over the private intake foundation. A real opt-in value pilot and explicit human support decisions remain before closure. |
 
+## Semantic experience program
+
+| Slice | Status | Evidence |
+| --- | --- | --- |
+| SE0. Decisions, inventory, baseline | Complete | Active-path inventory and six synthetic journeys accepted 2026-07-25 |
+| SE1. Semantic Experience Model v1 | Complete | Canonical schemas, strict bindings, orchestration output, and ROM compatibility accepted 2026-07-25 |
+| SE2. Governed interaction profile | Complete | Private lifecycle, reversibility, expiry, export/delete, and cross-person denial accepted 2026-07-25 |
+| SE3. Native expression composers | Complete | Conversational/visual equivalence and independent Braille simulation accepted 2026-07-25 |
+| SE4-SE12 | Not started | Planner, continuity, interpretation, qualification, routing, and model lifecycle remain planned |
+
+The closeout package is
+[SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md).
+All physical-device and participatory validation items remain open.
+
 ## Phase 0 review package
 
 The authoritative evidence is in `PHASE0_ACCEPTANCE_EVIDENCE.md`. The local

@@ -1,8 +1,13 @@
 # Semantic experience implementation plan
 
-Status: **Proposed execution plan; implementation not started**  
+Status: **Active execution plan; SE0 through SE3 software scope complete**
 Last updated: 2026-07-25  
 Design authority: [SEMANTIC_EXPERIENCE_DESIGN.md](SEMANTIC_EXPERIENCE_DESIGN.md)
+
+Implementation status: `SE0` through `SE3` software scope is complete.
+Hardware and participatory validation remain deferred to later gates. Evidence
+is in
+[SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md).
 
 ## Objective
 
