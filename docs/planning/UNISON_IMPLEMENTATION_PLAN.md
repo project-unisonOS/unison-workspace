@@ -897,19 +897,19 @@ The authoritative proposed design is
 - Phase 8 signed model and capability compatibility contracts.
 - Phase 9 signed distribution, inventory, hardware matrix, update, health,
   checkpoint, activation, and rollback primitives.
-- Approval of proposed architecture decision AD-035.
+- Accepted architecture decision AD-041.
 
 ### Delivery slices
 
-1. **AM-0, decisions and contracts:** approve autonomy, telemetry, source,
+1. **AM-0, decisions and contracts (complete 2026-07-24):** approve autonomy, telemetry, source,
    administrator-visibility, and emergency policies; add canonical schemas and
    an adversarial simulation harness.
-2. **AM-1, private observability:** collect content-free inventory and health
+2. **AM-1, private observability (complete 2026-07-24):** collect content-free inventory and health
    indicators, establish healthy envelopes, and ship the System wellbeing
    experience.
-3. **AM-2, security intelligence:** build the installed-state exposure graph
+3. **AM-2, security intelligence (complete 2026-07-24):** build the installed-state exposure graph
    and ingest authoritative notices for every shipped software layer.
-4. **AM-3, recommendations and hardware fit:** diagnose bottlenecks, forecast
+4. **AM-3, recommendations and hardware fit (complete 2026-07-24):** diagnose bottlenecks, forecast
    capacity, compare software/model/configuration/hardware options, and explain
    locally measured value and uncertainty.
 5. **AM-4, bounded self-healing:** add autonomy grants, maintenance windows,

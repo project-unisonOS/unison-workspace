@@ -54,7 +54,7 @@ Changing an accepted decision affecting the product promise, principal isolation
 | AD-032 | Replacement restore is staged, resumable, verified, and rotates authority | Accepted |
 | AD-033 | Backup and recovery are semantically and multimodally accessible | Accepted |
 | AD-034 | The home node remains the only authoritative writer during Phase 6 | Accepted |
-| AD-035 | Adaptive maintenance uses separated evidence, decision, and privileged execution boundaries | Proposed |
+| AD-041 | Adaptive maintenance uses separated evidence, decision, and privileged execution boundaries | Accepted |
 
 ## AD-001: Household-hosted private assistant appliance
 
@@ -500,9 +500,9 @@ same versioned matrix as installer enforcement.
 - Marketplace economics and third-party capability certification.
 - Cloud-hosted Unison authority; this is incompatible with the current local-authority decision unless explicitly reconsidered.
 
-## AD-035: Bounded adaptive maintenance
+## AD-041: Bounded adaptive maintenance
 
-State: **Proposed**
+State: **Accepted - approved through AM-0 implementation 2026-07-24**
 
 Unison continuously observes privacy-minimized system health, evaluates signed
 upstream and untrusted community evidence, and recommends improvements suited to

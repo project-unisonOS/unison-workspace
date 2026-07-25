@@ -295,10 +295,11 @@ rejected incomplete and tampered mirrors. Physical installation remains open.
   entrypoint, `unisonctl`, first-start default checks, evaluator image builders,
   release staging, and staged-update/recovery validators.
 - The workspace pins `unison-platform` at
-  `2749aba37e54f328cf1105523c13cc893e7a2ed6`, including the constrained
+  `058d641da92512f8326ab6c2c5743bf26bb3a9cd`, including the constrained
   runtime, reproducible manifest, installer simulation, transaction, verified
   bundle, bootstrap, receipt, update activation, health, rollback, hardened
-  image build, signing, scanning, public release, and public-download gates.
+  image build, signing, scanning, public release, public-download gates, and
+  the non-privileged adaptive-maintenance analysis boundary.
 - `unison-os` contains documentation only, despite its README describing a base
   image build. The component inventory correctly classifies it as a legacy
   prototype for archival rather than the appliance authority.
@@ -324,6 +325,36 @@ rejected incomplete and tampered mirrors. Physical installation remains open.
   completed physical clean-install record.
 - Phase 9 of the implementation plan converts these assets into a gated supported
   appliance program. The current preview is explicitly unsupported.
+
+## Adaptive maintenance status, 2026-07-24
+
+Phase 10 AM-0 through AM-3 are implemented and pinned by the workspace:
+
+- `unison-common` at `c266699e9ca15858521bce640b02c3963aee3d54`
+  provides canonical and packaged contracts for device profiles, content-free
+  health observations, external evidence, candidates, recommendations,
+  receipts, maintenance policy, and source registries.
+- `unison-platform` at `058d641da92512f8326ab6c2c5743bf26bb3a9cd`
+  provides redacted inventory, initial healthy envelopes, installed-component
+  exposure analysis, source-trust enforcement, deterministic simulation,
+  capacity forecasting, hardware-fit rejection, recommendation ranking, and a
+  renderer-safe projection.
+- `unison-experience-renderer` at
+  `6ea7c4353ad297cfa8be9e12495a3ce9fed07afd` provides the accessible System
+  wellbeing surface and rejects projections that do not explicitly prohibit
+  personal-content collection.
+
+The default autonomy is Recommend. Internet content cannot authorize action,
+emergency protection is disabled, and hardware purchases cannot be executed.
+The implemented boundary cannot install, restart, patch, purchase, or otherwise
+change the appliance. Privileged self-healing remains AM-4 and must use exact
+revocable grants plus independent Lifecycle verification, checkpoints, health
+gates, and rollback.
+
+The source registry and parsers are deterministic contracts, not a live
+scheduled community-scanning service. Live collection remains AM-5. Healthy
+envelopes and hardware benefit estimates remain software evidence until
+calibrated against the physical reference matrix.
 
 ## CI and test baseline
 

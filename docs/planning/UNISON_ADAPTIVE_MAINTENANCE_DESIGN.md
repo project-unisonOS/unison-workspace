@@ -1,8 +1,11 @@
 # Unison adaptive maintenance and continuous improvement
 
-Status: proposed architecture and implementation plan
+Status: architecture accepted; AM-0 through AM-3 implemented
 
 Date: 2026-07-24
+
+Implementation evidence:
+[PHASE10_AM0_AM3_EVIDENCE.md](PHASE10_AM0_AM3_EVIDENCE.md).
 
 ## Purpose
 
