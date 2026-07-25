@@ -86,6 +86,13 @@
       "legacy_copies": [
         {"path": "unison-common/src/unison_common/schemas/ecosystem-expansion.v1.schema.json", "status": "packaged-copy"}
       ]
+    },
+    {
+      "name": "adaptive-maintenance-v1",
+      "canonical": "unison-common/schemas/adaptive-maintenance.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/adaptive-maintenance.v1.schema.json", "status": "packaged-copy"}
+      ]
     }
   ]
 }
