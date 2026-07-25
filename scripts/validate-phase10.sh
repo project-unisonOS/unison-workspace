@@ -13,9 +13,10 @@ PYTHONPATH="${ROOT_DIR}/unison-common/src" \
   "${ROOT_DIR}/unison-common/tests/test_adaptive_maintenance_schema.py" -q
 
 python3 "${ROOT_DIR}/unison-platform/scripts/test_adaptive_maintenance.py"
+python3 "${ROOT_DIR}/unison-platform/scripts/test_adaptive_maintenance_operations.py"
 
 PYTHONPATH="${ROOT_DIR}/unison-experience-renderer/src:${ROOT_DIR}/unison-common/src" \
   "$PYTHON_BIN" -m pytest \
   "${ROOT_DIR}/unison-experience-renderer/tests/test_phase10_system_wellbeing.py" -q
 
-echo "[PASS] Phase 10 AM-0 through AM-3 adaptive maintenance gates passed."
+echo "[PASS] Phase 10 adaptive maintenance software gates passed."
