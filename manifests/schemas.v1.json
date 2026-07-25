@@ -93,6 +93,20 @@
       "legacy_copies": [
         {"path": "unison-common/src/unison_common/schemas/adaptive-maintenance.v1.schema.json", "status": "packaged-copy"}
       ]
+    },
+    {
+      "name": "semantic-experience-v1",
+      "canonical": "unison-common/schemas/semantic-experience.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/semantic-experience.v1.schema.json", "status": "packaged-copy"}
+      ]
+    },
+    {
+      "name": "interaction-profile-v1",
+      "canonical": "unison-common/schemas/interaction-profile.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/interaction-profile.v1.schema.json", "status": "packaged-copy"}
+      ]
     }
   ]
 }

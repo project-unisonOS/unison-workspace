@@ -1,0 +1,67 @@
+{
+  "schema_version": "se0-journeys.v1",
+  "synthetic_only": true,
+  "journeys": [
+    {
+      "journey_id": "calendar-conflict",
+      "purpose": "Resolve two overlapping commitments",
+      "outcome": "Two meetings overlap",
+      "required_meaning": ["conflict count", "meeting identities", "time overlap"],
+      "exact_content": ["start times", "recipients"],
+      "actions": [{"action_id": "propose-move", "risk": "medium", "confirmation_required": true}],
+      "provenance": ["synthetic-calendar"],
+      "recovery": "Keep both calendar events unchanged"
+    },
+    {
+      "journey_id": "trend-comparison",
+      "purpose": "Understand a table and trend",
+      "outcome": "Weekday usage increased 12 percent",
+      "required_meaning": ["comparison period", "direction", "magnitude"],
+      "exact_content": ["12 percent"],
+      "actions": [{"action_id": "inspect-days", "risk": "low", "confirmation_required": false}],
+      "provenance": ["synthetic-meter-table"],
+      "recovery": "Return to the trend summary"
+    },
+    {
+      "journey_id": "bill-review",
+      "purpose": "Explain a bill and prepare a payment",
+      "outcome": "The bill is 18 dollars higher",
+      "required_meaning": ["amount", "due date", "likely contributors"],
+      "exact_content": ["amount", "due date", "payment recipient"],
+      "actions": [{"action_id": "draft-payment", "risk": "high", "confirmation_required": true}],
+      "provenance": ["synthetic-bill"],
+      "recovery": "Discard the payment proposal"
+    },
+    {
+      "journey_id": "privacy-confirmation",
+      "purpose": "Share selected context",
+      "outcome": "A summary is ready to share",
+      "required_meaning": ["recipient", "fields", "purpose"],
+      "exact_content": ["recipient", "disclosed fields"],
+      "actions": [{"action_id": "share-summary", "risk": "high", "confirmation_required": true}],
+      "provenance": ["synthetic-private-record"],
+      "recovery": "Cancel without sharing"
+    },
+    {
+      "journey_id": "website-form",
+      "purpose": "Complete a synthetic service form",
+      "outcome": "The form is ready for review",
+      "required_meaning": ["entered fields", "missing fields", "submission consequence"],
+      "exact_content": ["recipient", "entered values"],
+      "actions": [{"action_id": "submit-form", "risk": "high", "confirmation_required": true}],
+      "provenance": ["synthetic-website"],
+      "recovery": "Leave the form unsubmitted"
+    },
+    {
+      "journey_id": "modality-loss",
+      "purpose": "Continue after the active output device disconnects",
+      "outcome": "The active output is unavailable",
+      "required_meaning": ["pending action", "available fallback", "unchanged confirmation state"],
+      "exact_content": ["pending action identifier"],
+      "actions": [{"action_id": "continue-fallback", "risk": "low", "confirmation_required": false}],
+      "provenance": ["synthetic-device-event"],
+      "recovery": "Pause and resume when a suitable output returns"
+    }
+  ]
+}
+

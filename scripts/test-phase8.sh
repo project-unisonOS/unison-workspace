@@ -16,3 +16,5 @@ export OTEL_ENABLED=false OTEL_SDK_DISABLED=true UNISON_DISABLE_OTEL_EXPORTER=tr
   "${ROOT_DIR}/tests/security/test_phase8_boundaries.py"
 
 echo "[PASS] Phase 8 expansion 8.1 contracts, accessibility, routing, and supply-chain controls passed."
+
+"${ROOT_DIR}/scripts/test-semantic-experience-se0-se3.sh"
