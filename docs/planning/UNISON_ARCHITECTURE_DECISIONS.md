@@ -58,6 +58,7 @@ Changing an accepted decision affecting the product promise, principal isolation
 | AD-050 | Life operations use one source, domain-package, and governed-action architecture | Accepted |
 | AD-051 | Semantic outcomes receive native person-aware modality composition | Accepted |
 | AD-052 | Existing visual experiences are interpreted into governed semantic experiences | Accepted |
+| AD-053 | Models propose bounded meaning and expression while deterministic services retain authority | Accepted |
 
 ## AD-001: Household-hosted private assistant appliance
 
@@ -551,6 +552,28 @@ authority or weaken policy, recipient, disclosure, or confirmation controls.
 The detailed design and delivery slices are maintained in
 [SEMANTIC_EXPERIENCE_DESIGN.md](SEMANTIC_EXPERIENCE_DESIGN.md) and
 [SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md](SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md).
+
+## AD-053: Bounded model role and replaceable lifecycle
+
+State: **Accepted - approved 2026-07-25**
+
+Models are replaceable reasoning and translation components behind stable
+semantic contracts. They may interpret authorized content, propose semantic
+structure, and compose natural expressions. Deterministic services retain
+identity, context selection, policy, disclosure, exact action binding,
+confirmation, execution, durable state, provenance, audit, recovery, routing
+eligibility, and promotion authority.
+
+Model routing first applies deterministic eligibility across task capability,
+privacy, disclosure, risk, locality, offline state, hardware, latency, cost,
+license, compatibility, and support. An inspectable person-aligned policy ranks
+only the remaining candidates. Model updates pass signed-manifest, semantic
+journey, security, privacy, modality-equivalence, hardware, canary, and rollback
+gates without redefining identity, memory, permissions, or interaction-profile
+state.
+
+The assessment and follow-on `SE8` through `SE12` plan are in
+[SEMANTIC_MODEL_ROUTING_AND_LIFECYCLE.md](SEMANTIC_MODEL_ROUTING_AND_LIFECYCLE.md).
 
 ## Deferred decisions
 

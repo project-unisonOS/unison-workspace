@@ -312,3 +312,64 @@ Each slice publishes:
 - exact public claim changes, or an explicit statement that public messaging
   remains unchanged.
 
+## Follow-on model routing and lifecycle sequence
+
+The semantic experience foundation must be complete before model selection and
+replacement can be qualified against it. After `SE0` through `SE7`, continue
+with the following slices. The current-state assessment and governing design are
+in
+[SEMANTIC_MODEL_ROUTING_AND_LIFECYCLE.md](SEMANTIC_MODEL_ROUTING_AND_LIFECYCLE.md).
+
+### SE8: Model task taxonomy and signed registry
+
+- Define bounded task requirements for interpretation, extraction, vision,
+  semantic construction, synthesis, conversation, and other approved uses.
+- Add signed per-version manifests for capabilities, limits, provenance,
+  runtime, hardware, license, privacy, measured quality, risk, and rollback.
+- Inventory installed and remotely available candidates without treating
+  availability as eligibility.
+- Accept when registry drift, forged metadata, incompatible artifacts, and
+  unsupported task claims fail closed.
+
+### SE9: Deterministic eligibility and inspectable routing
+
+- Implement hard eligibility over privacy, disclosure, risk, task capability,
+  offline state, hardware, latency, cost, license, compatibility, and support.
+- Rank eligible candidates using an inspectable person-aligned policy.
+- Route each bounded operation independently and record the reason, minimized
+  disclosure, selected version, and fallback.
+- Accept when negative tests prove that models cannot broaden context, nominate
+  themselves, bypass local-only policy, or silently increase cost or risk.
+
+### SE10: Bounded model contribution and semantic validation
+
+- Require typed, provenance-bearing, untrusted proposals for model-assisted SEM
+  and expression work.
+- Reconcile computable facts, required meaning, uncertainty, recipients,
+  actions, confirmation, and recovery against deterministic sources.
+- Define deterministic language paths for exact and high-risk content.
+- Accept when invalid, incomplete, hallucinated, stale, and adversarial model
+  proposals fail safely across every qualified modality.
+
+### SE11: Model evaluation, canary, promotion, and rollback
+
+- Build golden semantic journeys, required-fact diffs, modality-equivalence
+  comparisons, shadow evaluation, bounded canary use, health gates, and
+  automatic rollback.
+- Preserve the prior compatible model until the rollback window closes.
+- Keep model comparison synthetic or explicitly approved and prevent comparison
+  from expanding remote disclosure.
+- Accept when a deliberately regressed model is detected and rolled back
+  without changing identity, memory, permissions, pending actions, or profile
+  state.
+
+### SE12: Hardware qualification and truthful publication
+
+- Qualify model/runtime combinations for supported processor, accelerator, RAM,
+  storage, latency, energy, thermals, and concurrent workloads.
+- Publish supported model and hardware matrices, limitations, update policy,
+  evidence, and rollback behavior.
+- Update GitHub Pages only for routing and lifecycle behavior demonstrated by
+  accepted evidence.
+- Accept when the supported appliance maintains semantic quality and safe
+  fallback under realistic load, offline operation, update, and rollback.
