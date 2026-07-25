@@ -328,33 +328,37 @@ rejected incomplete and tampered mirrors. Physical installation remains open.
 
 ## Adaptive maintenance status, 2026-07-24
 
-Phase 10 AM-0 through AM-3 are implemented and pinned by the workspace:
+Phase 10 AM-0 through AM-7 software scope is implemented and pinned by the
+workspace:
 
-- `unison-common` at `c266699e9ca15858521bce640b02c3963aee3d54`
+- `unison-common` at `b27f64c72ddc407e069b799f2c71dd9474091940`
   provides canonical and packaged contracts for device profiles, content-free
   health observations, external evidence, candidates, recommendations,
-  receipts, maintenance policy, and source registries.
-- `unison-platform` at `058d641da92512f8326ab6c2c5743bf26bb3a9cd`
+  receipts, maintenance policy, bounded autonomy grants, non-executable
+  community claims, and source registries.
+- `unison-platform` at `e95cf86207b2b18fe9fc0655bb2c81143b15d402`
   provides redacted inventory, initial healthy envelopes, installed-component
   exposure analysis, source-trust enforcement, deterministic simulation,
   capacity forecasting, hardware-fit rejection, recommendation ranking, and a
-  renderer-safe projection.
+  renderer-safe projection, exact-grant execution, action and downtime budgets,
+  checkpoints, health gates, rollback, receipts, circuit breaking, sandboxed
+  community claims, full-stack eligibility, calibration, and pilot gates.
 - `unison-experience-renderer` at
-  `6ea7c4353ad297cfa8be9e12495a3ce9fed07afd` provides the accessible System
-  wellbeing surface and rejects projections that do not explicitly prohibit
+  `8207f285e7b48ccb7262c4376ba3da319253dede` provides the accessible System
+  wellbeing surface, maintenance receipt history, and discovery-only test
+  proposals while rejecting projections that do not explicitly prohibit
   personal-content collection.
 
-The default autonomy is Recommend. Internet content cannot authorize action,
-emergency protection is disabled, and hardware purchases cannot be executed.
-The implemented boundary cannot install, restart, patch, purchase, or otherwise
-change the appliance. Privileged self-healing remains AM-4 and must use exact
-revocable grants plus independent Lifecycle verification, checkpoints, health
-gates, and rollback.
+The default autonomy remains Recommend. Bounded execution is limited to
+reversible classes on an exact device grant and requires a signed artifact,
+verified checkpoint, health gate, receipt, and rollback. Internet content
+cannot authorize action, firmware remains blocked without verified vendor
+recovery, and hardware purchases cannot be executed.
 
-The source registry and parsers are deterministic contracts, not a live
-scheduled community-scanning service. Live collection remains AM-5. Healthy
-envelopes and hardware benefit estimates remain software evidence until
-calibrated against the physical reference matrix.
+The software and adversarial gates pass. Physical power, boot, firmware,
+thermal, backup, and restore qualification still require the named hardware.
+The opt-in pilot and explicit human promotion of each automatic action class
+also remain pending and are not represented as passed.
 
 ## CI and test baseline
 

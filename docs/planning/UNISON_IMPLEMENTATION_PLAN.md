@@ -912,16 +912,16 @@ The authoritative proposed design is
 4. **AM-3, recommendations and hardware fit (complete 2026-07-24):** diagnose bottlenecks, forecast
    capacity, compare software/model/configuration/hardware options, and explain
    locally measured value and uncertainty.
-5. **AM-4, bounded self-healing:** add autonomy grants, maintenance windows,
+5. **AM-4, bounded self-healing (software complete 2026-07-24):** add autonomy grants, maintenance windows,
    staging, canaries, budgets, health gates, receipts, circuit breakers, and
    rollback for reversible action classes.
-6. **AM-5, community intelligence:** ingest a reviewed set of public feeds and
+6. **AM-5, community intelligence (software complete 2026-07-24):** ingest a reviewed set of public feeds and
    APIs in a sandbox, extract and corroborate claims, and generate safe local
    test proposals without granting external content authority.
-7. **AM-6, full-stack and physical qualification:** extend maintenance across
+7. **AM-6, full-stack and physical qualification (software complete, physical gate pending):** extend maintenance across
    OS, containers, drivers, models, capabilities, data/configuration, and
    recoverable firmware; validate hardware advice and boot recovery physically.
-8. **AM-7, pilot and support:** calibrate precision, realized benefit, alert
+8. **AM-7, pilot and support (tooling complete, real pilot pending):** calibrate precision, realized benefit, alert
    burden, patch latency, rollback, accessibility, and incident response before
    promoting any autonomous action class.
 
