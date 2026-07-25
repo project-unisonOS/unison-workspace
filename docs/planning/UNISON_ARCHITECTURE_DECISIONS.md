@@ -1,7 +1,7 @@
 # Unison Architecture Decisions
 
 Status: authoritative decision register  
-Last updated: 2026-07-22
+Last updated: 2026-07-25
 
 ## How to use this register
 
@@ -55,6 +55,7 @@ Changing an accepted decision affecting the product promise, principal isolation
 | AD-033 | Backup and recovery are semantically and multimodally accessible | Accepted |
 | AD-034 | The home node remains the only authoritative writer during Phase 6 | Accepted |
 | AD-041 | Adaptive maintenance uses separated evidence, decision, and privileged execution boundaries | Accepted |
+| AD-050 | Life operations use one source, domain-package, and governed-action architecture | Proposed |
 
 ## AD-001: Household-hosted private assistant appliance
 
@@ -121,7 +122,7 @@ Consequences:
 
 ## AD-007: Proposed appliance process topology
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 The default appliance will converge toward these principal process/security boundaries:
 
@@ -203,13 +204,13 @@ Encryption occurs locally with user-controlled keys. Providers receive ciphertex
 
 ## AD-016: Canonical contract source
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 Canonical versioned machine-readable schemas live in `unison-common/schemas`, with generated language bindings and drift-checked explanatory references in `unison-docs`. `unison-spec` remains archived. Root aggregate schemas and manually copied duplicates are non-authoritative.
 
 ## AD-017: Windows/WSL responsibility split
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 - WSL2/Linux scripts are authoritative for bootstrap, test, build, Compose, install packaging, and validation.
 - PowerShell provides a thin discoverable wrapper that validates WSL/Docker integration and delegates to the same commands.
@@ -231,7 +232,7 @@ Business-model terms, partnership agreements, telemetry, and provider integratio
 
 ## AD-020: Household administrator power
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 A household/device administrator may manage hardware health, membership invitations, updates, resource limits, encrypted backup health, and assistant lifecycle. Administration does not grant access to adult members' private data or keys. Administrators may see minimized operational metadata, but not private titles, contacts, messages, prompts, or activity details. They may suspend or remove an assistant from hardware they control without gaining its keys.
 
@@ -239,37 +240,37 @@ The initial household product supports independently consenting adults. Child, d
 
 ## AD-021: Key ownership and recovery principles
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 Each person owns an independent on-device master-key hierarchy, hardware-backed where practical, with a documented secure software fallback for development/evaluation hardware. Shared spaces use distinct keys. Providers never receive decryption keys. Recovery is user-controlled through encrypted recovery material or separately enrolled trusted devices; provider-operated recovery cannot bypass encryption. Exact algorithms, TPM integration, rotation, and recovery ceremonies require focused security review before implementation.
 
 ## AD-022: Initial supported appliance target
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 Ubuntu 24.04 LTS on x86_64 is the first supported appliance target. WSL2 and Linux VM installations are development/evaluation channels. ARM64 is planned only after the x86_64 appliance profile, model compatibility, update path, and replacement restore are validated.
 
 ## AD-023: Capability naming
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 “Capability Host” is the architectural component name. `unison-capability` is the canonical repository name and `unison-capability-host` is the runtime service identifier. Existing plural repository references will be migrated or redirected without breaking active checkouts.
 
 ## AD-024: Unison and UnisonOS terminology
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 “Unison” names the private assistant platform and user-facing assistant. A “Unison assistant” is one independently governed assistant instance. “UnisonOS” names the downloadable appliance runtime, distribution, and operating surface. It is not positioned as a replacement for a smartphone or general-purpose operating system.
 
 ## AD-025: Person-aligned economic constraint
 
-State: **Accepted — approved 2026-07-20**
+State: **Accepted - approved 2026-07-20**
 
 Unison does not use advertising, sponsored placement, engagement optimization, or the sale, licensing, or commercialization of personal context. Revenue must come from products and services purchased for the person's benefit. Partnerships and affiliate relationships may not influence recommendations, routing, or capability selection without explicit disclosure and user control.
 
 ## AD-026: Provider-blind backup v1 cryptographic profile
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 Backup v1 encrypts chunks locally with AES-256-GCM and independently wrapped
 random data keys, uses HKDF-SHA-256 for domain separation, signs exact stored
@@ -280,7 +281,7 @@ versioned; changing this profile requires a migration and security review.
 
 ## AD-027: Independent person-controlled recovery authority
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 Each adult enrolls an independent recovery kit and may additionally enroll a
 trusted device. Recovery requires authenticated local non-voice input and proof
@@ -289,7 +290,7 @@ channel providers, and Unison operators cannot bypass or substitute that proof.
 
 ## AD-028: Independently anchored restore freshness
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 Signed manifests form a hash-linked monotonic lineage. A separately held signed
 checkpoint records the accepted head and any retention compaction floor.
@@ -298,7 +299,7 @@ reordered state. A provider may deny service but cannot forge accepted state.
 
 ## AD-029: Shared-space membership key epochs
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 Shared spaces use random keys independent of every person's private hierarchy.
 Removing a member creates a new epoch and future key material is wrapped only
@@ -308,7 +309,7 @@ bound that documented residual exposure.
 
 ## AD-030: Retention, deletion, export, and erasure semantics
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 Record-level backup permission and retention remain authoritative. Expiration
 prunes unreferenced ciphertext while preserving an anchored lineage floor.
@@ -319,7 +320,7 @@ requests a locally authenticated plaintext export.
 
 ## AD-031: Provider-neutral backup backend
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 Backup backends expose opaque conditional put/get/head/list/delete and resumable
 transfer capabilities. Filesystem and deterministic hostile backends are
@@ -329,7 +330,7 @@ timing, and account/bucket metadata only.
 
 ## AD-032: Verified replacement-device activation
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 Restore begins with a non-mutating plan, stages ciphertext-derived content in a
 resumable journal, verifies the anchor, lineage, signatures, and every chunk,
@@ -339,7 +340,7 @@ keys for current members.
 
 ## AD-033: Accessible backup and recovery
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 Status, verification, recovery-key entry, scope selection, dry run, progress,
 failure, cancellation, safe resumption, and post-restore rotation are available
@@ -348,7 +349,7 @@ color, a visual QR code, voice, or a low-assurance remote channel.
 
 ## AD-034: Phase 6 remains single-writer
 
-State: **Accepted — approved 2026-07-22**
+State: **Accepted - approved 2026-07-22**
 
 The home node remains authoritative. Backup protects against loss and provider
 migration; it is not synchronization or remote access. Multi-writer state and
@@ -356,7 +357,7 @@ conflict resolution remain deferred.
 
 ## AD-035: Bounded Phase 7 workflow set
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Phase 7 supports seven evidenced workflow families: calendar coordination;
 email triage, summary, and draft; reminder and commitment review; household
@@ -365,7 +366,7 @@ travel planning. This is a bounded competence claim, not generalized autonomy.
 
 ## AD-036: Inspectable plan and exact approval
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Every workflow binds a person, assistant, purpose, authorized context spaces,
 capabilities, providers, recipients, disclosure fields, reversibility,
@@ -375,7 +376,7 @@ cannot supply authority.
 
 ## AD-037: Draft-first external communication
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Email and calendar communication remain draft/proposal first. Sending,
 publishing, booking, purchasing, or another consequential external action is
@@ -384,7 +385,7 @@ accepted Phase 3 trust decision.
 
 ## AD-038: Recoverable provider execution
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Provider calls use stable idempotency keys and record minimized receipts.
 Timeout, partial failure, and outage expose retry, cancellation, compensation,
@@ -392,7 +393,7 @@ or compatible provider replacement without silently duplicating an action.
 
 ## AD-039: Local outcome measurement
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Outcome evidence measures administrative tasks and commitments completed,
 interruptions avoided, corrections, recoveries, minimized external calls,
@@ -402,7 +403,7 @@ third-party behavioral-data product.
 
 ## AD-040: No engagement or commercial ranking
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Advertising, sponsored placement, engagement, attention capture, third-party
 data acquisition, and provider lock-in signals are prohibited inputs to
@@ -411,7 +412,7 @@ option's score.
 
 ## AD-041: Independent Phase 8 expansion gates
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Phase 8 is a continuing program. Each modality, channel, model profile, or
 capability ecosystem expansion has an independent contract, threat and
@@ -420,7 +421,7 @@ Passing one expansion does not promote unrelated experimental adapters.
 
 ## AD-042: Semantic outcome precedes modality
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Renderers negotiate available, required, and avoided modalities from one
 semantic outcome. Confirmation, cancellation, retry, recovery, and dismissal
@@ -429,7 +430,7 @@ identity or action authority.
 
 ## AD-043: Local-first model policy profiles
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Model selection intersects execution location, maximum disclosure, cost
 ceiling, risk, compatibility, and availability. Offline mode excludes remote
@@ -438,7 +439,7 @@ silently broaden disclosure, cost, or risk.
 
 ## AD-044: Signed capability lifecycle
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Capability packages use canonical manifests and trusted Ed25519 publisher
 signatures. Install and update require compatible host ranges, explicit review
@@ -447,7 +448,7 @@ Unknown, tampered, incompatible, or revoked packages fail closed.
 
 ## AD-045: Specialized access claims require representative research
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Braille, sign, switch/AAC, haptic, and similar specialized adapters remain
 experimental until research includes people who use the relevant access method,
@@ -456,7 +457,7 @@ ownership are recorded. Simulation alone is not release evidence.
 
 ## AD-046: Singular appliance lifecycle ownership
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 `unison-platform` solely owns native installation, runtime, diagnostics,
 recovery, removal, artifact assembly, and publication. `unison-updates` owns
@@ -465,7 +466,7 @@ immutable workspace submodule pins. `unison-os` remains an archived prototype.
 
 ## AD-047: Initial supported artifact and runtime contract
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 The only Phase 9 support candidate is a signed native bundle for Ubuntu 24.04
 LTS on x86_64 UEFI hardware, resolved through an immutable release manifest.
@@ -473,7 +474,7 @@ WSL2, VM, bare-metal ISO, and arm64 artifacts remain evaluation-only.
 
 ## AD-048: Update trust, rollback, and channel authority
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Development, preview, and stable channels use TUF metadata. Root authority is
 offline and threshold-signed, with separated online roles. The local health
@@ -482,13 +483,39 @@ releases prohibit irreversible migrations.
 
 ## AD-049: Maintenance, telemetry, and support tiers
 
-State: **Accepted — approved 2026-07-23**
+State: **Accepted - approved 2026-07-23**
 
 Stable cadence is monthly with emergency security releases; the support window
 is current stable plus immediately previous stable. Telemetry defaults off and
 remote reporting requires explicit, revocable opt-in. Hardware evidence is
 reference, compatible, community-tested, or unsupported and derives from the
 same versioned matrix as installer enforcement.
+
+## AD-050: Shared private life operations architecture
+
+State: **Proposed**
+
+Household, health, finance, care, benefits, records, insurance, security,
+learning, relationship, and later life-operation domains use one authenticated
+intake, immutable-source, provenance, derived-record, context-space, policy,
+capability, verification, receipt, and recovery architecture.
+
+Each domain is a versioned package of canonical records, provider adapters, MCP
+mappings, governed skills, policy and disclosure rules, recommendations, typed
+actions, verification, recovery, accessible experiences, and synthetic tests.
+MCP and skills cannot create authority. Computer use is a constrained fallback.
+
+Raw sources remain distinct from model-derived records and person corrections.
+New records are private to the importing person unless that person explicitly
+selects a shared space. Health and finance begin read-only. Medical treatment,
+diagnosis, money movement, investment or credit decisions, legal signatures,
+identity issuance, physical access, and destructive automation require
+separate decisions.
+
+The supporting architecture and delivery plan are:
+
+- [UNISON_PRIVATE_LIFE_OPERATIONS_ARCHITECTURE.md](UNISON_PRIVATE_LIFE_OPERATIONS_ARCHITECTURE.md)
+- [UNISON_LIFE_OPERATIONS_IMPLEMENTATION_PLAN.md](UNISON_LIFE_OPERATIONS_IMPLEMENTATION_PLAN.md)
 
 ## Deferred decisions
 

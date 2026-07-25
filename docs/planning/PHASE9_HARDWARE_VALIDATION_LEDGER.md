@@ -24,12 +24,12 @@ or WSL evidence from being mistaken for physical appliance validation.
 
 | IDs | Gate | Physical evidence still required |
 | --- | --- | --- |
-| HW-001–004 | 9.1 | Cold start, reboot, pressure/fault behavior, shutdown and recovery |
-| HW-005–007 | 9.2 | Clean UEFI install, interrupted lifecycle operations, accessible first run |
-| HW-008–009 | 9.3 | Real promoted update and rollback cycles under failure |
-| HW-010–014 | 9.4 | Reference systems, probes, audio, models, power states, replacement restore |
+| HW-001-004 | 9.1 | Cold start, reboot, pressure/fault behavior, shutdown and recovery |
+| HW-005-007 | 9.2 | Clean UEFI install, interrupted lifecycle operations, accessible first run |
+| HW-008-009 | 9.3 | Real promoted update and rollback cycles under failure |
+| HW-010-014 | 9.4 | Reference systems, probes, audio, models, power states, replacement restore |
 | HW-015 | 9.5 | Public-download install on a fresh external machine |
-| HW-016–017 | 9.6 | Full-matrix pilot, support, export, removal, and reset |
+| HW-016-017 | 9.6 | Full-matrix pilot, support, export, removal, and reset |
 
 CI-verifiable work may continue for manifest determinism, Compose isolation,
 secret generation, installer transactions, update metadata attacks, artifact

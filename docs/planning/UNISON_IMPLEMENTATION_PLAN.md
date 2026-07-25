@@ -6,7 +6,7 @@ Status: proposed execution source of truth; awaiting human review
 
 Plan version: 0.2
 
-Last updated: 2026-07-24
+Last updated: 2026-07-25
 
 ## Authority and maintenance
 
@@ -112,9 +112,12 @@ Phase 9: supported appliance release and lifecycle
              |
              v
 Phase 10: adaptive maintenance and continuous improvement
+             |
+             v
+Phase 11: private life operations and conversational data onboarding
 ```
 
-Phase 5 contract design can begin after Phase 1, but remote product access cannot pass its gate until Phase 3 policy and replay controls exist. Phase 6 depends on Phases 1–4 because backups must preserve person/shared-space isolation. Product workflows in Phase 7 may be prototyped earlier but cannot be considered product-ready before the relevant trust gates.
+Phase 5 contract design can begin after Phase 1, but remote product access cannot pass its gate until Phase 3 policy and replay controls exist. Phase 6 depends on Phases 1-4 because backups must preserve person/shared-space isolation. Product workflows in Phase 7 may be prototyped earlier but cannot be considered product-ready before the relevant trust gates.
 
 ## Cross-phase execution rules
 
@@ -426,7 +429,7 @@ Let each person reach the same authoritative assistant away from home through on
 
 ### Prerequisites
 
-- Phases 1–3 gates; Phase 4 is preferred before product release.
+- Phases 1-3 gates; Phase 4 is preferred before product release.
 - Human selection of the first provider after current API/privacy/operational review.
 - Approved relay ownership, metadata, availability, and cost model.
 
@@ -526,7 +529,7 @@ Deliver measurable time-returning competence on the trusted foundation rather th
 
 ### Prerequisites
 
-- Phases 3–6 gates for product-connected workflows.
+- Phases 3-6 gates for product-connected workflows.
 - Approved success metrics and no-engagement product analytics policy.
 
 AD-035 through AD-040 approve the bounded seven-workflow set, inspectable
@@ -961,6 +964,58 @@ registry, inventory/SBOM and exposure graph, fault and hostile-feed corpus,
 recommendation calibration report, action/rollback receipts, physical hardware
 matrix, accessibility report, pilot results, incident exercises, and public
 support documentation.
+
+## Phase 11: Private life operations and conversational data onboarding
+
+### Objective
+
+Make Unison useful and differentiated through long-running private household,
+health, and financial understanding. Give a person low-friction conversational
+ways to connect accounts, upload documents and images, scan physical records,
+import provider exports, and correct or delete recognized information.
+
+The authoritative capability architecture is
+[UNISON_PRIVATE_LIFE_OPERATIONS_ARCHITECTURE.md](UNISON_PRIVATE_LIFE_OPERATIONS_ARCHITECTURE.md).
+The authoritative phased delivery plan is
+[UNISON_LIFE_OPERATIONS_IMPLEMENTATION_PLAN.md](UNISON_LIFE_OPERATIONS_IMPLEMENTATION_PLAN.md).
+
+### Delivery slices
+
+1. **LO-0, decisions and contracts:** source, import, extraction, connection,
+   derived-record, attention, and brief contracts plus threats and synthetic
+   fixtures.
+2. **LO-1, universal intake:** authenticated upload, scan, quarantine, OCR,
+   extraction, deduplication, preview, correction, source library, and
+   reversible admission.
+3. **LO-2, connections and conversational setup:** OAuth PKCE, SMART on FHIR,
+   export import, bounded MCP, local folders, sync receipts, progressive
+   onboarding, disconnect, and delete.
+4. **LO-3, household operations:** inventory, receipts, manuals, warranties,
+   service, returns, renewals, recalls, repair briefs, and procedures.
+5. **LO-4, health steward:** private timeline, source reconciliation, trends,
+   follow-ups, visit briefs, and provider-message drafts without diagnosis or
+   treatment execution.
+6. **LO-5, financial attention:** read-only accounts and documents, recurring
+   obligations, exception detection, cash-flow forecasting, and weekly briefs
+   without autonomous money movement.
+7. **LO-6, cross-domain operations:** purpose-bound benefits, claims, care,
+   life-transition, credential, continuity, and attention experiences.
+8. **LO-7, calibration and value pilot:** time-to-value, precision, privacy,
+   accessibility, safety, deletion, support, and time-returned evidence.
+
+### Phase boundary
+
+Phase 11 does not authorize medical diagnosis, treatment changes, autonomous
+money movement, investment or credit decisions, legal signatures, identity
+issuance, physical access changes, or destructive cross-domain automation.
+Those capabilities require separate decisions and gates.
+
+Required evidence: canonical intake and domain contracts, synthetic source
+corpus, parser and OCR benchmarks, malicious-document and provider-boundary
+tests, provenance and correction receipts, connection and deletion evidence,
+household isolation results, health and finance safety reviews, accessibility
+results, value-pilot measures, incident exercises, and truthful public
+documentation.
 
 ## GitHub Pages program
 

@@ -104,7 +104,7 @@ GitHub-hosted evidence is green where repository workflows exist:
 - [orchestrator tests](https://github.com/project-unisonOS/unison-orchestrator/actions/runs/29876221225)
   and [container build](https://github.com/project-unisonOS/unison-orchestrator/actions/runs/29876221186)
 - [renderer tests](https://github.com/project-unisonOS/unison-experience-renderer/actions/runs/29876223122)
-- [workspace static, unit, Phase 1–4, Windows, Bandit, Semgrep, Trivy, and SBOM gates](https://github.com/project-unisonOS/unison-workspace/actions/runs/29877079547)
+- [workspace static, unit, Phase 1-4, Windows, Bandit, Semgrep, Trivy, and SBOM gates](https://github.com/project-unisonOS/unison-workspace/actions/runs/29877079547)
 - [site strict build and browser accessibility](https://github.com/project-unisonOS/project-unisonos.github.io/actions/runs/29876862543)
 
 Auth and platform do not currently define repository-owned Actions workflows.

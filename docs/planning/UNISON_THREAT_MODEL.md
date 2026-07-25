@@ -100,7 +100,7 @@ No phase is complete until its applicable threats have executable controls and n
 ## Phase 7 workflow reassessment
 
 The bounded assistant-workflow implementation adds the following candidate
-evidence without expanding the authority established in Phases 1–6:
+evidence without expanding the authority established in Phases 1-6:
 
 | Threats | Phase 7 control and evidence |
 | --- | --- |

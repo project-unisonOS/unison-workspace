@@ -10,7 +10,7 @@ Environment: WSL2 Ubuntu 24.04, Python 3.12.3, Docker Compose v2, Chromium via P
 
 ## Decision and scope evidence
 
-- AD-001 through AD-025 are recorded as accepted; recommendations 1–9 were approved on 2026-07-20.
+- AD-001 through AD-025 are recorded as accepted; recommendations 1-9 were approved on 2026-07-20.
 - The six-boundary topology is recorded without beginning its Phase 1 runtime migration.
 - `manifests/components.v1.json` maps 35 repositories/support components to an owner, maturity, target boundary, and disposition and drift-checks both current Compose profiles.
 - `manifests/schemas.v1.json` declares `unison-common/schemas` authoritative. At
