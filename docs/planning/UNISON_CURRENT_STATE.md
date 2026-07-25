@@ -336,24 +336,34 @@ workspace:
   health observations, external evidence, candidates, recommendations,
   receipts, maintenance policy, bounded autonomy grants, non-executable
   community claims, and source registries.
-- `unison-platform` at `e95cf86207b2b18fe9fc0655bb2c81143b15d402`
+- `unison-platform` at `a8f2cb87b9ac948ba51b731b81598542d7c46ba1`
   provides redacted inventory, initial healthy envelopes, installed-component
   exposure analysis, source-trust enforcement, deterministic simulation,
   capacity forecasting, hardware-fit rejection, recommendation ranking, and a
   renderer-safe projection, exact-grant execution, action and downtime budgets,
   checkpoints, health gates, rollback, receipts, circuit breaking, sandboxed
-  community claims, full-stack eligibility, calibration, and pilot gates.
+  community claims, full-stack eligibility, calibration, and pilot gates. Its
+  persistent coordinator now connects exact grants to the Phase 9 update
+  transaction, preserves budgets and circuit breakers across restart, runs
+  signed read-only source schedules, and ships in the signed preview bundle.
 - `unison-experience-renderer` at
-  `8207f285e7b48ccb7262c4376ba3da319253dede` provides the accessible System
+  `2ef3b8c5f24ac8f6d2c0d22c9d1294fa6fcecdac` provides the accessible System
   wellbeing surface, maintenance receipt history, and discovery-only test
-  proposals while rejecting projections that do not explicitly prohibit
-  personal-content collection.
+  proposals plus authenticated owner grant, revoke, and defer controls. It
+  rejects projections that do not explicitly prohibit personal-content
+  collection and cannot invoke Lifecycle directly.
 
 The default autonomy remains Recommend. Bounded execution is limited to
 reversible classes on an exact device grant and requires a signed artifact,
 verified checkpoint, health gate, receipt, and rollback. Internet content
 cannot authorize action, firmware remains blocked without verified vendor
 recovery, and hardware purchases cannot be executed.
+
+The release bundle signs the source registry with its Ed25519 key and includes
+the maintenance service, timer, hardening unit, and read-only collectors for
+Unison releases, Ubuntu security notices, GitHub reviewed advisories, and
+discovery-only Hacker News story identifiers. HTTPS, host, redirect, size,
+parser, content-hash, and local file-mode boundaries fail closed.
 
 The software and adversarial gates pass. Physical power, boot, firmware,
 thermal, backup, and restore qualification still require the named hardware.

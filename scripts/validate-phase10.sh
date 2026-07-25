@@ -14,6 +14,7 @@ PYTHONPATH="${ROOT_DIR}/unison-common/src" \
 
 python3 "${ROOT_DIR}/unison-platform/scripts/test_adaptive_maintenance.py"
 python3 "${ROOT_DIR}/unison-platform/scripts/test_adaptive_maintenance_operations.py"
+python3 "${ROOT_DIR}/unison-platform/scripts/test_adaptive_maintenance_integration.py"
 
 PYTHONPATH="${ROOT_DIR}/unison-experience-renderer/src:${ROOT_DIR}/unison-common/src" \
   "$PYTHON_BIN" -m pytest \
