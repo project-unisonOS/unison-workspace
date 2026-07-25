@@ -56,6 +56,8 @@ Changing an accepted decision affecting the product promise, principal isolation
 | AD-034 | The home node remains the only authoritative writer during Phase 6 | Accepted |
 | AD-041 | Adaptive maintenance uses separated evidence, decision, and privileged execution boundaries | Accepted |
 | AD-050 | Life operations use one source, domain-package, and governed-action architecture | Accepted |
+| AD-051 | Semantic outcomes receive native person-aware modality composition | Accepted |
+| AD-052 | Existing visual experiences are interpreted into governed semantic experiences | Accepted |
 
 ## AD-001: Household-hosted private assistant appliance
 
@@ -516,6 +518,39 @@ The supporting architecture and delivery plan are:
 
 - [UNISON_PRIVATE_LIFE_OPERATIONS_ARCHITECTURE.md](UNISON_PRIVATE_LIFE_OPERATIONS_ARCHITECTURE.md)
 - [UNISON_LIFE_OPERATIONS_IMPLEMENTATION_PLAN.md](UNISON_LIFE_OPERATIONS_IMPLEMENTATION_PLAN.md)
+
+## AD-051: Native person-aware composition from semantic outcomes
+
+State: **Accepted - approved 2026-07-25**
+
+Unison constructs a canonical Semantic Experience Model before choosing a
+person-facing expression. Conversational, visual, Braille, sign, haptic,
+switch/AAC, and future composers derive native experiences from the same
+meaning. Input modality does not determine output modality by itself. The
+person's governed interaction profile, current capabilities, situation,
+privacy, risk, and explicit choice inform a separate expression plan.
+
+Screen-reader compatibility remains a fallback for legacy and recovery
+surfaces. It is not the primary accessibility architecture of the Unison
+operating surface. Required meaning, actions, confirmation, cancellation,
+recovery, provenance, privacy, and safety must remain equivalent across every
+supported expression.
+
+## AD-052: Governed interpretation of existing experiences
+
+State: **Accepted - approved 2026-07-25**
+
+When Unison operates an existing website, application, document, or other visual
+environment, it interprets the underlying meaning and available actions into
+the Semantic Experience Model before engaging the person. Structured APIs and
+document semantics are preferred, followed by accessibility-tree,
+computer-use, and vision observations. Every observation carries provenance,
+confidence, and freshness. External content remains untrusted and cannot grant
+authority or weaken policy, recipient, disclosure, or confirmation controls.
+
+The detailed design and delivery slices are maintained in
+[SEMANTIC_EXPERIENCE_DESIGN.md](SEMANTIC_EXPERIENCE_DESIGN.md) and
+[SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md](SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md).
 
 ## Deferred decisions
 
