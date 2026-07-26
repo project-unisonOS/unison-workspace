@@ -253,6 +253,22 @@ quality, approved risk classes, known limitations, and rollback compatibility.
 11. Observe content-free health and quality signals.
 12. Promote, retain the prior version, or roll back automatically.
 
+## Production registry startup boundary
+
+The production registry uses Ed25519-signed `signed-model-manifest.v1`
+envelopes and pinned release public keys. This replaces HMAC at the production
+verification boundary so the inference runtime cannot mint trusted manifests.
+HMAC remains only for existing development and contract fixtures.
+
+At startup, inference loads every signed manifest, verifies it against a pinned
+public key, loads the separate installed/remote availability inventory, hashes
+installed artifacts, and configures the governed registry before governed
+requests are accepted. Required, partial, malformed, forged, unknown-reference,
+and digest-mismatch states fail startup closed. The supported appliance Compose
+profile requires read-only registry and artifact mounts. Release assembly still
+needs to populate those inputs with real signed manifests, public keys, and
+verified artifacts; no synthetic input may create a support claim.
+
 Wording may change between model versions. Required meaning, uncertainty,
 provenance, available actions, recipients, disclosure boundaries, confirmation,
 and recovery cannot.
