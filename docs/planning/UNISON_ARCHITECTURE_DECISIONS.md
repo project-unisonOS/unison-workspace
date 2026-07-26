@@ -602,6 +602,31 @@ Consequences:
 - production keys and manifests must be mounted by release packaging before
   `UNISON_REQUIRE_GOVERNED_REGISTRY=true` is enabled.
 
+## AD-055: Durable model lifecycle journal and release rollback artifacts
+
+State: **Accepted - approved 2026-07-26**
+
+The supported inference runtime stores model deployment transitions, candidate
+identity, golden-journey evaluation results, bounded content-free health
+history, and release artifact references in one canonical atomic journal. It
+validates the complete journal before restoring any state after restart and
+fails startup closed on malformed, unknown, oversized, or symlinked state.
+
+Automatic rollback writes a content-free artifact naming the failed model, the
+retained target model, their release artifact references, the generation, and
+the exact activation action. The signed appliance bundle carries the lifecycle
+path and retention policy, while inference receives no release signing key.
+Persistent lifecycle data stays outside immutable release trees so update and
+reboot activation cannot erase the prior compatible deployment record.
+
+Consequences:
+
+- canary and rollback state survives process and appliance restart;
+- evaluation and health evidence remains inspectable without storing person
+  content;
+- release/update tooling has a deterministic rollback handoff artifact; and
+- corrupt lifecycle state cannot silently reset a canary to an unsafe default.
+
 ## Deferred decisions
 
 - Multi-writer synchronization and conflict-free replicated data types.

@@ -173,6 +173,14 @@ errors, and latency. A degraded canary rolls back automatically while the prior
 compatible model is retained. Identity, memory, permissions, pending actions,
 and interaction profiles remain outside model deployment state.
 
+Deployment, candidate, prior, canary, rollback, golden-journey evaluation, and
+bounded content-free health state now persists atomically and restores
+fail-closed after restart. Automatic rollback emits a content-free release
+artifact that identifies the retained model and its release artifact reference.
+The signed supported bundle pins the journal and rollback paths through a model
+lifecycle policy, and the supported Compose profile requires persistent storage
+for them.
+
 Hardware qualification records and compatibility matrices are implemented.
 Synthetic appliance load, offline operation, update, rollback, semantic quality,
 and safe fallback pass. No physical CPU, accelerator, energy, thermal, or
