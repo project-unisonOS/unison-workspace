@@ -140,6 +140,12 @@ SE7 remains open for supported-release and public accessibility claims.
 Inference now has bounded task requirements and a signed immutable model
 registry. Installed and remote availability is inventoried separately from
 eligibility, and installed artifacts must match their manifest digest.
+Production startup now loads only Ed25519-signed manifests using pinned public
+keys, hashes installed artifacts from the separate availability inventory, and
+fails closed on required, partial, forged, unknown-reference, or digest-mismatch
+state. The supported Compose profile requires the registry and artifact inputs
+as read-only mounts; release assembly has not yet populated real production
+inputs.
 
 Each interpretation, extraction, vision, semantic construction, synthesis, or
 conversation operation is routed independently. Hard eligibility covers task,
@@ -166,6 +172,14 @@ Content-free health gates monitor contract success, semantic success, fallback,
 errors, and latency. A degraded canary rolls back automatically while the prior
 compatible model is retained. Identity, memory, permissions, pending actions,
 and interaction profiles remain outside model deployment state.
+
+Deployment, candidate, prior, canary, rollback, golden-journey evaluation, and
+bounded content-free health state now persists atomically and restores
+fail-closed after restart. Automatic rollback emits a content-free release
+artifact that identifies the retained model and its release artifact reference.
+The signed supported bundle pins the journal and rollback paths through a model
+lifecycle policy, and the supported Compose profile requires persistent storage
+for them.
 
 Hardware qualification records and compatibility matrices are implemented.
 Synthetic appliance load, offline operation, update, rollback, semantic quality,

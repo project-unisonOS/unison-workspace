@@ -1,6 +1,6 @@
 # Unison phase status
 
-Status date: 2026-07-25
+Status date: 2026-07-26
 
 Plan version: 0.1
 
@@ -44,10 +44,10 @@ credited as implemented.
 | SE5. Cross-modal continuity | Complete | Session continuity, one-time person-bound confirmations, and semantic equivalence gates accepted in simulation 2026-07-25 |
 | SE6. Existing-experience interpreter | Complete | Provenance reconciliation, structured-source priority, injection isolation, and stale-target stopping accepted with synthetic sources 2026-07-25 |
 | SE7. Qualification and publication | In progress | Software and simulated qualification complete; physical hardware, participatory testing, supported matrices, and public claims remain gated |
-| SE8. Model task taxonomy and signed registry | Complete | Strict task requirements, signed immutable manifests, inventory separation, and fail-closed integrity accepted 2026-07-25 |
+| SE8. Model task taxonomy and signed registry | Complete | Strict task requirements, signed immutable manifests, inventory separation, and fail-closed integrity accepted 2026-07-25; public-key-only production startup and supported-runtime mount boundary implemented 2026-07-26 |
 | SE9. Deterministic eligibility and routing | Complete | Hard eligibility, inspectable ranking, minimized per-operation disclosure, and negative-security gates accepted 2026-07-25 |
 | SE10. Bounded model contribution | Complete | Typed untrusted proposals, source/fact/recipient/action reconciliation, and deterministic high-risk language accepted 2026-07-25 |
-| SE11. Evaluation, canary, promotion, rollback | Complete | Golden journeys, approved comparison data, bounded canary, content-free health gates, state invariance, and automatic rollback accepted 2026-07-25 |
+| SE11. Evaluation, canary, promotion, rollback | Complete | Golden journeys, approved comparison data, bounded canary, content-free health gates, state invariance, automatic rollback, durable restart restoration, and release rollback artifacts accepted through 2026-07-26 |
 | SE12. Hardware qualification and publication | In progress | Qualification/matrix tooling and synthetic load/offline/update/rollback gates pass; physical appliance evidence and supported matrix remain open |
 
 The accepted packages are

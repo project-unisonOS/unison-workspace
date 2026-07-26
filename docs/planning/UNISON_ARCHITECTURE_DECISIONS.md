@@ -1,7 +1,7 @@
 # Unison Architecture Decisions
 
 Status: authoritative decision register  
-Last updated: 2026-07-25
+Last updated: 2026-07-26
 
 ## How to use this register
 
@@ -59,6 +59,7 @@ Changing an accepted decision affecting the product promise, principal isolation
 | AD-051 | Semantic outcomes receive native person-aware modality composition | Accepted |
 | AD-052 | Existing visual experiences are interpreted into governed semantic experiences | Accepted |
 | AD-053 | Models propose bounded meaning and expression while deterministic services retain authority | Accepted |
+| AD-054 | Production model registries use public-key-only Ed25519 verification | Accepted |
 
 ## AD-001: Household-hosted private assistant appliance
 
@@ -574,6 +575,57 @@ state.
 
 The assessment and follow-on `SE8` through `SE12` plan are in
 [SEMANTIC_MODEL_ROUTING_AND_LIFECYCLE.md](SEMANTIC_MODEL_ROUTING_AND_LIFECYCLE.md).
+
+## AD-054: Public-key-only production model registry verification
+
+State: **Accepted - approved 2026-07-26**
+
+Production model manifests use Ed25519 signatures. Inference runtimes receive
+only pinned release public keys and cannot sign or alter a trusted manifest.
+HMAC-SHA256 remains a development compatibility algorithm for existing tests
+and fixtures, but the production registry loader rejects HMAC envelopes.
+
+Startup fails closed when a required registry is missing or partially
+configured, when a key or manifest is malformed, when a signature is invalid,
+when availability inventory references an unsigned model, or when an installed
+artifact does not match the digest in its signed immutable manifest. Release
+assembly owns private signing keys and the signed manifests; appliance startup
+owns public-key verification and local/remote availability inventory.
+
+Consequences:
+
+- runtime compromise does not grant model-manifest signing authority;
+- public-key rotation can be coupled to the existing signed release/update
+  trust path;
+- availability remains separate from eligibility and does not mark a model as
+  supported; and
+- production keys and manifests must be mounted by release packaging before
+  `UNISON_REQUIRE_GOVERNED_REGISTRY=true` is enabled.
+
+## AD-055: Durable model lifecycle journal and release rollback artifacts
+
+State: **Accepted - approved 2026-07-26**
+
+The supported inference runtime stores model deployment transitions, candidate
+identity, golden-journey evaluation results, bounded content-free health
+history, and release artifact references in one canonical atomic journal. It
+validates the complete journal before restoring any state after restart and
+fails startup closed on malformed, unknown, oversized, or symlinked state.
+
+Automatic rollback writes a content-free artifact naming the failed model, the
+retained target model, their release artifact references, the generation, and
+the exact activation action. The signed appliance bundle carries the lifecycle
+path and retention policy, while inference receives no release signing key.
+Persistent lifecycle data stays outside immutable release trees so update and
+reboot activation cannot erase the prior compatible deployment record.
+
+Consequences:
+
+- canary and rollback state survives process and appliance restart;
+- evaluation and health evidence remains inspectable without storing person
+  content;
+- release/update tooling has a deterministic rollback handoff artifact; and
+- corrupt lifecycle state cannot silently reset a canary to an unsafe default.
 
 ## Deferred decisions
 
