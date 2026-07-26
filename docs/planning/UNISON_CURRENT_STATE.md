@@ -155,6 +155,24 @@ remain deterministic. Synthetic qualification passes across conversational,
 visual, and Braille expressions. Supported-hardware model qualification and
 model promotion remain open for SE11 and SE12.
 
+## Semantic experience SE11-SE12 software delta
+
+Model candidates now pass golden semantic journeys before entering shadow or a
+bounded canary. Required facts, semantic meaning, actions, provenance, recovery,
+disclosure, modality equivalence, and latency are compared. Comparison remains
+synthetic unless a non-synthetic source has an explicit approval reference.
+
+Content-free health gates monitor contract success, semantic success, fallback,
+errors, and latency. A degraded canary rolls back automatically while the prior
+compatible model is retained. Identity, memory, permissions, pending actions,
+and interaction profiles remain outside model deployment state.
+
+Hardware qualification records and compatibility matrices are implemented.
+Synthetic appliance load, offline operation, update, rollback, semantic quality,
+and safe fallback pass. No physical CPU, accelerator, energy, thermal, or
+contention evidence has been collected, so the supported model list remains
+empty and SE12 stays open.
+
 ## Phase 0 closeout delta
 
 The local review candidate now provides a pinned Python 3.12 bootstrap, shared

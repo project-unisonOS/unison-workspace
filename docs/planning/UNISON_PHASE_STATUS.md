@@ -47,13 +47,16 @@ credited as implemented.
 | SE8. Model task taxonomy and signed registry | Complete | Strict task requirements, signed immutable manifests, inventory separation, and fail-closed integrity accepted 2026-07-25 |
 | SE9. Deterministic eligibility and routing | Complete | Hard eligibility, inspectable ranking, minimized per-operation disclosure, and negative-security gates accepted 2026-07-25 |
 | SE10. Bounded model contribution | Complete | Typed untrusted proposals, source/fact/recipient/action reconciliation, and deterministic high-risk language accepted 2026-07-25 |
-| SE11-SE12 | Not started | Canary, promotion, rollback, compatibility qualification, and final publication remain planned |
+| SE11. Evaluation, canary, promotion, rollback | Complete | Golden journeys, approved comparison data, bounded canary, content-free health gates, state invariance, and automatic rollback accepted 2026-07-25 |
+| SE12. Hardware qualification and publication | In progress | Qualification/matrix tooling and synthetic load/offline/update/rollback gates pass; physical appliance evidence and supported matrix remain open |
 
 The accepted packages are
 [SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE0_SE3_EVIDENCE.md)
 and [SEMANTIC_EXPERIENCE_SE4_SE7_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE4_SE7_EVIDENCE.md).
 SE8 through SE10 evidence is in
 [SEMANTIC_EXPERIENCE_SE8_SE10_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE8_SE10_EVIDENCE.md).
+SE11 and SE12 evidence is in
+[SEMANTIC_EXPERIENCE_SE11_SE12_EVIDENCE.md](SEMANTIC_EXPERIENCE_SE11_SE12_EVIDENCE.md).
 All physical-device and participatory validation items remain open and keep the
 SE7 supported-release gate in progress.
 

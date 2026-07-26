@@ -1,6 +1,6 @@
 # Semantic experience model routing and lifecycle
 
-Status: **SE8 through SE10 software scope complete; SE11 and SE12 remain planned**
+Status: **SE8 through SE11 software scope complete; SE12 physical qualification open**
 Last updated: 2026-07-25  
 Prerequisite program: [SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md](SEMANTIC_EXPERIENCE_IMPLEMENTATION_PLAN.md)
 
@@ -87,13 +87,18 @@ gate. They do not yet constitute the complete routing and lifecycle design.
   action, provenance, and recovery reconciliation;
 - deterministic ownership of exact and high-risk language paths.
 
-### Behavior not yet implemented
+### SE11 accepted implementation
 
 - golden semantic-journey comparison across model versions;
 - shadow, canary, promotion, health-gate, and automatic rollback workflows for
   model updates;
+- retention of the prior compatible version through the rollback window;
+- content-free health signals and person-state invariance across rollback.
+
+### Behavior not yet physically qualified
+
 - experience-level compatibility guarantees that allow model replacement
-  without changing identity, memory, permissions, or interaction-profile state;
+  under supported-appliance load;
 - supported-hardware performance and resource qualification per model version.
 
 ## Target request flow
@@ -254,6 +259,7 @@ and recovery cannot.
 
 ## Public messaging guardrail
 
-Public content remains unchanged by SE8 through SE10. Hardware-aware routing has
-software and synthetic evidence, while supported model/version matrices,
-governed upgrades, canary promotion, and rollback require SE11 and SE12 evidence.
+Public content may describe the implemented governance and rollback flow. It
+must state that hardware-aware qualification has only software and synthetic
+evidence and that no model/version/hardware combination is supported by this
+program yet.

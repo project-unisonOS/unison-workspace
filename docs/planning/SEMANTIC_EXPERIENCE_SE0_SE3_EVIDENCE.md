@@ -71,5 +71,6 @@ participant validation. SE7 owns those promotion gates.
 ## Gate decision
 
 The defined SE0 through SE3 software deliverables and automated acceptance
-criteria are complete. SE4 through SE12 remain planned and unimplemented.
-Public GitHub Pages claims remain unchanged until qualification.
+criteria were complete at this gate. Subsequent implementation is recorded in
+the SE4-SE7, SE8-SE10, and SE11-SE12 evidence packages. Public claims remain
+bounded by the latest qualification evidence.
