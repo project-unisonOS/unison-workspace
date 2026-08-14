@@ -1,0 +1,26 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "USAGE-DRIVEN-TAXONOMY",
+  "objective": "Allow repeated person-scoped usage to produce explainable taxonomy proposals without automatic activation or data migration.",
+  "status": "complete",
+  "authority": {
+    "decision_owner": "The affected person",
+    "repositories": ["unison-common", "unison-context", "unison-workspace"],
+    "external_actions": ["push task branches", "open and merge pull requests after hosted CI"]
+  },
+  "allowed_changes": ["versioned taxonomy contracts", "content-free usage evidence", "person-scoped proposal and decision persistence", "review APIs", "synthetic tests and documentation"],
+  "non_goals": ["automatic domain activation", "automatic record migration", "raw personal-content storage in signals", "production key creation", "real personal data"],
+  "contracts": ["unison.memory.v1"],
+  "validation": ["python scripts/validate-task-packets.py", "unison-common governed-memory tests", "unison-context governed repository and API tests", "git diff --check"],
+  "evidence": {
+    "class": "integration",
+    "required_artifacts": ["threshold test", "explicit approval test", "cross-person isolation test", "cooldown test", "exact Git revisions"],
+    "prohibited_claims": ["production security qualification", "successful physical key separation", "participatory usability validation"]
+  },
+  "rollback": ["stop accepting taxonomy signals", "withdraw pending proposals", "deprecate an activated definition without deleting source records", "revert revision-specific merge commits"],
+  "handoff": {
+    "current_state": "Usage signals can create person-scoped proposals after a three-signal/two-day threshold; explicit approval activates vocabulary while migration remains not started.",
+    "next_action": "Add interaction preview, migration preview/rollback, and security-domain policy review.",
+    "known_limits": ["thresholds are static", "migration execution is intentionally absent", "no participatory prompt-fatigue evidence exists"]
+  }
+}

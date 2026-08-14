@@ -84,7 +84,9 @@ and remote use denied by default. Embeddings, summaries, caches, and graph edges
 are revision-bound derived views. Correction, deletion, retention expiry, and
 membership revocation invalidate affected views and create durable receipts.
 
-This slice does not yet implement taxonomy proposal scoring, automatic domain
-activation, physical key custody, storage-tier movement, backup restore, or
+Usage-driven taxonomy proposals are now implemented as a separate governed
+slice documented in `USAGE_DRIVEN_TAXONOMY.md`. They require repeated evidence
+and explicit person approval; automatic activation and record migration remain
+prohibited. This slice does not yet implement physical key custody, storage-tier movement, backup restore, or
 embedding rebuild workers. Those remain explicit follow-on work rather than
 being inferred from passing unit/integration tests.
