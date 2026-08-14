@@ -28,6 +28,7 @@ thermal, RF, or production security qualification.
 | Renderer full suite | 56 passed |
 | Renderer legacy-UI vocabulary guard | passed |
 | DJ-0 fixture gates | 12 passed |
+| Workspace focused acceptance | 33 passed across isolated component invocations |
 
 The orchestrator route is explicitly named and labeled as simulation. It
 persists the incident before publishing an experience envelope. Renderer loss
