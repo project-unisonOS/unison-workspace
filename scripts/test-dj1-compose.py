@@ -28,10 +28,11 @@ def request(path: str, payload: dict | None = None) -> dict:
         return json.load(response)
 
 
-def wait_ready() -> None:
+def wait_ready(url: str = BASE + "/health") -> None:
     for _ in range(60):
         try:
-            request("/health")
+            with urlopen(url, timeout=5):  # nosec B310 - fixed loopback acceptance endpoint
+                pass
             return
         except (URLError, TimeoutError, ConnectionError, OSError):
             time.sleep(1)
@@ -57,6 +58,7 @@ def main() -> None:
         assert partial["incident"]["state"] == "action-needed"
 
         compose("start", "renderer")
+        wait_ready("http://127.0.0.1:18092/health")
         replay = request("/v1/incidents/delivery/retry", {})
         assert replay == {"delivered": 1, "remaining": 0, "evidence_class": "simulation"}
         print(json.dumps({"normal": normal, "renderer_loss": partial, "replay": replay}, indent=2))
