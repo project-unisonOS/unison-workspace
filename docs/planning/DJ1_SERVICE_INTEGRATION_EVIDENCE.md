@@ -1,7 +1,9 @@
 # DJ-1 service integration evidence
 
-Status: accepted integration simulation evidence  
-Date: 2026-08-14  
+Status: accepted integration simulation evidence
+
+Date: 2026-08-14
+
 Environment: Ubuntu `dev-nuc`, Python 3.12.3, Docker 29.1.3, Compose 2.40.3,
 isolated clean checkout
 
@@ -17,7 +19,7 @@ thermal, RF, or production security qualification.
 | Component | Commit | Review |
 | --- | --- | --- |
 | `unison-storage` | `3278e37` | merged `project-unisonOS/unison-storage#25` |
-| `unison-orchestrator` | `9e4beda` | `project-unisonOS/unison-orchestrator#35` |
+| `unison-orchestrator` | `2700358` | merged `project-unisonOS/unison-orchestrator#35` |
 | `unison-experience-renderer` | `2a4426f` | merged `project-unisonOS/unison-experience-renderer#21` |
 | `unison-workspace` | `45e009c` | `project-unisonOS/unison-workspace#40` |
 
