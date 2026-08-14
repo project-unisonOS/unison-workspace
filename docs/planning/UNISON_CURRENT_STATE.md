@@ -245,6 +245,15 @@ deletion, share-preview, charter, goal, and commitment controls. Publication,
 component/workspace CI, browser accessibility, recursive fresh-clone evidence,
 and the final human gate were completed on 2026-07-21.
 
+The 2026-08-14 governed-memory extension adds an open, person-scoped taxonomy
+that can learn proposal candidates from content-free usage patterns. Proposals
+now have modality-neutral explanations, approve/defer/decline choices, and no
+automatic activation. Security domains require review of logical key,
+retention, sharing, and disclosure boundaries. Existing records move only
+through an expiring revision-bound preview, exact confirmation, receipt, and
+30-day rollback. Physical re-encryption and separately authenticated policy
+issuance remain open and are not implied by this software evidence.
+
 ## Phase 3 accepted delta
 
 The accepted Phase 3 implementation consolidates policy, consent, disclosure, minimization,

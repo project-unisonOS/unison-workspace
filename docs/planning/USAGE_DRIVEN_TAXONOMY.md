@@ -53,8 +53,10 @@ an optimization path for repeated patterns, not a capability gate.
 - Unit/integration evidence covers the `legal` example, thresholds, explicit
   approval, cooldown, no automatic migration, and cross-person isolation.
 
-## Deferred
+## Follow-on implementation
 
-The next slice should add a user-facing proposal preview, migration preview and
-rollback workflow, configurable thresholds learned from prompt-fatigue metrics,
-and a policy review for candidates that request a separate key boundary.
+The user-facing proposal preview, migration preview and rollback workflow, and
+security-domain control review are implemented in
+`TAXONOMY_REVIEW_AND_MIGRATION.md`. Configurable thresholds learned from
+prompt-fatigue metrics, separately authenticated policy issuance, physical
+key-broker re-encryption, and participatory accessibility evidence remain open.
