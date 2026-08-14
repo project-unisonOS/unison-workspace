@@ -6,6 +6,11 @@ Authoritative Planning
 
 Project execution is governed by the living planning set in `docs/planning/`:
 
+- [Integrated system program](docs/planning/UNISON_INTEGRATED_SYSTEM_PROGRAM.md) — discovery record for the software, hardware, infrastructure, contributor, and 2027/2028 product pivot; proposals remain unaccepted until reviewed
+- [System foundations](docs/planning/UNISON_SYSTEM_FOUNDATIONS.md) — reconciled privacy, security, orchestration, memory, storage, concurrency, and multimodal product promises
+- [Reference journeys](docs/planning/UNISON_REFERENCE_JOURNEYS.md) — six end-to-end household usage patterns, shared-understanding demonstration, MacGyver resilience mode, and governed cross-domain intersections
+- [Demonstration journeys](docs/planning/UNISON_DEMONSTRATION_JOURNEYS.md) — executable specifications for shared multimodal water-leak response and health preparation under financial and insurance constraints
+
 - [Phase 0 acceptance evidence](docs/planning/PHASE0_ACCEPTANCE_EVIDENCE.md) — review package, executed results, residual items, and requested gate decision
 - [Phase 6 acceptance evidence](docs/planning/PHASE6_ACCEPTANCE_EVIDENCE.md) — provider-blind backup, clean restore, threat, portability, accessibility, and gate evidence
 - [Phase 6 cryptographic review](docs/planning/PHASE6_CRYPTOGRAPHIC_REVIEW.md) — approved profile, construction review, misuse analysis, and residual limits
