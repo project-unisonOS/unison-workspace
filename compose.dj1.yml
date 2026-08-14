@@ -27,6 +27,7 @@ services:
         UNISON_COMMON_REF: 45a261eb1442454c4541b75dcb6f43b8bb32027f
     environment:
       DISABLE_AUTH_FOR_TESTS: "true"
+      UNISON_PRINCIPAL_BINDING_TEST_BYPASS: "true"
       OTEL_SDK_DISABLED: "true"
       UNISON_REDACT_RENDERER_EVENTS: "true"
     ports:
