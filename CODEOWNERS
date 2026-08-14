@@ -1,2 +1,11 @@
-* @project-unisonOS/security-leads
-unison-workspace/** @project-unisonOS/platform
+* @project-unisonOS/platform
+/CODEOWNERS @project-unisonOS/security-leads
+/SECURITY.md @project-unisonOS/security-leads
+/docs/planning/UNISON_THREAT_MODEL.md @project-unisonOS/security-leads
+/docs/contract-versioning-policy.md @project-unisonOS/platform @project-unisonOS/security-leads
+/tasks/ @project-unisonOS/platform
+/compose*.yml @project-unisonOS/platform @project-unisonOS/security-leads
+/scripts/ @project-unisonOS/platform
+/unison-auth/ @project-unisonOS/security-leads
+/unison-consent/ @project-unisonOS/security-leads
+/unison-policy/ @project-unisonOS/security-leads

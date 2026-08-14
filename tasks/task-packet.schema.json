@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://project-unisonos.github.io/schemas/task-packet.v1.json",
+  "title": "Unison agent task packet v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "objective", "status", "authority", "allowed_changes", "non_goals", "validation", "evidence", "rollback", "handoff"],
+  "properties": {
+    "schema_version": {"const": "unison.agent-task.v1"},
+    "id": {"type": "string", "pattern": "^[A-Z0-9-]+$"},
+    "objective": {"type": "string", "minLength": 10},
+    "status": {"enum": ["proposed", "active", "review", "complete", "blocked", "deferred"]},
+    "authority": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_owner", "repositories", "external_actions"],
+      "properties": {
+        "decision_owner": {"type": "string"},
+        "repositories": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "external_actions": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "allowed_changes": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "non_goals": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "contracts": {"type": "array", "items": {"type": "string"}},
+    "validation": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "evidence": {
+      "type": "object",
+      "required": ["class", "required_artifacts", "prohibited_claims"],
+      "properties": {
+        "class": {"enum": ["static", "unit", "simulation", "integration", "physical", "participatory"]},
+        "required_artifacts": {"type": "array", "items": {"type": "string"}},
+        "prohibited_claims": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "rollback": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "handoff": {
+      "type": "object", "required": ["current_state", "next_action", "known_limits"],
+      "properties": {
+        "current_state": {"type": "string"}, "next_action": {"type": "string"},
+        "known_limits": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

@@ -1,8 +1,11 @@
 # DJ-1 service integration evidence
 
-Status: candidate, simulation evidence  
-Date: 2026-08-14  
-Environment: Ubuntu `dev-nuc`, Python 3.12.3, isolated clean worktrees
+Status: accepted integration simulation evidence
+
+Date: 2026-08-14
+
+Environment: Ubuntu `dev-nuc`, Python 3.12.3, Docker 29.1.3, Compose 2.40.3,
+isolated clean checkout
 
 ## Scope
 
@@ -15,9 +18,10 @@ thermal, RF, or production security qualification.
 
 | Component | Commit | Review |
 | --- | --- | --- |
-| `unison-storage` | `ac46894` | `project-unisonOS/unison-storage#25` |
-| `unison-orchestrator` | `25e9e38` | `project-unisonOS/unison-orchestrator#34` |
-| `unison-experience-renderer` | `fb3f49c` | `project-unisonOS/unison-experience-renderer#20` |
+| `unison-storage` | `3278e37` | merged `project-unisonOS/unison-storage#25` |
+| `unison-orchestrator` | `2700358` | merged `project-unisonOS/unison-orchestrator#35` |
+| `unison-experience-renderer` | `2a4426f` | merged `project-unisonOS/unison-experience-renderer#21` |
+| `unison-workspace` | `45e009c` | `project-unisonOS/unison-workspace#40` |
 
 ## Results
 
@@ -29,17 +33,28 @@ thermal, RF, or production security qualification.
 | Renderer legacy-UI vocabulary guard | passed |
 | DJ-0 fixture gates | 12 passed |
 | Workspace focused acceptance | 33 passed across isolated component invocations |
+| Three-service container build and health | passed |
+| Normal storage-to-renderer delivery | passed; `renderer_delivered=true` |
+| Renderer outage | incident remained `action-needed`; `renderer_delivered=false` |
+| Restart-safe renderer replay | passed; 1 delivered, 0 remaining |
 
 The orchestrator route is explicitly named and labeled as simulation. It
 persists the incident before publishing an experience envelope. Renderer loss
-does not roll back or alter incident authority. Storage derives the production
+does not roll back or alter incident authority. The failed semantic envelope is
+written atomically to a persistent outbox and can be replayed after renderer
+recovery. Storage derives the production
 shared space from trusted household principal claims; client-provided authority
 is accepted only when the existing test bypass is explicitly enabled.
 
+The Compose acceptance uses that explicit principal-binding bypass and is not
+production authentication evidence. All three services run as separate
+containers over the Compose network; storage and outbox volumes are removed by
+the test teardown.
+
 ## Deferred
 
-- container-to-container NUC Compose exercise with service-issued principal;
+- container-to-container exercise with a real auth-service-issued principal;
 - signed offline knowledge-pack verification rather than structural validation;
-- retry queue for renderer delivery after an outage;
+- automatic scheduled outbox draining; the current replay trigger is explicit;
 - physical sensor and modality adapters;
 - GPU, sustained load, energy, and thermal qualification pending the workstation.
