@@ -2,7 +2,7 @@
   "schema_version": "unison.agent-task.v1",
   "id": "DJ1-CONTAINER-INTEGRATION",
   "objective": "Prove the simulated water-leak journey across storage, orchestrator, and renderer containers, including restart-safe renderer delivery replay.",
-  "status": "review",
+  "status": "complete",
   "authority": {
     "decision_owner": "Unison maintainers",
     "repositories": ["unison-common", "unison-storage", "unison-orchestrator", "unison-experience-renderer", "unison-workspace"],
@@ -19,8 +19,8 @@
   },
   "rollback": ["docker compose -f compose.dj1.yml down --volumes --remove-orphans", "revert the revision-specific merge commits"],
   "handoff": {
-    "current_state": "Candidate implementation and NUC evidence are under review.",
-    "next_action": "Review evidence, merge green PRs, and rerun against merged main.",
+    "current_state": "Focused and three-container NUC acceptance pass with truthful simulation labels.",
+    "next_action": "Replace the explicit simulation principal bypass with an auth-service-issued principal profile.",
     "known_limits": ["knowledge-pack signature verification remains structural", "delivery replay is manually triggered", "test principal bypass is simulation-only"]
   }
 }
