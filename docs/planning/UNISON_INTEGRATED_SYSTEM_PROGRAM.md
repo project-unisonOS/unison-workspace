@@ -168,6 +168,12 @@ coupling, CI duration, ownership, release cadence, artifact size, security
 boundary, and contributor-path data. Until that decision is accepted,
 `unison-workspace` remains authoritative.
 
+Foundation update, 2026-08-14: `unison-infrastructure` and `unison-hardware`
+now exist and are pinned by the workspace. They establish environment profiles,
+hardware requirements, an interface registry, BOM validation structure, and
+explicit evidence/licensing boundaries without committing to target parts.
+This does not by itself accept the broader software repository consolidation.
+
 ## Proposed GitHub program structure
 
 Use one organization-level GitHub Project as the program index. Repositories

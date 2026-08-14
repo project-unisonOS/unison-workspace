@@ -82,9 +82,16 @@ contract in another repository, or guess which test proves completion.
 
 1. Complete deployable DJ-1 service integration on the NUC.
 2. Capture a simulation-labeled DJ-1 evidence package.
-3. Establish `unison-infrastructure` and encode the Windows/NUC profiles.
-4. Establish `unison-hardware` with interfaces and BOM schema, without premature
-   2026 component lock-in.
-5. Improve organization-level agent/human contributor guidance.
+3. Maintain the established `unison-infrastructure` Windows/NUC profiles.
+4. Evolve the established `unison-hardware` interfaces and BOM schema without
+   premature 2026 component lock-in.
+5. Review and merge the organization-level agent/human contributor templates.
 6. Inventory and qualify the GPU workstation when it becomes available.
 7. Begin DJ-2 after these foundations are reviewable.
+
+Foundation revisions created on 2026-08-14:
+
+- `project-unisonOS/unison-infrastructure@d50b51c`;
+- `project-unisonOS/unison-hardware@eca93da`;
+- `project-unisonOS/.github#5` contains the shared agent-ready issue and PR
+  templates and remains a draft pending review.
