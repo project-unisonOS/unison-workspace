@@ -11,9 +11,12 @@ python "$root/scripts/validate-dj0-fixtures.py"
 python -m pytest -q \
   "$root/unison-common/tests/test_shared_incident_contracts.py" \
   "$root/unison-storage/tests/test_incident_repository.py" \
+  "$root/unison-storage/tests/test_incident_api.py" \
   "$root/unison-orchestrator/tests/test_shared_incident.py" \
   "$root/unison-orchestrator/tests/test_incident_workflow.py" \
+  "$root/unison-orchestrator/tests/test_incident_api.py" \
   "$root/unison-orchestrator/tests/test_household_resources.py" \
-  "$root/unison-experience-renderer/tests/test_incident_expressions.py"
+  "$root/unison-experience-renderer/tests/test_incident_expressions.py" \
+  "$root/unison-experience-renderer/tests/test_incident_event_stream.py"
 
 printf 'DJ-1 simulation acceptance passed; no physical-device or participatory claim is made.\n'

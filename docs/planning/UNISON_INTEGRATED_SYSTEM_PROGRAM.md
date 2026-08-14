@@ -333,11 +333,13 @@ packet should contain:
 - commit/branch/PR state; and
 - stop conditions, recovery steps, and next action.
 
-The project should add root `AGENTS.md` guidance only after repository
-boundaries and authoritative documents are reconciled. It should stay concise,
-route agents to versioned runbooks, require truth labels for simulated versus
-physical evidence, preserve uncommitted contributor work, and forbid secrets
-or unsupported product claims.
+The root `AGENTS.md` and `docs/agent-contributor-model.md` now provide the
+concise entry route for coding agents. They route agents to versioned runbooks,
+require truth labels for simulated versus physical evidence, preserve
+uncommitted contributor work, and forbid secrets or unsupported product claims.
+Agent usability is a first-class contributor requirement: normative state must
+live in repositories rather than chat history, while remaining plain-language,
+semantically structured, and accessible to people.
 
 Skills and tools needed over time include GitHub issue/PR/CI operations,
 remote-shell and deployment runbooks, CAD/BOM validation, hardware inventory,
