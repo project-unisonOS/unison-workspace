@@ -2,7 +2,7 @@
   "schema_version": "unison.agent-task.v1",
   "id": "GOVERNED-MEMORY-FOUNDATION",
   "objective": "Define and prove the first authenticated, policy-governed context and memory path with rebuildable semantic indexes and lifecycle propagation.",
-  "status": "proposed",
+  "status": "complete",
   "authority": {
     "decision_owner": "Unison maintainers",
     "repositories": ["unison-common", "unison-context", "unison-storage", "unison-context-graph", "unison-orchestrator", "unison-inference", "unison-workspace"],
@@ -19,8 +19,8 @@
   },
   "rollback": ["disable the v1 memory route behind its feature boundary", "rebuild disposable derived views from authoritative records", "revert revision-specific merge commits"],
   "handoff": {
-    "current_state": "Governed context v2, principal namespaces, trust governance, and authenticated DJ-1 service integration exist; memory contracts and end-to-end lifecycle propagation are not yet defined.",
-    "next_action": "Resolve the five design decisions in docs/planning/GOVERNED_MEMORY_NEXT_SLICE.md and draft common contracts before service implementation.",
-    "known_limits": ["data-class/key separation policy is not finalized", "backup restore ceremony is not selected", "embedding migration strategy is not selected"]
+    "current_state": "Governed-memory v1 contracts and context retrieval/invalidation are merged with open-vocabulary domains, deterministic pre-ranking filters, bounded cited packets, and derived-view invalidation receipts.",
+    "next_action": "Design the usage-driven taxonomy proposal and activation lifecycle before adding storage-tier and rebuild workers.",
+    "known_limits": ["taxonomy proposal scoring and activation are not implemented", "physical key separation and backup restore are not implemented", "derived-view rebuild workers and embedding migration are not implemented"]
   }
 }
