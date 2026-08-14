@@ -1,6 +1,6 @@
 # DJ-1 shared incident implementation plan
 
-Status: **DJ1-C0 complete; DJ1-C1 foundation published for review**  
+Status: **DJ1-C0 through DJ1-C3 implemented and published for review**  
 Opened: 2026-08-14  
 Prerequisites:
 
@@ -268,6 +268,23 @@ separately attributed conflict presentation remain later DJ1-C1 work.
 Implemented deterministic water-leak assessment, freshness and integrity
 gates, electrical hazard escalation, manual no-actuation assignments, offline
 checklists, partial/blocked no-model resolution attempts, and emergency through
-background scheduler priority lanes. A governed optional model route,
-equipment proposal reconciliation, assignment acknowledgement endpoints, and
-end-to-end storage integration remain later DJ1-C1 work.
+background scheduler priority lanes. The completion slice below adds governed
+proposal reconciliation and the storage-backed lifecycle boundary.
+
+### 2026-08-14: DJ1-C1 and DJ1-C2 completed
+
+- Storage candidate: `4652869`
+- Orchestrator candidate: `22c2b4c`
+- Renderer candidate: `482668a`; review `project-unisonOS/unison-experience-renderer#19`
+
+DJ1-C1 now includes restart-safe assignment acknowledgement and cancellation,
+a storage-backed orchestration boundary, and source/equipment/stop-rule
+reconciliation for optional model proposals. DJ1-C2 provides identical
+incident semantics and available actions across visual, structured Braille,
+and conversational expressions, including non-color cues, modality fallback,
+and semantic resume position. Structured Braille remains a simulation contract,
+not a physical-device certification claim.
+
+The workspace `scripts/test-dj1.sh` entrypoint composes the contract,
+repository, engine, priority, reconciliation, and expression suites and labels
+its result as simulation evidence.
