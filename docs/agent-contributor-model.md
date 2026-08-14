@@ -91,7 +91,7 @@ contract in another repository, or guess which test proves completion.
 
 Foundation revisions created on 2026-08-14:
 
-- `project-unisonOS/unison-infrastructure@d50b51c`;
-- `project-unisonOS/unison-hardware@eca93da`;
+- `project-unisonOS/unison-infrastructure@e104199`, including schema validation CI;
+- `project-unisonOS/unison-hardware@66f98e6`, including registry/BOM validation CI;
 - `project-unisonOS/.github#5` contains the shared agent-ready issue and PR
   templates and remains a draft pending review.

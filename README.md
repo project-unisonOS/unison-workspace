@@ -62,6 +62,7 @@ Included directly in this workspace snapshot:
 - IO services: `unison-io-core`, `unison-io-speech`, `unison-io-vision`, `unison-storage`
 - Experience: `unison-experience-renderer`, `unison-agent-vdi`
 - Shared & tooling: `unison-common`, `unison-devstack`, `unison-docs`
+- Product engineering: `unison-infrastructure`, `unison-hardware`
 - Optional: `unison-payments`
 
 Not included as submodules in this workspace snapshot, but still referenced by some docs and devstack paths:
