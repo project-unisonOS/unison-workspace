@@ -1,0 +1,26 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "TAXONOMY-REVIEW-MIGRATION",
+  "objective": "Provide understandable taxonomy decisions, mandatory security-domain control review, and explicit reversible record migration.",
+  "status": "complete",
+  "authority": {
+    "decision_owner": "The affected person, with policy controls enforced by Unison",
+    "repositories": ["unison-common", "unison-context", "unison-workspace"],
+    "external_actions": ["push task branches", "open and merge pull requests after hosted CI"]
+  },
+  "allowed_changes": ["taxonomy preview and decision contracts", "security-domain control review", "migration preview, execution, receipts, and rollback", "person-scoped APIs", "synthetic tests and documentation"],
+  "non_goals": ["automatic reclassification", "production physical key custody", "raw personal content in previews", "clinical or legal advice", "participatory accessibility claims"],
+  "contracts": ["unison.memory.v1"],
+  "validation": ["python scripts/validate-task-packets.py", "governed-memory contract/schema tests", "governed-context repository and API tests", "schema manifest validation", "git diff --check"],
+  "evidence": {
+    "class": "integration",
+    "required_artifacts": ["natural preview test", "security-review denial and approval tests", "exact migration confirmation test", "rollback round-trip test", "hosted CI revisions"],
+    "prohibited_claims": ["production cryptographic key separation", "participatory accessibility validation", "production policy-channel security qualification"]
+  },
+  "rollback": ["disable migration endpoints", "use each migration's 30-day rollback receipt path", "revert revision-specific merge commits"],
+  "handoff": {
+    "current_state": "Taxonomy proposals have modality-neutral previews; security domains require complete control review; exact revision-bound migrations are explicit and reversible.",
+    "next_action": "Integrate service-authenticated unison-policy issuance and key-broker re-encryption, then add renderer-level participatory accessibility evidence.",
+    "known_limits": ["logical key-domain change is not physical re-encryption", "policy review is not yet signed by a separately authenticated policy service", "no participatory prompt testing exists"]
+  }
+}
