@@ -64,3 +64,9 @@
 [submodule "unison-updates"]
 	path = unison-updates
 	url = git@github.com:project-unisonOS/unison-updates.git
+[submodule "unison-infrastructure"]
+	path = unison-infrastructure
+	url = https://github.com/project-unisonOS/unison-infrastructure.git
+[submodule "unison-hardware"]
+	path = unison-hardware
+	url = https://github.com/project-unisonOS/unison-hardware.git

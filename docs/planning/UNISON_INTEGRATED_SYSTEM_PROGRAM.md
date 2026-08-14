@@ -168,6 +168,12 @@ coupling, CI duration, ownership, release cadence, artifact size, security
 boundary, and contributor-path data. Until that decision is accepted,
 `unison-workspace` remains authoritative.
 
+Foundation update, 2026-08-14: `unison-infrastructure` and `unison-hardware`
+now exist and are pinned by the workspace. They establish environment profiles,
+hardware requirements, an interface registry, BOM validation structure, and
+explicit evidence/licensing boundaries without committing to target parts.
+This does not by itself accept the broader software repository consolidation.
+
 ## Proposed GitHub program structure
 
 Use one organization-level GitHub Project as the program index. Repositories
@@ -333,11 +339,13 @@ packet should contain:
 - commit/branch/PR state; and
 - stop conditions, recovery steps, and next action.
 
-The project should add root `AGENTS.md` guidance only after repository
-boundaries and authoritative documents are reconciled. It should stay concise,
-route agents to versioned runbooks, require truth labels for simulated versus
-physical evidence, preserve uncommitted contributor work, and forbid secrets
-or unsupported product claims.
+The root `AGENTS.md` and `docs/agent-contributor-model.md` now provide the
+concise entry route for coding agents. They route agents to versioned runbooks,
+require truth labels for simulated versus physical evidence, preserve
+uncommitted contributor work, and forbid secrets or unsupported product claims.
+Agent usability is a first-class contributor requirement: normative state must
+live in repositories rather than chat history, while remaining plain-language,
+semantically structured, and accessible to people.
 
 Skills and tools needed over time include GitHub issue/PR/CI operations,
 remote-shell and deployment runbooks, CAD/BOM validation, hardware inventory,

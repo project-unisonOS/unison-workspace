@@ -285,3 +285,10 @@ not a physical-device certification claim.
 The workspace `scripts/test-dj1.sh` entrypoint composes the contract,
 repository, engine, priority, reconciliation, and expression suites and labels
 its result as simulation evidence.
+
+### 2026-08-14: Service integration candidate
+
+The next candidate replaces the in-process boundary with versioned storage,
+orchestrator, and renderer service paths. See
+`DJ1_SERVICE_INTEGRATION_EVIDENCE.md` for immutable revisions, NUC results,
+truth labels, and remaining container/physical qualification gates.

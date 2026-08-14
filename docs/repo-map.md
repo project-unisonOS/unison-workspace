@@ -21,6 +21,8 @@ Unison Repo Map (Meta Snapshot)
 | unison-common | Shared Python package | Core lib | Built as wheel `ghcr.io/project-unisonos/unison-common-wheel` |
 | unison-docs | Canonical documentation | Core docs | See `unison-docs/dev` and `unison-docs/experience` |
 | unison-payments | Payments capability (modular) | Optional | `src/` services; tests `pytest` |
+| unison-infrastructure | Named development, integration, lab, and deployment profiles | Foundation | `environments/*.yaml`; profile JSON Schema |
+| unison-hardware | Hardware requirements, interfaces, BOM schema, and qualification plans | Foundation | `system/`, `interfaces/`, `bom/`, `qualification/` |
 
 Notes
 -----
