@@ -1,6 +1,6 @@
 # Governed context and memory: next slice
 
-Status: proposed implementation slice
+Status: first foundation slice implemented
 
 Date: 2026-08-14
 
@@ -69,3 +69,22 @@ authoritative record or an authorization boundary.
 The first proof uses synthetic household, health, and financial records and may
 claim integration evidence only. It cannot establish clinical efficacy,
 financial suitability, production security, or physical appliance readiness.
+
+## Implemented foundation
+
+The first review slice defines `unison.memory.v1` with an open-vocabulary domain
+identifier rather than a closed enum. Domain definitions record whether they
+originated with the system, a person, observed usage, or a software update. This
+allows candidates such as `legal` to be proposed without a contract release;
+activation, migration, key separation, and retention remain governed decisions.
+
+Context retrieval now checks authenticated space access and domain constraints
+before ranking. It returns a purpose-bound, token-bounded packet with citations
+and remote use denied by default. Embeddings, summaries, caches, and graph edges
+are revision-bound derived views. Correction, deletion, retention expiry, and
+membership revocation invalidate affected views and create durable receipts.
+
+This slice does not yet implement taxonomy proposal scoring, automatic domain
+activation, physical key custody, storage-tier movement, backup restore, or
+embedding rebuild workers. Those remain explicit follow-on work rather than
+being inferred from passing unit/integration tests.
