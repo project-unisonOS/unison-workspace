@@ -33,7 +33,7 @@ def wait_ready() -> None:
         try:
             request("/health")
             return
-        except (URLError, TimeoutError):
+        except (URLError, TimeoutError, ConnectionError, OSError):
             time.sleep(1)
     raise RuntimeError("orchestrator did not become healthy")
 
