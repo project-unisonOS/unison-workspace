@@ -11,5 +11,6 @@ fi
 
 "$PYTHON_BIN" "${ROOT_DIR}/scripts/validate-household-fixtures.py"
 "$PYTHON_BIN" "${ROOT_DIR}/scripts/validate-threat-map.py"
+"$PYTHON_BIN" "${ROOT_DIR}/scripts/validate-dj0-fixtures.py"
 echo "[PASS] Phase 0 boundary fixtures and planned threat coverage passed."
 echo "[NOTE] Runtime household boundary enforcement begins only after the Phase 0 gate."

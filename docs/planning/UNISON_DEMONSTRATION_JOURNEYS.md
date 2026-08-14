@@ -356,6 +356,9 @@ journey-specific authority:
 
 Exit: fixtures and contracts can be reviewed without running a model.
 
+The source-backed reuse and gap decisions for this slice are recorded in
+[DJ0_ARCHITECTURE_GAP_ANALYSIS.md](DJ0_ARCHITECTURE_GAP_ANALYSIS.md).
+
 ### DJ-1: Shared incident simulation
 
 - implement the deterministic incident state machine and shared artifact;
@@ -386,4 +389,3 @@ Exit: Demonstration B passes its synthetic privacy and safety gate.
 - conduct separate representative research for health/insurance expression.
 
 Exit: revision-bound evidence exists; no supported-product claim is automatic.
-

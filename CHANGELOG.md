@@ -4,6 +4,14 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ## Unreleased
 
+- Opened the integrated Unison software, hardware, infrastructure, and
+  contributor program; defined six reference journeys and the first two
+  executable demonstration specifications; completed the DJ-0 source-backed
+  architecture mapping; and added model-independent synthetic fixtures,
+  candidate contracts, review gates, and validation for shared multimodal
+  water-leak response and health preparation under financial and insurance
+  constraints.
+
 - Added the evidence-based Phase 9 plan for a supported Ubuntu appliance:
   lifecycle authority, deterministic artifacts, production installation,
   signed updates and rollback, hardware qualification, hardened release

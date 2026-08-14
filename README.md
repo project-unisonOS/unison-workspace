@@ -10,6 +10,8 @@ Project execution is governed by the living planning set in `docs/planning/`:
 - [System foundations](docs/planning/UNISON_SYSTEM_FOUNDATIONS.md) — reconciled privacy, security, orchestration, memory, storage, concurrency, and multimodal product promises
 - [Reference journeys](docs/planning/UNISON_REFERENCE_JOURNEYS.md) — six end-to-end household usage patterns, shared-understanding demonstration, MacGyver resilience mode, and governed cross-domain intersections
 - [Demonstration journeys](docs/planning/UNISON_DEMONSTRATION_JOURNEYS.md) — executable specifications for shared multimodal water-leak response and health preparation under financial and insurance constraints
+- [DJ-0 architecture gap analysis](docs/planning/DJ0_ARCHITECTURE_GAP_ANALYSIS.md) — source-backed mapping of demonstration requirements to current repositories, contracts, services, tests, and missing primitives
+- [DJ-0 contract and fixture lock](docs/planning/DJ0_CONTRACT_AND_FIXTURE_PLAN.md) — model-independent candidate contracts, synthetic fixtures, review gates, validation, and exit decision
 
 - [Phase 0 acceptance evidence](docs/planning/PHASE0_ACCEPTANCE_EVIDENCE.md) — review package, executed results, residual items, and requested gate decision
 - [Phase 6 acceptance evidence](docs/planning/PHASE6_ACCEPTANCE_EVIDENCE.md) — provider-blind backup, clean restore, threat, portability, accessibility, and gate evidence

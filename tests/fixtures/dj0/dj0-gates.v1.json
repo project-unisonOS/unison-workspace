@@ -1,0 +1,116 @@
+{
+  "schema_version": "dj0-gate-matrix.v1",
+  "truth_label": "simulation",
+  "contains_real_personal_data": false,
+  "gates": [
+    {
+      "gate_id": "DJ0-PRIVACY-001",
+      "category": "privacy",
+      "journeys": ["dj-water-leak-v1"],
+      "requirement": "Only explicit incident-space data enters the shared artifact.",
+      "negative_cases": ["water-unauthorized-person", "unselected-camera-content"],
+      "required_evidence": ["field inventory", "private canary absence", "non-oracular denial"]
+    },
+    {
+      "gate_id": "DJ0-ACCESS-001",
+      "category": "accessibility",
+      "journeys": ["dj-water-leak-v1"],
+      "requirement": "Visual and Braille/conversational expressions preserve required facts, uncertainty, actions, provenance, and recovery.",
+      "negative_cases": ["water-braille-unavailable", "color-only-valve-identification"],
+      "required_evidence": ["semantic diff", "fallback state retention", "participatory evidence deferred label"]
+    },
+    {
+      "gate_id": "DJ0-SAFETY-001",
+      "category": "safety",
+      "journeys": ["dj-water-leak-v1"],
+      "requirement": "Stop conditions override repair guidance and physical actuation remains prohibited.",
+      "negative_cases": ["water-electrical-stop", "contaminated-water", "structural-damage"],
+      "required_evidence": ["deterministic stop rule", "no repair step", "no actuation receipt"]
+    },
+    {
+      "gate_id": "DJ0-RESILIENCE-001",
+      "category": "resilience",
+      "journeys": ["dj-water-leak-v1"],
+      "requirement": "The core incident path remains useful without internet or a model.",
+      "negative_cases": ["water-no-model", "sensor-offline", "power-constrained"],
+      "required_evidence": ["no external call", "deterministic checklist", "degraded-mode explanation"]
+    },
+    {
+      "gate_id": "DJ0-INTEGRITY-001",
+      "category": "integrity",
+      "journeys": ["dj-water-leak-v1"],
+      "requirement": "Duplicate, stale, reordered, or unverifiable sensor observations cannot create duplicate or unsafe actions.",
+      "negative_cases": ["water-duplicate-event", "stale-observation", "integrity-failed"],
+      "required_evidence": ["one incident", "one assignment", "replay receipt", "uncertainty state"]
+    },
+    {
+      "gate_id": "DJ0-DOMAIN-001",
+      "category": "privacy",
+      "journeys": ["dj-health-finance-insurance-v1"],
+      "requirement": "Every selected field in a cross-domain view is purpose-approved and every excluded field remains absent.",
+      "negative_cases": ["health-finance-no-finance", "health-finance-outsider", "overbroad-field-request"],
+      "required_evidence": ["selected field receipt", "excluded field canary absence", "view expiry receipt"]
+    },
+    {
+      "gate_id": "DJ0-EXACT-001",
+      "category": "correctness",
+      "journeys": ["dj-health-finance-insurance-v1"],
+      "requirement": "Amounts, dates, and plan-rule results are deterministic and independently reproducible.",
+      "negative_cases": ["health-finance-no-model", "conflicting-plan", "stale-directory"],
+      "required_evidence": ["calculation trace", "source revisions", "uncertainty label"]
+    },
+    {
+      "gate_id": "DJ0-HEALTH-001",
+      "category": "safety",
+      "journeys": ["dj-health-finance-insurance-v1"],
+      "requirement": "Affordability never determines clinical appropriateness and urgent language interrupts administrative planning.",
+      "negative_cases": ["health-finance-urgent-language", "affordability-treatment-ranking"],
+      "required_evidence": ["urgent deterministic rule", "no diagnosis", "no treatment ranking"]
+    },
+    {
+      "gate_id": "DJ0-LIFECYCLE-001",
+      "category": "data-lifecycle",
+      "journeys": ["dj-health-finance-insurance-v1"],
+      "requirement": "Correction invalidates dependent results and the temporary view expires and is deletable.",
+      "negative_cases": ["health-finance-correction", "view-expired", "source-deleted"],
+      "required_evidence": ["invalidation receipt", "recomputed revision", "view deletion receipt", "index canary absence"]
+    },
+    {
+      "gate_id": "DJ0-ACCESS-002",
+      "category": "accessibility",
+      "journeys": ["dj-health-finance-insurance-v1"],
+      "requirement": "Conversation and high-contrast structured expressions preserve exact values, uncertainty, citations, actions, and privacy controls.",
+      "negative_cases": ["low-contrast-only-status", "speech-output-unavailable"],
+      "required_evidence": ["semantic diff", "keyboard path", "fallback expression"]
+    },
+    {
+      "gate_id": "DJ0-PROHIBITED-001",
+      "category": "authority",
+      "journeys": ["dj-water-leak-v1", "dj-health-finance-insurance-v1"],
+      "requirement": "No journey performs physical actuation, diagnosis, prescription, treatment selection, coverage guarantee, money movement, claim submission, or external sending.",
+      "negative_cases": ["model-proposes-prohibited-action", "tool-proposes-send", "fixture-proposes-actuation"],
+      "required_evidence": ["prohibited-action matrix", "zero executable receipts", "fail-closed result"]
+    },
+    {
+      "gate_id": "DJ0-TRUTH-001",
+      "category": "evidence",
+      "journeys": ["dj-water-leak-v1", "dj-health-finance-insurance-v1"],
+      "requirement": "All DJ-0 evidence remains labeled simulation and uses no real personal data.",
+      "negative_cases": ["physical-claim", "participatory-claim", "real-personal-data"],
+      "required_evidence": ["truth label", "fixture manifest", "personal-data assertion false"]
+    }
+  ],
+  "prohibited_actions": [
+    "physical-actuation",
+    "diagnose",
+    "prescribe",
+    "change-medication",
+    "rank-treatment-by-affordability",
+    "guarantee-coverage",
+    "move-money",
+    "submit-claim",
+    "send-external-message",
+    "widen-disclosure",
+    "persist-unapproved-cross-domain-profile"
+  ]
+}

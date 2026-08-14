@@ -461,3 +461,12 @@ excluded information, preconditions, primary and failure flows, deterministic
 and model responsibilities, fixture packages, acceptance gates, shared
 primitives, and a staged path from contract review through simulation and later
 physical/participatory evidence.
+
+### 2026-08-14: DJ-0 architecture and fixture baseline
+
+Completed a source-backed mapping from the demonstration requirements to the
+current pinned repositories and identified the bounded gaps. Added ten
+candidate contracts, two model-independent synthetic fixture packages, twelve
+privacy/security/accessibility/safety/lifecycle/truth gates, and a dependency-
+free validator. DJ-0 remains simulation-only and contains no real personal
+data, external calls, model dependency, or physical actuation.
