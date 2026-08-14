@@ -19,8 +19,8 @@
   },
   "rollback": ["docker compose -f compose.dj1.yml down --volumes --remove-orphans", "revert the revision-specific merge commits"],
   "handoff": {
-    "current_state": "Focused and three-container NUC acceptance pass with truthful simulation labels.",
-    "next_action": "Replace the explicit simulation principal bypass with an auth-service-issued principal profile.",
-    "known_limits": ["knowledge-pack signature verification remains structural", "delivery replay is manually triggered", "test principal bypass is simulation-only"]
+    "current_state": "Focused acceptance and four-service authenticated NUC acceptance pass with truthful simulation labels; missing credentials, forged identity, and auth outage fail closed.",
+    "next_action": "Design and implement governed context and memory admission, retrieval, lifecycle, and storage-tier policy on the existing v2 authority model.",
+    "known_limits": ["knowledge-pack signature verification remains structural", "delivery replay is manually triggered", "auth identity and signing-key storage is ephemeral in this acceptance profile and requires production volume/key-custody design"]
   }
 }

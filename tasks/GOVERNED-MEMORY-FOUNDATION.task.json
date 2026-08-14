@@ -1,0 +1,26 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "GOVERNED-MEMORY-FOUNDATION",
+  "objective": "Define and prove the first authenticated, policy-governed context and memory path with rebuildable semantic indexes and lifecycle propagation.",
+  "status": "proposed",
+  "authority": {
+    "decision_owner": "Unison maintainers",
+    "repositories": ["unison-common", "unison-context", "unison-storage", "unison-context-graph", "unison-orchestrator", "unison-inference", "unison-workspace"],
+    "external_actions": ["push task branches", "open draft pull requests", "run synthetic container integration on the dev NUC"]
+  },
+  "allowed_changes": ["versioned memory and retrieval contracts", "authenticated admission and retrieval policy", "derived index invalidation and rebuild paths", "synthetic fixtures, tests, documentation, and evidence"],
+  "non_goals": ["ingestion of real personal, health, or financial data", "production key custody or off-prem backup deployment", "clinical or financial recommendation claims", "physical hardware qualification"],
+  "contracts": ["governed-context.v2", "memory-record.v1", "memory-retrieval.v1", "derived-view-invalidation.v1"],
+  "validation": ["python scripts/validate-task-packets.py", "component contract and policy suites", "cross-person and cross-domain negative tests", "synthetic container integration and restart/rebuild proof"],
+  "evidence": {
+    "class": "integration",
+    "required_artifacts": ["contract compatibility results", "authorization denial matrix", "lifecycle invalidation receipts", "restart and index-rebuild results", "exact Git revisions"],
+    "prohibited_claims": ["production security qualification", "real-world clinical or financial efficacy", "physical appliance validation", "participatory accessibility validation"]
+  },
+  "rollback": ["disable the v1 memory route behind its feature boundary", "rebuild disposable derived views from authoritative records", "revert revision-specific merge commits"],
+  "handoff": {
+    "current_state": "Governed context v2, principal namespaces, trust governance, and authenticated DJ-1 service integration exist; memory contracts and end-to-end lifecycle propagation are not yet defined.",
+    "next_action": "Resolve the five design decisions in docs/planning/GOVERNED_MEMORY_NEXT_SLICE.md and draft common contracts before service implementation.",
+    "known_limits": ["data-class/key separation policy is not finalized", "backup restore ceremony is not selected", "embedding migration strategy is not selected"]
+  }
+}
