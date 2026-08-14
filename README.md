@@ -17,6 +17,7 @@ Project execution is governed by the living planning set in `docs/planning/`:
 - [Agent-first contributor model](docs/agent-contributor-model.md) — Windows/NUC/GPU development topology, repository direction, durable task packets, and documentation rules for human- and agent-led contributions
 - [Development topology](docs/development-topology.md) — accepted machine roles, supported profiles, repository ownership, and devstack disposition
 - [Contract/versioning policy](docs/contract-versioning-policy.md) — compatibility and generated-client rules
+- [GitHub governance](docs/github-governance.md) — active ownership, review, protection, and required-check controls
 - [Agent task packets](tasks/README.md) — machine-readable, human-accessible execution and handoff contracts
 
 - [Phase 0 acceptance evidence](docs/planning/PHASE0_ACCEPTANCE_EVIDENCE.md) — review package, executed results, residual items, and requested gate decision
