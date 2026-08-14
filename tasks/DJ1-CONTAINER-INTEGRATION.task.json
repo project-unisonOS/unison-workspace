@@ -1,0 +1,26 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "DJ1-CONTAINER-INTEGRATION",
+  "objective": "Prove the simulated water-leak journey across storage, orchestrator, and renderer containers, including restart-safe renderer delivery replay.",
+  "status": "review",
+  "authority": {
+    "decision_owner": "Unison maintainers",
+    "repositories": ["unison-common", "unison-storage", "unison-orchestrator", "unison-experience-renderer", "unison-workspace"],
+    "external_actions": ["push task branches", "open draft pull requests", "run the named NUC Compose profile"]
+  },
+  "allowed_changes": ["versioned DJ-1 contracts and adapters", "simulation fixtures and tests", "the focused compose profile and evidence documentation"],
+  "non_goals": ["physical actuation or sensor claims", "participatory accessibility claims", "production authentication bypass", "GPU, power, or thermal qualification"],
+  "contracts": ["household-incident.v1", "sensor-observation.v1", "offline-knowledge-pack.v1"],
+  "validation": ["./scripts/test-dj1.sh", ".venv/bin/python scripts/test-dj1-compose.py", "python scripts/validate-task-packets.py"],
+  "evidence": {
+    "class": "integration",
+    "required_artifacts": ["service test counts", "container health", "normal delivery result", "renderer-loss result", "replay result", "exact Git revisions"],
+    "prohibited_claims": ["physical-device validation", "production readiness", "clinical or emergency efficacy", "participatory validation"]
+  },
+  "rollback": ["docker compose -f compose.dj1.yml down --volumes --remove-orphans", "revert the revision-specific merge commits"],
+  "handoff": {
+    "current_state": "Candidate implementation and NUC evidence are under review.",
+    "next_action": "Review evidence, merge green PRs, and rerun against merged main.",
+    "known_limits": ["knowledge-pack signature verification remains structural", "delivery replay is manually triggered", "test principal bypass is simulation-only"]
+  }
+}

@@ -23,6 +23,8 @@ services:
   renderer:
     build:
       context: ./unison-experience-renderer
+      args:
+        UNISON_COMMON_REF: 45a261eb1442454c4541b75dcb6f43b8bb32027f
     environment:
       DISABLE_AUTH_FOR_TESTS: "true"
       OTEL_SDK_DISABLED: "true"

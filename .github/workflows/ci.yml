@@ -19,6 +19,8 @@ jobs:
         run: ./scripts/bootstrap-dev.sh
       - name: Validate Phase 0 artifacts and topology
         run: ./scripts/validate-phase0.sh
+      - name: Validate agent task packets
+        run: .venv/bin/python scripts/validate-task-packets.py
       - name: Run workspace unit suites
         run: ./scripts/test-unit.sh
       - name: Validate Phase 1 trusted-principal boundaries
