@@ -1,0 +1,40 @@
+{
+  "person_id": "person-alex",
+  "assistant_instance_id": "assistant-alex",
+  "household_id": "household-fixture",
+  "at": "2026-08-14T12:00:00+00:00",
+  "observation": {
+    "observation_id": "observation-water-1",
+    "sensor_id": "simulated-water-sensor-1",
+    "source_sequence": 1,
+    "observed_at": "2026-08-14T12:00:00+00:00",
+    "received_at": "2026-08-14T12:00:00+00:00",
+    "state": "wet",
+    "value": true,
+    "unit": "boolean",
+    "confidence": 0.99,
+    "fresh_until": "2026-08-14T12:05:00+00:00",
+    "integrity_state": "verified",
+    "device_health": "healthy"
+  },
+  "knowledge_pack": {
+    "pack_id": "fixture-home-safety",
+    "version": "1",
+    "region": "US",
+    "language": "en-US",
+    "authority": "Unison simulation fixture",
+    "source_ids": ["fixture-manual-1"],
+    "effective_at": "2026-08-13T12:00:00+00:00",
+    "review_by": "2026-09-13T12:00:00+00:00",
+    "hazards": ["electricity near standing water"],
+    "stop_rules": ["Stop if electricity may contact water"],
+    "procedures": [{
+      "procedure_id": "fixture-water-1",
+      "purpose": "water-leak",
+      "steps": ["Locate the labeled manual shutoff", "Ask a household member to inspect it"]
+    }],
+    "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "signature_key_id": "fixture-local-root",
+    "signature": "fixture-signature"
+  }
+}

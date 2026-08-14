@@ -1,0 +1,69 @@
+name: unison-dj1
+
+services:
+  storage:
+    build:
+      context: ./unison-storage
+      args:
+        UNISON_COMMON_REF: 45a261eb1442454c4541b75dcb6f43b8bb32027f
+    environment:
+      UNISON_PRINCIPAL_BINDING_TEST_BYPASS: "true"
+      OTEL_SDK_DISABLED: "true"
+      UNISON_INCIDENTS_ROOT: /data/incidents
+    volumes:
+      - dj1-storage:/data
+    ports:
+      - "18082:8082"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8082/healthz"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+  renderer:
+    build:
+      context: ./unison-experience-renderer
+    environment:
+      DISABLE_AUTH_FOR_TESTS: "true"
+      OTEL_SDK_DISABLED: "true"
+      UNISON_REDACT_RENDERER_EVENTS: "true"
+    ports:
+      - "18092:8082"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8082/health"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+  orchestrator:
+    build:
+      context: ./unison-orchestrator
+      args:
+        UNISON_COMMON_REF: 45a261eb1442454c4541b75dcb6f43b8bb32027f
+    environment:
+      DISABLE_AUTH_FOR_TESTS: "true"
+      UNISON_PRINCIPAL_BINDING_TEST_BYPASS: "true"
+      OTEL_SDK_DISABLED: "true"
+      UNISON_STORAGE_HOST: storage
+      UNISON_STORAGE_PORT: "8082"
+      UNISON_RENDERER_HOST: renderer
+      UNISON_RENDERER_PORT: "8082"
+      UNISON_INCIDENT_OUTBOX_ROOT: /data/incident-outbox
+    volumes:
+      - dj1-outbox:/data
+    ports:
+      - "18080:8080"
+    depends_on:
+      storage:
+        condition: service_healthy
+      renderer:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/health"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+volumes:
+  dj1-storage:
+  dj1-outbox:
