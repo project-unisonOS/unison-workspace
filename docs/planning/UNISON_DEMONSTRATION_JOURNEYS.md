@@ -369,6 +369,10 @@ The source-backed reuse and gap decisions for this slice are recorded in
 
 Exit: Demonstration A passes its simulation gate without real physical control.
 
+The dependency order, candidate-contract review, natural-resolution behavior,
+state machine, and implementation gates are maintained in
+[DJ1_SHARED_INCIDENT_IMPLEMENTATION_PLAN.md](DJ1_SHARED_INCIDENT_IMPLEMENTATION_PLAN.md).
+
 ### DJ-2: Cross-domain preparation simulation
 
 - implement short-lived selected-field views;

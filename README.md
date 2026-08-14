@@ -12,6 +12,8 @@ Project execution is governed by the living planning set in `docs/planning/`:
 - [Demonstration journeys](docs/planning/UNISON_DEMONSTRATION_JOURNEYS.md) — executable specifications for shared multimodal water-leak response and health preparation under financial and insurance constraints
 - [DJ-0 architecture gap analysis](docs/planning/DJ0_ARCHITECTURE_GAP_ANALYSIS.md) — source-backed mapping of demonstration requirements to current repositories, contracts, services, tests, and missing primitives
 - [DJ-0 contract and fixture lock](docs/planning/DJ0_CONTRACT_AND_FIXTURE_PLAN.md) — model-independent candidate contracts, synthetic fixtures, review gates, validation, and exit decision
+- [Resolution and skill evolution](docs/planning/UNISON_RESOLUTION_AND_SKILL_EVOLUTION.md) — natural open-world problem solving, governed authority, useful partial outcomes, and promotion of repeated work into reviewed deterministic capabilities
+- [DJ-1 shared incident implementation plan](docs/planning/DJ1_SHARED_INCIDENT_IMPLEMENTATION_PLAN.md) — reviewed contract dispositions, repository sequence, state machine, natural-resolution behavior, and staged gates for the first simulation
 
 - [Phase 0 acceptance evidence](docs/planning/PHASE0_ACCEPTANCE_EVIDENCE.md) — review package, executed results, residual items, and requested gate decision
 - [Phase 6 acceptance evidence](docs/planning/PHASE6_ACCEPTANCE_EVIDENCE.md) — provider-blind backup, clean restore, threat, portability, accessibility, and gate evidence

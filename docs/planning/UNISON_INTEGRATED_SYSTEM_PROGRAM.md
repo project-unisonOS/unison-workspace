@@ -23,6 +23,9 @@ The initial end-to-end product requirements are developed in
 [UNISON_REFERENCE_JOURNEYS.md](UNISON_REFERENCE_JOURNEYS.md).
 The first executable product slices are specified in
 [UNISON_DEMONSTRATION_JOURNEYS.md](UNISON_DEMONSTRATION_JOURNEYS.md).
+The natural open-world resolution model and reviewed evolution from repeated
+requests into deterministic capabilities are defined in
+[UNISON_RESOLUTION_AND_SKILL_EVOLUTION.md](UNISON_RESOLUTION_AND_SKILL_EVOLUTION.md).
 
 ## Product north star
 
@@ -470,3 +473,21 @@ candidate contracts, two model-independent synthetic fixture packages, twelve
 privacy/security/accessibility/safety/lifecycle/truth gates, and a dependency-
 free validator. DJ-0 remains simulation-only and contains no real personal
 data, external calls, model dependency, or physical actuation.
+
+### 2026-08-14: Natural resolution and skill evolution
+
+Accepted that deterministic routes are a preferred execution mechanism rather
+than a capability ceiling. Defined an open-world resolution ladder spanning
+known workflows, tool/skill composition, retrieval, bounded local inference,
+governed external research, minimal clarification, sandboxed experimentation,
+useful partial outcomes, and safe handoff. Added a privacy-preserving lifecycle
+for recognizing repeated novel work and promoting reviewed, signed,
+reversible deterministic capabilities without self-modifying production code or
+turning personal behavior into shared training data.
+
+Published the first DJ-1 `unison-common` contract candidate after focused and
+adjacent contract validation on the Ubuntu dev NUC. The candidate establishes
+natural partial resolution and content-free repeat-pattern signals alongside
+strict incident, sensor, evidence, offline-knowledge, assignment, and no-
+physical-actuation boundaries; it does not yet implement storage or runtime
+behavior.

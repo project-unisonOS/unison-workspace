@@ -210,6 +210,13 @@ retention, and recovery remain deterministic. Repeated work should migrate
 toward tested skills, tools, workflows, caches, or conventional algorithms when
 that improves reliability and cost without losing needed flexibility.
 
+Deterministic routes are preferred implementations, not a closed catalog of
+what Unison can attempt. Novel requests follow the governed resolution ladder
+and repeatable patterns enter the reviewed skill-incubation lifecycle in
+[UNISON_RESOLUTION_AND_SKILL_EVOLUTION.md](UNISON_RESOLUTION_AND_SKILL_EVOLUTION.md).
+Unison should provide safe research, composition, partial progress, or handoff
+before falling back to a generic statement that it cannot help.
+
 Model replacement must not migrate or strand personal memory. Durable person
 state lives in model-independent schemas and source objects. Model-specific
 embeddings, summaries, caches, and indexes are derived products with provenance,
@@ -324,4 +331,3 @@ disagree without rewriting another person's private record.
 7. Select the first end-to-end household outcomes that exercise privacy,
    memory, deterministic orchestration, model routing, and multimodal access
    without attempting every domain at once.
-
