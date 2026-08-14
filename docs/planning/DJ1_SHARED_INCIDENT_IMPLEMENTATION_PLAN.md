@@ -246,7 +246,7 @@ partial outcomes, and content-free structural fingerprints.
 ### 2026-08-14: Repository foundation published
 
 - Component: `unison-storage`
-- Commit: `cc82810` (`Add restart-safe shared incident repository`)
+- Commits: `cc82810` (repository) and `af33d2d` (dependency/security alignment)
 - Review: `project-unisonOS/unison-storage#23` (draft)
 - Environment: clean NUC worktree, Ubuntu, Python 3.12.3
 - Full component result: 35 passed
@@ -260,7 +260,7 @@ separately attributed conflict presentation remain later DJ1-C1 work.
 ### 2026-08-14: Deterministic engine foundation published
 
 - Component: `unison-orchestrator`
-- Commit: `986aab3` (`Add deterministic shared incident orchestration`)
+- Commits: `986aab3` (engine) and `e231c14` (dependency/security alignment)
 - Review: `project-unisonOS/unison-orchestrator#33` (draft)
 - Environment: paired clean NUC worktrees, Ubuntu, Python 3.12.3
 - Full component result: 241 passed with the repository's CI auth bypass
