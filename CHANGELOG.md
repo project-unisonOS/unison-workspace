@@ -4,6 +4,20 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 ## Unreleased
 
+- Opened the integrated Unison software, hardware, infrastructure, and
+  contributor program; defined six reference journeys and the first two
+  executable demonstration specifications; completed the DJ-0 source-backed
+  architecture mapping; and added model-independent synthetic fixtures,
+  candidate contracts, review gates, and validation for shared multimodal
+  water-leak response and health preparation under financial and insurance
+  constraints.
+- Accepted outcome-seeking open-world resolution with governed authority and a
+  privacy-preserving skill-incubation lifecycle so deterministic execution is a
+  reliability preference rather than a limit on the problems Unison attempts.
+- Resolved the initial DJ-1 contract dispositions and defined the component
+  delivery sequence, incident state machine, natural novel-request behavior,
+  and simulation gates for the shared multimodal water-leak demonstration.
+
 - Added the evidence-based Phase 9 plan for a supported Ubuntu appliance:
   lifecycle authority, deterministic artifacts, production installation,
   signed updates and rollback, hardware qualification, hardened release

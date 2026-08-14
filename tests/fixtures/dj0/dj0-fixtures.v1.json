@@ -1,0 +1,642 @@
+{
+  "schema_version": "dj0-fixture-package.v1",
+  "fixture_id": "dj0-reference-demonstrations-2026-08-14",
+  "truth_label": "simulation",
+  "contains_real_personal_data": false,
+  "requires_model": false,
+  "contracts": [
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "sensor-observation.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "observation_id",
+        "sensor_id",
+        "source_sequence",
+        "observed_at",
+        "received_at",
+        "state",
+        "value",
+        "unit",
+        "confidence",
+        "fresh_until",
+        "integrity_state",
+        "device_health"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "household-equipment.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "equipment_id",
+        "household_space_id",
+        "kind",
+        "label",
+        "location_id",
+        "component_ids",
+        "source_ids",
+        "procedure_ids"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "household-incident.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "incident_id",
+        "space_id",
+        "kind",
+        "state",
+        "severity",
+        "source_ids",
+        "facts",
+        "uncertainties",
+        "assignments",
+        "timeline",
+        "retention_class"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "offline-knowledge-pack.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "pack_id",
+        "version",
+        "region",
+        "language",
+        "authority",
+        "source_ids",
+        "effective_at",
+        "review_by",
+        "hazards",
+        "stop_rules",
+        "procedures",
+        "digest",
+        "signature_state"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "incident-assignment.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "assignment_id",
+        "incident_id",
+        "assignee_person_id",
+        "action",
+        "state",
+        "created_at",
+        "acknowledged_at",
+        "completed_at",
+        "source_ids"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "cross-domain-view.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "view_id",
+        "person_id",
+        "purpose",
+        "source_domains",
+        "selected_fields",
+        "excluded_fields",
+        "source_revisions",
+        "created_at",
+        "expires_at",
+        "output_policy",
+        "state"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "evidence-state.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "evidence_id",
+        "claim",
+        "state",
+        "source_ids",
+        "observed_at",
+        "fresh_until",
+        "conflicts",
+        "uncertainty"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "cost-scenario.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "scenario_id",
+        "currency",
+        "inputs",
+        "calculation_rule",
+        "amount_low",
+        "amount_high",
+        "uncertainties",
+        "source_ids",
+        "not_a_guarantee"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "derived-artifact-receipt.v1",
+      "proposed_owner": "unison-common",
+      "required_fields": [
+        "artifact_id",
+        "person_id",
+        "purpose",
+        "source_ids",
+        "source_revisions",
+        "created_at",
+        "retention",
+        "view_id",
+        "recompute_on_change",
+        "disclosure_state"
+      ]
+    },
+    {
+      "schema_version": "contract-candidate.v1",
+      "name": "journey-expression-expectation.v1",
+      "proposed_owner": "unison-workspace",
+      "required_fields": [
+        "experience_id",
+        "person_id",
+        "modality",
+        "required_facts",
+        "required_actions",
+        "required_uncertainties",
+        "required_provenance",
+        "prohibited_content"
+      ]
+    }
+  ],
+  "journeys": {
+    "water_leak": {
+      "journey_id": "dj-water-leak-v1",
+      "execution_mode": "fully-local-simulation",
+      "external_network_required": false,
+      "physical_actuation_allowed": false,
+      "people": [
+        {
+          "person_id": "person-alex",
+          "display_name": "Alex",
+          "synthetic": true,
+          "private_space_id": "private:person-alex",
+          "interaction_profile": {
+            "schema_version": "interaction-profile.v1",
+            "preferred_inputs": ["speech", "braille-keyboard", "keyboard"],
+            "preferred_outputs": ["braille", "conversation"],
+            "unavailable_modalities": ["visual-only"],
+            "fallback_order": ["conversation", "keyboard-text"]
+          }
+        },
+        {
+          "person_id": "person-jordan",
+          "display_name": "Jordan",
+          "synthetic": true,
+          "private_space_id": "private:person-jordan",
+          "interaction_profile": {
+            "schema_version": "interaction-profile.v1",
+            "preferred_inputs": ["touch", "camera", "text", "speech"],
+            "preferred_outputs": ["visual", "conversation"],
+            "unavailable_modalities": [],
+            "fallback_order": ["conversation", "keyboard-text"]
+          }
+        }
+      ],
+      "shared_space": {
+        "space_id": "shared:household-incident-water-001",
+        "purpose": "coordinate a simulated water-leak response",
+        "members": ["person-alex", "person-jordan"],
+        "retention": "incident-plus-30-days",
+        "allowed_data_classes": [
+          "sensor-observation",
+          "selected-equipment-record",
+          "selected-incident-media",
+          "assignment",
+          "incident-timeline",
+          "approved-procedure"
+        ],
+        "prohibited_data_classes": [
+          "private-health",
+          "private-finance",
+          "unrelated-private-conversation",
+          "unselected-camera-media"
+        ]
+      },
+      "sensor": {
+        "schema_version": "sensor-observation.v1",
+        "sensor_id": "sensor-leak-utility-room-001",
+        "location_id": "location-utility-room",
+        "observations": [
+          {
+            "observation_id": "obs-water-001",
+            "source_sequence": 1001,
+            "observed_at": "2026-08-14T17:00:00Z",
+            "received_at": "2026-08-14T17:00:01Z",
+            "state": "probable-leak",
+            "value": true,
+            "unit": "boolean",
+            "confidence": 0.91,
+            "fresh_until": "2026-08-14T17:05:00Z",
+            "integrity_state": "verified-fixture",
+            "device_health": "healthy"
+          },
+          {
+            "observation_id": "obs-water-002",
+            "source_sequence": 1002,
+            "observed_at": "2026-08-14T17:07:00Z",
+            "received_at": "2026-08-14T17:07:01Z",
+            "state": "dry",
+            "value": false,
+            "unit": "boolean",
+            "confidence": 0.98,
+            "fresh_until": "2026-08-14T17:12:00Z",
+            "integrity_state": "verified-fixture",
+            "device_health": "healthy"
+          }
+        ]
+      },
+      "equipment": {
+        "schema_version": "household-equipment.v1",
+        "equipment_id": "equipment-water-main-001",
+        "household_space_id": "shared:household-equipment",
+        "kind": "manual-water-shutoff",
+        "label": "Main water shutoff",
+        "location_id": "location-utility-room-north-wall",
+        "component_ids": ["component-blue-handle-valve", "component-pressure-gauge"],
+        "source_ids": ["source-equipment-card-001", "source-water-procedure-001"],
+        "procedure_ids": ["procedure-water-isolation-001"],
+        "selected_media": [
+          {
+            "source_id": "source-valve-photo-001",
+            "scope": "incident-only",
+            "contains_canary": false,
+            "retention": "delete-at-incident-close"
+          }
+        ]
+      },
+      "knowledge_pack": {
+        "schema_version": "offline-knowledge-pack.v1",
+        "pack_id": "knowledge-water-safety-synthetic-us-wa-001",
+        "version": "0.1.0-fixture",
+        "region": "US-WA-synthetic",
+        "language": "en-US",
+        "authority": "synthetic-review-authority-not-for-real-use",
+        "source_ids": ["source-water-procedure-001"],
+        "effective_at": "2026-08-14T00:00:00Z",
+        "review_by": "2026-09-14T00:00:00Z",
+        "hazards": ["electrical-contact", "contaminated-water", "structural-damage", "inaccessible-shutoff"],
+        "stop_rules": [
+          "stop-if-water-contacts-energized-equipment",
+          "stop-if-contamination-suspected",
+          "stop-if-structural-damage-observed",
+          "stop-if-safe-access-is-not-available"
+        ],
+        "procedures": [
+          {
+            "procedure_id": "procedure-water-isolation-001",
+            "purpose": "simulated manual isolation only",
+            "steps": [
+              "Confirm that no stop rule is active.",
+              "Identify the fixture-labeled main shutoff using the approved equipment record.",
+              "Record a simulated manual shutoff; do not actuate a real valve.",
+              "Observe the simulated sensor until the configured stable interval completes."
+            ]
+          }
+        ],
+        "digest": "sha256:fixture-water-pack-not-a-release",
+        "signature_state": "fixture-only"
+      },
+      "expected_expressions": [
+        {
+          "schema_version": "journey-expression-expectation.v1",
+          "experience_id": "experience-water-incident-001",
+          "person_id": "person-alex",
+          "modality": "braille",
+          "required_facts": ["probable leak", "utility room", "confidence", "Jordan notified"],
+          "required_actions": ["acknowledge", "request status", "cancel guidance"],
+          "required_uncertainties": ["sensor does not prove flooding"],
+          "required_provenance": ["obs-water-001", "source-water-procedure-001"],
+          "prohibited_content": ["person-jordan-private-canary", "unselected-camera-content"]
+        },
+        {
+          "schema_version": "journey-expression-expectation.v1",
+          "experience_id": "experience-water-incident-001",
+          "person_id": "person-jordan",
+          "modality": "visual",
+          "required_facts": ["probable leak", "utility room", "confidence", "Alex notified"],
+          "required_actions": ["acknowledge", "submit selected image", "record simulated shutoff", "cancel guidance"],
+          "required_uncertainties": ["sensor does not prove flooding"],
+          "required_provenance": ["obs-water-001", "source-water-procedure-001"],
+          "prohibited_content": ["person-alex-private-canary", "color-only-valve-identification"]
+        }
+      ],
+      "test_cases": [
+        {
+          "case_id": "water-primary-offline",
+          "conditions": ["internet-unavailable", "local-model-available", "all-modalities-available"],
+          "expected": ["complete-deterministic-core", "no-external-call", "shared-artifact-created"]
+        },
+        {
+          "case_id": "water-no-model",
+          "conditions": ["internet-unavailable", "local-model-unavailable"],
+          "expected": ["deterministic-checklist-available", "no-image-claim", "uncertainty-visible"]
+        },
+        {
+          "case_id": "water-electrical-stop",
+          "conditions": ["water-contacts-energized-equipment"],
+          "expected": ["stop-guidance", "escalation-visible", "no-repair-step"]
+        },
+        {
+          "case_id": "water-duplicate-event",
+          "conditions": ["obs-water-001-replayed", "source-sequence-duplicate"],
+          "expected": ["one-incident", "no-duplicate-assignment", "replay-recorded"]
+        },
+        {
+          "case_id": "water-braille-unavailable",
+          "conditions": ["person-alex-braille-device-unavailable"],
+          "expected": ["conversation-fallback", "semantic-position-retained", "actions-equivalent"]
+        },
+        {
+          "case_id": "water-unauthorized-person",
+          "conditions": ["person-outsider-requests-incident"],
+          "expected": ["non-oracular-denial", "no-shared-fact-disclosure", "no-private-canary"]
+        }
+      ]
+    },
+    "health_finance": {
+      "journey_id": "dj-health-finance-insurance-v1",
+      "execution_mode": "fully-local-synthetic",
+      "external_network_required": false,
+      "person": {
+        "person_id": "person-morgan",
+        "display_name": "Morgan",
+        "synthetic": true,
+        "interaction_profile": {
+          "schema_version": "interaction-profile.v1",
+          "preferred_inputs": ["speech", "keyboard"],
+          "preferred_outputs": ["conversation", "visual-high-contrast"],
+          "unavailable_modalities": ["low-contrast-visual"],
+          "fallback_order": ["conversation", "structured-text"]
+        }
+      },
+      "sources": [
+        {
+          "source_id": "source-clinical-note-001",
+          "domain": "health",
+          "revision": 3,
+          "observed_at": "2026-08-01T12:00:00Z",
+          "fresh_until": null,
+          "facts": {
+            "appointment_purpose": "specialist follow-up",
+            "appointment_date": "2026-08-25",
+            "referral_identifier": "REF-SYNTH-001",
+            "referral_status": "incomplete",
+            "person_priority": "understand next diagnostic step"
+          }
+        },
+        {
+          "source_id": "source-medication-list-001",
+          "domain": "health",
+          "revision": 2,
+          "observed_at": "2026-08-10T12:00:00Z",
+          "fresh_until": "2026-09-10T12:00:00Z",
+          "facts": {
+            "medications": ["Synthetic Medication A"],
+            "allergies": ["Synthetic Allergy B"]
+          }
+        },
+        {
+          "source_id": "source-insurance-plan-001",
+          "domain": "insurance",
+          "revision": 4,
+          "observed_at": "2026-01-01T00:00:00Z",
+          "fresh_until": "2026-12-31T23:59:59Z",
+          "facts": {
+            "currency": "USD",
+            "annual_deductible": 2000,
+            "deductible_applied": 1250,
+            "specialist_coinsurance_percent_after_deductible": 20,
+            "referral_required": true,
+            "prior_authorization_state": "unknown"
+          }
+        },
+        {
+          "source_id": "source-provider-directory-001",
+          "domain": "insurance",
+          "revision": 1,
+          "observed_at": "2026-05-01T00:00:00Z",
+          "fresh_until": "2026-06-01T00:00:00Z",
+          "facts": {
+            "provider_id": "provider-synthetic-001",
+            "network_state": "listed-in-network"
+          }
+        },
+        {
+          "source_id": "source-budget-selection-001",
+          "domain": "finance",
+          "revision": 1,
+          "observed_at": "2026-08-14T00:00:00Z",
+          "fresh_until": "2026-09-14T00:00:00Z",
+          "facts": {
+            "available_range_low": 150,
+            "available_range_high": 400,
+            "currency": "USD",
+            "selected_for_purpose": true
+          },
+          "excluded_facts": ["account_numbers", "merchant_history", "unrelated_transactions"]
+        },
+        {
+          "source_id": "source-transport-options-001",
+          "domain": "schedule-transport",
+          "revision": 2,
+          "observed_at": "2026-08-14T00:00:00Z",
+          "fresh_until": "2026-08-25T23:59:59Z",
+          "facts": {
+            "accessible_option_available": true,
+            "estimated_round_trip_cost": 42,
+            "currency": "USD",
+            "travel_minutes_each_way": 55
+          }
+        }
+      ],
+      "cross_domain_view": {
+        "schema_version": "cross-domain-view.v1",
+        "view_id": "view-morgan-visit-prep-001",
+        "person_id": "person-morgan",
+        "purpose": "prepare for specialist visit and identify administrative cost questions",
+        "source_domains": ["health", "insurance", "finance", "schedule-transport"],
+        "selected_fields": {
+          "health": ["appointment_purpose", "appointment_date", "referral_status", "person_priority", "medications", "allergies"],
+          "insurance": ["annual_deductible", "deductible_applied", "specialist_coinsurance_percent_after_deductible", "referral_required", "prior_authorization_state", "network_state"],
+          "finance": ["available_range_low", "available_range_high", "currency"],
+          "schedule-transport": ["accessible_option_available", "estimated_round_trip_cost", "travel_minutes_each_way"]
+        },
+        "excluded_fields": ["account_numbers", "merchant_history", "unrelated_transactions", "unrelated_health_history"],
+        "source_revisions": {
+          "source-clinical-note-001": 3,
+          "source-medication-list-001": 2,
+          "source-insurance-plan-001": 4,
+          "source-provider-directory-001": 1,
+          "source-budget-selection-001": 1,
+          "source-transport-options-001": 2
+        },
+        "created_at": "2026-08-14T18:00:00Z",
+        "expires_at": "2026-08-14T19:00:00Z",
+        "output_policy": "private-derived-artifacts-only",
+        "state": "approved-fixture"
+      },
+      "expected_evidence": [
+        {
+          "schema_version": "evidence-state.v1",
+          "evidence_id": "evidence-network-001",
+          "claim": "provider is currently in network",
+          "state": "stale",
+          "source_ids": ["source-provider-directory-001"],
+          "observed_at": "2026-05-01T00:00:00Z",
+          "fresh_until": "2026-06-01T00:00:00Z",
+          "conflicts": [],
+          "uncertainty": "directory snapshot expired; verify with insurer and provider"
+        },
+        {
+          "schema_version": "evidence-state.v1",
+          "evidence_id": "evidence-referral-001",
+          "claim": "required referral is complete",
+          "state": "unconfirmed",
+          "source_ids": ["source-clinical-note-001", "source-insurance-plan-001"],
+          "observed_at": "2026-08-14T18:00:00Z",
+          "fresh_until": "2026-08-25T00:00:00Z",
+          "conflicts": [],
+          "uncertainty": "referral required and recorded status is incomplete"
+        },
+        {
+          "schema_version": "evidence-state.v1",
+          "evidence_id": "evidence-authorization-001",
+          "claim": "prior authorization is approved",
+          "state": "missing",
+          "source_ids": ["source-insurance-plan-001"],
+          "observed_at": "2026-08-14T18:00:00Z",
+          "fresh_until": "2026-08-25T00:00:00Z",
+          "conflicts": [],
+          "uncertainty": "authorization requirement and approval are not established"
+        }
+      ],
+      "expected_cost_scenarios": [
+        {
+          "schema_version": "cost-scenario.v1",
+          "scenario_id": "cost-scenario-deductible-only-001",
+          "currency": "USD",
+          "inputs": {
+            "remaining_deductible": 750,
+            "transport_cost": 42
+          },
+          "calculation_rule": "remaining_deductible + transport_cost",
+          "amount_low": 42,
+          "amount_high": 792,
+          "uncertainties": ["allowed charge unknown", "network state stale", "authorization unknown"],
+          "source_ids": ["source-insurance-plan-001", "source-provider-directory-001", "source-transport-options-001"],
+          "not_a_guarantee": true
+        }
+      ],
+      "expected_artifacts": [
+        {
+          "schema_version": "derived-artifact-receipt.v1",
+          "artifact_id": "artifact-clinician-questions-001",
+          "person_id": "person-morgan",
+          "purpose": "private clinician question list",
+          "source_ids": ["source-clinical-note-001", "source-medication-list-001"],
+          "source_revisions": {"source-clinical-note-001": 3, "source-medication-list-001": 2},
+          "created_at": "2026-08-14T18:30:00Z",
+          "retention": "person-controlled",
+          "view_id": "view-morgan-visit-prep-001",
+          "recompute_on_change": true,
+          "disclosure_state": "private-not-sent"
+        },
+        {
+          "schema_version": "derived-artifact-receipt.v1",
+          "artifact_id": "artifact-insurer-checklist-001",
+          "person_id": "person-morgan",
+          "purpose": "private insurer verification checklist",
+          "source_ids": ["source-insurance-plan-001", "source-provider-directory-001", "source-clinical-note-001"],
+          "source_revisions": {"source-insurance-plan-001": 4, "source-provider-directory-001": 1, "source-clinical-note-001": 3},
+          "created_at": "2026-08-14T18:30:00Z",
+          "retention": "person-controlled",
+          "view_id": "view-morgan-visit-prep-001",
+          "recompute_on_change": true,
+          "disclosure_state": "private-not-sent"
+        }
+      ],
+      "expected_expressions": [
+        {
+          "schema_version": "journey-expression-expectation.v1",
+          "experience_id": "experience-visit-prep-001",
+          "person_id": "person-morgan",
+          "modality": "conversation",
+          "required_facts": ["referral incomplete", "network state stale", "authorization unknown", "remaining deductible 750 USD", "transport estimate 42 USD"],
+          "required_actions": ["remove optional domain", "correct source fact", "create private clinician list", "create private insurer checklist", "delete temporary view"],
+          "required_uncertainties": ["coverage not guaranteed", "clinical appropriateness not ranked by affordability"],
+          "required_provenance": ["source-clinical-note-001", "source-insurance-plan-001", "source-provider-directory-001", "source-transport-options-001"],
+          "prohibited_content": ["guaranteed coverage", "treatment recommendation", "person-other-private-canary", "automatic sending"]
+        },
+        {
+          "schema_version": "journey-expression-expectation.v1",
+          "experience_id": "experience-visit-prep-001",
+          "person_id": "person-morgan",
+          "modality": "visual",
+          "required_facts": ["referral incomplete", "network state stale", "authorization unknown", "remaining deductible 750 USD", "transport estimate 42 USD"],
+          "required_actions": ["remove optional domain", "correct source fact", "create private clinician list", "create private insurer checklist", "delete temporary view"],
+          "required_uncertainties": ["coverage not guaranteed", "clinical appropriateness not ranked by affordability"],
+          "required_provenance": ["source-clinical-note-001", "source-insurance-plan-001", "source-provider-directory-001", "source-transport-options-001"],
+          "prohibited_content": ["low-contrast-only-status", "guaranteed coverage", "treatment recommendation", "automatic sending"]
+        }
+      ],
+      "test_cases": [
+        {
+          "case_id": "health-finance-primary-local",
+          "conditions": ["all-selected-fields-approved", "local-model-available"],
+          "expected": ["two-private-artifacts", "temporary-view-expires", "no-external-call"]
+        },
+        {
+          "case_id": "health-finance-no-finance",
+          "conditions": ["finance-domain-removed"],
+          "expected": ["health-brief-remains", "insurance-checklist-remains", "no-affordability-comparison"]
+        },
+        {
+          "case_id": "health-finance-no-model",
+          "conditions": ["local-model-unavailable"],
+          "expected": ["deterministic-calculation-remains", "source-checklists-remain", "no-generated-summary-required"]
+        },
+        {
+          "case_id": "health-finance-urgent-language",
+          "conditions": ["synthetic-urgent-health-phrase"],
+          "expected": ["administrative-flow-interrupted", "reviewed-urgent-path", "no-diagnosis"]
+        },
+        {
+          "case_id": "health-finance-correction",
+          "conditions": ["source-insurance-plan-001-revision-5"],
+          "expected": ["old-scenario-invalidated", "new-scenario-recomputed", "receipt-links-new-revision"]
+        },
+        {
+          "case_id": "health-finance-outsider",
+          "conditions": ["person-other-requests-artifacts"],
+          "expected": ["non-oracular-denial", "no-domain-disclosure", "no-private-canary"]
+        }
+      ]
+    }
+  },
+  "canaries": [
+    "person-alex-private-canary",
+    "person-jordan-private-canary",
+    "person-other-private-canary",
+    "unselected-camera-content",
+    "account_numbers",
+    "merchant_history",
+    "unrelated-health-history"
+  ]
+}

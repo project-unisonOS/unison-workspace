@@ -627,6 +627,37 @@ Consequences:
 - release/update tooling has a deterministic rollback handoff artifact; and
 - corrupt lifecycle state cannot silently reset a canary to an unsafe default.
 
+## AD-056: Outcome-seeking open-world resolution with governed authority
+
+State: **Accepted - approved 2026-08-14**
+
+Unison prefers deterministic algorithms, skills, tools, and workflows when they
+provide consistent, inspectable, efficient, and recoverable execution. This
+preference is not a capability ceiling. A person may express a novel goal in
+any supported modality, and Unison should make a bounded serious attempt using
+composition, retrieval, local inference, governed external research or
+inference, minimal clarification, sandboxed experimentation, useful partial
+outcomes, and safe handoff.
+
+The system is open-world in problem solving and closed-world in authority.
+Models and planners may propose new routes, but identity, context access,
+disclosure, persistence, exact action binding, confirmation, execution, audit,
+and recovery remain governed. Persistence does not authorize fabrication,
+unbounded retries or resources, broader disclosure, unsafe action, or false
+completion claims.
+
+Repeated structurally similar resolution attempts may produce a non-executable
+determinization candidate. Promotion into an algorithm, workflow, tool, skill,
+adapter, cache, fixture, or knowledge pack requires removal of person-specific
+content, explicit contracts and permissions, synthetic and negative tests,
+appropriate human review, signed packaging, canary evidence, rollback, and
+ongoing monitoring. Person-local automations remain private by default and do
+not become globally shared capability or training data without explicit
+consent.
+
+The detailed resolution ladder and skill-incubation lifecycle are maintained in
+[UNISON_RESOLUTION_AND_SKILL_EVOLUTION.md](UNISON_RESOLUTION_AND_SKILL_EVOLUTION.md).
+
 ## Deferred decisions
 
 - Multi-writer synchronization and conflict-free replicated data types.
