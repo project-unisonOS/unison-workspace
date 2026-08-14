@@ -1,6 +1,6 @@
 # DJ-1 shared incident implementation plan
 
-Status: **Authorized planning; runtime implementation not yet claimed**  
+Status: **DJ1-C0 complete; DJ1-C1 foundation published for review**  
 Opened: 2026-08-14  
 Prerequisites:
 
@@ -241,5 +241,33 @@ Implemented strict models for sensor observations, general evidence state,
 typed household equipment views, signed offline knowledge-pack structure,
 workflow-bound incident assignments, legal incident transitions, deterministic
 escalation, physical-actuation prohibition, natural resolution budgets, useful
-partial outcomes, and content-free structural fingerprints. Storage and runtime
-behavior remain unimplemented.
+partial outcomes, and content-free structural fingerprints.
+
+### 2026-08-14: Repository foundation published
+
+- Component: `unison-storage`
+- Commit: `cc82810` (`Add restart-safe shared incident repository`)
+- Review: `project-unisonOS/unison-storage#23` (draft)
+- Environment: clean NUC worktree, Ubuntu, Python 3.12.3
+- Full component result: 35 passed
+
+Implemented encrypted atomic restart persistence, shared-space authorization,
+idempotent sensor/sequence admission, stale and integrity rejection,
+append-only incident history, household-member assignment checks, opaque
+selected-media handles, and delete-at-close cleanup. HTTP integration and
+separately attributed conflict presentation remain later DJ1-C1 work.
+
+### 2026-08-14: Deterministic engine foundation published
+
+- Component: `unison-orchestrator`
+- Commit: `986aab3` (`Add deterministic shared incident orchestration`)
+- Review: `project-unisonOS/unison-orchestrator#33` (draft)
+- Environment: paired clean NUC worktrees, Ubuntu, Python 3.12.3
+- Full component result: 241 passed with the repository's CI auth bypass
+
+Implemented deterministic water-leak assessment, freshness and integrity
+gates, electrical hazard escalation, manual no-actuation assignments, offline
+checklists, partial/blocked no-model resolution attempts, and emergency through
+background scheduler priority lanes. A governed optional model route,
+equipment proposal reconciliation, assignment acknowledgement endpoints, and
+end-to-end storage integration remain later DJ1-C1 work.
