@@ -230,8 +230,7 @@ dependency for every later slice.
 ### 2026-08-14: Contract candidate published
 
 - Component: `unison-common`
-- Commit: `8ef6b99` (`Add shared incident contracts`)
-- Review: `project-unisonOS/unison-common#25` (draft)
+- Main: `45a261e`; review `project-unisonOS/unison-common#25` merged
 - Environment: clean NUC worktree, Ubuntu, Python 3.12.3
 - Focused result: 8 passed
 - Adjacent contract result: 24 passed across shared incident, life operations,
@@ -246,8 +245,7 @@ partial outcomes, and content-free structural fingerprints.
 ### 2026-08-14: Repository foundation published
 
 - Component: `unison-storage`
-- Candidate head: `b731e43` (repository plus dependency/security alignment)
-- Review: `project-unisonOS/unison-storage#23` (draft)
+- Main: `50ead42`; review `project-unisonOS/unison-storage#23` merged
 - Environment: clean NUC worktree, Ubuntu, Python 3.12.3
 - Full component result: 35 passed
 
@@ -260,8 +258,7 @@ separately attributed conflict presentation remain later DJ1-C1 work.
 ### 2026-08-14: Deterministic engine foundation published
 
 - Component: `unison-orchestrator`
-- Candidate head: `901b705` (engine plus dependency/security alignment)
-- Review: `project-unisonOS/unison-orchestrator#33` (draft)
+- Main: `f89f2a1`; review `project-unisonOS/unison-orchestrator#33` merged
 - Environment: paired clean NUC worktrees, Ubuntu, Python 3.12.3
 - Full component result: 241 passed with the repository's CI auth bypass
 
@@ -273,9 +270,9 @@ proposal reconciliation and the storage-backed lifecycle boundary.
 
 ### 2026-08-14: DJ1-C1 and DJ1-C2 completed
 
-- Storage candidate: `4652869`
-- Orchestrator candidate: `22c2b4c`
-- Renderer candidate: `81ab3ef`; review `project-unisonOS/unison-experience-renderer#19`
+- Storage main: `50ead42`; review `project-unisonOS/unison-storage#23` merged
+- Orchestrator main: `f89f2a1`; review `project-unisonOS/unison-orchestrator#33` merged
+- Renderer main: `e6ebcc9`; review `project-unisonOS/unison-experience-renderer#19` merged
 
 DJ1-C1 now includes restart-safe assignment acknowledgement and cancellation,
 a storage-backed orchestration boundary, and source/equipment/stop-rule
