@@ -275,7 +275,7 @@ proposal reconciliation and the storage-backed lifecycle boundary.
 
 - Storage candidate: `4652869`
 - Orchestrator candidate: `22c2b4c`
-- Renderer candidate: `9331aad`; review `project-unisonOS/unison-experience-renderer#19`
+- Renderer candidate: `81ab3ef`; review `project-unisonOS/unison-experience-renderer#19`
 
 DJ1-C1 now includes restart-safe assignment acknowledgement and cancellation,
 a storage-backed orchestration boundary, and source/equipment/stop-rule
