@@ -532,9 +532,10 @@ meaning. Input modality does not determine output modality by itself. The
 person's governed interaction profile, current capabilities, situation,
 privacy, risk, and explicit choice inform a separate expression plan.
 
-Screen-reader compatibility remains a fallback for legacy and recovery
-surfaces. It is not the primary accessibility architecture of the Unison
-operating surface. Required meaning, actions, confirmation, cancellation,
+Unison-native surfaces, including setup, failure, and recovery, must never
+require a screen reader. Compatibility with a third-party legacy surface may
+help Unison interpret that external system, but the result must be recomposed
+as a native experience for the person. Required meaning, actions, confirmation, cancellation,
 recovery, provenance, privacy, and safety must remain equivalent across every
 supported expression.
 

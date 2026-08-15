@@ -20,8 +20,12 @@ The preview explains why Unison is asking now, what approving the category
 would change, what it would not change, and the approve/defer/decline choices.
 It explicitly states that declining does not reduce Unison's ability to help
 and that activation moves no existing records. The contract contains semantic
-text and structured lists so speech, braille, switch-control, and visual
-renderers can express equivalent meaning without relying on color or layout.
+text and structured lists so conversation, Braille, switch/AAC, and visual
+composers independently express equivalent meaning without relying on color or
+layout. Conversation and Braille are native Unison experiences; neither may
+consume a visual layout, DOM focus feed, ARIA representation, screenshot, or
+screen-reader output. Legacy web compatibility is not acceptance evidence for
+blind or visually impaired use of Unison.
 
 ## Security-domain review
 
@@ -33,9 +37,10 @@ A security domain cannot activate until the recorded review covers:
 - disclosure behavior.
 
 Any omitted control fails closed. The person must still explicitly approve the
-proposal after the control review. This is an integration-level policy record;
-production deployment still requires service-authenticated `unison-policy`
-issuance and physical key-broker evidence.
+proposal after the control review. `unison-policy` issues an Ed25519-signed,
+short-lived authorization bound to the person, proposal, policy version, and
+complete review. Context verifies the configured public key and rejects locally
+asserted or expired reviews.
 
 ## Migration and rollback
 
@@ -47,7 +52,9 @@ that exact digest and fails if any selected record revision changed.
 
 Execution records prior governance, increments record revisions, invalidates
 derived views, and issues a receipt. Security-domain migration adds the new
-domain and changes the logical key domain. Rollback restores prior governance,
+domain, encrypts selected content under the new key-domain handle, and removes
+its plaintext database representation. Rollback restores prior governance and
+re-encrypts content under its former key-domain handle,
 increments revisions again, invalidates derived views, and issues a separate
 receipt. The rollback window is 30 days.
 
@@ -55,6 +62,6 @@ receipt. The rollback window is 30 days.
 
 Tests use synthetic records and prove contract validation, natural preview
 content, security-review gating, exact confirmation, classification/key-domain
-change, rollback, and person isolation. They do not prove production key
-custody, cryptographic re-encryption, participatory accessibility, or the
-security of a deployed policy-service channel.
+change, rollback, and person isolation. They do not prove TPM/HSM key custody,
+representative Braille hardware, participatory accessibility, or the security
+of a deployed policy-service channel.
