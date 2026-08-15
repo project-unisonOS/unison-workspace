@@ -1,0 +1,14 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "RESOLUTION-PILOT-AND-MODALITY-INTEGRATION",
+  "objective": "Run an opt-in unfamiliar-request pilot, provide native candidate review, prove remote NUC development, and preserve a common integration point for future modalities.",
+  "status": "active",
+  "authority": {"decision_owner": "Pilot participants for their data and Unison maintainers for software gates", "repositories": ["unison-common", "unison-experience-renderer", "unison-infrastructure", "unison-workspace"], "external_actions": ["run an explicitly opted-in pilot", "run inventory-bound validation on the dev NUC", "push branches and merge after hosted CI"]},
+  "allowed_changes": ["content-free pilot signals and summary tooling", "native candidate review expressions", "signed modality adapter contracts", "remote development validation", "roadmap and evidence records"],
+  "non_goals": ["automatic or shared skill promotion", "collection of private request content in pilot telemetry", "production modality support claims", "BCI medical or safety claims", "physical GPU qualification before arrival"],
+  "contracts": ["resolution-pilot-signal.v1", "candidate-review-expression.v1", "modality-adapter.v1", "semantic-experience-model.v1"],
+  "validation": ["common contract tests", "renderer candidate equivalence tests", "pilot summary fixture", "python scripts/validate-task-packets.py", "inventory-bound remote NUC run", "workspace CI"],
+  "evidence": {"class": "integration", "required_artifacts": ["pilot aggregate without private content", "candidate precision and refusal measures", "native conversation, Braille, and visual equivalence", "clean NUC revision and command record"], "prohibited_claims": ["production readiness", "automatic skill safety", "participatory modality validation before real research", "sign or BCI support", "physical accelerator qualification"]},
+  "rollback": ["stop pilot signal collection", "withdraw candidate review endpoint", "revoke modality adapter package", "remove the remote clean worktree", "revert revision-specific merges"],
+  "handoff": {"current_state": "Pilot, candidate review, modality integration, and remote workflow software are implemented; real pilot and inventory-bound NUC evidence remain pending.", "next_action": "Run the opt-in pilot and clean-clone NUC proof, then record evidence before beginning the security review.", "known_limits": ["no real pilot measurements", "no inventory-bound NUC proof for this revision", "no shared promotion authorization", "no sign or BCI implementation", "participatory modality research remains pending"]}
+}

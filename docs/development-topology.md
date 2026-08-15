@@ -43,8 +43,9 @@ $env:UNISON_DEV_NUC_HOST = 'dev-nuc'
 $env:UNISON_DEV_NUC_WORKSPACE = '/srv/unison/unison-workspace'
 ```
 
-Then use `scripts/remote-dev.ps1` for bootstrap, validation, unit, boundary, and
-status commands. SSH transport may use the local network or Tailscale. Host-key
+Then use `scripts/remote-dev.ps1` for connectivity inspection, recursive clone,
+bootstrap, doctor, validation, unit, boundary, and status commands. SSH
+transport may use the local network or Tailscale. Host-key
 verification and user authentication remain SSH responsibilities. The wrapper
 does not copy secrets, create credentials, or make Windows a deployment host.
 

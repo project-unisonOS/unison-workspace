@@ -147,12 +147,14 @@ separately validated backend and is not claimed by the software fallback.
 
 ## Next authorized action
 
-The resolution and skill-evolution software foundation is complete. The next
-software action is a real opt-in unfamiliar-request pilot with content-free
-candidate precision measurement. The next physical action begins only after the
-interim GPU workstation is inventoried. Later modality, provider, capability,
-and hardware expansions retain independent threat, maintenance, participatory,
-and acceptance evidence gates.
+The resolution pilot measurement contract, native candidate-review expressions,
+modality adapter integration contract, and expanded remote NUC workflow are
+implemented. The next execution action is the real opt-in unfamiliar-request
+pilot and an inventory-bound clean-clone NUC run. Security review and
+participatory research preparation follow before shared promotion. The next
+physical action begins only after the interim GPU workstation is inventoried.
+The tracked order and claim boundaries are recorded in
+`RESOLUTION_PILOT_AND_MODALITY_ROADMAP.md`.
 
 ## Final Phase 5 gate decision
 
