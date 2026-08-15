@@ -22,9 +22,11 @@ recite it. When Unison must operate an existing website or application, it
 should recover the meaning and available actions from that experience and
 recompose them conversationally.
 
-Screen-reader compatibility remains a useful fallback for legacy web content,
-developer tools, and recovery paths. It is not the defining accessibility model
-for the Unison operating surface.
+Unison-native setup, operation, failure, and recovery paths must never require
+a screen reader. Compatibility with legacy web content or developer tools is
+only an interoperability mechanism for external systems; Unison still
+recomposes the result conversationally, in Braille, or in another person-native
+modality.
 
 ## Assessment of the current implementation
 

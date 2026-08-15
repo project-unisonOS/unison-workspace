@@ -10,12 +10,16 @@ Unison now uses `dual-index-rebuild-and-swap`:
 1. Keep the active source index available.
 2. Persist one person-scoped rebuild job per authorized source record, bound to
    its exact revision, target algorithm, and target namespace.
-3. Workers claim bounded batches and cannot complete a job if the source
-   revision changed.
+3. Named workers claim bounded batches with expiring leases and cannot complete
+   a job unless they still own its live lease and the source revision is stable.
+   Expired leases recover after restart, retries are bounded, and terminal
+   failures preserve a sanitized last-error value.
 4. Mark migration ready only when every job completes.
 5. Atomically supersede the person's old namespace while the rebuilt namespace
    remains active.
-6. Retain the old views for explicit rollback; rollback invalidates the new
+6. Persist cancellation and per-person state counts for operational control and
+   content-free observability.
+7. Retain the old views for explicit rollback; rollback invalidates the new
    views and restores the old namespace.
 
 Models and indexes remain non-authoritative. Authorization still filters by
