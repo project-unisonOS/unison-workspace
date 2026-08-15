@@ -1,0 +1,14 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "DEV-NUC-RESOURCE-BUDGET",
+  "objective": "Measure the dev NUC and define service-specific resource guardrails that preserve host responsiveness under supported development profiles.",
+  "status": "proposed",
+  "authority": {"decision_owner": "Unison infrastructure maintainers and the NUC owner", "repositories": ["unison-infrastructure", "unison-devstack", "unison-workspace"], "external_actions": ["collect inventory and load measurements on the dev NUC", "push reviewed branches", "merge after hosted CI"]},
+  "allowed_changes": ["inventory collection", "focused profile load fixtures", "service-specific memory, swap, CPU, restart, health, and degradation budgets", "declarative dev NUC environment profile", "evidence and rollback guidance"],
+  "non_goals": ["merging the old uniform resource overlay", "production appliance sizing", "GPU qualification", "automatic full-stack restart", "claiming safety from unmeasured limits"],
+  "contracts": ["unison-environment-profile.v1"],
+  "validation": ["inventory-bound baseline", "idle and focused-profile load", "host responsiveness", "memory pressure and recovery", "profile schema validation", "workspace CI"],
+  "evidence": {"class": "physical", "required_artifacts": ["host inventory", "per-service idle and peak measurements", "swap and pressure behavior", "restart and recovery result", "exact revisions and commands"], "prohibited_claims": ["production capacity", "full historical devstack support", "GPU support", "thermal or acoustic qualification"]},
+  "rollback": ["disable the resource overlay", "stop the focused profile", "restore prior environment profile", "revert revision-specific merges"],
+  "handoff": {"current_state": "The retired workspace overlay is preserved as design input only; its uniform 512 MiB limits are incomplete and unmeasured.", "next_action": "Inventory the NUC and measure the component and DJ-1 profiles before selecting service-specific limits.", "known_limits": ["no measured service budget", "io-bci was absent from the old overlay", "full-devstack remains exploratory", "no production appliance inference"]}
+}
