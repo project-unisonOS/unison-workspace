@@ -2,7 +2,7 @@
   "schema_version": "unison.agent-task.v1",
   "id": "HEADLESS-PILOT-CANARY",
   "objective": "Prepare governed headless interaction, revocable pilot enrollment, content-free review, and synthetic candidate canary mechanics without requiring physical devices or participants.",
-  "status": "review",
+  "status": "complete",
   "authority": {"decision_owner": "The affected person for consent and data, and Unison maintainers for software gates", "repositories": ["unison-common", "unison-context", "unison-workspace"], "external_actions": ["push reviewed branches", "merge after hosted CI", "run focused low-load validation on the dev NUC"]},
   "allowed_changes": ["pilot enrollment, revocation, deletion, and aggregate review", "modality-native resumable session records", "synthetic canary and rollback records", "modality adapter conformance kit", "documentation and synthetic tests"],
   "non_goals": ["real participant enrollment while the owner is away", "voice or Braille device qualification", "shared candidate promotion", "physical load, power, thermal, acoustic, or GPU qualification"],
@@ -10,5 +10,5 @@
   "validation": ["unison-common resolution tests", "unison-context resolution repository tests", "python scripts/validate-modality-adapter-fixtures.py", "python scripts/validate-task-packets.py", "workspace CI", "focused low-load NUC validation"],
   "evidence": {"class": "integration", "required_artifacts": ["active-consent telemetry gate", "revocation and deletion proof", "content-free review gate", "actor-bound reconnect proof", "digest-bound synthetic canary", "adapter authority denial"], "prohibited_claims": ["real-user value", "participatory accessibility", "production security", "shared deterministic capability safety", "physical host capacity"]},
   "rollback": ["revoke pilot enrollment", "delete pilot signals and reviews", "revoke or roll back the canary with a receipt", "disable the new API routes", "revert revision-specific merges"],
-  "handoff": {"current_state": "The software contracts, persistence, APIs, synthetic conformance kit, and documentation are implemented and awaiting hosted and focused NUC closeout.", "next_action": "When the owner returns, review enrollment language and run a deliberately small keyboard and visual pilot before any voice, Braille, or participatory work.", "known_limits": ["no real participant evidence", "no native voice or Braille device evidence", "no physical resource qualification", "no shared promotion authorization"]}
+  "handoff": {"current_state": "The software contracts, persistence, APIs, synthetic conformance kit, documentation, hosted CI, and focused low-load NUC validation are complete at workspace revision 0736918.", "next_action": "When the owner returns, review enrollment language and run a deliberately small keyboard and visual pilot before any voice, Braille, or participatory work.", "known_limits": ["no real participant evidence", "no native voice or Braille device evidence", "no physical resource qualification", "no shared promotion authorization"]}
 }
