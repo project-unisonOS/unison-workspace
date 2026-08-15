@@ -112,6 +112,11 @@ denying identity, consent, policy, disclosure, and action authority.
 
 This preparation does not count as a real pilot, native device validation,
 participatory research, host load qualification, or shared promotion approval.
+Hosted component and workspace CI passed. The canonical NUC updated cleanly to
+workspace revision `0736918`; adapter and task validation passed, followed by 9
+shared-contract tests and 4 context-persistence tests through the existing
+workspace virtual environment. No service stack, load, audio device, Braille
+device, or GPU test was started.
 
 ## Evidence and claim boundaries
 
