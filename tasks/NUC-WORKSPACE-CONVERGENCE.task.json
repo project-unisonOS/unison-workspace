@@ -2,7 +2,7 @@
   "schema_version": "unison.agent-task.v1",
   "id": "NUC-WORKSPACE-CONVERGENCE",
   "objective": "Disposition every old dev NUC workspace change and converge on one clean, current, LAN-accessible canonical workspace.",
-  "status": "proposed",
+  "status": "complete",
   "authority": {"decision_owner": "Unison maintainers and the NUC owner", "repositories": ["unison-orchestrator", "unison-infrastructure", "unison-workspace"], "external_actions": ["save a bounded local archive", "push reviewed branches", "merge after hosted CI", "move exact NUC workspace directories after verification", "delete quarantine only after explicit approval"]},
   "allowed_changes": ["current-main orchestrator startup fix and regression test", "measured dev NUC resource-budget task", "workspace evidence and remote configuration", "revision-named quarantine and canonical workspace move"],
   "non_goals": ["blind application of old patches", "retention of environment values or credentials", "claiming unmeasured resource limits", "deleting the old workspace without explicit approval", "changing the unrelated old submodule work before capture"],
@@ -10,5 +10,5 @@
   "validation": ["orchestrator focused and hosted tests", "workspace task and schema validation", "clean recursive submodule status", "direct LAN remote wrapper", "bootstrap and Phase 0 validation on the final canonical path"],
   "evidence": {"class": "integration", "required_artifacts": ["old revision and checksum manifest", "per-file disposition", "orchestrator regression proof", "final canonical revision", "clean submodule status", "LAN NUC validation"], "prohibited_claims": ["production deployment readiness", "measured resource safety before qualification", "recovery of discarded secrets", "successful deletion before approval"]},
   "rollback": ["retain the old workspace in revision-named quarantine", "move the validated workspace back to its validation path", "restore the prior Windows workspace setting", "revert revision-specific merges"],
-  "handoff": {"current_state": "Read-only audit is complete: one orchestrator patch is valid for reimplementation, two environment placeholder deletions are obsolete, and one resource overlay is design input only.", "next_action": "Capture the bounded archive and reimplement the orchestrator fix on current main before moving either workspace.", "known_limits": ["no orchestrator reimplementation yet", "no measured NUC resource budget", "old workspace remains dirty", "directory move and deletion are not yet authorized"]}
+  "handoff": {"current_state": "One canonical LAN-accessible NUC workspace is clean at a1d643f; the orchestrator fix is merged at d57b659; the old quarantine is deleted after validation; the credential-free bounded archive remains.", "next_action": "Execute DEV-NUC-RESOURCE-BUDGET when measured host resource work becomes the active priority.", "known_limits": ["no measured NUC resource budget", "full-devstack remains exploratory", "the deleted old workspace is recoverable only through Git history and the bounded patch archive"]}
 }
