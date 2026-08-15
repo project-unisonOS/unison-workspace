@@ -87,6 +87,9 @@ membership revocation invalidate affected views and create durable receipts.
 Usage-driven taxonomy proposals are now implemented as a separate governed
 slice documented in `USAGE_DRIVEN_TAXONOMY.md`. They require repeated evidence
 and explicit person approval; automatic activation and record migration remain
-prohibited. This slice does not yet implement physical key custody, storage-tier movement, backup restore, or
-embedding rebuild workers. Those remain explicit follow-on work rather than
-being inferred from passing unit/integration tests.
+prohibited. Durable rebuild jobs and the dual-index rebuild-and-swap strategy
+are now implemented, and mounted-file custody plus replacement-restore
+operations are defined in `REBUILD_KEY_CUSTODY_AND_CONTRIBUTOR_EVIDENCE.md`.
+Physical key custody, storage-tier movement, measured large-index rebuilds, and
+witnessed appliance restore remain explicit follow-on work rather than being
+inferred from passing unit/integration tests.

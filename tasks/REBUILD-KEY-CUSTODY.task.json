@@ -1,0 +1,26 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "REBUILD-KEY-CUSTODY",
+  "objective": "Add durable derived-view rebuild and embedding cutover, define mounted key custody and replacement restore operations, and confirm organization contributor templates.",
+  "status": "complete",
+  "authority": {
+    "decision_owner": "Unison maintainers",
+    "repositories": ["unison-common", "unison-context", "unison-infrastructure", "unison-workspace", "project-unisonOS/.github"],
+    "external_actions": ["review organization PR 5", "push implementation branches", "merge after hosted CI"]
+  },
+  "allowed_changes": ["derived-view rebuild jobs", "dual-index migration and rollback", "mounted secret key broker", "appliance custody and restore profile", "runbooks, synthetic tests, and evidence"],
+  "non_goals": ["TPM or HSM qualification", "real personal-data restore", "physical GPU or rebuild qualification", "production readiness claim"],
+  "contracts": ["unison.memory.v1", "unison-environment-profile.v1", "provider-blind-backup.v1"],
+  "validation": ["governed-memory schema tests", "trust tests", "governed repository and API tests", "infrastructure profile validation", "workspace task and schema validation", "hosted CI"],
+  "evidence": {
+    "class": "integration",
+    "required_artifacts": ["rebuild/cutover/rollback test", "mounted-key permission test", "validated appliance candidate profile", "organization PR 5 merge revision", "hosted CI revisions"],
+    "prohibited_claims": ["hardware-backed key custody", "physical theft resistance", "physical accelerator qualification", "participatory recovery usability"]
+  },
+  "rollback": ["restore the retained source index", "return to LocalDevelopmentKeyBroker only in development profiles", "keep appliance-candidate deferred", "revert revision-specific merges"],
+  "handoff": {
+    "current_state": "Person-scoped rebuild jobs support dual-index cutover and rollback; mounted-file custody and replacement restore operations are versioned; organization contributor templates are merged.",
+    "next_action": "Implement and qualify a TPM2/systemd-credential provider on named appliance hardware, then run measured rebuild and clean replacement restore drills.",
+    "known_limits": ["no physical key sealing evidence", "no measured large-index rebuild evidence", "no witnessed recovery ceremony on a named appliance"]
+  }
+}
