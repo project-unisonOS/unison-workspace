@@ -1,0 +1,15 @@
+{
+  "schema_version": "modality-adapter.v1",
+  "adapter_id": "synthetic-sign-reference",
+  "modality": "sign-language",
+  "input_supported": true,
+  "output_supported": true,
+  "sem_versions": ["sem.v1"],
+  "expression_versions": ["sign-expression.v1"],
+  "capability_ids": ["sign.observe", "sign.compose"],
+  "required_permissions": ["camera:session"],
+  "device_classes": ["synthetic-camera"],
+  "fallback_modalities": ["conversation", "braille"],
+  "package_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "signer_id": "synthetic-modality-reviewer"
+}
