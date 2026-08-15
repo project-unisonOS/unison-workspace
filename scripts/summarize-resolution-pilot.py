@@ -12,6 +12,13 @@ def main() -> None:
     parser.add_argument("signals", type=Path, help="JSON Lines resolution-pilot-signal.v1 file")
     args = parser.parse_args()
     rows = [json.loads(line) for line in args.signals.read_text(encoding="utf-8").splitlines() if line.strip()]
+    allowed = {"schema_version", "signal_id", "attempt_id", "participant_id", "opted_in",
+        "usefulness", "outcome", "elapsed_seconds", "interaction_turns", "clarification_count",
+        "correction_count", "generic_refusal", "candidate_suggested", "candidate_relevant",
+        "trust_rating", "privacy_understood", "boundary_incident", "created_at"}
+    forbidden = sorted({key for row in rows for key in row if key not in allowed})
+    if forbidden:
+        raise SystemExit(f"pilot input contains prohibited fields: {', '.join(forbidden)}")
     if not rows or any(row.get("schema_version") != "resolution-pilot-signal.v1" or not row.get("opted_in") for row in rows):
         raise SystemExit("pilot input must contain opted-in resolution-pilot-signal.v1 records")
     suggested = [row for row in rows if row.get("candidate_suggested")]
@@ -22,7 +29,7 @@ def main() -> None:
         "generic_refusal_percent": percentage(sum(row.get("generic_refusal", False) for row in rows), len(rows)),
         "candidate_suggestions": len(suggested),
         "candidate_precision_percent": percentage(sum(row.get("candidate_relevant") is True for row in suggested), len(suggested)),
-        "boundary_incidents": 0,
+        "boundary_incidents": sum(row.get("boundary_incident", False) for row in rows),
         "claim_limit": "Content-free pilot summary; not a production, safety, or shared-skill promotion claim.",
     }
     print(json.dumps(report, indent=2, sort_keys=True))
