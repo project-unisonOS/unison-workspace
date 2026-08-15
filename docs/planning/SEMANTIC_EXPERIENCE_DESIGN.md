@@ -189,6 +189,22 @@ preserving the required meaning and actions. A Braille composer, for example,
 can prioritize structured tactile reading and navigation without mirroring a
 visual focus feed.
 
+### Modality adapter integration contract
+
+Independently developed modality projects integrate through SEM and the
+expression plan, not through another modality's rendered output. A signed
+`modality-adapter.v1` manifest declares input and output direction, compatible
+SEM and expression versions, capabilities, permissions, device classes,
+fallbacks, package digest, and signer. This keeps conversation, visual,
+Braille, sign, haptic, switch or AAC, BCI, and future adapters modular.
+
+Input adapters produce typed, provenance-bearing observations or intent
+evidence. Output adapters consume SEM and produce a native expression. Neither
+kind can authorize identity, consent, disclosure, policy, or consequential
+action. The planner selects adapters and fallback paths. Every adapter must pass
+the common modality equivalence, privacy, cancellation, and recovery suite plus
+its own device and participatory gates.
+
 ### Translation of existing visual experiences
 
 When Unison operates a website, document, desktop application, or remote visual

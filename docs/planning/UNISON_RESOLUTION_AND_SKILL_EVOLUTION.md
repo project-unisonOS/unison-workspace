@@ -260,3 +260,13 @@ Conversation and Braille do not consume a visual layout or screen-reader feed.
 This is synthetic software evidence. It does not establish real-user
 naturalness, candidate detection precision, or safe shared capability promotion.
 
+## Pilot and modality integration continuation
+
+The next slice adds an opt-in, content-free pilot measurement contract and a
+native candidate-review payload with accept, modify, defer, and reject choices.
+A signed modality adapter manifest provides the common SEM integration point
+for independently developed conversation, visual, Braille, sign, haptic,
+switch or AAC, BCI, and future projects. The implementation status, execution
+gates, and later security, participatory, and hardware work are tracked in
+`RESOLUTION_PILOT_AND_MODALITY_ROADMAP.md`.
+
