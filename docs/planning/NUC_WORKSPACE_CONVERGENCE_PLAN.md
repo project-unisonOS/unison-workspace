@@ -1,6 +1,6 @@
 # NUC workspace convergence plan
 
-Status: convergence execution in progress
+Status: complete
 
 Date: 2026-08-15
 
@@ -109,7 +109,8 @@ Windows wrapper uses `dev-nuc-lan`, bootstrap and Phase 0 validation pass, the
 orchestrator fix is merged, the resource-budget concept has a tracked owner, and
 the quarantined workspace has an explicit retain or delete decision.
 
-No existing workspace, branch, file, or archive is deleted by this plan.
+The plan required explicit authorization and successful post-move validation
+before quarantine deletion.
 
 ## Execution record
 
@@ -120,3 +121,17 @@ checksum and revision manifest. Environment values were not archived. The
 orchestrator fix was reimplemented against current `main` with a deterministic
 regression test. The measured resource follow-up is tracked by
 `DEV-NUC-RESOURCE-BUDGET.task.json`; the old overlay itself will not be merged.
+
+Workspace PR 52 merged the convergence records and pinned orchestrator revision
+`d57b659`. Hosted phase, backup and restore, PowerShell, security, and component
+checks passed. The replacement workspace passed bootstrap, onboarding, task,
+pilot, schema, focused orchestrator, and Phase 0 validation both before and
+after the move.
+
+The validated clone now occupies the canonical path
+`/home/darryl-adams/project-unisonOS/unison-workspace` at workspace revision
+`a1d643f`. Windows user settings persist `dev-nuc-lan` as the host and the
+canonical path as the remote workspace. The 274 MiB quarantined old workspace
+was deleted after all gates passed. That directory is not recoverable as a
+workspace. Its credential-free revision manifest, orchestrator patch, and
+resource-overlay design input remain in the bounded archive named above.
