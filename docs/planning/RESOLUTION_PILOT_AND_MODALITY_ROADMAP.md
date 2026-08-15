@@ -50,10 +50,13 @@ The proof record must include host and Python versions, exact Git revisions,
 submodule status, commands, results, recovery actions, and confirmation that no
 credential or private network address entered the repository.
 
-The initial 2026-08-15 connection attempt to the configured `dev-nuc` SSH alias
-timed out in batch mode before returning host information. No remote state was
-changed. The inventory-bound proof therefore remains pending network or SSH
-availability and must not be represented as complete.
+The direct LAN route was qualified on 2026-08-15 through `dev-nuc.local`. The
+host key matched the previously trusted dev NUC identity and public-key
+authentication succeeded. A filtered recursive clone at workspace revision
+`2251305` bootstrapped on Ubuntu 24.04 with Python 3.12.3. Agent onboarding,
+pilot tooling, schema authority, component topology, fixtures, threat mapping,
+Compose parsing, and shell validation passed. The older NUC checkout and its
+modified submodules were not changed.
 
 ## Common modality integration point
 
