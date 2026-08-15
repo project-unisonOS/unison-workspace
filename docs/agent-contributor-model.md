@@ -80,18 +80,18 @@ contract in another repository, or guess which test proves completion.
 
 ## Current order of operations
 
-1. Complete deployable DJ-1 service integration on the NUC.
-2. Capture a simulation-labeled DJ-1 evidence package.
-3. Maintain the established `unison-infrastructure` Windows/NUC profiles.
-4. Evolve the established `unison-hardware` interfaces and BOM schema without
-   premature 2026 component lock-in.
-5. Review and merge the organization-level agent/human contributor templates.
-6. Inventory and qualify the GPU workstation when it becomes available.
-7. Begin DJ-2 after these foundations are reviewable.
+1. Use Windows and Codex as the control plane and the dev NUC as the canonical
+   Linux build and integration host.
+2. Implement resolution attempts and reviewed determinization candidates.
+3. Maintain versioned hardware requirements, interfaces, BOM records, and
+   qualification plans without premature component lock-in.
+4. Inventory and qualify the GPU workstation when it becomes available.
+5. Begin later demonstration journeys only from reviewed contracts and task
+   packets.
 
 Foundation revisions created on 2026-08-14:
 
 - `project-unisonOS/unison-infrastructure@3e31498`, including schema validation CI;
 - `project-unisonOS/unison-hardware@7df94ed`, including registry/BOM validation CI;
-- `project-unisonOS/.github#5` contains the shared agent-ready issue and PR
-  templates and remains a draft pending review.
+- `project-unisonOS/.github#5` merged the shared agent-ready issue and pull
+  request templates.

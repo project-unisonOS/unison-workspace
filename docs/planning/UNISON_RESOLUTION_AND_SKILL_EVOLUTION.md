@@ -1,6 +1,6 @@
 # Unison resolution and skill evolution
 
-Status: **Accepted product and architecture direction; implementation planning open**  
+Status: **Software foundation implemented; real-user pilot and shared promotion evidence pending**
 Accepted: 2026-08-14  
 Related decision: `AD-056` in
 [UNISON_ARCHITECTURE_DECISIONS.md](UNISON_ARCHITECTURE_DECISIONS.md)
@@ -146,7 +146,7 @@ analysis without explicit research or contribution consent.
    benefit.
 4. **Generalize:** remove person-specific content and separate invariant steps
    from parameters and optional model contributions.
-5. **Specify:** select the appropriate form—algorithm, query, rule, workflow,
+5. **Specify:** select the appropriate form: algorithm, query, rule, workflow,
    tool wrapper, skill, adapter, cache, fixture, or knowledge pack.
 6. **Test:** replay synthetic and explicitly approved cases, including negative,
    adversarial, cross-person, offline, degraded, accessibility, cancellation,
@@ -240,4 +240,23 @@ at the expense of truth, privacy, safety, or person control.
 - route generalizable candidates into the existing signed capability, model,
   update, and adaptive-maintenance lifecycles rather than self-modifying live
   production code.
+
+## Implemented foundation
+
+The `resolution-attempt.v1`, `resolution-receipt.v1`, and
+`determinization-candidate.v1` contracts now define bounded routes, budgets,
+authority, resumable state, content-free structural fingerprints, and candidate
+promotion boundaries. Context persists attempts and receipts per person,
+detects repeated fingerprints, and rejects cross-person access. Candidate
+transitions must be sequential; reviewed, signed, and promoted states require
+named reviewers, and executable packages require a signed digest.
+
+The orchestrator includes a bounded unfamiliar-request path that tries a known
+deterministic route first, uses eligible local inference when authorized, and
+otherwise returns useful resumable partial progress. The renderer composes that
+semantic outcome independently for conversation, Braille, and visual use.
+Conversation and Braille do not consume a visual layout or screen-reader feed.
+
+This is synthetic software evidence. It does not establish real-user
+naturalness, candidate detection precision, or safe shared capability promotion.
 

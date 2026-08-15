@@ -94,7 +94,7 @@ jobs:
       working-directory: "."
       dependency-file: requirements-dev.lock
       checkout-submodules: true
-      unison-common-ref: "caf09eb8c1936ee7e337bf7055134b6af53af06d"
+      unison-common-ref: "8249ba0a102a84461cd2c29f6077beeb87ae7174"
       pytest-targets: tests/security
       trivy-scan-ref: requirements-dev.lock
       # Container ingress binds and non-production fallback paths are reviewed separately.

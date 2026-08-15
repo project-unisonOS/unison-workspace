@@ -19,8 +19,8 @@
   },
   "rollback": ["disable migration endpoints", "use each migration's 30-day rollback receipt path", "revert revision-specific merge commits"],
   "handoff": {
-    "current_state": "Taxonomy proposals have modality-neutral previews; security domains require complete control review; exact revision-bound migrations are explicit and reversible.",
-    "next_action": "Integrate service-authenticated unison-policy issuance and key-broker re-encryption, then add renderer-level participatory accessibility evidence.",
-    "known_limits": ["logical key-domain change is not physical re-encryption", "policy review is not yet signed by a separately authenticated policy service", "no participatory prompt testing exists"]
+    "current_state": "Taxonomy proposals have native conversational, Braille, and visual expressions; security domains require signed unison-policy issuance; selected content is re-encrypted under the new key handle and rollback restores the prior boundary.",
+    "next_action": "Conduct participatory taxonomy prompt research with Braille and conversational users on representative devices.",
+    "known_limits": ["no TPM or HSM qualification", "no representative Braille hardware evidence", "no participatory prompt testing exists"]
   }
 }

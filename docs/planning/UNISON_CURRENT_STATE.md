@@ -1,6 +1,21 @@
 # Unison Current State
 
-Status: verified audit snapshot; not a completion claim  
+Status: verified audit snapshot with 2026-08-15 foundation update; not a completion claim
+
+## 2026-08-15 foundation update
+
+The resolution and skill-evolution foundation now has versioned contracts,
+person-isolated persistence, repeated-pattern detection, sequential signed
+promotion gates, deterministic-first orchestration, and native conversational,
+Braille, and visual expression. This is synthetic integration evidence, not a
+real-user or autonomous-production claim.
+
+The personal development topology now treats Windows and Codex as the control
+plane and the Ubuntu dev NUC as the canonical Linux build and integration host
+over SSH or Tailscale. The hardware repository now contains modular interface
+boundaries, a budgetary BOM, power and thermal envelopes, enclosure and open
+design conventions, and deferred dual-GPU qualification tooling. No physical
+hardware qualification is claimed.
 Audit date: 2026-07-25
 Authoritative scope: `unison-workspace` plus the sibling Project Unison repositories present in `/home/dadam/unison-wsl`
 

@@ -19,7 +19,7 @@
   },
   "rollback": ["restore the retained source index", "return to LocalDevelopmentKeyBroker only in development profiles", "keep appliance-candidate deferred", "revert revision-specific merges"],
   "handoff": {
-    "current_state": "Person-scoped rebuild jobs support dual-index cutover and rollback; mounted-file custody and replacement restore operations are versioned; organization contributor templates are merged.",
+    "current_state": "Person-scoped rebuild jobs support expiring worker leases, restart recovery, bounded retries, cancellation, metrics, dual-index cutover, and rollback; mounted-file custody and replacement restore operations are versioned; organization contributor templates are merged.",
     "next_action": "Implement and qualify a TPM2/systemd-credential provider on named appliance hardware, then run measured rebuild and clean replacement restore drills.",
     "known_limits": ["no physical key sealing evidence", "no measured large-index rebuild evidence", "no witnessed recovery ceremony on a named appliance"]
   }

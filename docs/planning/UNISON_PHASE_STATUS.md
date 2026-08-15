@@ -1,6 +1,6 @@
 # Unison phase status
 
-Status date: 2026-07-26
+Status date: 2026-08-15
 
 Plan version: 0.1
 
@@ -147,9 +147,12 @@ separately validated backend and is not claimed by the software fallback.
 
 ## Next authorized action
 
-Define the next independently authorized Phase 8 expansion. Later
-modality/provider/capability expansions need their own threat, maintenance,
-accessibility-research, and acceptance evidence.
+The resolution and skill-evolution software foundation is complete. The next
+software action is a real opt-in unfamiliar-request pilot with content-free
+candidate precision measurement. The next physical action begins only after the
+interim GPU workstation is inventoried. Later modality, provider, capability,
+and hardware expansions retain independent threat, maintenance, participatory,
+and acceptance evidence gates.
 
 ## Final Phase 5 gate decision
 

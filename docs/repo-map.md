@@ -3,8 +3,8 @@ Unison Repo Map (Meta Snapshot)
 
 | Repo | Role | Status | Entry Points / Notes |
 | --- | --- | --- | --- |
-| unison-orchestrator | Request router and policy-aware orchestration | Core | `src/server.py`, health `:8080`; tests `pytest` |
-| unison-context | Context service (kv + profiles) | Core | `src/server.py`; tests `pytest` |
+| unison-orchestrator | Request router, policy-aware orchestration, and bounded unfamiliar-request resolution | Core | `src/server.py`, `src/orchestrator/resolution_engine.py`; tests `pytest` |
+| unison-context | Governed context, resolution attempts, receipts, and determinization candidates | Core | `src/server.py`, `src/resolution_repository.py`; tests `pytest` |
 | unison-context-graph | Graph API over context/intent | Core | `src/main.py` (FastAPI); tests `pytest` |
 | unison-intent-graph | Intent graph service | Core | `src/main.py`; tests `pytest` |
 | unison-auth | Auth service (tokens/session) | Core | `src/auth_service.py`; tests `pytest` |
@@ -22,7 +22,7 @@ Unison Repo Map (Meta Snapshot)
 | unison-docs | Canonical documentation | Core docs | See `unison-docs/dev` and `unison-docs/experience` |
 | unison-payments | Payments capability (modular) | Optional | `src/` services; tests `pytest` |
 | unison-infrastructure | Named development, integration, lab, and deployment profiles | Foundation | `environments/*.yaml`; profile JSON Schema |
-| unison-hardware | Hardware requirements, interfaces, BOM schema, and qualification plans | Foundation | `system/`, `interfaces/`, `bom/`, `qualification/` |
+| unison-hardware | Modular hardware requirements, interfaces, BOM history, open design sources, enclosure work, and qualification plans | Foundation | `system/`, `interfaces/`, `bom/`, `design/`, `mechanical/`, `qualification/` |
 
 Notes
 -----
