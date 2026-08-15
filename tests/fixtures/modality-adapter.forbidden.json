@@ -1,0 +1,13 @@
+{
+  "schema_version": "modality-adapter.v1",
+  "adapter_id": "unsafe-reference",
+  "modality": "future-input",
+  "input_supported": true,
+  "output_supported": false,
+  "sem_versions": ["sem.v1"],
+  "expression_versions": ["future-expression.v1"],
+  "capability_ids": ["future.observe"],
+  "package_digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "signer_id": "synthetic-modality-reviewer",
+  "consent": "self-authorized"
+}

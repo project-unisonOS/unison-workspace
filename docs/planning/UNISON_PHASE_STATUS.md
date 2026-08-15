@@ -150,10 +150,13 @@ separately validated backend and is not claimed by the software fallback.
 The resolution pilot measurement contract, native candidate-review expressions,
 modality adapter integration contract, and expanded remote NUC workflow are
 implemented. The inventory-bound clean-clone NUC run passed on the direct LAN
-route. Pilot persistence, candidate-poisoning controls, private-field rejection,
-and participatory research protocols are implemented. The next execution action
-is the real opt-in unfamiliar-request pilot. Shared promotion remains disabled
-pending evidence, revocation, and rollback review. The next
+route. Pilot persistence, explicit enrollment, immediate revocation, pilot-data
+deletion, aggregate review, modality-native headless sessions, synthetic canary
+mechanics, candidate-poisoning controls, private-field rejection, adapter
+conformance, and participatory research protocols are implemented. The next
+execution action after the owner returns is a small keyboard and visual pilot.
+Voice, Braille, and participatory device work remain separately gated. Shared
+promotion remains disabled pending real evidence and human review. The next
 physical action begins only after the interim GPU workstation is inventoried.
 The tracked order and claim boundaries are recorded in
 `RESOLUTION_PILOT_AND_MODALITY_ROADMAP.md`.

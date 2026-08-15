@@ -1,7 +1,8 @@
 # Resolution pilot and modality roadmap
 
-Status: pilot execution path, security gates, and research preparation
-implemented; real opt-in and participatory execution pending
+Status: pilot controls, headless sessions, synthetic canary mechanics, security
+gates, and research preparation implemented; real opt-in and participatory
+execution pending
 
 Date: 2026-08-15
 
@@ -85,8 +86,9 @@ and consent review. No future adapter needs to imitate a visual screen.
    aggregates alongside separately governed private research records.
 2. Obtain accessibility, privacy, and research approval, then conduct
    participatory conversational and Braille research on representative devices.
-3. Complete shared-promotion revocation and rollback drills only if pilot
-   evidence justifies a canary design.
+3. Review the implemented synthetic canary, revocation, and receipted rollback
+   mechanics. Do not authorize shared promotion until real pilot evidence
+   justifies it.
 4. After the interim workstation arrives, inventory it and run the deferred GPU,
    model, concurrency, rebuild, restore, power, thermal, acoustic, and resilience
    qualification groups.
@@ -98,6 +100,18 @@ and consent review. No future adapter needs to imitate a visual screen.
 
 The implemented threat controls and research protocols are recorded in
 `RESOLUTION_SECURITY_AND_MODALITY_RESEARCH.md`.
+
+## Unattended software preparation completed
+
+The `HEADLESS-PILOT-CANARY` task prepares work that does not need physical
+interaction. Shared contracts and context persistence now cover enrollment,
+revocation, pilot-data deletion, aggregate review, modality-native session
+resume, and digest-bound synthetic canaries. The adapter conformance kit gives
+independent modality contributors an agent-readable validation path while
+denying identity, consent, policy, disclosure, and action authority.
+
+This preparation does not count as a real pilot, native device validation,
+participatory research, host load qualification, or shared promotion approval.
 
 ## Evidence and claim boundaries
 
