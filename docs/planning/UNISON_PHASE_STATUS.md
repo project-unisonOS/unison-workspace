@@ -149,9 +149,11 @@ separately validated backend and is not claimed by the software fallback.
 
 The resolution pilot measurement contract, native candidate-review expressions,
 modality adapter integration contract, and expanded remote NUC workflow are
-implemented. The next execution action is the real opt-in unfamiliar-request
-pilot and an inventory-bound clean-clone NUC run. Security review and
-participatory research preparation follow before shared promotion. The next
+implemented. The inventory-bound clean-clone NUC run passed on the direct LAN
+route. Pilot persistence, candidate-poisoning controls, private-field rejection,
+and participatory research protocols are implemented. The next execution action
+is the real opt-in unfamiliar-request pilot. Shared promotion remains disabled
+pending evidence, revocation, and rollback review. The next
 physical action begins only after the interim GPU workstation is inventoried.
 The tracked order and claim boundaries are recorded in
 `RESOLUTION_PILOT_AND_MODALITY_ROADMAP.md`.

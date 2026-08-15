@@ -1,6 +1,7 @@
 # Resolution pilot and modality roadmap
 
-Status: pilot tooling implemented; real opt-in execution pending
+Status: pilot execution path, security gates, and research preparation
+implemented; real opt-in and participatory execution pending
 
 Date: 2026-08-15
 
@@ -80,19 +81,23 @@ and consent review. No future adapter needs to imitate a visual screen.
 
 ## Remaining tracked slices
 
-1. Threat-model open-world resolution, candidate poisoning, authority growth,
-   private fingerprint leakage, package compromise, revocation, and rollback.
-2. Prepare and approve participatory conversational and Braille research,
-   including representative devices, consent, equivalent-outcome measures,
-   interruption, recovery, privacy, and prompt fatigue.
-3. After the interim workstation arrives, inventory it and run the deferred GPU,
+1. Run the real opt-in unfamiliar-request pilot and review content-free
+   aggregates alongside separately governed private research records.
+2. Obtain accessibility, privacy, and research approval, then conduct
+   participatory conversational and Braille research on representative devices.
+3. Complete shared-promotion revocation and rollback drills only if pilot
+   evidence justifies a canary design.
+4. After the interim workstation arrives, inventory it and run the deferred GPU,
    model, concurrency, rebuild, restore, power, thermal, acoustic, and resilience
    qualification groups.
-4. Define sign-language adapter research with Deaf contributors before choosing
+5. Conduct sign-language adapter research with Deaf contributors before choosing
    capture, recognition, or expression technology.
-5. Keep BCI exploratory until input semantics, consent, error handling,
+6. Keep BCI exploratory until input semantics, consent, error handling,
    neurological-data governance, device trust, and safety boundaries receive
    qualified review.
+
+The implemented threat controls and research protocols are recorded in
+`RESOLUTION_SECURITY_AND_MODALITY_RESEARCH.md`.
 
 ## Evidence and claim boundaries
 

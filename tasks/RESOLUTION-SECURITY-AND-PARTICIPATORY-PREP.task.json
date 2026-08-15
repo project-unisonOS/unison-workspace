@@ -1,0 +1,14 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "RESOLUTION-SECURITY-AND-PARTICIPATORY-PREP",
+  "objective": "Harden pilot and candidate boundaries and prepare participatory research for native and future modalities.",
+  "status": "complete",
+  "authority": {"decision_owner": "Unison security, privacy, accessibility, and research reviewers", "repositories": ["unison-common", "unison-context", "unison-workspace"], "external_actions": ["push branches", "merge after hosted CI", "run NUC validation"]},
+  "allowed_changes": ["pilot persistence and summaries", "candidate poisoning controls", "negative privacy fixtures", "threat model", "participatory research protocols", "sign and BCI research boundaries"],
+  "non_goals": ["real participant enrollment", "shared candidate promotion", "organization-wide private pattern aggregation", "sign or BCI implementation", "physical workstation qualification"],
+  "contracts": ["resolution-pilot-signal.v1", "determinization-candidate.v1", "modality-adapter.v1"],
+  "validation": ["common resolution tests", "context resolution repository tests", "private-content rejection fixture", "task and schema validation", "workspace CI", "dev NUC focused validation"],
+  "evidence": {"class": "integration", "required_artifacts": ["cross-person denial", "mixed-fingerprint denial", "minimum evidence denial", "real incident aggregation", "private-field rejection", "review protocols"], "prohibited_claims": ["real-user validation", "production security qualification", "safe autonomous skill installation", "sign support", "BCI support"]},
+  "rollback": ["disable pilot endpoints", "stop signal collection", "retain candidates as non-executable", "revert revision-specific merges"],
+  "handoff": {"current_state": "Pilot storage is person-bound, candidate evidence is fingerprint-consistent and repeated, private telemetry fields fail closed, and research protocols are ready for review.", "next_action": "Run the real opt-in unfamiliar-request pilot, then review aggregate and private evidence before authorizing any canary design.", "known_limits": ["no real participant evidence", "no shared promotion or revocation drill", "no representative Braille, sign, or BCI device evidence", "physical GPU work remains deferred"]}
+}

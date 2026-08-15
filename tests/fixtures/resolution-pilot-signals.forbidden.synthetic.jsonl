@@ -1,0 +1,1 @@
+{"schema_version":"resolution-pilot-signal.v1","signal_id":"forbidden-1","attempt_id":"attempt-1","participant_id":"synthetic-person","opted_in":true,"usefulness":"useful","outcome":"complete","elapsed_seconds":10,"interaction_turns":1,"clarification_count":0,"correction_count":0,"prompt":"private request content must not enter pilot telemetry"}
