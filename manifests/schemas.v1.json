@@ -117,6 +117,13 @@
       "legacy_copies": [
         {"path": "unison-common/src/unison_common/schemas/interaction-profile.v1.schema.json", "status": "packaged-copy"}
       ]
+    },
+    {
+      "name": "resolution-v1",
+      "canonical": "unison-common/schemas/resolution.v1.schema.json",
+      "legacy_copies": [
+        {"path": "unison-common/src/unison_common/schemas/resolution.v1.schema.json", "status": "packaged-copy"}
+      ]
     }
   ]
 }

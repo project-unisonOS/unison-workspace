@@ -11,8 +11,8 @@ Status: accepted development policy, 2026-08-14.
 | Interim deployment lab | Dual-GPU workstation | Deferred until inventoried; later owns inference, power, and thermal evidence |
 | Source of truth | GitHub organization | Reviewed code, contracts, task packets, CI, issues, and durable handoff state |
 
-Contributors may use any coding agent. Repository files—not an agent's chat
-history—must contain the authority, constraints, commands, and evidence needed
+Contributors may use any coding agent. Repository files, not an agent's chat
+history, must contain the authority, constraints, commands, and evidence needed
 to resume work.
 
 ## Supported development profiles
@@ -29,6 +29,28 @@ The focused root-level Compose profile is canonical for DJ-1. The historical
 `unison-devstack/docker-compose.yml` assumes sibling checkouts through `../../`
 paths and references services not consistently pinned in older workspace
 snapshots. It is not the default contributor entrypoint.
+
+## Windows and dev NUC workflow
+
+Windows and Codex are the control plane. The dev NUC is the authoritative Linux
+build and integration plane. Code remains in a normal Git checkout on the NUC;
+Windows does not mount or mirror that checkout as a runtime filesystem.
+
+Configure the control plane once:
+
+```powershell
+$env:UNISON_DEV_NUC_HOST = 'dev-nuc'
+$env:UNISON_DEV_NUC_WORKSPACE = '/srv/unison/unison-workspace'
+```
+
+Then use `scripts/remote-dev.ps1` for bootstrap, validation, unit, boundary, and
+status commands. SSH transport may use the local network or Tailscale. Host-key
+verification and user authentication remain SSH responsibilities. The wrapper
+does not copy secrets, create credentials, or make Windows a deployment host.
+
+Every contributor, including a coding agent, begins with `AGENTS.md`, an active
+task packet, and `docs/repo-map.md`. A clean clone must pass
+`python scripts/validate-agent-onboarding.py` before it is considered ready.
 
 ## Repository direction
 

@@ -1,0 +1,14 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "RESOLUTION-SKILL-EVOLUTION",
+  "objective": "Implement bounded open-world resolution attempts and a reviewed lifecycle for converting repeated structural patterns into deterministic capabilities.",
+  "status": "complete",
+  "authority": {"decision_owner": "The affected person for private attempts and Unison maintainers for shared promotion", "repositories": ["unison-common", "unison-context", "unison-orchestrator", "unison-experience-renderer", "unison-workspace"], "external_actions": ["push branches", "merge pull requests after hosted CI"]},
+  "allowed_changes": ["resolution contracts", "person-scoped persistence and APIs", "determinization candidate lifecycle", "native modality expressions", "synthetic unfamiliar-request journey"],
+  "non_goals": ["self-modifying production code", "silent authority creation", "private content in operational fingerprints", "participatory accessibility claims"],
+  "contracts": ["resolution-attempt.v1", "resolution-receipt.v1", "determinization-candidate.v1", "semantic-expression.v1"],
+  "validation": ["common contract tests", "context repository tests", "orchestrator unfamiliar-request tests", "renderer modality-equivalence tests", "workspace CI"],
+  "evidence": {"class": "integration", "required_artifacts": ["bounded resolution test", "cross-person denial test", "candidate promotion denial test", "conversation and Braille independence test"], "prohibited_claims": ["unbounded autonomous resolution", "automatic skill promotion", "real-user naturalness validation"]},
+  "rollback": ["disable resolution API routes", "revoke promoted candidate package", "retain resumable partial artifacts", "revert revision-specific merges"],
+  "handoff": {"current_state": "Resolution attempts are bounded, person-scoped, resumable, and structurally observable; repeated patterns create non-executable candidates with sequential review and promotion gates.", "next_action": "Run a real opt-in unfamiliar-request pilot and evaluate candidate precision before any shared promotion.", "known_limits": ["synthetic journey only", "no organization-wide candidate aggregation", "no participatory modality evidence"]}
+}

@@ -1,7 +1,7 @@
 # Semantic experience and adaptive I/O design
 
-Status: **Accepted design direction; implementation pending**  
-Last updated: 2026-07-25
+Status: **Software foundation implemented; participatory and hardware evidence pending**
+Last updated: 2026-08-15
 
 ## Purpose
 

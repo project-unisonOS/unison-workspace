@@ -1,0 +1,14 @@
+{
+  "schema_version": "unison.agent-task.v1",
+  "id": "HARDWARE-INTEGRATION-PATH",
+  "objective": "Establish modular hardware interfaces, BOM history, open design conventions, enclosure requirements, and deferred workstation qualification tooling.",
+  "status": "complete",
+  "authority": {"decision_owner": "Unison hardware maintainers and named safety reviewers", "repositories": ["unison-hardware", "unison-infrastructure", "unison-workspace"], "external_actions": ["push branches", "merge pull requests after hosted CI"]},
+  "allowed_changes": ["requirements", "interfaces", "budgetary BOM", "power and thermal envelopes", "open design conventions", "qualification plans and inventory tooling"],
+  "non_goals": ["vendor selection", "mains design", "fabrication authorization", "supported-hardware claim", "physical qualification before hardware arrival"],
+  "contracts": ["unison-hardware-bom.v1", "unison-hardware-interface-registry.v1", "unison-hardware-qualification-plan.v1"],
+  "validation": ["python unison-hardware/scripts/validate.py", "task packet validation", "workspace CI"],
+  "evidence": {"class": "static", "required_artifacts": ["validated BOM", "interface registry", "power and thermal budget", "enclosure requirements", "deferred GPU plan"], "prohibited_claims": ["electrical safety", "thermal capacity", "acoustic performance", "GPU support", "installation readiness"]},
+  "rollback": ["retain prior requirements revision", "mark rejected components", "keep physical gates deferred", "revert revision-specific merges"],
+  "handoff": {"current_state": "The hardware repository contains modular system boundaries, budgetary costs, design-source rules, and fail-closed qualification tooling.", "next_action": "Inventory the interim workstation after arrival, then configure named measurement adapters and run the qualification groups.", "known_limits": ["no physical workstation inventory", "no measured load, power, thermal, or acoustic evidence", "hardware license remains undecided"]}
+}

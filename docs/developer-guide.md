@@ -41,6 +41,20 @@ There is no separate Windows implementation path. The historical installers in
 `unison-devstack/install.sh` and `unison-devstack/install.ps1` describe an older
 prototype topology and are not supported UnisonOS appliance installers.
 
+The preferred personal topology uses Windows and Codex for control while the
+Ubuntu dev NUC runs canonical Linux builds over SSH or Tailscale:
+
+```powershell
+$env:UNISON_DEV_NUC_HOST = 'dev-nuc'
+$env:UNISON_DEV_NUC_WORKSPACE = '/srv/unison/unison-workspace'
+.\scripts\remote-dev.ps1 status
+.\scripts\remote-dev.ps1 bootstrap
+.\scripts\remote-dev.ps1 validate
+```
+
+Run `python scripts/validate-agent-onboarding.py` after a clean clone to verify
+that contributor and coding-agent entrypoints are present.
+
 The standardized test entrypoints are `test-unit.sh`, `test-boundaries.sh`,
 `test-integration.sh`, and `test-e2e.sh`. Phase 0 executes unit and static boundary
 planning checks. Integration and end-to-end wrappers retain the existing Docker
