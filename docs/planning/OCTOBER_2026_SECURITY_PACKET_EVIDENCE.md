@@ -22,9 +22,9 @@ passed every job, including Phases 0–10 and encrypted MinIO backup/verify/rest
 That earlier run did not adopt the new orchestrator/storage components.
 
 This new candidate pins tested storage `7343e72078d0f89184e55051653b3d4b64a52f6b`
-and orchestrator wellness draft `764703eed05aefcec72db3fa0c8bb4af31d60e23`.
+and orchestrator wellness draft `c93b61207d8d1ff2aa1157157ee5daec35a37b63`.
 Orchestrator PR49 is stacked on caller adapter PR48 (`58a687b85129653afaf6e8fa1c6ff0bcb532c154`);
-both component heads pass all hosted checks. Inference remains unadopted; its
+both component heads pass all hosted checks (300 caller tests; 320 wellness tests). Inference remains unadopted; its
 separate draft at `a3c066aef0447f474438ae90d6d14c0289777f3f` passes 70 tests
 but still lacks qualified immutable runtime binding.
 
@@ -34,7 +34,7 @@ restart, person isolation, deletion cascade and session revocation. Two syntheti
 sources produce changed/unchanged/unknown descriptive entries with source IDs.
 ASGI transports are in-process, JWKS/introspection is loopback, and policy
 decisions are controlled fixtures. No real model or wearable runs. Production
-does not configure the journey. The new combined workspace CI is pending.
+does not configure the journey. Combined workspace run 40963268626 passed all jobs at bd59e870b9154736b80440eaf16f47a8515e2f5d with the preceding wellness pin. This revision advances the pin after the multi-metric deduplication regression passed component CI; final combined validation is pending.
 
 Source/domain deletion spans separate commits. The test verifies ordinary
 cascade, not crash atomicity or simultaneous ingest/delete/correction. Migration,
