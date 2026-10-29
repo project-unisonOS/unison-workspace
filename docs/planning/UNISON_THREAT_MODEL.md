@@ -209,3 +209,17 @@ Audit views must:
 ## Residual-risk reporting
 
 Every phase gate must record accepted residual risks, owner, rationale, expiration/review date, and compensating controls. “Local-first,” “encrypted,” “private,” or “AI safety” are not acceptable substitutes for a described control and evidence.
+
+### Synthetic packet review clarification (October 29)
+
+The harness manually posts observation facts after source admission. Associated
+source IDs do not prove derivation from stored source bytes, and storage does not
+yet validate source existence/ownership/admission for domain references. Storage
+operation-specific write scopes are also outstanding: a read-only brief does not
+prove a least-privilege storage bearer. Production remains unconfigured.
+
+The corrected integration assertion uses the implemented GET /v1/sources route:
+owner success, empty other-person list, denied other-person deletion and preserved
+owner state. No HTTP source export route exists. Direct storage revocation is
+checked separately from ingress revocation. Independent policy/consent gates,
+source/domain atomicity and real runtime qualification remain open.

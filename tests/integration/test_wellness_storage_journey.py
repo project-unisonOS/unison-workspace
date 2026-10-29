@@ -38,6 +38,8 @@ def storage_api(boundary, monkeypatch, tmp_path):
 def test_authenticated_brief_from_encrypted_sources_restart_delete_and_revoke(boundary, storage_api, tmp_path):
     ingress, headers, revoked, _ = boundary
     storage, vault = storage_api
+    # Storage currently authenticates identity but lacks operation-specific write
+    # scope checks. This bearer is NOT evidence of least-privilege storage access.
     authority = headers(aud=["orchestrator", "storage"], scopes=["wellness.read", "wellness.present"])
     bob = headers("bob", aud=["orchestrator", "storage"], scopes=["wellness.read", "wellness.present"])
     fixtures = fixture_observations()
@@ -55,14 +57,23 @@ def test_authenticated_brief_from_encrypted_sources_restart_delete_and_revoke(bo
         source_id = source.json()["source_id"]
         source_ids[metric] = source_id
         assert vault.post(f"/v1/imports/{session}/admit", json={}, headers=authority).status_code == 200
+        # Manually associated facts, not extraction or verified source-byte
+        # provenance. Source-reference ownership/admission validation is a gate.
         for item in batch:
             item["source_record_id"] = source_id
             created = vault.post("/v1/domain/records", headers=authority, json={
                 "domain": "health", "record_type": "wearable-observation", "facts": item,
                 "source_ids": [source_id]})
             assert created.status_code == 200
-    # Cross-person source export is unavailable even with a valid other token.
-    assert vault.get(f"/v1/sources/{source_ids['sleep_duration']}/export", headers=bob).status_code == 404
+    # Exercise implemented routes with positive controls. No HTTP export route
+    # exists; a 404 on a guessed export URL proves nothing about isolation.
+    owner_sources = vault.get("/v1/sources", headers=authority)
+    assert owner_sources.status_code == 200
+    assert {item["source_id"] for item in owner_sources.json()["sources"]} == set(source_ids.values())
+    other_sources = vault.get("/v1/sources", headers=bob)
+    assert other_sources.status_code == 200 and other_sources.json()["sources"] == []
+    assert vault.delete(f"/v1/sources/{source_ids['sleep_duration']}", headers=bob).status_code == 404
+    assert vault.get("/v1/sources", headers=authority).json() == owner_sources.json()
 
     reads = []
     def storage_transport(request):
@@ -107,4 +118,6 @@ def test_authenticated_brief_from_encrypted_sources_restart_delete_and_revoke(bo
     policy.denied = None
     revoked.add("session-alice")
     assert ingress.post("/input", json=body, headers=authority).status_code == 403
+    assert vault.get("/v1/domain/records?domain=health", headers=authority).status_code == 403
+    assert vault.get("/v1/sources", headers=authority).status_code == 403
     assert len(reads) == prior_reads
