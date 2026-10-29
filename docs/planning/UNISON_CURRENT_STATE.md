@@ -1,5 +1,25 @@
 # Unison Current State
 
+## Storage authority candidate under review
+
+Storage draft #36 at `711632beeed28aba99d1dd517a326eefb4a30ff5` passes all hosted
+checks and 69 component tests. Eight authenticated baseline failures were
+reproduced; 21 new tests cover scopes, source states, identities, revocation,
+orphan reads after restart and simultaneous create/delete locking. This workspace
+candidate pins that validated component and uses separate read and intake tokens;
+combined hosted validation is pending.
+
+Exact operation scopes and owned admitted source references are enforced on the
+bounded canonical API. Unmapped legacy workflows deny authenticated callers.
+Source locks span domain creation; canonical reads deny invalid references after
+a partial deletion. Two-store deletion remains non-atomic. Facts are manually
+associated, not verified extractions from source bytes. Consent, independent
+policy, derivative/backup recovery and full runtime qualification remain open.
+
+A separately approved disposable CPU model experiment uses fixed official Qwen
+and llama.cpp artifacts with strict resource/network limits. Its workflow records
+success or failure honestly; no model result is claimed until that run completes.
+No operational deployment or live health-account connection is authorized here.
 ## 2026-10-29 security merges and synthetic integration candidate
 
 The reviewed orchestrator, storage, platform and workspace security packets have
