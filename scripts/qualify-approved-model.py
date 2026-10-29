@@ -63,13 +63,19 @@ def run():
               "cpu_threads": 2, "context": 2048, "output_tokens": 64, "inference_seconds": 600}}
     root = Path(tempfile.mkdtemp(prefix="approved-model-"))
     root.chmod(0o755)
+    image_id = None
     try:
         if os.name != "posix" or not shutil.which("docker"):
             raise RuntimeError("approved disposable Linux Docker isolation unavailable")
-        # Never pull a new image or install host dependencies to make this pass.
-        image = json.loads(command(["docker", "image", "inspect", "ubuntu:24.04"]))[0]
-        report["isolation_image_id"] = image["Id"]
-        report["isolation_image_digests"] = image.get("RepoDigests", [])
+        # No external base image or installed host dependency. The first run
+        # stopped because ubuntu:24.04 was not cached. An empty disposable image
+        # needs no download; runner libraries below remain mounted read-only.
+        empty_tar = root / "empty-rootfs.tar"
+        with tarfile.open(empty_tar, "w"):
+            pass
+        image_id = command(["docker", "image", "import", str(empty_tar)]).strip()
+        report["isolation_image_id"] = image_id
+        report["isolation_base"] = "locally generated empty filesystem; no base-image download"
         runtime = root / "runtime"
         runtime.mkdir()
         artifacts = [download(MODEL_BASE + MODEL_FILE, root / MODEL_FILE, MODEL_SIZE, MODEL_HASH),
@@ -96,10 +102,10 @@ def run():
                 "--env=HOME=/tmp", "--env=" + "LD_LIBRARY_PATH=" + ":".join(library_dirs)]
         # Runner-installed dynamic libraries are read-only. No home, workspace,
         # credentials, sockets or repository token enter the inference container.
-        for path in ("/usr", "/lib", "/lib64", "/etc/ld.so.cache"):
+        for path in ("/usr", "/bin", "/lib", "/lib64", "/etc/ld.so.cache"):
             if Path(path).exists():
                 base += ["--mount", f"type=bind,source={path},target={path},readonly"]
-        base += [image["Id"]]
+        base += [image_id]
         dependencies = command(base + ["/usr/bin/ldd", binary])
         (EVIDENCE / "runtime-dependencies.txt").write_text(dependencies)
         if "not found" in dependencies:
@@ -122,6 +128,8 @@ def run():
     finally:
         (EVIDENCE / "result.json").write_text(json.dumps(report, indent=2))
         print(json.dumps(report, indent=2))
+        if image_id:
+            subprocess.run(["docker", "image", "rm", image_id], check=False, stdout=subprocess.DEVNULL)
         # Only the uniquely created disposable directory is removed.
         shutil.rmtree(root)
 
