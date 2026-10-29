@@ -1,6 +1,6 @@
 # October 2026 security implementation evidence
 
-Status: draft packets under human review. No operational deployment or private
+Status: foundational fixes merged; combined synthetic candidate under review. No operational deployment or private
 health-data authorization. Evidence is synthetic software testing.
 
 ## Objective and authority
@@ -12,7 +12,35 @@ The original local October plan and unrelated work are preserved.
 
 ## Component packets
 
-### Current review checkpoint
+### Current merged foundations and synthetic candidate
+
+Verified merges: platform PR44 `39ff9994e1643d806a450041ae35987be1064b65`,
+storage PR34 `4642dd1feec4a7712cecdffda5e761bb06af39cf`, orchestrator PR47
+`dc28f170454498e15cb966daa87261e1985cb09a`, workspace PR57
+`c212b72d948a017496c4c4bfe7dcedc8096271f0`. Workspace run 40959020046
+passed every job, including Phases 0–10 and encrypted MinIO backup/verify/restore.
+That earlier run did not adopt the new orchestrator/storage components.
+
+This new candidate pins tested storage `7343e72078d0f89184e55051653b3d4b64a52f6b`
+and orchestrator wellness draft `b0ab000bab586476867388418181e87f47a39f98`.
+Caller adapter PR48 merged as `8dabe96f16c644475099b2ae1964bde88f3bf2b3`; PR49 targets main.
+both component heads pass all hosted checks (300 caller tests; 329 wellness tests). Inference remains unadopted; its
+separate draft at `a3c066aef0447f474438ae90d6d14c0289777f3f` passes 70 tests
+but still lacks qualified immutable runtime binding.
+
+The local synthetic integration test passes through real storage import,
+admission, domain records, canonical authenticated input, encrypted databases,
+restart, person isolation, deletion cascade and session revocation. Manually posted synthetic observation fixtures produce changed/unchanged/unknown entries with associated source IDs.
+ASGI transports are in-process, JWKS/introspection is loopback, and policy
+decisions are controlled fixtures. No real model or wearable runs. Production
+does not configure the journey. Combined workspace run 40963268626 passed all jobs at bd59e870b9154736b80440eaf16f47a8515e2f5d with the preceding wellness pin. This revision advances the pin after the multi-metric deduplication regression passed component CI; final combined validation is pending.
+
+Source/domain deletion spans separate commits. The test verifies ordinary
+cascade, not crash atomicity or simultaneous ingest/delete/correction. Migration,
+backup integration and consent-grant lifecycle remain open. The deterministic
+brief does not infer medical significance or actionable treatment opportunities.
+
+### Earlier review checkpoint before merges
 
 No PR is merged at this checkpoint. Merge authorization has been received;
 independent exact-head review precedes merging validated related changes.
@@ -83,3 +111,17 @@ authorization does not authorize submitting a formal PR approval review.
 Private-domain transaction validation is now included in the 48-test storage
 suite. Other stores, physical power-loss behavior, all correction/recovery races,
 and the first synthetic health journey remain outstanding.
+
+### Synthetic packet review clarification (October 29)
+
+The harness manually posts observation facts after source admission. Associated
+source IDs do not prove derivation from stored source bytes, and storage does not
+yet validate source existence/ownership/admission for domain references. Storage
+operation-specific write scopes are also outstanding: a read-only brief does not
+prove a least-privilege storage bearer. Production remains unconfigured.
+
+The corrected integration assertion uses the implemented GET /v1/sources route:
+owner success, empty other-person list, denied other-person deletion and preserved
+owner state. No HTTP source export route exists. Direct storage revocation is
+checked separately from ingress revocation. Independent policy/consent gates,
+source/domain atomicity and real runtime qualification remain open.

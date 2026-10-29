@@ -23,6 +23,11 @@ jobs:
         run: .venv/bin/python scripts/validate-task-packets.py
       - name: Run workspace unit suites
         run: ./scripts/test-unit.sh
+      - name: Validate synthetic wellness across authenticated storage and ingress
+        env:
+          OTEL_SDK_DISABLED: 'true'
+          UNISON_DISABLE_OTEL_EXPORTER: 'true'
+        run: .venv/bin/python -m pytest tests/integration/test_wellness_storage_journey.py -q
       - name: Validate Phase 1 trusted-principal boundaries
         run: ./scripts/test-phase1.sh
       - name: Validate Phase 2 governed-context boundaries

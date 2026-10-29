@@ -6,6 +6,14 @@ New synthetic tests exercise authenticated person scope, revoked/expired session
 
 See [October packet evidence](OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md).
 
+The synthetic wellness candidate checks read and presentation separately and
+rejects private-scope/provenance mismatches. Its integration test exercises real
+authentication and encrypted stores, but controlled policy decisions do not
+qualify the independent policy service. Source/domain deletion spans separate
+commits; simultaneous mixed-operation races, consent-grant lifecycle, all derived
+logs/caches and model runtime binding remain open. No new real-data authorization
+or deployment follows from a passing synthetic brief.
+
 
 Status: authoritative living threat model; Phase 5 bounded controls in review
 Last updated: 2026-07-21
@@ -201,3 +209,17 @@ Audit views must:
 ## Residual-risk reporting
 
 Every phase gate must record accepted residual risks, owner, rationale, expiration/review date, and compensating controls. “Local-first,” “encrypted,” “private,” or “AI safety” are not acceptable substitutes for a described control and evidence.
+
+### Synthetic packet review clarification (October 29)
+
+The harness manually posts observation facts after source admission. Associated
+source IDs do not prove derivation from stored source bytes, and storage does not
+yet validate source existence/ownership/admission for domain references. Storage
+operation-specific write scopes are also outstanding: a read-only brief does not
+prove a least-privilege storage bearer. Production remains unconfigured.
+
+The corrected integration assertion uses the implemented GET /v1/sources route:
+owner success, empty other-person list, denied other-person deletion and preserved
+owner state. No HTTP source export route exists. Direct storage revocation is
+checked separately from ingress revocation. Independent policy/consent gates,
+source/domain atomicity and real runtime qualification remain open.

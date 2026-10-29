@@ -1,12 +1,18 @@
 # Unison Current State
 
-## 2026-10-29 initial security implementation (under review)
+## 2026-10-29 security merges and synthetic integration candidate
 
-The next execution target is a synthetic read-only health journey through an
-authenticated intent path. Two draft component packets now enforce narrower
-person/operation boundaries and transactional encrypted source state. They have
-not been merged, deployed, or adopted by this workspace's gitlinks. The existing
-release and physical/participatory limitations remain in effect.
+The reviewed orchestrator, storage, platform and workspace security packets have
+merged. This new workspace candidate pins the validated storage changes and the
+experimental orchestrator wellness draft for combined testing. Inference remains
+at its earlier pin; its new draft is not adopted or qualified.
+
+The first synthetic brief now traverses canonical authenticated input and actual
+encrypted storage routes, with changed/unchanged/unknown output, provenance,
+restart, cross-person isolation, deletion and session-revocation tests. Its
+storage transport is in-process ASGI and policy decisions are controlled fixtures.
+Production leaves the journey unconfigured. No private-health, full-runtime,
+physical or participatory release gate is closed by this evidence.
 
 See [October packet evidence](OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md) for exact
 revisions, tests, migration limits and remaining gates. Historical evidence below
@@ -618,3 +624,17 @@ remain tracked debt. All newly touched action references are pinned to commit SH
 ## Superseded and contradictory planning material
 
 Prior production plans, milestone matrices, roadmaps, repo maps, and public pages remain useful historical evidence. They are no longer execution authority when they conflict with this planning set. They must be labeled or reconciled incrementally; they must not be silently deleted before useful decisions and evidence are migrated.
+
+### Synthetic packet review clarification (October 29)
+
+The harness manually posts observation facts after source admission. Associated
+source IDs do not prove derivation from stored source bytes, and storage does not
+yet validate source existence/ownership/admission for domain references. Storage
+operation-specific write scopes are also outstanding: a read-only brief does not
+prove a least-privilege storage bearer. Production remains unconfigured.
+
+The corrected integration assertion uses the implemented GET /v1/sources route:
+owner success, empty other-person list, denied other-person deletion and preserved
+owner state. No HTTP source export route exists. Direct storage revocation is
+checked separately from ingress revocation. Independent policy/consent gates,
+source/domain atomicity and real runtime qualification remain open.

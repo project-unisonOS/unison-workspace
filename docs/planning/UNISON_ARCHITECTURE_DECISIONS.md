@@ -2,7 +2,13 @@
 
 ## 2026-10-29 implementation choices under review
 
-Select authenticated POST /input for the next integrated intent journey. This applies the accepted principal-binding decision; it does not certify legacy routes. Source bytes and encrypted derivatives share a transaction in the storage draft. Adoption requires human review of migration, backup and recovery compatibility; no accepted decision is superseded.
+Authenticated POST /input carries the synthetic wellness candidate. This applies
+the accepted principal-binding decision without certifying legacy routes.
+Source bytes and encrypted source derivatives share a transaction in the merged
+storage change; domain records use a separate encrypted transaction store.
+Cross-store deletion is not atomic. Migration, backup and recovery compatibility
+remain adoption gates. The initial synthetic brief is deterministic and does not
+depend on model availability; no accepted decision is superseded.
 
 See [October packet evidence](OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md).
 
@@ -701,3 +707,17 @@ testable proposition.
 
 The complete proposed contract and phased plan are in
 [UNISON_ADAPTIVE_MAINTENANCE_DESIGN.md](UNISON_ADAPTIVE_MAINTENANCE_DESIGN.md).
+
+### Synthetic packet review clarification (October 29)
+
+The harness manually posts observation facts after source admission. Associated
+source IDs do not prove derivation from stored source bytes, and storage does not
+yet validate source existence/ownership/admission for domain references. Storage
+operation-specific write scopes are also outstanding: a read-only brief does not
+prove a least-privilege storage bearer. Production remains unconfigured.
+
+The corrected integration assertion uses the implemented GET /v1/sources route:
+owner success, empty other-person list, denied other-person deletion and preserved
+owner state. No HTTP source export route exists. Direct storage revocation is
+checked separately from ingress revocation. Independent policy/consent gates,
+source/domain atomicity and real runtime qualification remain open.
