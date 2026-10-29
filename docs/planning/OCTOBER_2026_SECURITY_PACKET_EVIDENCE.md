@@ -1,6 +1,6 @@
 # October 2026 security implementation evidence
 
-Status: draft packets under human review. No operational deployment or private
+Status: foundational fixes merged; combined synthetic candidate under review. No operational deployment or private
 health-data authorization. Evidence is synthetic software testing.
 
 ## Objective and authority
@@ -12,7 +12,36 @@ The original local October plan and unrelated work are preserved.
 
 ## Component packets
 
-### Current review checkpoint
+### Current merged foundations and synthetic candidate
+
+Verified merges: platform PR44 `39ff9994e1643d806a450041ae35987be1064b65`,
+storage PR34 `4642dd1feec4a7712cecdffda5e761bb06af39cf`, orchestrator PR47
+`dc28f170454498e15cb966daa87261e1985cb09a`, workspace PR57
+`c212b72d948a017496c4c4bfe7dcedc8096271f0`. Workspace run 40959020046
+passed every job, including Phases 0–10 and encrypted MinIO backup/verify/restore.
+That earlier run did not adopt the new orchestrator/storage components.
+
+This new candidate pins tested storage `7343e72078d0f89184e55051653b3d4b64a52f6b`
+and orchestrator wellness draft `764703eed05aefcec72db3fa0c8bb4af31d60e23`.
+Orchestrator PR49 is stacked on caller adapter PR48 (`58a687b85129653afaf6e8fa1c6ff0bcb532c154`);
+both component heads pass all hosted checks. Inference remains unadopted; its
+separate draft at `a3c066aef0447f474438ae90d6d14c0289777f3f` passes 70 tests
+but still lacks qualified immutable runtime binding.
+
+The local synthetic integration test passes through real storage import,
+admission, domain records, canonical authenticated input, encrypted databases,
+restart, person isolation, deletion cascade and session revocation. Two synthetic
+sources produce changed/unchanged/unknown descriptive entries with source IDs.
+ASGI transports are in-process, JWKS/introspection is loopback, and policy
+decisions are controlled fixtures. No real model or wearable runs. Production
+does not configure the journey. The new combined workspace CI is pending.
+
+Source/domain deletion spans separate commits. The test verifies ordinary
+cascade, not crash atomicity or simultaneous ingest/delete/correction. Migration,
+backup integration and consent-grant lifecycle remain open. The deterministic
+brief does not infer medical significance or actionable treatment opportunities.
+
+### Earlier review checkpoint before merges
 
 No PR is merged at this checkpoint. Merge authorization has been received;
 independent exact-head review precedes merging validated related changes.

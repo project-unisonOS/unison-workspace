@@ -6,6 +6,14 @@ New synthetic tests exercise authenticated person scope, revoked/expired session
 
 See [October packet evidence](OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md).
 
+The synthetic wellness candidate checks read and presentation separately and
+rejects private-scope/provenance mismatches. Its integration test exercises real
+authentication and encrypted stores, but controlled policy decisions do not
+qualify the independent policy service. Source/domain deletion spans separate
+commits; simultaneous mixed-operation races, consent-grant lifecycle, all derived
+logs/caches and model runtime binding remain open. No new real-data authorization
+or deployment follows from a passing synthetic brief.
+
 
 Status: authoritative living threat model; Phase 5 bounded controls in review
 Last updated: 2026-07-21
