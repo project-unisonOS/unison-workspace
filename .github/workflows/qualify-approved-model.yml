@@ -1,12 +1,13 @@
 name: Approved synthetic CPU model experiment
 on:
-  # The approved one-off attempt is recorded in run 40974416361. Do not repeat
-  # model downloads on unrelated PR updates; another attempt is an explicit run.
-  workflow_dispatch:
+  # Dedicated one-off experiment PR: no push, synchronize or schedule trigger.
+  pull_request:
+    types: [opened]
 permissions:
   contents: read
 jobs:
   qualification:
+    if: github.event.pull_request.head.ref == 'experiment/approved-model-retry-once'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:

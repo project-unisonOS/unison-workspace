@@ -78,8 +78,7 @@ def run():
         report["isolation_base"] = "locally generated empty filesystem; no base-image download"
         runtime = root / "runtime"
         runtime.mkdir()
-        artifacts = [download(MODEL_BASE + MODEL_FILE, root / MODEL_FILE, MODEL_SIZE, MODEL_HASH),
-                     download(RUNTIME_BASE + RUNTIME_FILE, root / RUNTIME_FILE, RUNTIME_SIZE, RUNTIME_HASH)]
+        artifacts = [download(RUNTIME_BASE + RUNTIME_FILE, root / RUNTIME_FILE, RUNTIME_SIZE, RUNTIME_HASH)]
         report["artifacts"] = artifacts
         report["licenses"] = [download(MODEL_BASE + "LICENSE", EVIDENCE / "Qwen-LICENSE.txt"),
             download(f"https://raw.githubusercontent.com/ggml-org/llama.cpp/{RUNTIME_REV}/LICENSE", EVIDENCE / "llama-LICENSE.txt")]
@@ -113,9 +112,13 @@ def run():
         if "not found" in dependencies:
             raise RuntimeError("runtime dependency unavailable in approved isolation")
         help_text = command(base + [binary, "--help"])
+        (EVIDENCE / "completion-help.txt").write_text(help_text)
         for option in ("--no-conversation", "--no-display-prompt"):
             if option not in help_text:
                 raise RuntimeError("approved bounded CLI option unavailable: " + option)
+        # The ephemeral failed runner retained only small evidence, not weights.
+        # Validate executable/dependencies/options before the single model fetch.
+        artifacts.append(download(MODEL_BASE + MODEL_FILE, root / MODEL_FILE, MODEL_SIZE, MODEL_HASH))
         started = time.monotonic()
         output = command(base + [binary, "-m", "/qualification/" + MODEL_FILE, "-c", "2048", "-n", "64",
                                 "-t", "2", "-tb", "2", "--no-conversation", "--no-display-prompt",
