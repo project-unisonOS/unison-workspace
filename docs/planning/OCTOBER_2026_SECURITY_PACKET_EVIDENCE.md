@@ -144,11 +144,11 @@ checked separately from ingress revocation. Independent policy/consent gates,
 source/domain atomicity and real runtime qualification remain open.
 ### Approved CPU experiment result: not qualified
 
-Run40974190175 stopped before downloads because no cached Ubuntu image existed.
-Run40974416361 used an ephemeral empty image with no extra external download;
+Run 40974190175 stopped before downloads because no cached Ubuntu image existed.
+Run 40974416361 used an ephemeral empty image with no extra external download;
 verified the approved Qwen and llama.cpp artifact sizes/SHA-256 and license texts;
 and ran dependency/help checks with network disabled, read-only mounts, no
-credentials, an unprivileged UID, two CPUs and4GiB memory. The inference phase did
+credentials, an unprivileged UID, two CPUs and 4 GiB memory. The inference phase did
 not run: the pinned runner does not advertise the harness's --no-conversation
 option. No model-quality, latency or runtime-integration success is claimed.
 
@@ -157,3 +157,8 @@ manual-only so ordinary PR updates cannot consume another model download. This
 does not turn the failed experiment green; another actual-model attempt requires
 an explicit run after reviewing the exact CLI contract and transfer budget.
 Required storage/workspace validation remains unchanged.
+The pinned upstream completion README and argument definitions identify
+llama-completion as the non-conversational entrypoint. The harness selection is
+corrected, but no second model download or inference run has been performed.
+An explicit future run must account for another approximately 1.14 GB transfer;
+the preserved failed run does not become successful through this source fix.

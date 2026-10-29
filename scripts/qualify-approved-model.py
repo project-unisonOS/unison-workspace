@@ -90,9 +90,11 @@ def run():
             if sum(member.size for member in archive.getmembers()) + MODEL_SIZE + RUNTIME_SIZE > DISK_CAP:
                 raise RuntimeError("approved extraction disk budget exceeded")
             archive.extractall(runtime, filter="data")
-        candidates = list(runtime.rglob("llama-cli"))
+        # The pinned release separates its interactive CLI from completion.
+        # tools/completion/README.md at RUNTIME_REV documents this entrypoint.
+        candidates = list(runtime.rglob("llama-completion"))
         if len(candidates) != 1:
-            raise RuntimeError("approved runtime has no unique llama-cli")
+            raise RuntimeError("approved runtime has no unique llama-completion")
         binary = "/qualification/" + candidates[0].relative_to(root).as_posix()
         library_dirs = sorted({"/qualification/" + p.parent.relative_to(root).as_posix() for p in runtime.rglob("*.so*")})
         base = ["docker", "run", "--rm", "--network=none", "--read-only", "--user=65534:65534",
