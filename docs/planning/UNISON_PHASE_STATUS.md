@@ -1,5 +1,14 @@
 # Unison phase status
 
+## 2026-10-29 execution checkpoint
+
+Gate 0 security remediation is in progress. Draft orchestrator and source-store
+packets have synthetic software evidence; no security, private-health, hardware
+or participant release gate is closed by this checkpoint. Gate 1 integrated
+runtime and the first health journey remain next work after prerequisite closure.
+See [October packet evidence](OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md).
+
+
 Status date: 2026-08-15
 
 Plan version: 0.1

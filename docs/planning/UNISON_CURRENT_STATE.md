@@ -1,5 +1,18 @@
 # Unison Current State
 
+## 2026-10-29 initial security implementation (under review)
+
+The next execution target is a synthetic read-only health journey through an
+authenticated intent path. Two draft component packets now enforce narrower
+person/operation boundaries and transactional encrypted source state. They have
+not been merged, deployed, or adopted by this workspace's gitlinks. The existing
+release and physical/participatory limitations remain in effect.
+
+See [October packet evidence](OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md) for exact
+revisions, tests, migration limits and remaining gates. Historical evidence below
+retains its original scope and is not current whole-platform assurance.
+
+
 Status: verified audit snapshot with 2026-08-15 foundation update; not a completion claim
 
 ## 2026-08-15 foundation update

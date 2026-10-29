@@ -1,5 +1,12 @@
 # Unison Threat Model
 
+## 2026-10-29 control evidence checkpoint
+
+New synthetic tests exercise authenticated person scope, revoked/expired sessions, policy availability, confirmation enforcement and diagnostic minimization. Source tests cover encrypted derivatives, concurrency, restart and rollback. Complete ingress/egress coverage, inference authority, other private stores and independent review remain release gates.
+
+See [October packet evidence](OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md).
+
+
 Status: authoritative living threat model; Phase 5 bounded controls in review
 Last updated: 2026-07-21
 

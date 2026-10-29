@@ -55,18 +55,8 @@ jobs:
           python-version: "3.12"
       - name: Bootstrap deterministic development environment
         run: ./scripts/bootstrap-dev.sh
-      - name: Start pinned MinIO profile
-        run: docker compose -f compose.phase6-minio.yml up -d --wait
-      - name: Validate S3-compatible backup, verification, and restore
-        run: |
-          PYTHONPATH="${PWD}/unison-common/src:${PWD}/unison-storage" \
-            .venv/bin/python scripts/test-phase6-minio.py
-      - name: Show MinIO logs after failure
-        if: failure()
-        run: docker compose -f compose.phase6-minio.yml logs
-      - name: Stop MinIO profile
-        if: always()
-        run: docker compose -f compose.phase6-minio.yml down --volumes
+      - name: Validate S3-compatible backup with digest-verified MinIO
+        run: bash scripts/test-phase6-minio-ci.sh
 
   powershell-wrapper-static:
     runs-on: windows-2025
