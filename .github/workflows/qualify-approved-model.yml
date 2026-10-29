@@ -1,9 +1,8 @@
 name: Approved synthetic CPU model experiment
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/qualify-approved-model.yml'
-      - 'scripts/qualify-approved-model.py'
+  # The approved one-off attempt is recorded in run 40974416361. Do not repeat
+  # model downloads on unrelated PR updates; another attempt is an explicit run.
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
