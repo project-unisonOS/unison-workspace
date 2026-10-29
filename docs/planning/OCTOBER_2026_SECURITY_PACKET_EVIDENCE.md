@@ -39,7 +39,7 @@ requires authenticated `inference.local` scope, a signed registry, trusted hardw
 inventory and bounded read-only local text execution. Remote fallback/tools are
 unavailable pending separate authority. Eight baseline failures were reproduced;
 expanded local tests yielded 51 passes and two existing Windows-only directory
-fsync errors. Linux CI on the corrected fixture revision is pending. This is a
+fsync errors. Linux CI passes on `ea9b5c935d4f92ebcf29f07211fd5621ee5d24be`, including the corrected fixture and lifecycle cases. This is a
 controlled callback test, not a real model qualification.
 
 ## Scope and remaining work
@@ -56,10 +56,7 @@ authority and its negative tests, then transactional domain/resolution state and
 a controlled authenticated integration harness. Record actual acceptance evidence
 before changing public capability claims. Human PR approval remains separate.
 
-## Interrupted follow-up
+## Further persistence work
 
-A private-domain transactional extension is local and uncommitted after a tool
-invocation was cancelled. Its regression reproduced concurrent file-state failure
-before editing; post-edit validation is unconfirmed. It is excluded from storage
-PR #34 and all passing claims above. Resume requires clarification of the cancelled
-validation. No original data or operational services were affected.
+Private-domain and other store validation remains outstanding and is excluded
+from passing claims. The first synthetic health journey is not yet delivered.
