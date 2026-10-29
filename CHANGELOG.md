@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-29 (draft documentation)
+
+Record authenticated-ingress and encrypted-source transaction evidence. Component
+changes remain in draft review; supported runtime and workspace pins are unchanged.
+See docs/planning/OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md.
+
 All notable workspace-level architecture, planning, migration, and product-status changes are recorded here. Service-specific implementation changes remain in their repositories and are summarized here when they alter the authoritative product state.
 
 ## Unreleased
