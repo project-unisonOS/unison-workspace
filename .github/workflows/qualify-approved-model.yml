@@ -1,0 +1,23 @@
+name: Approved synthetic CPU model experiment
+on:
+  # The approved one-off attempt is recorded in run 40974416361. Do not repeat
+  # model downloads on unrelated PR updates; another attempt is an explicit run.
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qualification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Run the approved bounded synthetic experiment
+        run: python3 scripts/qualify-approved-model.py
+      - name: Preserve qualification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: approved-model-evidence
+          path: model-evidence/

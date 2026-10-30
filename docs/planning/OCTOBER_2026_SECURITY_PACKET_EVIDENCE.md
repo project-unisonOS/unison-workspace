@@ -1,8 +1,25 @@
 # October 2026 security implementation evidence
 
-Status: foundational fixes merged; combined synthetic candidate under review. No operational deployment or private
-health-data authorization. Evidence is synthetic software testing.
+## Storage authority candidate under review
 
+Storage draft #36 at `13f84799e722c220c54ad5711a35bb9a541f0c7c` passes all hosted
+checks and 75 component tests. Eight authenticated baseline failures were
+reproduced; 27 new tests cover scopes, source states, identities, revocation,
+orphan reads after restart and simultaneous create/delete locking. This workspace
+candidate pins that validated component and uses separate read and intake tokens;
+combined hosted validation is pending.
+
+Exact operation scopes and owned admitted source references are enforced on the
+bounded canonical API. Unmapped legacy workflows deny authenticated callers.
+Source locks span domain creation; canonical reads deny invalid references after
+a partial deletion. Two-store deletion remains non-atomic. Facts are manually
+associated, not verified extractions from source bytes. Consent, independent
+policy, derivative/backup recovery and full runtime qualification remain open.
+
+A separately approved disposable CPU model experiment uses fixed official Qwen
+and llama.cpp artifacts with strict resource/network limits. Its workflow records
+success or failure honestly; no model result is claimed until that run completes.
+No operational deployment or live health-account connection is authorized here.
 ## Objective and authority
 
 Close authenticated-boundary and private-state gaps, then converge the actual
@@ -125,3 +142,46 @@ owner success, empty other-person list, denied other-person deletion and preserv
 owner state. No HTTP source export route exists. Direct storage revocation is
 checked separately from ingress revocation. Independent policy/consent gates,
 source/domain atomicity and real runtime qualification remain open.
+### Approved CPU experiment result: not qualified
+
+Run 40974190175 stopped before downloads because no cached Ubuntu image existed.
+Run 40974416361 used an ephemeral empty image with no extra external download;
+verified the approved Qwen and llama.cpp artifact sizes/SHA-256 and license texts;
+and ran dependency/help checks with network disabled, read-only mounts, no
+credentials, an unprivileged UID, two CPUs and 4 GiB memory. The inference phase did
+not run: the pinned runner does not advertise the harness's --no-conversation
+option. No model-quality, latency or runtime-integration success is claimed.
+
+The failed evidence artifact is retained with that run. The workflow is now
+manual-only so ordinary PR updates cannot consume another model download. This
+does not turn the failed experiment green; another actual-model attempt requires
+an explicit run after reviewing the exact CLI contract and transfer budget.
+Required storage/workspace validation remains unchanged.
+The pinned upstream completion README and argument definitions identify
+llama-completion as the non-conversational entrypoint. The harness selection is
+corrected, but no second model download or inference run has been performed.
+An explicit future run must account for another approximately 1.14 GB transfer;
+the preserved failed run does not become successful through this source fix.
+
+### Terminal lifecycle correction and actual CPU smoke result
+
+Independent review identified a source lifecycle replay issue. New authenticated
+regressions reproduce it before the fix and cover restart after an interrupted
+cascade. The correction makes rejection/rollback terminal, prevents deleted IDs
+from regaining admission, and checks source bytes and metadata integrity before
+admission and canonical reference use. Valid intact replay remains idempotent.
+Two-database deletion is still not atomic; this closes the tested replay path,
+not every recovery or derivative-store gate. Revised component validation and
+workspace pin are recorded with the correction commit.
+
+The single corrected CPU attempt completed actual generation in run 40976039551,
+using the exact previously approved artifacts and limits. Dependencies and CLI
+flags were checked before model download; total transfer including licenses was
+1,140,027,510 bytes and wall time for the inference command was 8.28 seconds.
+The container had no network or credentials, read-only mounts, an unprivileged UID,
+two CPU threads and a 4 GiB memory cap. This is one hosted CPU smoke result, not
+Ollama binding, deployed policy integration, physical qualification or a benchmark.
+The raw completion did not follow the requested READY response format, so prompt
+construction and instruction-following remain unqualified. Failure 40974416361 and
+success 40976039551 retain separate evidence. Dedicated experiment PR #60 closed
+without merging; the reviewed integration branch keeps its manual-only workflow.

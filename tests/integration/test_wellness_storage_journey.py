@@ -38,42 +38,52 @@ def storage_api(boundary, monkeypatch, tmp_path):
 def test_authenticated_brief_from_encrypted_sources_restart_delete_and_revoke(boundary, storage_api, tmp_path):
     ingress, headers, revoked, _ = boundary
     storage, vault = storage_api
-    # Storage currently authenticates identity but lacks operation-specific write
-    # scope checks. This bearer is NOT evidence of least-privilege storage access.
-    authority = headers(aud=["orchestrator", "storage"], scopes=["wellness.read", "wellness.present"])
-    bob = headers("bob", aud=["orchestrator", "storage"], scopes=["wellness.read", "wellness.present"])
+    read_scopes = ["wellness.read", "wellness.present", "storage.health.read"]
+    authority = headers(aud=["orchestrator", "storage"], scopes=read_scopes)
+    bob = headers("bob", aud=["orchestrator", "storage"], scopes=read_scopes)
+    ingest_scopes = ["storage.import.start", "storage.import.upload", "storage.import.admit",
+                     "storage.domain.create", "storage.sources.read", "storage.sources.delete"]
+    ingest = headers(aud=["storage"], scopes=ingest_scopes, jti="ingest-alice")
+    bob_sources = headers("bob", aud=["storage"], scopes=["storage.sources.read", "storage.sources.delete"])
     fixtures = fixture_observations()
     source_ids = {}
+    sessions = {}
     for metric in ("sleep_duration", "steps"):
         batch = [item for item in fixtures if item["metric"] == metric]
         raw = json.dumps({"synthetic": True, "observations": batch}).encode()
-        started = vault.post("/v1/imports", json={}, headers=authority)
+        started = vault.post("/v1/imports", json={}, headers=ingest)
         assert started.status_code == 200
         session = started.json()["session_id"]
-        source = vault.post(f"/v1/imports/{session}/sources", headers=authority, json={
+        sessions[metric] = session
+        source = vault.post(f"/v1/imports/{session}/sources", headers=ingest, json={
             "filename": metric + ".json", "media_type": "application/json",
             "content_b64": base64.b64encode(raw).decode()})
         assert source.status_code == 200
         source_id = source.json()["source_id"]
         source_ids[metric] = source_id
-        assert vault.post(f"/v1/imports/{session}/admit", json={}, headers=authority).status_code == 200
+        assert vault.post(f"/v1/imports/{session}/admit", json={}, headers=ingest).status_code == 200
         # Manually associated facts, not extraction or verified source-byte
-        # provenance. Source-reference ownership/admission validation is a gate.
+        # provenance. Storage validates reference ownership/admission, not that
+        # these manually supplied facts were extracted from the original bytes.
         for item in batch:
             item["source_record_id"] = source_id
-            created = vault.post("/v1/domain/records", headers=authority, json={
+            created = vault.post("/v1/domain/records", headers=ingest, json={
                 "domain": "health", "record_type": "wearable-observation", "facts": item,
                 "source_ids": [source_id]})
             assert created.status_code == 200
     # Exercise implemented routes with positive controls. No HTTP export route
     # exists; a 404 on a guessed export URL proves nothing about isolation.
-    owner_sources = vault.get("/v1/sources", headers=authority)
+    owner_sources = vault.get("/v1/sources", headers=ingest)
     assert owner_sources.status_code == 200
     assert {item["source_id"] for item in owner_sources.json()["sources"]} == set(source_ids.values())
-    other_sources = vault.get("/v1/sources", headers=bob)
+    other_sources = vault.get("/v1/sources", headers=bob_sources)
     assert other_sources.status_code == 200 and other_sources.json()["sources"] == []
-    assert vault.delete(f"/v1/sources/{source_ids['sleep_duration']}", headers=bob).status_code == 404
-    assert vault.get("/v1/sources", headers=authority).json() == owner_sources.json()
+    assert vault.delete(f"/v1/sources/{source_ids['sleep_duration']}", headers=bob_sources).status_code == 404
+    assert vault.get("/v1/sources", headers=ingest).json() == owner_sources.json()
+    assert vault.post("/v1/imports", headers=authority, json={}).status_code == 403
+    assert vault.post("/v1/domain/records", headers=authority, json={}).status_code == 403
+    assert vault.delete(f"/v1/sources/{source_ids['sleep_duration']}", headers=authority).status_code == 403
+    assert vault.get("/v1/domain/records?domain=health", headers=ingest).status_code == 403
 
     reads = []
     def storage_transport(request):
@@ -108,7 +118,10 @@ def test_authenticated_brief_from_encrypted_sources_restart_delete_and_revoke(bo
             assert b"synthetic-ring" not in path.read_bytes()
 
     # This verifies ordinary cascade behavior, not cross-database crash atomicity.
-    assert vault.delete(f"/v1/sources/{source_ids['sleep_duration']}", headers=authority).status_code == 200
+    assert vault.delete(f"/v1/sources/{source_ids['sleep_duration']}", headers=ingest).status_code == 200
+    storage._SOURCE_LIBRARY = None
+    storage._DOMAIN_STORE = None
+    assert vault.post(f"/v1/imports/{sessions['sleep_duration']}/admit", headers=ingest, json={}).status_code == 400
     after_delete = ingress.post("/input", json=body, headers=authority).json()["brief"]
     assert [item["status"] for item in after_delete["entries"]] == ["unknown", "unchanged"]
     prior_reads = len(reads)
