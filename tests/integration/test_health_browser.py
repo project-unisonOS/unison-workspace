@@ -69,3 +69,53 @@ def test_browser_health_workflow(boundary, monkeypatch, tmp_path):
     finally:
         server.should_exit=True; worker.join(timeout=10); sock.close()
 
+
+
+def test_browser_connected_intent(boundary, monkeypatch, tmp_path):
+    module, vault, headers, revoked = boundary
+    if not shutil.which('node'):
+        pytest.fail('Node is required for the browser acceptance journey')
+    from encrypted_state import EncryptedState
+    from orchestrator.synthetic_delegation import DelegationEngine, MockOAuthAdapter, MockSessionAdapter, MockVaultAdapter, initial_state
+    from orchestrator.synthetic_intent import SyntheticIntentInteraction
+    key = os.environ['STORAGE_OBJECT_ENC_KEY'].encode()
+    monkeypatch.setenv('UNISON_SYNTHETIC_INTENT','true')
+    monkeypatch.delenv('DISABLE_AUTH_FOR_TESTS',raising=False)
+    sys.path.insert(0,str(RENDERER/'src'))
+    spec=importlib.util.spec_from_file_location('health_experience_renderer',RENDERER/'src/main.py')
+    renderer=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(renderer)
+    providers={'oauth':MockOAuthAdapter(),'session':MockSessionAdapter(),'vault':MockVaultAdapter(),'device-only':MockVaultAdapter(nonvisual=False)}
+    engine=DelegationEngine(EncryptedState(tmp_path/'intent.sqlite3',key,initial_state()),providers,enabled=True)
+    renderer.app.state.synthetic_intent_interaction=SyntheticIntentInteraction(engine)
+    sock=socket.socket(); sock.bind(('127.0.0.1',0)); port=sock.getsockname()[1]
+    server=uvicorn.Server(uvicorn.Config(renderer.app,host='127.0.0.1',port=port,lifespan='off',log_level='error'))
+    worker=threading.Thread(target=server.run,kwargs={'sockets':[sock]},daemon=True); worker.start()
+    try:
+        for _ in range(100):
+            if server.started: break
+            time.sleep(.05)
+        assert server.started
+        scopes=['delegation.manage','delegation.execute','delegation.read']
+        token=headers(scopes=scopes,aud=['renderer','orchestrator'])['Authorization'].split(' ',1)[1]
+        env={**os.environ,'HEALTH_TEST_URL':f'http://127.0.0.1:{port}','HEALTH_TEST_TOKEN':token,
+             'HEALTH_TEST_QA':str(tmp_path/'browser-evidence'),'HEALTH_RENDERER_ROOT':str(RENDERER)}
+        script=Path(__file__).resolve().parents[2]/'scripts/test-intent-browser.cjs'
+        result=subprocess.run(['node',str(script)],env=env,text=True,capture_output=True,timeout=150)
+        if os.getenv('UNISON_BROWSER_EVIDENCE'): shutil.copytree(tmp_path/'browser-evidence',os.environ['UNISON_BROWSER_EVIDENCE'],dirs_exist_ok=True)
+        assert result.returncode==0, result.stdout+'\n'+result.stderr
+        denied=httpx.post(f'http://127.0.0.1:{port}/synthetic-intent',json={'operation':'start','mechanism':'oauth'})
+        assert denied.status_code in (401,403)
+        reader=headers(scopes=['delegation.read'],aud=['renderer','orchestrator'])
+        assert httpx.post(f'http://127.0.0.1:{port}/synthetic-intent',headers=reader,json={'operation':'start','mechanism':'oauth'}).status_code==403
+        tid=next(iter(engine.store.read()['tasks']))
+        bob=headers('bob',scopes=scopes,aud=['renderer','orchestrator'])
+        assert httpx.post(f'http://127.0.0.1:{port}/synthetic-intent',headers=bob,json={'operation':'current','collection':'tasks','resource':tid}).status_code==403
+        assert all(provider.repairs>=1 for name,provider in providers.items() if name!='device-only')
+        assert providers['device-only'].repairs==0
+        # Keep optional evidence outside temporary state for local visual inspection.
+        evidence=os.getenv('UNISON_BROWSER_EVIDENCE')
+        if evidence: shutil.copytree(tmp_path/'browser-evidence',evidence,dirs_exist_ok=True)
+    finally:
+        server.should_exit=True; worker.join(timeout=10); sock.close()
+

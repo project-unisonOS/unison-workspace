@@ -15,7 +15,8 @@ Prototype independent person/source authentication, durable scoped delegation,
 one repair for dependent tasks, consequential confirmation and verified outcomes.
 Generate semantic visual controls and screenless text from identical trusted state.
 
-Acceptance is library/unit simulation plus encrypted disk-state integration.
+Acceptance now includes connected authenticated visual and typed-screenless
+interaction, library simulations and encrypted disk-state integration.
 Real speech, accessible provider-device verification, live authentication,
 production ingress and general adapter installation remain separate gates.
 No real records, financial effects, model experiment or runtime deployment occurs.

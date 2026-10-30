@@ -247,3 +247,6 @@ owner success, empty other-person list, denied other-person deletion and preserv
 owner state. No HTTP source export route exists. Direct storage revocation is
 checked separately from ingress revocation. Independent policy/consent gates,
 source/domain atomicity and real runtime qualification remain open.
+The review-corrected candidate also connects authenticated visual controls and
+typed screenless commands to the mock state machine. This adds interaction
+acceptance evidence, not real speech or participant qualification.

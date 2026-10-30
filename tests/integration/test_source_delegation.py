@@ -27,7 +27,7 @@ def test_source_connection_multimodal_restart_and_deletion(tmp_path):
     visual=engine.frame(person(),'grants',gid,audio=False)
     spoken=engine.frame(person(),'grants',gid,visual=False)
     assert visual['binding']==spoken['binding'] and visual['revision']==spoken['revision']
-    assert 'source.review' in spoken['audio_text'] and '<button' in visual_document(visual)
+    assert 'Review a synthetic source' in spoken['audio_text'] and '<button' in visual_document(visual)
     engine.respond(person(),'grants',gid,spoken['revision'],'confirm',spoken['binding'])
     tasks=[engine.submit(person(),gid,'source.read','self') for _ in range(5)]
     for tid in tasks:assert engine.run(person(),tid)=='waiting_repair'

@@ -305,3 +305,40 @@ qualification, migrations and participant testing. Recovery in this packet uses
 current retained authority; physical deletion and outside copies remain outside
 its proof. No new candidate may merge or publicly deploy before independent
 exact-head review and authorization. Hosted CI and independent review pending.
+
+## Review correction and connected intent candidate
+
+This supersedes the prior orchestration candidate. Four regression cases
+reproduced missing unique grant/duration binding, missing exact task binding and
+an advertised but unimplemented Repair response. Corrected orchestrator #51 is
+`2175d7220780bd17de8dda4d165ed69c148a4c9a`; new renderer #26 is
+`6ed92219106ea0ee9c18ac4e8ed7f9ee5a961103`. Storage #39 is unchanged.
+
+The v2 grant/confirmation state includes unique grant/task identity, person,
+meaningful scope, duration/expiry and approval deadlines. The old unmerged v1
+state is rejected rather than silently migrated. Repair requests and subsequent
+simulated verification now follow the actual presented-choice path with current
+resource/challenge bindings. Plain-language permission summaries show scope and
+expiry without exposing opaque internal IDs as the person's workflow.
+
+The optional renderer now connects visual choices and typed screenless commands
+to trusted mock state transitions. It requires an authenticated person and
+explicit fixture coordinator injection; it is default-disabled. Separate mock
+OAuth access/refresh leases, non-refreshable session expiry and locked/expiring
+vault-use approval have distinct state behavior. Existing valid delegation is
+reused without requesting new authority for each task.
+
+Local final focused evidence: 27 delegation tests; two renderer bridge tests;
+source/delegation encrypted integration passes; existing health and connected
+intent browser journeys pass together (2 tests, 92.14 seconds). The new journey
+uses signed fixture identities and actual renderer HTTP/controls, exercises
+visual and typed screenless modes at 320/1280 widths, forced colors, 200% text,
+reload/mode persistence, busy controls, authorization negatives and unsupported
+nonvisual verification. Four sampled visual fallback states have zero axe
+violations; this is not participant or real speech qualification. Screenshots
+and results are retained by the existing browser artifact step.
+
+No ASR/TTS, live credentials/providers, actual MFA/device verification, real data,
+operational runtime or public deployment. New candidates remain draft and
+unmerged pending exact-head CI and independent review. Hosted results for prior
+heads do not validate this correction.

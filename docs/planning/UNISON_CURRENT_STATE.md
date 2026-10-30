@@ -10,11 +10,12 @@ All capabilities remain synthetic-only and default-disabled; no live pilot is en
 The next draft factors shared source lifecycle mechanics from domain adapters and
 adds synthetic statement/unfamiliar-document examples. A separate default-disabled
 orchestrator library prototypes credential-use brokerage, exact scoped delegation,
-repair deduplication, verification and multimodal intent representations. It has no
-production route or real credentials. Static semantic HTML and spoken text are
-representations, not qualified speech or participant accessibility evidence.
+repair deduplication, verification and multimodal intent representations. The optional renderer bridge now connects visual controls and typed screenless
+commands to those mock transitions, with authenticated request binding. It requires
+explicit fixture injection and is disabled by default. Spoken text remains a
+representation, not actual ASR/TTS or participant accessibility evidence.
 
-Local evidence: 28 focused source/health lifecycle tests, 19 delegation simulation
+Local evidence: 28 focused source/health lifecycle tests, 27 delegation simulation
 tests, and an encrypted disk-state cross-component restart/recovery acceptance test.
 Hosted exact-head evidence is recorded in the October evidence document/PR checks.
 No new milestone merge or public deployment is implied by local success.

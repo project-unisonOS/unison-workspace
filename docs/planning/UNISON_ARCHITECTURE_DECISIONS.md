@@ -16,7 +16,8 @@ internal transport rather than a person-facing destination.
 Visual controls and screenless representations derive from the same trusted
 revision and terms. Mode switching never grants authority. Unsupported provider
 verification is a stated limit with pause/recovery, not an invented workaround.
-The candidate is library-only and simulated; deployment trust isolation and actual
+The candidate now connects visual and typed-screenless interactions to simulated
+provider state transitions. Deployment trust isolation and actual speech/device
 modality integrations remain unqualified.
 
 

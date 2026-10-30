@@ -1,5 +1,21 @@
 # Unison Threat Model
 
+## Review correction: exact confirmation and challenge bindings
+
+Independent review reproduced cross-grant duration expansion, cross-task action
+confirmation reuse and an unimplemented Repair choice. Four regression cases
+failed on the original candidate. The corrected v2 state binds grant identity,
+person, full scope, duration/expiry and confirmation deadline; actions also bind
+exact task identity. Incompatible unmerged v1 state fails closed, without silent
+migration. Both visual and spoken permission summaries show scope and expiry.
+
+Presented choices now drive a connected mock flow. Repair and verification bind
+current task/connection challenge state; late or swapped responses fail. A new
+renderer bridge requires authenticated person binding and explicit fixture-host
+injection, and is disabled by default. No live credentials/provider, speech engine
+or production deployment was introduced.
+
+
 ## October 30 synthetic delegation candidate boundaries
 
 New negative cases cover stale revision/terms/account/recipient confirmations,
