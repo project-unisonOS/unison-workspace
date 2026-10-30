@@ -258,3 +258,5 @@ colors and 320/1280 widths, keyboard operation, 200% text and source links.
 The combined workspace now runs that acceptance with locked Playwright dependencies
 and saves synthetic screenshots/results as a CI artifact. Combined result pending.
 All PRs remain drafts; no public or operational deployment occurred.
+
+Review correction: renderer 378beebfed3f23d60f59e089db080fb8612ccbe8 disables conflicting controls during requests and announces busy state, rejects stale visibility-invalidated responses, and clarifies that 24-hour access expiry does not delete retained content/backups. Node delayed-request regressions cover consent/import, brief, clear, terminal actions and restore. The original enabled Clear control failed the new regression before the fix. Existing authority-ledger rollback limitations remain unchanged. Updated combined validation pending.
