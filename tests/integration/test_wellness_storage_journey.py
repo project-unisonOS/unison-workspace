@@ -47,12 +47,14 @@ def test_authenticated_brief_from_encrypted_sources_restart_delete_and_revoke(bo
     bob_sources = headers("bob", aud=["storage"], scopes=["storage.sources.read", "storage.sources.delete"])
     fixtures = fixture_observations()
     source_ids = {}
+    sessions = {}
     for metric in ("sleep_duration", "steps"):
         batch = [item for item in fixtures if item["metric"] == metric]
         raw = json.dumps({"synthetic": True, "observations": batch}).encode()
         started = vault.post("/v1/imports", json={}, headers=ingest)
         assert started.status_code == 200
         session = started.json()["session_id"]
+        sessions[metric] = session
         source = vault.post(f"/v1/imports/{session}/sources", headers=ingest, json={
             "filename": metric + ".json", "media_type": "application/json",
             "content_b64": base64.b64encode(raw).decode()})
@@ -117,6 +119,9 @@ def test_authenticated_brief_from_encrypted_sources_restart_delete_and_revoke(bo
 
     # This verifies ordinary cascade behavior, not cross-database crash atomicity.
     assert vault.delete(f"/v1/sources/{source_ids['sleep_duration']}", headers=ingest).status_code == 200
+    storage._SOURCE_LIBRARY = None
+    storage._DOMAIN_STORE = None
+    assert vault.post(f"/v1/imports/{sessions['sleep_duration']}/admit", headers=ingest, json={}).status_code == 400
     after_delete = ingress.post("/input", json=body, headers=authority).json()["brief"]
     assert [item["status"] for item in after_delete["entries"]] == ["unknown", "unchanged"]
     prior_reads = len(reads)

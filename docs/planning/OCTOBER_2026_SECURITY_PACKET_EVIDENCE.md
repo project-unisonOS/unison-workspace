@@ -2,9 +2,9 @@
 
 ## Storage authority candidate under review
 
-Storage draft #36 at `711632beeed28aba99d1dd517a326eefb4a30ff5` passes all hosted
-checks and 69 component tests. Eight authenticated baseline failures were
-reproduced; 21 new tests cover scopes, source states, identities, revocation,
+Storage draft #36 at `13f84799e722c220c54ad5711a35bb9a541f0c7c` passes all hosted
+checks and 75 component tests. Eight authenticated baseline failures were
+reproduced; 27 new tests cover scopes, source states, identities, revocation,
 orphan reads after restart and simultaneous create/delete locking. This workspace
 candidate pins that validated component and uses separate read and intake tokens;
 combined hosted validation is pending.
@@ -162,3 +162,26 @@ llama-completion as the non-conversational entrypoint. The harness selection is
 corrected, but no second model download or inference run has been performed.
 An explicit future run must account for another approximately 1.14 GB transfer;
 the preserved failed run does not become successful through this source fix.
+
+### Terminal lifecycle correction and actual CPU smoke result
+
+Independent review identified a source lifecycle replay issue. New authenticated
+regressions reproduce it before the fix and cover restart after an interrupted
+cascade. The correction makes rejection/rollback terminal, prevents deleted IDs
+from regaining admission, and checks source bytes and metadata integrity before
+admission and canonical reference use. Valid intact replay remains idempotent.
+Two-database deletion is still not atomic; this closes the tested replay path,
+not every recovery or derivative-store gate. Revised component validation and
+workspace pin are recorded with the correction commit.
+
+The single corrected CPU attempt completed actual generation in run 40976039551,
+using the exact previously approved artifacts and limits. Dependencies and CLI
+flags were checked before model download; total transfer including licenses was
+1,140,027,510 bytes and wall time for the inference command was 8.28 seconds.
+The container had no network or credentials, read-only mounts, an unprivileged UID,
+two CPU threads and a 4 GiB memory cap. This is one hosted CPU smoke result, not
+Ollama binding, deployed policy integration, physical qualification or a benchmark.
+The raw completion did not follow the requested READY response format, so prompt
+construction and instruction-following remain unqualified. Failure 40974416361 and
+success 40976039551 retain separate evidence. Dedicated experiment PR #60 closed
+without merging; the reviewed integration branch keeps its manual-only workflow.
