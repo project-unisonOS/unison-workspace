@@ -141,3 +141,8 @@ All notable workspace-level architecture, planning, migration, and product-statu
 
 Separate persistent consent/extraction path, verified byte provenance and recoverable
 delete outbox; authenticated source-to-brief integration. Draft and synthetic only.
+
+## Unreleased: synthetic browser health experience
+
+Prospective consent, source-linked review/summary and retained-authority workflow restore.
+Actual browser acceptance; synthetic only, no deployment or whole-host recovery claim.

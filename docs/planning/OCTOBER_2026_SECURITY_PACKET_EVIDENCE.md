@@ -1,5 +1,27 @@
 # October 2026 security implementation evidence
 
+## Synthetic browser workflow evidence
+
+Starting revisions: storage `d860878e0d9987e2b266d45a96bf981141ae9f35`, workspace
+`fccbeb20410a5fd54cbbadc321b822ba6df025c7`; renderer from its current main.
+The backend reuses the export parser, prospectively binds selected file hash/size,
+and checks a separately retained authority ledger for all workflow actions.
+
+Local evidence: full storage run 109 passed before two final added cases; final
+focused workflow suite 16 passed (including concurrent restore/revoke and corrupt
+ledger). Renderer local suite exposed Windows POSIX-mode/encoding assumptions and
+one fixture wording issue; wording corrected, Linux exact-head suite required.
+Real browser test passes: 320/1280 widths, normal/forced colors, keyboard, source
+links, unknown wording, 200% text and 24 axe audit states. Eight termination/restore
+cycles replace actual encrypted SQLite data bytes while retaining authority.
+Initial contrast and enlarged-text wrapping failures were corrected without disabling
+checks. Screenshots were visually inspected. Upstream renderer/storage transport is
+in-process; browser HTTP and signed identity checks are real test services.
+
+No personal records, model invocation, live integration, host security change or
+operational deployment occurred. All new candidates must remain draft pending review.
+
+
 ## October 30 export-first prerequisite candidate
 
 Starting from merged storage #36/workspace #59, this packet adds separate synthetic
@@ -223,3 +245,16 @@ admit real records. Outstanding gates include prospective consent before actual
 intake, selected real export adapters, restore-resistant revocation/deletion,
 other derivative stores, key/incident operations, physical recovery and accessible
 participant evaluation. Inference #9 remains draft; no new model experiment.
+
+### Validated browser milestone component pins
+
+Storage draft #38 `8c2e2186d12e7d007d75c8c7a511ae90c45bd3ef`: all hosted checks
+pass, including 111 tests in run 41081214797. Renderer draft #25
+`71b05af3b817fabf8728a1551fc386321e5af64b`: Linux tests and existing Phase 1/2
+accessibility pass in run 41081283720. Renderer starting main was
+`65fcd0ac3973bcbdbf152170854b5403fa236723`.
+The local new browser acceptance passes 24 audited states across normal/forced
+colors and 320/1280 widths, keyboard operation, 200% text and source links.
+The combined workspace now runs that acceptance with locked Playwright dependencies
+and saves synthetic screenshots/results as a CI artifact. Combined result pending.
+All PRs remain drafts; no public or operational deployment occurred.

@@ -1,5 +1,27 @@
 # Unison Threat Model
 
+## Synthetic browser workflow restore boundary
+
+Separate authority from restorable workflow data. The authority ledger is excluded
+from workflow snapshots and must be present, valid and current on every operation.
+Lock authority before workflow data, commit terminal revoke/delete before purge,
+and deny all reads/uploads/restores under terminal or expired authority. Old data
+bytes may return during recovery; that must not make them available. Missing/corrupt
+authority must never trigger automatic initialization. Test interrupted cleanup and
+concurrent restore/revoke as well as actual old-data replacement.
+
+This boundary assumes retained current authority and trusted key custody. Rolling
+back that ledger, whole-host restore, replacement-device recovery, compromised keys,
+physical remnants and previously disclosed copies remain outside this proof.
+Do not describe it as universal rollback resistance or cryptographic erasure.
+
+The workflow creates no graph/model/legacy domain records. Its derivatives are source,
+extraction receipt, regenerated facts/summary, snapshots and browser/API delivery.
+Private replies are no-store. Browser display clears on local termination and failed
+reads/page restoration/visibility changes; no background polling or remote instantaneous
+recall is claimed. The renderer cannot mint scopes or bypass the storage authority.
+
+
 ## October 30 synthetic export candidate boundaries
 
 Treat export bytes, row identities, provider labels, scores and instructions as

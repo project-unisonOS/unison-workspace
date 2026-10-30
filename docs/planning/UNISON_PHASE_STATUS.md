@@ -1,5 +1,13 @@
 # Unison phase status
 
+## Browser milestone candidate
+
+Implemented for review: consent-bound synthetic file intake, browser fact review and
+source links, deterministic missing-aware summary, revoke/delete and authority-retaining
+workflow restore. Local browser and storage acceptance evidence is in the October record.
+No real-data, operational, native-modality or physical-recovery gate is closed.
+
+
 ## October 30 bounded prerequisite status
 
 Candidate implementation: persistent synthetic consent and deterministic source
