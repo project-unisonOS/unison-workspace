@@ -1,5 +1,27 @@
 # Semantic experience implementation plan
 
+## Connected synthetic intent correction (October 30 candidate)
+
+The source/delegation prototype now generates meaningful visual choices and
+screenless spoken-text responses from the same trusted, versioned state. Typed
+screenless commands and actual visual controls drive confirmation, repair,
+simulated verification, reuse, pause and deletion through authenticated requests.
+Internal transport destinations and opaque authority identifiers are not the
+person-facing workflow. No model grants permission.
+
+Grant confirmations bind unique identity and full duration/expiry terms. Action
+confirmations bind the exact task. The displayed Repair choice requests a bound
+challenge and a separate explicit simulated verification choice completes it.
+OAuth refresh, session expiry and vault-use approval have distinct simulated
+lifecycles. Unchanged active delegation is reused; unsupported nonvisual provider
+verification explains the limitation and preserves progress.
+
+Local acceptance covers mobile/desktop, forced colors, 200% text, mode/reload
+persistence, pending controls and signed fixture identities. Screenless commands
+are typed and audio is represented as text: real ASR/TTS, physical/device and
+participant qualification remain open. This does not close SE12.
+
+
 ## Bounded health browser experience (October 30 candidate)
 
 The synthetic export workflow adds a usable browser expression with semantic labels,

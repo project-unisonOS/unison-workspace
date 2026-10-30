@@ -260,3 +260,90 @@ and saves synthetic screenshots/results as a CI artifact. Combined result pendin
 All PRs remain drafts; no public or operational deployment occurred.
 
 Review correction: renderer 378beebfed3f23d60f59e089db080fb8612ccbe8 disables conflicting controls during requests and announces busy state, rejects stale visibility-invalidated responses, and clarifies that 24-hour access expiry does not delete retained content/backups. Node delayed-request regressions cover consent/import, brief, clear, terminal actions and restore. The original enabled Clear control failed the new regression before the fix. Existing authority-ledger rollback limitations remain unchanged. Updated combined validation pending.
+
+## October 30 source/delegation candidate
+
+Objective: prove source-neutral intake boundaries with synthetic statement and
+unfamiliar-document adapters, plus a bounded provider-neutral delegation/repair
+and multimodal intent contract. This is not real-data enrollment or a production
+runtime. No OAuth grant, vault access, model run, transaction or external account
+was created. Source, identity and semantic-experience roadmap entries are reconciled
+in the existing implementation plan.
+
+Starting revisions: storage main `3c96ae4062f95aca1f4e5742ebd447f0ff44f46f`,
+orchestrator main `3a9f15655864cc2e8284f1e3dd58be74040fed3b`, workspace main
+`61da02a2ef704445bbc9d8b3aefdcdc46823ee21`.
+
+Candidates: storage #39 `43d2d40238cbf7cc9df8506f4ce06662ecc72892` and
+orchestrator #51 `e118068f00c156415a8ffe4bd9734659d7c06e31`. Both are draft,
+unmerged. The existing renderer pin is unchanged. Library contracts are
+`SourceAdapter` / `source-evidence.v1`, `CredentialUseAdapter`,
+`synthetic-delegation.v1`, and `intent-experience.v1`.
+
+Local Windows control-plane evidence: 28 source/refactored health lifecycle tests
+passed before the final protocol-only refinement; 12 source tests passed on the
+final storage candidate. 19 delegation unit/simulation tests passed on its final
+candidate. New cross-component acceptance passes with actual encrypted SQLite
+state reopened after restart, five tasks/one repair, paused/revoked exclusions,
+source-linked facts and deletion/old-data restore denial. Run with explicit
+UNISON_TEST_STORAGE_ROOT, UNISON_TEST_ORCHESTRATOR_ROOT and UNISON_TEST_COMMON_ROOT:
+`python -m pytest tests/integration/test_source_delegation.py -q`.
+
+New source formats and delegation engine have no production HTTP ingress. Person
+contexts in the new integration are synthetic validated contract fixtures, not a
+new end-to-end OAuth/authentication proof. Existing authenticated health tests
+continue to exercise the refactored lifecycle. Static semantic HTML and spoken
+text are representations; no real ASR/TTS or participant/device accessibility
+qualification is claimed. Three mechanism labels use one mock adapter protocol,
+not three real integrations. Provider unknown/absent outcomes remain pending;
+there is no automatic retry that could duplicate an in-flight effect.
+
+Remaining gates: secured broker/process isolation, real provider and supported
+nonvisual challenge integrations, full external-effect reconciliation, production
+principal binding, ledger/key recovery and rollback resistance, adapter package
+qualification, migrations and participant testing. Recovery in this packet uses
+current retained authority; physical deletion and outside copies remain outside
+its proof. No new candidate may merge or publicly deploy before independent
+exact-head review and authorization. Hosted CI and independent review pending.
+
+## Review correction and connected intent candidate
+
+This supersedes the prior orchestration candidate. Four regression cases
+reproduced missing unique grant/duration binding, missing exact task binding and
+an advertised but unimplemented Repair response. Corrected orchestrator #51 is
+`3e4dba62d9d8d223fcdb3c7fa8b74eed2a6a2360`; new renderer #26 is
+`6ed92219106ea0ee9c18ac4e8ed7f9ee5a961103`. Storage #39 is unchanged.
+
+The v2 grant/confirmation state includes unique grant/task identity, person,
+meaningful scope, duration/expiry and approval deadlines. The old unmerged v1
+state is rejected rather than silently migrated. Repair requests and subsequent
+simulated verification now follow the actual presented-choice path with current
+resource/challenge bindings. Plain-language permission summaries show scope and
+expiry without exposing opaque internal IDs as the person's workflow.
+
+The optional renderer now connects visual choices and typed screenless commands
+to trusted mock state transitions. It requires an authenticated person and
+explicit fixture coordinator injection; it is default-disabled. Separate mock
+OAuth access/refresh leases, non-refreshable session expiry and locked/expiring
+vault-use approval have distinct state behavior. Existing valid delegation is
+reused without requesting new authority for each task.
+
+Local final focused evidence: 29 delegation tests; two renderer bridge tests;
+source/delegation encrypted integration passes; existing health and connected
+intent browser journeys pass together (2 tests, 92.14 seconds). The new journey
+uses signed fixture identities and actual renderer HTTP/controls, exercises
+visual and typed screenless modes at 320/1280 widths, forced colors, 200% text,
+reload/mode persistence, busy controls, authorization negatives and unsupported
+nonvisual verification. Four sampled visual fallback states have zero axe
+violations; this is not participant or real speech qualification. Screenshots
+and results are retained by the existing browser artifact step.
+
+No ASR/TTS, live credentials/providers, actual MFA/device verification, real data,
+operational runtime or public deployment. New candidates remain draft and
+unmerged pending exact-head CI and independent review. Hosted results for prior
+heads do not validate this correction.
+
+Two further mock-isolation regressions reproduced cross-connection renewal of
+OAuth/vault-use leases. The final mock adapters isolate refresh lease deadlines
+per handle and invalidate old vault leases on unlock before fresh approval.
+Both regressions pass; focused delegation suite now has 29 passing tests.

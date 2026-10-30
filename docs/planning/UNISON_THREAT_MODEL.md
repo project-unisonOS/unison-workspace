@@ -1,5 +1,37 @@
 # Unison Threat Model
 
+## Review correction: exact confirmation and challenge bindings
+
+Independent review reproduced cross-grant duration expansion, cross-task action
+confirmation reuse and an unimplemented Repair choice. Four regression cases
+failed on the original candidate. The corrected v2 state binds grant identity,
+person, full scope, duration/expiry and confirmation deadline; actions also bind
+exact task identity. Incompatible unmerged v1 state fails closed, without silent
+migration. Both visual and spoken permission summaries show scope and expiry.
+
+Presented choices now drive a connected mock flow. Repair and verification bind
+current task/connection challenge state; late or swapped responses fail. A new
+renderer bridge requires authenticated person binding and explicit fixture-host
+injection, and is disabled by default. No live credentials/provider, speech engine
+or production deployment was introduced.
+
+
+## October 30 synthetic delegation candidate boundaries
+
+New negative cases cover stale revision/terms/account/recipient confirmations,
+revoked/expired delegations, shared repair challenges, late repair responses,
+paused work and ambiguous external outcomes. Only opaque handles enter encrypted
+state; provider/source text cannot create authority. Fixed synthetic vocabulary
+prevents arbitrary source prose from entering permission prompts in this prototype.
+
+The injected transactional state store and verified PrincipalContext are trusted
+host dependencies. No production ingress or separate secured broker process is
+claimed. The mock backend is not live OAuth/MFA/password-manager security evidence.
+A pending attempt is never automatically repeated on absence/uncertainty alone.
+Retained-ledger source recovery does not solve delegation-ledger rollback,
+whole-host rollback, replacement-device keys or external copies/effects.
+
+
 ## Synthetic browser workflow restore boundary
 
 Separate authority from restorable workflow data. The authority ledger is excluded

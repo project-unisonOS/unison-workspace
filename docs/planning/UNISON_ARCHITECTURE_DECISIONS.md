@@ -1,5 +1,26 @@
 # Unison Architecture Decisions
 
+## October 30 candidate: shared boundaries, domain adapters, multimodal intent
+
+Retain one source lifecycle for byte-bound consent, owner checks, evidence integrity
+and retained-authority deletion/recovery. Fixed versioned adapters own format and
+domain meaning; unfamiliar content is not silently promoted into facts or actions.
+The health adapter is one reference, not a health-shaped universal data model.
+
+Separate verified person identity, source authentication, purpose/account/action/
+recipient-bound delegation and consequential-action confirmation. A credential-use
+broker returns opaque handles and may be replaced; no vault-reading SDK or live
+1Password integration is assumed. Browser automation, if later qualified, is an
+internal transport rather than a person-facing destination.
+
+Visual controls and screenless representations derive from the same trusted
+revision and terms. Mode switching never grants authority. Unsupported provider
+verification is a stated limit with pause/recovery, not an invented workaround.
+The candidate now connects visual and typed-screenless interactions to simulated
+provider state transitions. Deployment trust isolation and actual speech/device
+modality integrations remain unqualified.
+
+
 ## Candidate: isolated browser workflow and retained authority
 
 Reuse the strict synthetic export parser and the existing renderer repository. Add a
