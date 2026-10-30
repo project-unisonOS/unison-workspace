@@ -1,5 +1,14 @@
 # Unison phase status
 
+## October 30 bounded prerequisite status
+
+Candidate implementation: persistent synthetic consent and deterministic source
+extraction, plus recoverable source/domain deletion. Local authenticated tests and
+source-to-brief integration are recorded in the October evidence file. Hosted
+validation and independent review must precede merge. No real-data, operational,
+physical or participant release gate is closed by these tests.
+
+
 ## 2026-10-29 execution checkpoint
 
 Gate 0 security remediation remains in progress after the reviewed foundational

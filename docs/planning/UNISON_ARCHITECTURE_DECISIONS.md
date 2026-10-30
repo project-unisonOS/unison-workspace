@@ -1,5 +1,21 @@
 # Unison Architecture Decisions
 
+## October 30 candidate: bounded extraction and recoverable deletion
+
+Keep the existing repositories and runtime boundaries. A small deterministic parser
+owns one synthetic export schema; a model cannot author facts or consent. Store only
+extraction receipts beside source state and regenerate facts from integrity-checked
+bytes on read. This keeps source deletion and pilot receipt invalidation atomic in
+one encrypted SQLite transaction, avoiding a new distributed transaction coordinator.
+
+Legacy domain deletion uses a durable source-side outbox with idempotent replay.
+The source tombstone blocks canonical reads before eventual domain cleanup. Lock
+order is source then domain. This is crash-recoverable cleanup, not universal atomic
+erasure. Full backup rollback and other stores need independent authority retention.
+A new consent grant never reactivates a revoked grant ID. No schema/monorepo migration
+or new model deployment is required for this bounded candidate.
+
+
 ## 2026-10-29 implementation choices under review
 
 Authenticated POST /input carries the synthetic wellness candidate. This applies

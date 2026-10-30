@@ -136,3 +136,8 @@ All notable workspace-level architecture, planning, migration, and product-statu
 - Two declared non-authoritative schema copies differ from their canonical `unison-common/schemas` sources and remain migration items.
 - The enumerated pre-existing `unison-common`, private-GHCR container, orchestrator, and platform actionlint failures remain tracked debt after the Phase 1 gate.
 - Deep historical website pages still require phase-specific claim review even though the new entry pages state maturity accurately.
+
+## Unreleased: synthetic export prerequisite candidate
+
+Separate persistent consent/extraction path, verified byte provenance and recoverable
+delete outbox; authenticated source-to-brief integration. Draft and synthetic only.

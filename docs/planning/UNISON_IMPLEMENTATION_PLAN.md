@@ -2,6 +2,40 @@
 
 # Unison Authoritative Implementation Plan
 
+## October 30 bounded export-first prerequisite milestone
+
+This section updates the execution order of this existing plan; earlier phase
+history is retained. Starting revisions are storage `17667d984299c4a214351cadafcc199bf58b4904`,
+workspace `a90f155f1fc6437161a9cb287321266a65165761` and orchestrator
+`b45e14e8ed6b7b830028b19861dcd77ccc3e6bb5`.
+
+1. Implement and review the default-disabled synthetic export contract in storage:
+   owner consent with purpose/version/expiry/revocation, deterministic byte-to-fact
+   extraction, and recoverable source/domain deletion.
+2. Integrate the existing deterministic wellness brief with that verified route.
+   Recheck policy before retrieval and presentation; never fall back to manual facts.
+3. Verify authenticated denial and recovery cases locally and in hosted CI. Update
+   component pins only after component checks pass. Keep all new PRs draft for review.
+4. Stop with a readiness decision before any real-record enrollment. No model run,
+   operational deployment, live account connection or public deployment is part of
+   the unreviewed candidate.
+
+The proposed eventual pilot is one consenting adult, one or two explicitly selected
+export sources, an approved baseline and a 14-day read-only trial. Start with sleep
+and activity; genetics, clinical records, diagnoses, purchases and autonomous actions
+are excluded. One understandable, modality-equivalent consent summarizes source,
+purpose, duration, access and revoke/delete controls. Daily text or accessible speech
+reports changed/unchanged/unknown with citations; no actionable opportunity is a valid
+outcome. Target brief review under two minutes is a usability hypothesis, not evidence.
+
+Before real records: select and qualify the exact export adapters, independent security
+review, explicit enrollment and storage location/retention agreement, prospectively
+authorized intake, user-facing export/delete/revoke verification, backup revocation
+that survives restore, other derivative-store cleanup, key recovery and operational
+incident/update ownership. All remain gates. Synthetic markers do not detect private
+data. Inference output quality and immutable artifact-to-executor binding are separate.
+
+
 Status: proposed execution source of truth; awaiting human review
 
 Plan version: 0.2

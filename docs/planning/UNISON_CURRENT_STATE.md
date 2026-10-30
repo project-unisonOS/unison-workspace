@@ -1,5 +1,29 @@
 # Unison Current State
 
+## October 30 export-first candidate (not deployed)
+
+Storage #36 and workspace #59 are merged. Their exact merge revisions are
+`17667d984299c4a214351cadafcc199bf58b4904` and
+`a90f155f1fc6437161a9cb287321266a65165761`; the earlier pending labels below are history.
+
+The next candidate adds a separate, default-disabled synthetic export API with
+persistent consent, fixed purpose/version, expiry/revocation, source-byte extraction
+receipts and a deletion recovery journal. The orchestrator adapter uses this route
+for both data and independent read/presentation decisions. The canonical policy
+logic is independent of models and bearer scopes but inside storage's process trust
+boundary. It is not a newly deployed consent service.
+
+The new local integration derives a changed/unchanged brief from actual stored JSON
+bytes, with no manual domain fact insertion, and denies presentation after mid-request
+revocation. Existing manual-fact fixtures remain historical tests. Hosting, pins,
+review status and exact test evidence belong to the October evidence record.
+
+No real health pilot is ready. Restore-resistant revocation, full derivative erasure,
+real export adapters, prospective intake consent, key/incident operations and human
+accessibility validation remain open. The prior model smoke generated text but failed
+the requested response format; inference #9 stays draft and is not rerun here.
+
+
 ## Storage authority candidate under review
 
 Storage draft #36 at `13f84799e722c220c54ad5711a35bb9a541f0c7c` passes all hosted

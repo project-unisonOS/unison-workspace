@@ -1,5 +1,22 @@
 # October 2026 security implementation evidence
 
+## October 30 export-first prerequisite candidate
+
+Starting from merged storage #36/workspace #59, this packet adds separate synthetic
+consent/extraction routes and an owner-scoped deletion recovery outbox. Source-to-fact
+provenance now comes from stored JSON bytes in the new pilot path; the old manually
+associated fixture path remains explicitly separate. No real export compatibility
+or deployed independent policy-service claim is made.
+
+Local storage: 95 tests passed, including 20 new authenticated pilot cases. Coverage
+includes expiry, revocation, wrong policy/purpose/person/scope, source/receipt damage,
+malformed export, restart, concurrent extract/delete and interruption before/after
+domain commit. Local new workspace integration passed with actual ASGI storage and
+ingress, loopback identity, real durable consent and no manual fact insertion.
+The HTTP transport remains in-process; this is software simulation evidence.
+Exact component heads, hosted results and review links will be appended after checks.
+
+
 ## Storage authority candidate under review
 
 Storage draft #36 at `13f84799e722c220c54ad5711a35bb9a541f0c7c` passes all hosted
@@ -185,3 +202,24 @@ The raw completion did not follow the requested READY response format, so prompt
 construction and instruction-following remain unqualified. Failure 40974416361 and
 success 40976039551 retain separate evidence. Dedicated experiment PR #60 closed
 without merging; the reviewed integration branch keeps its manual-only workflow.
+### Validated component candidates for this workspace pin
+
+- Storage draft #37: `b352435f0bc24f9494866bc11b77a4277297ca45`; all hosted
+  checks pass (security run 40995718560), 95 local component tests pass.
+- Orchestrator draft #50: `028ba8ece6926857da74883473621a7e4d335889`;
+  hosted run 40996216258 reports 336 passed; security run 40996216745 passes.
+- Both old manual-fact and new export-derived local integration tests pass together
+  (2 passed). The new path uses real durable consent and byte extraction.
+- Initial local orchestrator invocation without legacy fixture switches reported
+  328 passes/8 auth-related failures; new authenticated adapter tests passed. A
+  later full local retry was stopped after exact-head hosted validation succeeded.
+  Legacy CI switches are explicitly cleared by all authenticated boundary tests.
+- Public documentation draft #54 at `d0a572d7c4560452842d60a558a32c964cfdacfb`
+  passed build/accessibility in run 40996251981; deployment skipped. No public
+  release claim changed yet. Workspace combined hosted validation pending.
+
+Readiness: suitable for review as a synthetic prerequisite packet only. Do not
+admit real records. Outstanding gates include prospective consent before actual
+intake, selected real export adapters, restore-resistant revocation/deletion,
+other derivative stores, key/incident operations, physical recovery and accessible
+participant evaluation. Inference #9 remains draft; no new model experiment.

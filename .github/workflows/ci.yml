@@ -27,7 +27,7 @@ jobs:
         env:
           OTEL_SDK_DISABLED: 'true'
           UNISON_DISABLE_OTEL_EXPORTER: 'true'
-        run: .venv/bin/python -m pytest tests/integration/test_wellness_storage_journey.py -q
+        run: .venv/bin/python -m pytest tests/integration/test_wellness_storage_journey.py tests/integration/test_export_health_pilot.py -q
       - name: Validate Phase 1 trusted-principal boundaries
         run: ./scripts/test-phase1.sh
       - name: Validate Phase 2 governed-context boundaries
