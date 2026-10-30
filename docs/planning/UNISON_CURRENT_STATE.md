@@ -1,5 +1,24 @@
 # Unison Current State
 
+## October 30 browser experience candidate
+
+New candidate: an optional renderer page at `/static/health-export.html` with file
+selection and consent before upload, source-row review, deterministic summaries and
+permission/recovery controls. This is actual HTML/JavaScript browser interaction,
+not a CLI-only harness. The storage API is separately scoped and disabled by default.
+
+The source and summary are synthetic. Browser health content is not stored in web
+storage; private responses are no-store. Consent is bound to the selected file before
+content upload. Retained terminal authority blocks restoration of old encrypted
+workflow data; a missing/corrupt ledger fails closed rather than being reprovisioned.
+
+Local browser acceptance passed in normal/forced colors at 320/1280 widths with
+keyboard controls and 200% text. It exercises eight revoke/delete + old-data restore
+cycles and 24 axe audit states. Hosted validation/review evidence follows below.
+Native conversational/Braille composition and participant testing are still open;
+accessible browser evidence does not close the full semantic-experience vision.
+
+
 ## October 30 export-first candidate (not deployed)
 
 Storage #36 and workspace #59 are merged. Their exact merge revisions are

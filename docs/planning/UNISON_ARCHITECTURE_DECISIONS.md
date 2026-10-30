@@ -1,5 +1,19 @@
 # Unison Architecture Decisions
 
+## Candidate: isolated browser workflow and retained authority
+
+Reuse the strict synthetic export parser and the existing renderer repository. Add a
+bounded optional browser flow rather than redesign the default presence surface or
+create a new application/repository. The renderer forwards signed authority to a
+literal loopback endpoint and cannot provision consent storage or credentials.
+
+Keep restorable workflow data in its own encrypted store and terminal authority in
+a separate, explicitly provisioned ledger outside that restore scope. Reconstruct
+facts from immutable source bytes, avoiding graph/domain/model derivatives. This
+keeps the proof small and inspectable. It is not a migration of existing BackupService
+or a replacement for independent hardware/key-backed authority custody.
+
+
 ## October 30 candidate: bounded extraction and recoverable deletion
 
 Keep the existing repositories and runtime boundaries. A small deterministic parser

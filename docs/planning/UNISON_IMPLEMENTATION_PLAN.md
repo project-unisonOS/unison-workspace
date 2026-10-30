@@ -2,6 +2,26 @@
 
 # Unison Authoritative Implementation Plan
 
+## October 30 browser experience milestone
+
+Continue the existing export-first track with an optional browser experience for one
+`synthetic-health-export.v1` file. The acceptance path is select/consent, upload,
+validate, inspect source-linked facts, read a deterministic summary, revoke/delete,
+restore old workflow data, and confirm it remains unavailable. No model is involved.
+
+The bounded implementation isolates workflow data from a separately provisioned
+consent/terminal-state ledger excluded from workflow backups. This closes prospective
+consent and authority-retaining restore for this path, not arbitrary appliance restore.
+Every affected workflow derivative is enumerated in the storage experience contract.
+Do not route real records or legacy domain imports into this experimental path.
+
+After component checks, pin the storage and renderer candidates and run the actual
+browser acceptance in combined CI. Keep PRs draft for independent exact-head review;
+no merge/public deployment is authorized for this packet. Real-data readiness still
+requires qualified authority custody/recovery on replacement devices, vendor export
+adapters, operational security and participatory/native-modality evaluation.
+
+
 ## October 30 bounded export-first prerequisite milestone
 
 This section updates the execution order of this existing plan; earlier phase
@@ -38,9 +58,9 @@ data. Inference output quality and immutable artifact-to-executor binding are se
 
 Status: proposed execution source of truth; awaiting human review
 
-Plan version: 0.2
+Plan version: 0.4
 
-Last updated: 2026-07-25
+Last updated: 2026-10-30
 
 ## Authority and maintenance
 

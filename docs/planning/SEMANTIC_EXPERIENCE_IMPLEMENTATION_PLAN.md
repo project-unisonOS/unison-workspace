@@ -1,5 +1,15 @@
 # Semantic experience implementation plan
 
+## Bounded health browser experience (October 30 candidate)
+
+The synthetic export workflow adds a usable browser expression with semantic labels,
+keyboard control, source disclosures, text uncertainty, forced colors and enlarged
+text. It is an intermediate expression, not completion of the native modality plan.
+Keep native conversational, Braille and participatory equivalence gates open. Do not
+require a person to understand hashes or parser details to read the summary; those
+remain optional source disclosures. Consent is one meaningful choice before upload.
+
+
 Status: **SE0 through SE11 software scope complete; SE12 physical qualification open**
 Last updated: 2026-07-25  
 Design authority: [SEMANTIC_EXPERIENCE_DESIGN.md](SEMANTIC_EXPERIENCE_DESIGN.md)
