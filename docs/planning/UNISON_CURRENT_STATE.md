@@ -15,7 +15,7 @@ commands to those mock transitions, with authenticated request binding. It requi
 explicit fixture injection and is disabled by default. Spoken text remains a
 representation, not actual ASR/TTS or participant accessibility evidence.
 
-Local evidence: 28 focused source/health lifecycle tests, 27 delegation simulation
+Local evidence: 28 focused source/health lifecycle tests, 29 delegation simulation
 tests, and an encrypted disk-state cross-component restart/recovery acceptance test.
 Hosted exact-head evidence is recorded in the October evidence document/PR checks.
 No new milestone merge or public deployment is implied by local success.

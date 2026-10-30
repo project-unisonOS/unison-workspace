@@ -311,7 +311,7 @@ exact-head review and authorization. Hosted CI and independent review pending.
 This supersedes the prior orchestration candidate. Four regression cases
 reproduced missing unique grant/duration binding, missing exact task binding and
 an advertised but unimplemented Repair response. Corrected orchestrator #51 is
-`2175d7220780bd17de8dda4d165ed69c148a4c9a`; new renderer #26 is
+`3e4dba62d9d8d223fcdb3c7fa8b74eed2a6a2360`; new renderer #26 is
 `6ed92219106ea0ee9c18ac4e8ed7f9ee5a961103`. Storage #39 is unchanged.
 
 The v2 grant/confirmation state includes unique grant/task identity, person,
@@ -328,7 +328,7 @@ OAuth access/refresh leases, non-refreshable session expiry and locked/expiring
 vault-use approval have distinct state behavior. Existing valid delegation is
 reused without requesting new authority for each task.
 
-Local final focused evidence: 27 delegation tests; two renderer bridge tests;
+Local final focused evidence: 29 delegation tests; two renderer bridge tests;
 source/delegation encrypted integration passes; existing health and connected
 intent browser journeys pass together (2 tests, 92.14 seconds). The new journey
 uses signed fixture identities and actual renderer HTTP/controls, exercises
@@ -342,3 +342,8 @@ No ASR/TTS, live credentials/providers, actual MFA/device verification, real dat
 operational runtime or public deployment. New candidates remain draft and
 unmerged pending exact-head CI and independent review. Hosted results for prior
 heads do not validate this correction.
+
+Two further mock-isolation regressions reproduced cross-connection renewal of
+OAuth/vault-use leases. The final mock adapters isolate refresh lease deadlines
+per handle and invalidate old vault leases on unlock before fresh approval.
+Both regressions pass; focused delegation suite now has 29 passing tests.
