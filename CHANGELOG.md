@@ -146,3 +146,6 @@ delete outbox; authenticated source-to-brief integration. Draft and synthetic on
 
 Prospective consent, source-linked review/summary and retained-authority workflow restore.
 Actual browser acceptance; synthetic only, no deployment or whole-host recovery claim.
+
+- Draft source-neutral synthetic adapters and mock delegation/multimodal state
+  contracts; encrypted restart/repair/deletion acceptance remains synthetic-only.

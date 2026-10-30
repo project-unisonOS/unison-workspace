@@ -260,3 +260,48 @@ and saves synthetic screenshots/results as a CI artifact. Combined result pendin
 All PRs remain drafts; no public or operational deployment occurred.
 
 Review correction: renderer 378beebfed3f23d60f59e089db080fb8612ccbe8 disables conflicting controls during requests and announces busy state, rejects stale visibility-invalidated responses, and clarifies that 24-hour access expiry does not delete retained content/backups. Node delayed-request regressions cover consent/import, brief, clear, terminal actions and restore. The original enabled Clear control failed the new regression before the fix. Existing authority-ledger rollback limitations remain unchanged. Updated combined validation pending.
+
+## October 30 source/delegation candidate
+
+Objective: prove source-neutral intake boundaries with synthetic statement and
+unfamiliar-document adapters, plus a bounded provider-neutral delegation/repair
+and multimodal intent contract. This is not real-data enrollment or a production
+runtime. No OAuth grant, vault access, model run, transaction or external account
+was created. Source, identity and semantic-experience roadmap entries are reconciled
+in the existing implementation plan.
+
+Starting revisions: storage main `3c96ae4062f95aca1f4e5742ebd447f0ff44f46f`,
+orchestrator main `3a9f15655864cc2e8284f1e3dd58be74040fed3b`, workspace main
+`61da02a2ef704445bbc9d8b3aefdcdc46823ee21`.
+
+Candidates: storage #39 `43d2d40238cbf7cc9df8506f4ce06662ecc72892` and
+orchestrator #51 `e118068f00c156415a8ffe4bd9734659d7c06e31`. Both are draft,
+unmerged. The existing renderer pin is unchanged. Library contracts are
+`SourceAdapter` / `source-evidence.v1`, `CredentialUseAdapter`,
+`synthetic-delegation.v1`, and `intent-experience.v1`.
+
+Local Windows control-plane evidence: 28 source/refactored health lifecycle tests
+passed before the final protocol-only refinement; 12 source tests passed on the
+final storage candidate. 19 delegation unit/simulation tests passed on its final
+candidate. New cross-component acceptance passes with actual encrypted SQLite
+state reopened after restart, five tasks/one repair, paused/revoked exclusions,
+source-linked facts and deletion/old-data restore denial. Run with explicit
+UNISON_TEST_STORAGE_ROOT, UNISON_TEST_ORCHESTRATOR_ROOT and UNISON_TEST_COMMON_ROOT:
+`python -m pytest tests/integration/test_source_delegation.py -q`.
+
+New source formats and delegation engine have no production HTTP ingress. Person
+contexts in the new integration are synthetic validated contract fixtures, not a
+new end-to-end OAuth/authentication proof. Existing authenticated health tests
+continue to exercise the refactored lifecycle. Static semantic HTML and spoken
+text are representations; no real ASR/TTS or participant/device accessibility
+qualification is claimed. Three mechanism labels use one mock adapter protocol,
+not three real integrations. Provider unknown/absent outcomes remain pending;
+there is no automatic retry that could duplicate an in-flight effect.
+
+Remaining gates: secured broker/process isolation, real provider and supported
+nonvisual challenge integrations, full external-effect reconciliation, production
+principal binding, ledger/key recovery and rollback resistance, adapter package
+qualification, migrations and participant testing. Recovery in this packet uses
+current retained authority; physical deletion and outside copies remain outside
+its proof. No new candidate may merge or publicly deploy before independent
+exact-head review and authorization. Hosted CI and independent review pending.

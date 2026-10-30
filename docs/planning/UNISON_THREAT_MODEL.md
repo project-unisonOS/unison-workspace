@@ -1,5 +1,21 @@
 # Unison Threat Model
 
+## October 30 synthetic delegation candidate boundaries
+
+New negative cases cover stale revision/terms/account/recipient confirmations,
+revoked/expired delegations, shared repair challenges, late repair responses,
+paused work and ambiguous external outcomes. Only opaque handles enter encrypted
+state; provider/source text cannot create authority. Fixed synthetic vocabulary
+prevents arbitrary source prose from entering permission prompts in this prototype.
+
+The injected transactional state store and verified PrincipalContext are trusted
+host dependencies. No production ingress or separate secured broker process is
+claimed. The mock backend is not live OAuth/MFA/password-manager security evidence.
+A pending attempt is never automatically repeated on absence/uncertainty alone.
+Retained-ledger source recovery does not solve delegation-ledger rollback,
+whole-host rollback, replacement-device keys or external copies/effects.
+
+
 ## Synthetic browser workflow restore boundary
 
 Separate authority from restorable workflow data. The authority ledger is excluded

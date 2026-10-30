@@ -1,5 +1,25 @@
 # Unison Current State
 
+## October 30 source/delegation candidate and merged reference
+
+Storage #38 merged as `3c96ae4062f95aca1f4e5742ebd447f0ff44f46f`, renderer #25 as
+`29f09e444eaa4e653b932a8843adbca41a10235c`, and workspace #62 as
+`61da02a2ef704445bbc9d8b3aefdcdc46823ee21`. Older candidate labels below record history.
+All capabilities remain synthetic-only and default-disabled; no live pilot is enabled.
+
+The next draft factors shared source lifecycle mechanics from domain adapters and
+adds synthetic statement/unfamiliar-document examples. A separate default-disabled
+orchestrator library prototypes credential-use brokerage, exact scoped delegation,
+repair deduplication, verification and multimodal intent representations. It has no
+production route or real credentials. Static semantic HTML and spoken text are
+representations, not qualified speech or participant accessibility evidence.
+
+Local evidence: 28 focused source/health lifecycle tests, 19 delegation simulation
+tests, and an encrypted disk-state cross-component restart/recovery acceptance test.
+Hosted exact-head evidence is recorded in the October evidence document/PR checks.
+No new milestone merge or public deployment is implied by local success.
+
+
 ## October 30 browser experience candidate
 
 New candidate: an optional renderer page at `/static/health-export.html` with file

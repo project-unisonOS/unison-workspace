@@ -1,5 +1,15 @@
 # Unison phase status
 
+## October 30 next packet status
+
+Prior synthetic health browser reference merged (#38/#25/#62), still disabled by
+default. The reusable source and mock delegation/multimodal packet is a draft
+candidate with local unit/simulation and encrypted-store integration evidence.
+It does not close live enrollment, speech/TTS, device verification, production
+broker isolation or general plugin qualification. Exact-head hosted results and
+independent review remain required before its merge.
+
+
 ## Browser milestone candidate
 
 Implemented for review: consent-bound synthetic file intake, browser fact review and

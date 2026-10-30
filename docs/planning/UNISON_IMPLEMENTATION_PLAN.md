@@ -1,5 +1,27 @@
 <!-- markdownlint-configure-file {"MD024": {"siblings_only": true}} -->
 
+## October 30 next bounded source/delegation milestone
+
+This continues the existing source, identity and semantic-experience phases; it
+is not a separate roadmap. The earlier browser health reference remains a useful
+transport test, not the person's conceptual destination. Unison must generate
+intent experiences for goals, meaningful choices and outcomes, including without
+sight or a screen.
+
+Candidate implementation: factor the proven synthetic intake lifecycle behind a
+fixed versioned source-adapter contract, preserving the health wrapper; add a
+synthetic statement CSV and an unfamiliar document that yields explicit unknowns.
+Prototype independent person/source authentication, durable scoped delegation,
+one repair for dependent tasks, consequential confirmation and verified outcomes.
+Generate semantic visual controls and screenless text from identical trusted state.
+
+Acceptance is library/unit simulation plus encrypted disk-state integration.
+Real speech, accessible provider-device verification, live authentication,
+production ingress and general adapter installation remain separate gates.
+No real records, financial effects, model experiment or runtime deployment occurs.
+Exact component heads and CI evidence belong to OCTOBER_2026_SECURITY_PACKET_EVIDENCE.md.
+
+
 # Unison Authoritative Implementation Plan
 
 ## October 30 browser experience milestone
