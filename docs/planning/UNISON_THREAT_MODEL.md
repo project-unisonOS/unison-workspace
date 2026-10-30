@@ -1,5 +1,27 @@
 # Unison Threat Model
 
+## October 30 synthetic export candidate boundaries
+
+Treat export bytes, row identities, provider labels, scores and instructions as
+untrusted data. Reject unsupported fields, duplicate keys, conflicting revisions,
+non-finite values and missing-as-zero. Source checksum plus row pointer, parser
+version and fact checksum proves transformation, not truth of the measurement.
+
+Verified person scopes do not substitute for current consent. Read, extraction and
+presentation require owner/purpose/version/expiry/source checks; revocation is
+serialized with extraction and persists on restart. The in-process policy monitor
+does not resist host compromise. There is still a final-check-to-delivery interval;
+remote channels and cached delivery are unqualified.
+
+Deletion writes a durable outbox before domain cleanup, invalidates pilot receipts
+atomically with source bytes and prevents orphan reads. Test failures before and
+after domain commit, retry, restart and concurrent extract/delete. Tombstones and
+consent metadata remain encrypted. Rollback of entire databases/backups can resurrect
+authority unless separate revocation retention is designed: this is a live-data
+blocker, not solved by this outbox or existing backup CI. Existing manual domain
+routes are not pilot evidence and are never a fallback for denied pilot reads.
+
+
 ## 2026-10-29 control evidence checkpoint
 
 New synthetic tests exercise authenticated person scope, revoked/expired sessions, policy availability, confirmation enforcement and diagnostic minimization. Source tests cover encrypted derivatives, concurrency, restart and rollback. Complete ingress/egress coverage, inference authority, other private stores and independent review remain release gates.
